@@ -23,6 +23,21 @@ Unknown v0.3 is independently drafted. Its machine-readable local identifier is
 OSI-approved license. Rust packages use `license-file` to ship the actual text;
 Python metadata uses the custom identifier and includes the license files.
 
+## Admission policy for future content
+
+[PUBLICATION_BOUNDARY.md](PUBLICATION_BOUNDARY.md) implements Mingli Yuan's
+2026-09-16 direction across the three repositories: future intake is limited to
+project-original contributions under Unknown, verified CC0, or material with an
+established public-domain basis. Identifying an open third-party license does
+not by itself satisfy this stricter admission policy. Unknown cannot release
+rights held by others. External dependencies retain their own terms and remain
+separate; their existing notices and verified dependency chains are preserved.
+
+This is a contribution/publication workflow, not an added condition on recipients'
+existing permissions, a retroactive license change, or a certification of all
+legacy material. The policy and its record template do not constitute an
+implemented automated pre-upload gate.
+
 ## Scope and retained material
 
 - The dedication covers first-party code, documentation and original research

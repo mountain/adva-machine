@@ -1,0 +1,33 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "pending",
+  "resource_id": null,
+  "eligible_basis": null,
+  "files": [
+    {
+      "path": null,
+      "bytes": null,
+      "sha256": null
+    }
+  ],
+  "provenance": {
+    "source_url": null,
+    "source_version": null,
+    "creator_or_rights_holder": null,
+    "publication_basis_evidence_urls": [],
+    "rights_holder_authority_evidence": null,
+    "jurisdictions_and_limitations": null,
+    "incorporated_components": [],
+    "transformations": []
+  },
+  "review": {
+    "reviewer": null,
+    "reviewed_at": null,
+    "all_components_reviewed": false,
+    "output_publication_reviewed": false,
+    "unresolved_questions": [
+      "Template only: no material has been reviewed or admitted."
+    ],
+    "decision_reason": null
+  }
+}
