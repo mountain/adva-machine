@@ -1,0 +1,52 @@
+{
+  "schema": "adva.framework.vocabulary.v2",
+  "version": 2,
+  "status": "adopted-framework-vocabulary",
+  "adopted_on": "2026-09-16",
+  "repository": "https://github.com/mountain/adva-machine",
+  "specification": {
+    "path": "spec/framework/transport-communication-v2.md",
+    "sha256": "119721078061d22b581b2dc233027c3b2a5818a5f12e1bc03a539ba17135c349"
+  },
+  "predecessor": {
+    "path": "spec/framework/vocabulary-v1.json",
+    "sha256": "2b63d0240207b53cb33b2dfd2800f10b48de2590e6763f9cfe348fbd6e58c66a",
+    "scope": "Frozen v1 specification, contracts and historical receipts retain their meanings."
+  },
+  "decision": "docs/adr/0050-triadic-free-process-calibration.md",
+  "authority": "Framework terminology and obligations for new profiles; no new native judgment",
+  "implementation": {
+    "existing_documentary_capability": "transport",
+    "existing_command": "adva communicate send/receive/acknowledge",
+    "transport_command_alias": "NotImplemented",
+    "general_heterogeneous_communication": "NotImplemented",
+    "native_free": "NotImplemented",
+    "native_opcode_registration": false
+  },
+  "terms": [
+    {
+      "word": "transport",
+      "role": "homogeneous-crossing",
+      "definition": "Carry a bound presentation across an already shared representation and interpretation contract, preserving declared structure, dependencies and evidence."
+    },
+    {
+      "word": "communicate",
+      "role": "heterogeneous-interpretation-process",
+      "definition": "Seek, test and revise a scoped common interpretation across heterogeneous interfaces, retaining actual observations, counterexamples, residuals and bounded outcomes."
+    }
+  ],
+  "inherited_terms": [
+    "send",
+    "receive",
+    "acknowledge",
+    "verify",
+    "accept"
+  ],
+  "historical_sources": {
+    "spec/framework/communication-v1.md": "53e10429b608b2e6a6b4ccbe2f007f201217e5f5180a4280941a054c193a7599",
+    "docs/research/0166-interpretation-obligation.md": "c64e57c58eac53775e414b6509e9e3b631cace3f8c83097c8eb6b36ec254d107",
+    "docs/research/0192-the-traversal-allocation-and-its-reserve.md": "ee5dee416ed1cef14abc2b3917440e3984a1f7e6dc59f3777a9245bf11a9a38f",
+    "docs/research/0193-the-optimal-shares-and-the-price-of-a-level.md": "f3ad2d4e9c36d5bc6638eafe1e440b1deeb206257d050aa23fb0d6885f7bad53"
+  },
+  "authorship": "ChatGPT (OpenAI), contributed under Unknown v0.3 through Mingli Yuan's authorized account proxy; not his review or endorsement"
+}

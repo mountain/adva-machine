@@ -1,0 +1,118 @@
+{
+  "schema": "adva.structure-card.v1",
+  "id": "triadic-free-process-v0",
+  "question": "How does free retain initial anchors while three sides seek a common interpretation, adjust declared pressure, and reach a checked scoped balance within finite side and joining allowances?",
+  "origin": "Mingli Yuan identifies this process as free in the three-computation programme on 2026-09-16. This representation and the finite calibration were authored by ChatGPT (OpenAI), contributed under Unknown v0.3 through his authorized account proxy; not his review or endorsement.",
+  "objects": [
+    {
+      "id": "free",
+      "meaning": "The anchored three-sided process clarified by the user; its native implementation remains open."
+    },
+    {
+      "id": "anchor",
+      "meaning": "A common starting question, marking, units, boundary conditions and residual baseline."
+    },
+    {
+      "id": "three-readings",
+      "meaning": "Declared related readings; the finite model uses C, S and T charts of one rank-two charge, not three independent participants."
+    },
+    {
+      "id": "pressure",
+      "meaning": "A declared measure of variation together with allowed responses and calibrated scales."
+    },
+    {
+      "id": "transport",
+      "meaning": "Carry presentations across an already shared representation contract, preserving sources, structure and evidence; the current disk-file receiving route has this scope."
+    },
+    {
+      "id": "communicate",
+      "meaning": "Seek and test a scoped common interpretation across heterogeneous interfaces; actual observations, counterexamples and unresolved mappings stay visible."
+    },
+    {
+      "id": "balance",
+      "meaning": "A witnessed task-relative balance under the allowed variations and residual requirements."
+    },
+    {
+      "id": "continuation",
+      "meaning": "Only the precisely scoped action licensed after all applicable acceptance checks."
+    },
+    {
+      "id": "joining-reserve",
+      "meaning": "A separately declared allowance for assembling and checking a join; the proposed 1/100 is a starting policy, not a proven optimum or a measure of truth."
+    }
+  ],
+  "relations": [
+    {
+      "from": "free",
+      "relation": "starts-from",
+      "to": "anchor",
+      "status": "adopted-for-discussion",
+      "basis": "The user's initial-anchor condition, connected to Research 0037's common time-zero calibration."
+    },
+    {
+      "from": "anchor",
+      "relation": "binds",
+      "to": "three-readings",
+      "status": "proposed",
+      "basis": "Free process v0 requires explicit correspondences to one initial calibration."
+    },
+    {
+      "from": "free",
+      "relation": "seeks-common-interpretation-through",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "The user distinguishes heterogeneous communication from homogeneous transport. The finite chart calibration assumes its correspondences and implements no interpretation search."
+    },
+    {
+      "from": "three-readings",
+      "relation": "expose",
+      "to": "pressure",
+      "status": "proposed",
+      "basis": "The A2 fixture transports the same permitted direction and checks its directional pressure in three charts."
+    },
+    {
+      "from": "pressure",
+      "relation": "guides-checked-adjustment-toward",
+      "to": "balance",
+      "status": "proposed",
+      "basis": "The finite profile permits strictly decreasing anchored moves; this is not a general convergence theorem."
+    },
+    {
+      "from": "balance",
+      "relation": "is-required-before-scoped-acceptance-of",
+      "to": "continuation",
+      "status": "proposed",
+      "basis": "Balance alone cannot replace missing native, human or receiving requirements."
+    },
+    {
+      "from": "communicate",
+      "relation": "carries-presentations-through",
+      "to": "transport",
+      "status": "adopted-for-discussion",
+      "basis": "The user's transport/communicate distinction, formalized in framework vocabulary v2."
+    },
+    {
+      "from": "joining-reserve",
+      "relation": "pays-for-checking-links-in",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "Research 0192/0193 retain the 33/100 side and 1/100 reserve proposal. Actual heterogeneous checking costs remain unmeasured."
+    }
+  ],
+  "preserve": [
+    "Keep source, dependency and evidence chains, old free candidates and their NotRun records.",
+    "Retain the original anchor, actual reached states, all residuals and cumulative costs.",
+    "Keep period energy, directional variation, execution cost and physical energy separately scoped.",
+    "A scalar improvement cannot override a protected obligation; missing evidence is not zero.",
+    "FiniteBalanceWitness grants no native free, human acceptance, source deletion or automatic continuation.",
+    "Keep transport integrity, interpretation checks, balance and acceptance as separate judgments.",
+    "Use exact resource shares and retain failed-join costs; checkpoint non-advance does not refund work or reverse external effects."
+  ],
+  "open_questions": [
+    "Which actual native task supplies the three readings and their checked transformations?",
+    "How are the required observations obtained through real receiving contracts?",
+    "Which exact release effects and human acceptance requirements belong to that task?",
+    "Which common interpretation and falsifiable comparison can the heterogeneous sides construct, and what does checking it cost?"
+  ],
+  "request": "Restate each side's anchor and interpretation, name the proposed common comparison and its counterexample condition, retain blocking residuals, and propose one bounded check with an explicit joining allowance."
+}

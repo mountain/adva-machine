@@ -21,15 +21,22 @@ The knowledge repository is introducing a
 [fixed-version consumer route](https://github.com/mountain/adva/blob/main/docs/KNOWLEDGE_MACHINE_BOUNDARY.md)
 that preserves input, execution and historical evidence dependencies.
 
-The [formal communication vocabulary](spec/framework/communication-v1.md)
-defines exchange, reception, acknowledgment and scoped acceptance for future
-knowledge and library migration. Its general native implementation remains open.
+The [formal framework vocabulary v2](spec/framework/transport-communication-v2.md)
+distinguishes `transport` under a shared representation contract from
+`communicate`, which seeks a common interpretation across heterogeneous
+interfaces. General native communication remains open.
 The [first bounded Rust exchange profile](spec/framework/documentary-exchange-v1.md)
 provides `adva communicate send`, `receive` and `acknowledge` for an independently
 reviewed documentary library entry, retaining its source home and obligations.
 The [compact structure exchange routine](exchange_routine/README.md) adds a
 short discussion card, visible revision differences and one command to run
 the existing bounded Rust exchange with its evidence retained.
+Its documentary capability is transport in the refined vocabulary; the existing
+command names, contracts and receipts retain their versions.
+The [free process definition](spec/framework/free-process-v0.md) and
+[finite calibration](experiments/triadic_free/README.md) connect initial
+anchoring, pressure, adjustment and balance while keeping native free and
+heterogeneous interpretation open.
 
 ```sh
 .venv/bin/python adva-machine doctor

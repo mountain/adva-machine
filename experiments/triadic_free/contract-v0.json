@@ -1,0 +1,258 @@
+{
+  "schema": "adva.free-process.calibration-contract.v0",
+  "profile": "finite-a2-free-v0",
+  "authored_by": "ChatGPT (OpenAI), through Mingli Yuan as authorized account proxy; not his review or endorsement.",
+  "contribution": "Original code, fixture design and prose under Unknown v0.3; no incorporated external expression or data.",
+  "base_revision": "862f8f0be161cf17738d4eaa2d9bcda08400df5e",
+  "question": "Can a common anchor, three transported pressure readings and an independently checked residual distinguish finite balance from unearned closure?",
+  "level": "External exact finite arithmetic calibration of the free research process; general native free remains unimplemented.",
+  "assumptions": [
+    "Trusted local Python integer/JSON runtime, quiescent POSIX files and independently selected contract digest.",
+    "One marked A2 charge with fixed p=2; three chart observations are synthetic computations in one runtime.",
+    "The separate eight-vertex cube parity residual is supplied by the fixture, not measured from people or physical energy.",
+    "No native process identity, real communication, human acceptance, release effect or automatic continuation is produced."
+  ],
+  "cross_domain_boundary": "The A2 and parity calculations instantiate exact finite mathematical patterns from the pinned notes. Their identification with native three-computation, natural-language meaning, physical energy, H2 geometry or a full free mechanism is not established. Chart correspondences are supplied, not discovered across heterogeneous interfaces; the single work account does not implement the three-share/joining-reserve policy.",
+  "protected_obligations": [
+    "Preserve the original anchor, every trace parent, all three readings and the exact residual amplitude.",
+    "Accept only pinned allowed motion; lower energy cannot compensate for a failed protected condition.",
+    "Retain missing observations and required human acceptance as Unknown.",
+    "A witness is scoped to the finite model and permits no external effects.",
+    "Legacy contracts, native code, library and consumer pins, and historical evidence remain unchanged.",
+    "Run each case at most once in the recorded invocation; no automatic retries or replenishment."
+  ],
+  "anchor": {
+    "name": "a2-fixed-p-two-v0",
+    "fixed_p": 2,
+    "q_domain": [
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "charts": {
+      "C": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "S": [
+        [
+          0,
+          -1
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "T": [
+        [
+          -1,
+          1
+        ],
+        [
+          -1,
+          0
+        ]
+      ]
+    },
+    "allowed_direction": [
+      0,
+      1
+    ],
+    "period_energy": "p*p-p*q+q*q",
+    "residual_model": "parity-cube-amplitude-v0",
+    "phase_convention": "symbolic-marking-no-theta-evaluation",
+    "obligations": [
+      "fixed-anchor",
+      "three-chart-correspondence",
+      "allowed-motion",
+      "retained-residual",
+      "scoped-balance",
+      "finite-account"
+    ]
+  },
+  "limits": {
+    "wall_seconds": 10,
+    "cooperative_seconds": 8,
+    "cpu_seconds": 5,
+    "address_space_bytes": 268435456,
+    "max_work": 4096,
+    "max_report_bytes": 524288,
+    "max_contract_bytes": 32768,
+    "max_reference_bytes": 262144,
+    "max_reference_files": 16,
+    "max_cases": 12,
+    "max_updates_per_case": 8,
+    "automatic_retries": 0,
+    "native_calls": 0
+  },
+  "cases": [
+    {
+      "id": "anchored-relaxation",
+      "start_q": 0,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "FiniteBalanceWitness"
+    },
+    {
+      "id": "opposite-start",
+      "start_q": 2,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "FiniteBalanceWitness"
+    },
+    {
+      "id": "already-balanced",
+      "start_q": 1,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "FiniteBalanceWitness"
+    },
+    {
+      "id": "retained-nonblocking-energy",
+      "start_q": 1,
+      "hidden_amplitude": 1,
+      "max_hidden_directional": 4,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "FiniteBalanceWitness"
+    },
+    {
+      "id": "hidden-blocking-energy",
+      "start_q": 1,
+      "hidden_amplitude": 1,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "BlockedByResidual"
+    },
+    {
+      "id": "unavailable-residual",
+      "start_q": 1,
+      "hidden_amplitude": null,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "Unknown"
+    },
+    {
+      "id": "missing-third-observation",
+      "start_q": 1,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S"
+      ],
+      "require_human": false,
+      "max_updates": 8,
+      "expected": "Unknown"
+    },
+    {
+      "id": "required-human-unavailable",
+      "start_q": 1,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": true,
+      "max_updates": 8,
+      "expected": "Unknown"
+    },
+    {
+      "id": "closed-chart-cycle-no-update-budget",
+      "start_q": 0,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 0,
+      "expected": "Unknown"
+    },
+    {
+      "id": "partial-descent-budget",
+      "start_q": 4,
+      "hidden_amplitude": 0,
+      "max_hidden_directional": 0,
+      "available_sides": [
+        "C",
+        "S",
+        "T"
+      ],
+      "require_human": false,
+      "max_updates": 1,
+      "expected": "Unknown"
+    }
+  ],
+  "references": {
+    "docs/research/0037-finite-observer-tricusp-surreal-reduction.md": "4244eeb7f9adce42af8299a525fa02b813e0d2d59c281b95eb7b941d2287cd02",
+    "docs/research/0048-directional-energy-of-a-learned-characteristic.md": "52d00b548e59fc0ac39d2699700beb176afddc6f833ba058bcd7d6544f0549de",
+    "docs/research/0072-pq-unit-tangent-through-geometry.md": "0c3d99fdaa20c4ac1d8e47864ca30aedeb7be7a02bd5467384e0f6e3ccdaab0f",
+    "docs/research/0139-library-six-phase-and-communication.md": "a1ad5fd99985ae9886f8c5b55356bbffd70751028734c5f1acfe6858453bced3",
+    "docs/research/0143-distinction-knowledge-and-free-boundary.md": "7592d3c75008cb8a5a0979495f65a78d32730f3da5e24007efccae195583ec67",
+    "docs/research/0157-free-acceptance-predicate-candidate.md": "b6c6f0193bcc51f750c5a8880d751f3ff4edd156d6f8cd8c0aba8663680c254a",
+    "docs/philosophy/0004-long-run-freedom-witness.md": "97a350d8c9659bcf7477dcefc915e33e940dfb4725e31070082becfdbbfa7324",
+    "spec/framework/communication-v1.md": "53e10429b608b2e6a6b4ccbe2f007f201217e5f5180a4280941a054c193a7599",
+    "spec/framework/free-process-v0.md": "18049300058a22ac57e5d8ba8c780f163930afe1dbf758c84eda18e9ad39277e",
+    "spec/framework/transport-communication-v2.md": "119721078061d22b581b2dc233027c3b2a5818a5f12e1bc03a539ba17135c349",
+    "docs/research/0192-the-traversal-allocation-and-its-reserve.md": "ee5dee416ed1cef14abc2b3917440e3984a1f7e6dc59f3777a9245bf11a9a38f",
+    "docs/research/0193-the-optimal-shares-and-the-price-of-a-level.md": "f3ad2d4e9c36d5bc6638eafe1e440b1deeb206257d050aa23fb0d6885f7bad53"
+  },
+  "producer_sources": {
+    "experiments/triadic_free/model.py": "bccf9d0b920059ccca47b62c8e6cb1c6e3a84612339e9b18914636da6d909ec4",
+    "experiments/triadic_free/calibration.py": "bf2b3ab6695a08e492ddc4ab518cbbdf09a5674ddd4b9aade33c646492d0ea42"
+  }
+}

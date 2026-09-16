@@ -9,6 +9,13 @@ discussion. Use the **exchange runner** when reviewed library materials must
 actually cross a receiving boundary. The card supplies documentary content;
 the runner invokes the existing Rust profile and retains its observations.
 
+[Framework vocabulary v2](../spec/framework/transport-communication-v2.md)
+calls the runner's homogeneous documentary crossing `transport`. It reserves
+`communicate` for seeking a shared interpretation across heterogeneous
+interfaces. Existing `adva communicate` command names, v1 schemas and result
+strings remain unchanged for compatibility. A structure card can carry the
+interpretation question; its shape checker cannot answer it.
+
 ## The conversational routine
 
 A person can write these six fields in ordinary language; an assistant can
@@ -47,6 +54,11 @@ condenses the preceding discussion: interaction, experience, concepts,
 mathematics, arithmetic/geometry/logic and physical realization. Its proposed
 relations retain their attribution and open questions. This example does not
 claim that a general theory of concept formation has been verified.
+
+The [free process card](examples/free-process.json) connects the initial anchor,
+three readings, transport, interpretation, pressure, joining reserve and scoped
+continuation. It distinguishes the user's direction from a supplied finite
+chart calibration and the still missing heterogeneous communication mechanism.
 
 ## Inspect and compare cards
 

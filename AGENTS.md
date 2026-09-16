@@ -41,7 +41,16 @@ Preserve frozen paths/profiles and evidence. Knowledge consumers pin machine
 and library versions; a new machine commit does not silently upgrade those
 consumers or rewrite their old evidence. No library split is implied.
 
-## Formal communication vocabulary and content migration
+## Formal transport/communication vocabulary and content migration
+
+Mingli Yuan's subsequent clarification, 2026-09-16: current homogeneous
+file/directory crossings are `transport`; `communicate` addresses heterogeneous
+interfaces by seeking a common interpretation. Read
+`spec/framework/transport-communication-v2.md` for new designs. Preserve v1's
+exact specification, registry, command spelling, contracts and receipts; the
+current documentary `adva communicate` route implements transport in this
+refined vocabulary. No new CLI alias or native interpretation engine is implied.
+The earlier content-preservation and receiving obligations below still apply.
 
 Mingli Yuan's instruction, 2026-09-16: adopt `communicate` and its supporting
 events as formal framework vocabulary. Read
@@ -61,6 +70,13 @@ retains the question, objects, relations, preservation requirements and open
 questions. Its read-only check does not authorize transport or prove claims.
 Actual exchange uses independently bound review/contract inputs and the existing
 Rust receiving profile; the supervisor preserves each observation and failure.
+
+For the unfinished `free`, read `spec/framework/free-process-v0.md` and
+`experiments/triadic_free/README.md`. The current calibration tests anchored
+finite motion and balance with supplied chart correspondences. It does not
+implement native free, heterogeneous communication, or the three-side resource
+allocation and joining reserve of Research 0192/0193. Keep those distinct from
+the existing old free candidates and their `NotRun` records.
 
 ## Documentation language
 
