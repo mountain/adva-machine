@@ -1,6 +1,6 @@
 # Adva-machine
 
-This local repository brings together Adva's specification entry points, Rust
+This repository brings together Adva's specification entry points, Rust
 and Python toolchains, and bounded tools written in Adva. It continues the full
 history of `mountain/adva` at `bbfaf3a`. The original GitHub repository is intended
 to evolve toward knowledge; the eventual organization of `adva-library` remains
@@ -15,7 +15,11 @@ Start with the [toolchain commands](toolchain/README.md),
 [Python entry](adva-python/README.md) and
 [repository direction](docs/TOOLCHAIN_DIRECTION.md). Existing source paths,
 versioned semantic boundaries and historical evidence are preserved during this
-first integration step. No new GitHub repository has been published.
+integration. It is published at
+[`mountain/adva-machine`](https://github.com/mountain/adva-machine).
+The knowledge repository is introducing a
+[fixed-version consumer route](https://github.com/mountain/adva/blob/main/docs/KNOWLEDGE_MACHINE_BOUNDARY.md)
+that preserves input, execution and historical evidence dependencies.
 
 ```sh
 .venv/bin/python adva-machine doctor
@@ -121,8 +125,8 @@ semantic object.
 Clone with the library submodule:
 
 ```sh
-git clone --recurse-submodules https://github.com/mountain/adva.git
-cd adva
+git clone --recurse-submodules https://github.com/mountain/adva-machine.git
+cd adva-machine
 ```
 
 ### An interpreter that retains its execution

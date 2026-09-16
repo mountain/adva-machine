@@ -1,4 +1,4 @@
-# Adva-machine: local toolchain direction
+# Adva-machine: toolchain direction
 
 Direction supplied by Mingli Yuan, 2026-09-16. Design and implementation by
 ChatGPT (OpenAI), through his authorized account proxy; account use does not
@@ -22,9 +22,26 @@ three-repository table quoted in that request:
 
 The local checkout is `/home/ubuntu/adva-machine`. The existing local `adva`,
 its worktrees, and the independent local `adva-library` remain available.
-`adva-source` records the historical GitHub source; no publication destination
-for the new machine repository has been selected. Finished local toolchain work
-is committed on its local `main`.
+`adva-source` records the historical GitHub source. The user subsequently selected
+`git@github.com:mountain/adva-machine.git` as `origin`; `main` is now published
+there and tracks `origin/main`. Completed, checked machine work is integrated
+there. The original repository remains independently versioned.
+
+## Knowledge consumers and dependency continuity
+
+The user requires the dependency chain to remain intact. The knowledge repository
+is introducing a [pinned consumer route](https://github.com/mountain/adva/blob/main/docs/KNOWLEDGE_MACHINE_BOUNDARY.md)
+over an immutable machine commit and library revision. It builds the external
+machine, compares one library fixture with retained native history/certificates,
+and checks returned, rejected and suspended arithmetic interpreter executions
+through native replay. See that repository for the consumer lock and evidence.
+
+This is a first migration gate, not permission to remove either inherited tree.
+Every later caller/package migration must retain its program format, input pins,
+versioned receiver, source/history relationships and resource accounting. Old
+evidence keeps its original machine and checker binding. A fixed library test
+input does not create a runtime dependency on live knowledge research, and
+documentary references do not become implicit executable imports.
 
 ## A usable boundary before moving source directories
 

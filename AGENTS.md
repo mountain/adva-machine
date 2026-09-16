@@ -8,7 +8,7 @@ Contribution and attribution practices below govern this project's workflow;
 they do not add copyright conditions on downstream use. Preserve separately
 licensed third-party material and frozen historical evidence.
 
-## Local toolchain continuation, 2026-09-16
+## Toolchain repository and dependency continuity, 2026-09-16
 
 The user's latest direction makes this local repository `adva-machine`, owning
 the Adva specification entry points and Rust/Python toolchains. The original
@@ -16,11 +16,13 @@ GitHub `mountain/adva` is intended to evolve toward knowledge. `adva-library`'s
 eventual organization remains Open and is consumed at a fixed revision here.
 Read `docs/TOOLCHAIN_DIRECTION.md` for the concrete migration boundary.
 
-The integration practice below records the source repository's history. For
-this independent local continuation, commit completed work to local `main`;
-`adva-source` is the historical source remote, not a selected publishing target
-for machine changes. Preserve frozen paths/profiles and evidence while adding
-toolchain entry points. No remote repository rename or library split is implied.
+The user selected `git@github.com:mountain/adva-machine.git` as `origin` and
+authorized publication on `main`. Commit and push completed, checked machine
+work there following the integration practice below. `adva-source` remains the
+historical source remote, not the publishing target for machine changes.
+Preserve frozen paths/profiles and evidence. Knowledge consumers pin machine
+and library versions; a new machine commit does not silently upgrade those
+consumers or rewrite their old evidence. No library split is implied.
 
 ## Documentation language
 

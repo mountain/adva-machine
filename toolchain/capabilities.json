@@ -1,6 +1,6 @@
 {
   "schema": "adva.machine.capabilities.v0",
-  "repository_role": "Local specification and toolchain repository",
+  "repository_role": "Specification and toolchain repository: mountain/adva-machine",
   "engines": {
     "rust": {"implementation": "Rust", "profiles": ["data-machine-v0", "data-machine-v1", "data-machine-v2"], "authority": "native admission, execution and replay", "entry": "adva-rust/run.py"},
     "python": {"implementation": "Python research instruction model", "profiles": ["data-machine-v0", "data-machine-v1"], "requires": ["Rust admission", "Rust trace replay"], "authority": "external execution received by Rust", "entry": "adva-python/run.py"}
