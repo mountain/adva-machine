@@ -67,3 +67,28 @@ library CLI tests and 36 toolchain/retained-evidence Python tests passed.
 `cargo clippy --locked -p adva-witness --bin adva --test communication_cli -- -D warnings`
 also passed. These are the checks executed for this change, rather than a claim
 that the entire historical research suite was rerun.
+
+## Missed dependent contract, and its explicit successor
+
+The full Python CI for `df8b29a` exposed a missed dependency in this change:
+`test_the_base_commit_boundary_holds_at_this_commit` failed because the active
+symbol-surface contract v8 still required the earlier entire Rust directory.
+The communication CLI, dispatch and integration tests changed three paths
+inside that protected boundary. The Python 3.12 job retained 2,834 passing
+tests, five skips and this one failure in
+[run 35109036957](https://github.com/mountain/adva-machine/actions/runs/35109036957).
+The same failing assertion was reproduced locally before correction.
+
+[Contract v9](../../experiments/advance_symbol_surface/contract-v9.json) names
+v8's exact digest and advances only its version/base/chain metadata to the
+communication commit. v0 through v8 and all retained evidence remain unchanged.
+The live entry selects v9; the existing chain test now includes v8 and v9 and
+still enforces ancestry and zero differences across all Cargo/crate paths.
+Input pins, library boundary, open obligations, authorization and execution
+limits are unchanged. This corrects the declared engineering baseline; it
+does not replay the trial or establish a new symbol-surface result.
+
+After this correction, 170 selected Python regressions passed: the contract
+chain, symbol-surface and advance boundaries, math catalog, exchange routine,
+and existing machine toolchain/evidence checks. The native communication source
+and Cargo lock stayed unchanged, preserving the actual exchange bindings.

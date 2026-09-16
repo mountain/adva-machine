@@ -18,7 +18,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 DIR = ROOT / "experiments/advance_symbol_surface"
-ACTIVE = DIR / "contract-v8.json"
+ACTIVE = DIR / "contract-v9.json"
+V8 = DIR / "contract-v8.json"
 V7 = DIR / "contract-v7.json"
 V6 = DIR / "contract-v6.json"
 V5 = DIR / "contract-v5.json"
@@ -36,7 +37,7 @@ def load(path):
 
 def test_the_chain_supersedes_by_digest_from_v0_through_the_active_contract():
     """Each contract names the digest of the one before it, so none can be edited."""
-    chain = [ACTIVE, V7, V6, V5, V4, V3, V2, V1, FROZEN]
+    chain = [ACTIVE, V8, V7, V6, V5, V4, V3, V2, V1, FROZEN]
     for path in chain:
         assert path.exists(), path.name
     for newer, older in zip(chain, chain[1:]):
@@ -46,7 +47,8 @@ def test_the_chain_supersedes_by_digest_from_v0_through_the_active_contract():
         assert supersedes["path"] == f"experiments/advance_symbol_surface/{older.name}"
         assert supersedes["sha256"] == hashlib.sha256(older.read_bytes()).hexdigest()
         assert supersedes["note"].strip()
-    assert load(ACTIVE)["version"] == 8
+    assert load(ACTIVE)["version"] == 9
+    assert load(V8)["version"] == 8
     assert load(V7)["version"] == 7
     assert load(V6)["version"] == 6
     assert load(V5)["version"] == 5
@@ -69,11 +71,14 @@ def test_the_frozen_contract_still_describes_the_first_run():
 
 
 def test_the_successors_only_moved_the_base_and_not_the_pins():
-    """Successors v2-v8 keep the inputs; v4-v8 preserve every execution limit."""
+    """Successors v2-v9 keep the inputs; v4-v9 preserve every execution limit."""
     assert load(V2)["pins"] == load(V1)["pins"]
     assert load(V3)["pins"] == load(V2)["pins"]
     changed_metadata = {"version", "date", "base_commit", "supersedes"}
     assert {k: v for k, v in load(ACTIVE).items() if k not in changed_metadata} == {
+        k: v for k, v in load(V8).items() if k not in changed_metadata
+    }
+    assert {k: v for k, v in load(V8).items() if k not in changed_metadata} == {
         k: v for k, v in load(V7).items() if k not in changed_metadata
     }
     assert {k: v for k, v in load(V7).items() if k not in changed_metadata} == {
@@ -103,7 +108,7 @@ def test_every_pin_in_the_active_contract_matches_the_live_file():
 
 def test_the_module_uses_the_successor_and_verifies_the_frozen_digest():
     source = MODULE.read_text(encoding="utf-8")
-    assert 'CONTRACT = ROOT / "experiments/advance_symbol_surface/contract-v8.json"' in source
+    assert 'CONTRACT = ROOT / "experiments/advance_symbol_surface/contract-v9.json"' in source
     # The chain check is generic: it hashes whatever the contract names, so a new
     # successor does not require editing the module.
     assert 'contract.get("version", 0) < 1 or "supersedes" not in contract' in source
