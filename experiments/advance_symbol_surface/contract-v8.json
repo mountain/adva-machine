@@ -1,0 +1,73 @@
+{
+  "schema": "adva.advance-symbol-surface.contract.research",
+  "version": 8,
+  "profile": "symbol-surface-load-v0",
+  "date": "2026-09-16",
+  "base_commit": "07beb68a5b079a3d33eca2be2b35e57394979284",
+  "library_commit": "6d52aa511a9b2621895f21dd8bb2890bdfe87f55",
+  "predecessor": "adva-library/symbol-surface/handoff.json",
+  "prior_advance": "experiments/advance_byte_observer/evidence/run-01/report.json",
+  "pins": {
+    "experiments/symbol_surface/README.md": "de552030c202dea5c734e9880931f946b167015792d3e4572fa29c04900ae2dd",
+    "experiments/symbol_surface/construct_records.py": "4ecc19589e8062be072703cc1f2f1d8a18f9221f07ab00f17f22099b294cb0ca",
+    "experiments/symbol_surface/inspect_representation.py": "9afaa502ab9caa8bcf24be489ab0b1b6a078932c34f45faa26b9a4a4a8a79127",
+    "experiments/symbol_surface/inspection.json": "d4776017411d1888dc55442b5bab1ba189d874c9851de001d967583d2ac3d8ac",
+    "experiments/symbol_surface/presentation.json": "c8f97bdd90ff33805f4db93660b9d6de432e4ca117c9f794027d24a99cdc5d34",
+    "experiments/symbol_surface/contract.json": "c566ca8994543a60ff40bdf3ea60fe4d76756258fd72ac657b2a934fe7faa97c",
+    "experiments/symbol_surface/obligations.json": "8443a82b97c1e2e0665c4c073f7d9a87095438dc82509d6001c1260b4be34587",
+    "experiments/symbol_surface/symbol-surface.adva": "c0ebd5accd88d73d1f64616f1adc9e10183993e5d48c8c5fb8ea3b37460c29db",
+    "adva-library/symbol-surface/handoff.json": "059a7e09967326e1030c1c367095aa86be7bd21e1950da85b7c4020803722923",
+    "adva-library/symbol-surface/swap.py": "3b9f6d785e64d8b2aacb675965c22b730c14ff17cb53d66fedd1a5117ad67a01",
+    "adva-library/symbol-surface/name-to-record.json": "eb68a6c80d721205c25406129b2fcda0272a00e291b1ed20e51103e8a0ef0c57",
+    "adva-library/symbol-surface/record-to-name.json": "0a8aa78cce54331dc7387e6aaaa51c4476fe23d5df13bae7d6e78e8b13b15e32",
+    "experiments/advance_byte_observer/evidence/run-01/report.json": "17a1d064ccb0caba7d0d086715a07b40c9360201c0827d840eb7a46fc794405c",
+    "adva-library/math/constraints/growth-obligation-v0000.json": "8f3f457b4991752ec1284968c8e36feffb0ce59aa96d6f63993c3f98396a2c03",
+    "adva-library/math/constraints/growth-obligation-seal-v0000.json": "2513680a30871e9cbc2c5d74c8cea4d254f553eee0b2d7afdcce40335849c1cf"
+  },
+  "authorization": "User requests one further step through adva.py on 2026-09-10. One finite invocation; no automatic continuation, native proof execution, commit, or push.",
+  "question": "Can the exact PR 170 symbol-surface envelope and its library copy pass the existing read-only Rust loader while keeping all nine frontier annotations and absent outputs? What is the loader boundary for external payload references?",
+  "current_level": "Research 0110 native document/mechanism formation, with external documentary integrity checks.",
+  "imported_assumptions": [
+    "Trusted local Rust/Python toolchain and quiescent checkout. Rebuild adva-python offline from the pinned unchanged Rust sources; load its copied artifact directly, bypassing the previously installed extension.",
+    "The library handoff explicitly asks for native loading. Its NotRun record remains historical and is not rewritten.",
+    "The nine document-local frontier coordinates index external annotations; loading does not turn them into encoded mathematical proof obligations.",
+    "No pi, complex arithmetic, Cantor construction, theorem application or game execution is implemented or requested by this profile."
+  ],
+  "interface": "Compare all eight main/library source files byte for byte and check three SHA256 payload references externally; existing Rust load_adva_document_json -> load_adva_document_v0 supplies the actual document/entrypoint/mechanism judgment. Keep its certificate, conditional admission and unresolved frontier.",
+  "controls": [
+    "Main and library copy load to equal artifacts.",
+    "Unchanged reload is EvidenceStutter in the exact loaded-artifact projection.",
+    "Unknown input carrier is rejected by Rust.",
+    "Removing one declared site without changing the subject is rejected by Rust.",
+    "Only one recorded output is rejected by Rust.",
+    "An unknown entrypoint is rejected by Rust.",
+    "An isolated envelope with no sidecars loads identically: Rust does not resolve external payload references.",
+    "Changing only payload bytes fails the separate external SHA256 gate."
+  ],
+  "protected_obligations": [
+    "Nine Open external annotations and all absent history/result/evidence outputs remain unchanged. No mathematical discharge, new epoch, native free/drop, or Seal.",
+    "Keep both predecessor records, their hashes, all source bytes, runtime code, full load certificates, negative-control errors and actual costs.",
+    "Payload-reference integrity, envelope formation and mathematical proof remain separately scoped judgments.",
+    "Old byte-observer contract and default profile are unchanged; no silent repinning or reuse of its old fuel."
+  ],
+  "success": "VariationObserved only after the native load returns ready/conditional with nine exact remaining sites and all eight controls pass; Rejected for a failed frozen expectation; Unknown for resource exhaustion. No automatic correction.",
+  "limits": {
+    "wall_seconds": 180,
+    "child_cpu_seconds": 120,
+    "aggregate_child_cpu_seconds": 150,
+    "address_space_bytes": 2147483648,
+    "max_processes": 12,
+    "max_file_bytes": 67108864,
+    "max_retained_bytes": 134217728,
+    "source_files": 8,
+    "source_bytes_each": 65536,
+    "native_load_calls": 8,
+    "correction_replays": 0
+  },
+  "enforcement": "Use the existing Supervisor for all Git, swap, cargo and native-worker children, with per-child CPU/address/file caps, aggregate CPU checks and process-group cleanup. Fixed eight native loads occur inside one bounded child. Parent loops are finite with inventory/deadline checks. External timeout 190 seconds is the final host guard and may prevent final checkpoint on hard termination. Authoring, engineering tests, later archive validation and documentation are outside run timing.",
+  "supersedes": {
+    "path": "experiments/advance_symbol_surface/contract-v7.json",
+    "sha256": "1abcacc821f859f22b528bdcd36210af77eac27fd1c36e09bdace3bd174c9769",
+    "note": "Version seven remains byte-for-byte historical. The Unknown v0.2 adoption adds license-file metadata to Cargo.toml and crate manifests. This successor moves only version/date/base/chain metadata to that adoption commit. Native Rust source, Cargo.lock, input pins, library research boundary, authorization, controls and execution budgets are unchanged. No symbol-surface trial or fuel renewal is performed."
+  }
+}

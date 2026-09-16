@@ -15,9 +15,9 @@ native load calls, eight controls, finite limits and exit conditions before
 execution. The original `byte-observer-v0` profile remains unchanged.
 
 **Contracts, and what a frozen replay would now do.** The active contract is
-[contract-v7.json](contract-v7.json). Each successor names the digest of the one
+[contract-v8.json](contract-v8.json). Each successor names the digest of the one
 it supersedes, so the chain is `contract.json` (v0) <- `contract-v1.json` <-
-`contract-v2.json` <- `contract-v3.json` <- `contract-v4.json` <- `contract-v5.json` <- `contract-v6.json` <- `contract-v7.json`, and a run verifies that digest rather than
+`contract-v2.json` <- `contract-v3.json` <- `contract-v4.json` <- `contract-v5.json` <- `contract-v6.json` <- `contract-v7.json` <- `contract-v8.json`, and a run verifies that digest rather than
 trusting the file:
 editing a superseded contract afterwards is a failure, not a silent
 reinterpretation. v1 moved two inputs — the symbol-surface README pin, after the
@@ -36,7 +36,10 @@ commit, preserving v4's inputs and all non-metadata fields. It likewise starts
 no new run. v6 binds the Rust benchmark example added at `81f0e97`, preserving
 every non-metadata field of v5. v7 binds the separate v2 data-machine capacity
 profile and its native tests at `4701e01`, preserving every non-metadata field
-of v6 and starting no new run. The strict Rust-diff check remains unchanged.
+of v6 and starting no new run. v8 binds the Unknown v0.2 license-file
+metadata in Cargo manifests, with native source, Cargo.lock and every
+non-metadata contract field unchanged. It starts no new run.
+The strict Rust-diff check remains unchanged.
 The run-01 evidence below keeps the
 frozen version-zero contract and its original digests as the record of what that
 run actually executed, so a literal replay of run-01 now fails on the README pin

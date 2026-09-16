@@ -3,21 +3,35 @@
 Authored by ChatGPT (OpenAI), through Mingli Yuan's authorized account proxy;
 not his technical review or correctness guarantee. Date: 2026-09-16.
 
-Three finite engineering regression invocations used the same fixed family in
+Four finite engineering regression invocations used the same fixed family in
 `conformance.contract.json`, each in a fresh output directory. All sixteen cases
 passed for the native Rust VM and the existing external Python reference VM in
 each invocation. Each used 80 child invocations, including 68 native calls, and
 478 replayed native instruction steps. No invocation retried or renewed fuel.
 
-| Record | Adapter change being checked | Status | Wall seconds | Aggregate CPU seconds |
+| Record | Integration change being checked | Status | Wall seconds | Aggregate CPU seconds |
 | --- | --- | --- | --- | --- |
 | `local-01` | Initial common interface | Passed | 4.963 | 4.288 |
 | `local-02` | Versioned reports for malformed transport input | Passed | 6.542 | 5.749 |
 | `local-03` | Bounded regular-file reads and output path confinement | Passed | 4.763 | 3.966 |
+| `local-04` | Unknown v0.2 library adoption and licensing pins | Passed | 4.933 | 4.132 |
 
 These figures include process startup, storage and native receiving; they are
 not a benchmark of relative execution performance. Producer snapshots preserve
 each revision rather than attributing earlier runs to later adapter bytes.
+
+`local-04` uses library revision `f652709` and checks ten interface/license files.
+The preceding three runs retain their original `9928b11` revision and seven pins.
+The old lock is preserved under `toolchain/library-locks/`, with its digest named
+by the new lock. Historical receipts are received against their own lock rather
+than relabelled as observations of the current dependency. The adapter sources,
+native transition profiles, corpus and execution budget did not change. The run
+used the existing release executable, whose native source profile still matches.
+
+After this licensing integration, 172 targeted regressions passed across the
+common toolchain/evidence, public Python API, finite mix/self-compiler, symbol
+contract chain, research index and mathematical catalog. Package metadata checks
+also received the independent Unknown text and custom Python license identifier.
 
 The outcome family contains five returns, four runtime rejections, four native
 admission refusals and three resource-limited Unknown outcomes, each checked on

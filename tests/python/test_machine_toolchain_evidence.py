@@ -14,7 +14,7 @@ from toolchain.conformance import receive_pair
 EVIDENCE = ROOT / "toolchain/evidence"
 
 
-@pytest.fixture(scope="module", params=("local-01", "local-02", "local-03"))
+@pytest.fixture(scope="module", params=("local-01", "local-02", "local-03", "local-04"))
 def retained(request):
     return receive(EVIDENCE / request.param)
 
@@ -28,7 +28,15 @@ def test_retained_contract_and_producer_snapshots_are_bound(retained):
         assert digest(retained["sources/" + Path(path).name]) == expected
     library = json.loads(retained["library-receipt.json"])
     assert library["status"] == "MatchedPinnedDependency"
-    assert library["revision"] == json.loads((ROOT / "toolchain/library.lock.json").read_bytes())["revision"]
+    lock = json.loads((ROOT / "toolchain/library.lock.json").read_bytes())
+    # Historical receipts stay bound to their original lock when licensing-only
+    # library successors are adopted; never rewrite the retained run bytes.
+    while lock["revision"] != library["revision"]:
+        previous = lock["previous_lock"]
+        raw = (ROOT / previous["path"]).read_bytes()
+        assert digest(raw) == previous["sha256"]
+        lock = json.loads(raw)
+    assert library["checked_files"] == len(lock["files"])
     assert library["native_admission"] == "NotGranted"
 
 
@@ -92,7 +100,7 @@ def test_raw_requests_executions_and_native_receipts_agree(retained):
 
 
 def test_latest_acceptance_contains_current_adapter_sources():
-    retained = receive(EVIDENCE / "local-03")
+    retained = receive(EVIDENCE / "local-04")
     manifest = json.loads(retained["source-manifest.json"])
     assert set(manifest) == {str(p.relative_to(ROOT)) for p in (ROOT / "toolchain").glob("*.py")}
     for path, expected in manifest.items():
