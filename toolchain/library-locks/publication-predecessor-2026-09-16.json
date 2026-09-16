@@ -1,7 +1,7 @@
 {
   "schema": "adva.machine.library-lock.v0",
   "repository": "https://github.com/mountain/adva-library",
-  "revision": "73a6af4ac4ed8225366d3c16794e309cff15f51d",
+  "revision": "4a53db6493389e046bd7293be9e3ae335ea2e9c7",
   "organization": "Open",
   "authority": "documentary integrity, not semantic admission",
   "interfaces": {
@@ -24,8 +24,8 @@
     "Unknown-LICENSE-v0.3.md": "b741560b5befdbf58763017e2d3175ccf89217bf3fce0bba1cefd12493d979ad"
   },
   "previous_lock": {
-    "path": "toolchain/library-locks/publication-predecessor-2026-09-16.json",
-    "sha256": "f1dec9d9a252a67f43222afc4eff0e0b847adeb94b158d633df8b10207831e60",
-    "reason": "Publication withdrawal successor: identical pinned first-party inputs; withdrawn third-party resources absent."
+    "path": "toolchain/library-locks/f652709c5dd2aecc7ed319e54452df1d4f4881d1.json",
+    "sha256": "3ddccd5ffe1ce27566c1c0103fb11971a273afdcc3a85b93da65655ed07f7806",
+    "reason": "Unknown v0.3 clarifies voluntary adoption, arithmetic truth and evidence continuity. Library mathematics, executable inputs and historical versions remain unchanged."
   }
 }
