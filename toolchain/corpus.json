@@ -1,0 +1,1574 @@
+[
+  {
+    "name": "exact-integer",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          }
+        ],
+        "code": [
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": 9007199254740993
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Returned",
+      "value": {
+        "kind": "integer",
+        "value": 9007199254740993
+      }
+    }
+  },
+  {
+    "name": "overflow",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          },
+          {
+            "name": "r2",
+            "kind": "integer"
+          }
+        ],
+        "code": [
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": 9223372036854775807
+          },
+          {
+            "op": "constant",
+            "dst": 2,
+            "value": 1
+          },
+          {
+            "op": "add",
+            "left": 1,
+            "right": 2,
+            "dst": 1
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Rejected",
+      "stage": "execution",
+      "reason": "integer overflow"
+    }
+  },
+  {
+    "name": "uninitialized",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Rejected",
+      "stage": "execution",
+      "reason": "uninitialized register"
+    }
+  },
+  {
+    "name": "finite-loop",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "jump",
+            "target": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 7,
+      "quantum": 7
+    },
+    "expected": {
+      "kind": "Unknown",
+      "reason": "FuelExhausted"
+    }
+  },
+  {
+    "name": "suspension",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          }
+        ],
+        "code": [
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": 9007199254740993
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 1
+    },
+    "expected": {
+      "kind": "Unknown",
+      "reason": "Suspended"
+    }
+  },
+  {
+    "name": "zero-fuel",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          }
+        ],
+        "code": [
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": 9007199254740993
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 0,
+      "quantum": 0
+    },
+    "expected": {
+      "kind": "Unknown",
+      "reason": "FuelExhausted"
+    }
+  },
+  {
+    "name": "wrong-register-type",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "integer"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Refused",
+      "stage": "native-admission"
+    }
+  },
+  {
+    "name": "boolean-is-not-integer",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": true
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Refused",
+      "stage": "native-admission"
+    }
+  },
+  {
+    "name": "adva-arithmetic-interpreter",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "arithmetic-tree-interpreter",
+        "registers": [
+          {
+            "name": "work",
+            "kind": "stack"
+          },
+          {
+            "name": "values",
+            "kind": "stack"
+          },
+          {
+            "name": "item",
+            "kind": "data"
+          },
+          {
+            "name": "left_tree",
+            "kind": "data"
+          },
+          {
+            "name": "right_tree",
+            "kind": "data"
+          },
+          {
+            "name": "temp",
+            "kind": "data"
+          },
+          {
+            "name": "tag",
+            "kind": "integer"
+          },
+          {
+            "name": "constant",
+            "kind": "integer"
+          },
+          {
+            "name": "left",
+            "kind": "integer"
+          },
+          {
+            "name": "right",
+            "kind": "integer"
+          },
+          {
+            "name": "test",
+            "kind": "boolean"
+          }
+        ],
+        "code": [
+          {
+            "op": "clear",
+            "stack": 0
+          },
+          {
+            "op": "clear",
+            "stack": 1
+          },
+          {
+            "op": "input",
+            "dst": 2
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 2
+          },
+          {
+            "op": "is_empty",
+            "stack": 0,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 45,
+            "no": 6
+          },
+          {
+            "op": "pop",
+            "stack": 0,
+            "dst": 2
+          },
+          {
+            "op": "tag",
+            "src": 2,
+            "dst": 6
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": -1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 31,
+            "no": 11
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 0
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 27,
+            "no": 14
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 20,
+            "no": 17
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 2
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 20,
+            "no": 49
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 2,
+            "index": 0,
+            "dst": 3
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 2,
+            "index": 1,
+            "dst": 4
+          },
+          {
+            "op": "box_integer",
+            "src": 6,
+            "dst": 5
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 5
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 4
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 3
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 1,
+            "index": 0,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 8
+          },
+          {
+            "op": "push",
+            "stack": 1,
+            "src": 5
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "as_integer",
+            "src": 2,
+            "dst": 6
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 9
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 8
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 39,
+            "no": 41
+          },
+          {
+            "op": "add",
+            "left": 8,
+            "right": 9,
+            "dst": 8
+          },
+          {
+            "op": "jump",
+            "target": 42
+          },
+          {
+            "op": "multiply",
+            "left": 8,
+            "right": 9,
+            "dst": 8
+          },
+          {
+            "op": "box_integer",
+            "src": 8,
+            "dst": 5
+          },
+          {
+            "op": "push",
+            "stack": 1,
+            "src": 5
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "is_empty",
+            "stack": 1,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 48,
+            "no": 50
+          },
+          {
+            "op": "return",
+            "src": 5
+          },
+          {
+            "op": "reject",
+            "reason": "unsupported object tag"
+          },
+          {
+            "op": "reject",
+            "reason": "object value stack not singleton"
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 1,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 2,
+            "fields": [
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "kind": "node",
+                "tag": 0,
+                "fields": [
+                  {
+                    "kind": "integer",
+                    "value": 4
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "fuel": 2048,
+      "quantum": 2048
+    },
+    "expected": {
+      "kind": "Returned",
+      "value": {
+        "kind": "integer",
+        "value": 14
+      }
+    }
+  },
+  {
+    "name": "adva-interpreter-overflow",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "arithmetic-tree-interpreter",
+        "registers": [
+          {
+            "name": "work",
+            "kind": "stack"
+          },
+          {
+            "name": "values",
+            "kind": "stack"
+          },
+          {
+            "name": "item",
+            "kind": "data"
+          },
+          {
+            "name": "left_tree",
+            "kind": "data"
+          },
+          {
+            "name": "right_tree",
+            "kind": "data"
+          },
+          {
+            "name": "temp",
+            "kind": "data"
+          },
+          {
+            "name": "tag",
+            "kind": "integer"
+          },
+          {
+            "name": "constant",
+            "kind": "integer"
+          },
+          {
+            "name": "left",
+            "kind": "integer"
+          },
+          {
+            "name": "right",
+            "kind": "integer"
+          },
+          {
+            "name": "test",
+            "kind": "boolean"
+          }
+        ],
+        "code": [
+          {
+            "op": "clear",
+            "stack": 0
+          },
+          {
+            "op": "clear",
+            "stack": 1
+          },
+          {
+            "op": "input",
+            "dst": 2
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 2
+          },
+          {
+            "op": "is_empty",
+            "stack": 0,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 45,
+            "no": 6
+          },
+          {
+            "op": "pop",
+            "stack": 0,
+            "dst": 2
+          },
+          {
+            "op": "tag",
+            "src": 2,
+            "dst": 6
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": -1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 31,
+            "no": 11
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 0
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 27,
+            "no": 14
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 20,
+            "no": 17
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 2
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 20,
+            "no": 49
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 2,
+            "index": 0,
+            "dst": 3
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 2,
+            "index": 1,
+            "dst": 4
+          },
+          {
+            "op": "box_integer",
+            "src": 6,
+            "dst": 5
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 5
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 4
+          },
+          {
+            "op": "push",
+            "stack": 0,
+            "src": 3
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "field",
+            "src": 2,
+            "arity": 1,
+            "index": 0,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 8
+          },
+          {
+            "op": "push",
+            "stack": 1,
+            "src": 5
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "as_integer",
+            "src": 2,
+            "dst": 6
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 9
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "as_integer",
+            "src": 5,
+            "dst": 8
+          },
+          {
+            "op": "constant",
+            "dst": 7,
+            "value": 1
+          },
+          {
+            "op": "equal",
+            "left": 6,
+            "right": 7,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 39,
+            "no": 41
+          },
+          {
+            "op": "add",
+            "left": 8,
+            "right": 9,
+            "dst": 8
+          },
+          {
+            "op": "jump",
+            "target": 42
+          },
+          {
+            "op": "multiply",
+            "left": 8,
+            "right": 9,
+            "dst": 8
+          },
+          {
+            "op": "box_integer",
+            "src": 8,
+            "dst": 5
+          },
+          {
+            "op": "push",
+            "stack": 1,
+            "src": 5
+          },
+          {
+            "op": "jump",
+            "target": 4
+          },
+          {
+            "op": "pop",
+            "stack": 1,
+            "dst": 5
+          },
+          {
+            "op": "is_empty",
+            "stack": 1,
+            "dst": 10
+          },
+          {
+            "op": "branch",
+            "condition": 10,
+            "yes": 48,
+            "no": 50
+          },
+          {
+            "op": "return",
+            "src": 5
+          },
+          {
+            "op": "reject",
+            "reason": "unsupported object tag"
+          },
+          {
+            "op": "reject",
+            "reason": "object value stack not singleton"
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 1,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 9223372036854775807
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      },
+      "fuel": 2048,
+      "quantum": 2048
+    },
+    "expected": {
+      "kind": "Rejected",
+      "stage": "execution",
+      "reason": "integer overflow"
+    }
+  },
+  {
+    "name": "dynamic-fields-and-pack",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v1",
+      "program": {
+        "schema": "adva.data-machine.program.research.v1",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          },
+          {
+            "name": "r2",
+            "kind": "stack"
+          },
+          {
+            "name": "r3",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "length",
+            "src": 0,
+            "dst": 1
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 3
+          },
+          {
+            "op": "clear",
+            "stack": 2
+          },
+          {
+            "op": "push",
+            "stack": 2,
+            "src": 3
+          },
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": 1
+          },
+          {
+            "op": "field_dynamic",
+            "src": 0,
+            "index": 1,
+            "dst": 3
+          },
+          {
+            "op": "push",
+            "stack": 2,
+            "src": 3
+          },
+          {
+            "op": "pack",
+            "stack": 2,
+            "tag": 77,
+            "dst": 3
+          },
+          {
+            "op": "stack_length",
+            "stack": 2,
+            "dst": 1
+          },
+          {
+            "op": "return",
+            "src": 3
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 7,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          },
+          {
+            "kind": "integer",
+            "value": 9
+          }
+        ]
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Returned",
+      "value": {
+        "kind": "node",
+        "tag": 77,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 2
+          },
+          {
+            "kind": "integer",
+            "value": 9
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "negative-field-index",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v1",
+      "program": {
+        "schema": "adva.data-machine.program.research.v1",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          },
+          {
+            "name": "r1",
+            "kind": "integer"
+          },
+          {
+            "name": "r2",
+            "kind": "stack"
+          },
+          {
+            "name": "r3",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "length",
+            "src": 0,
+            "dst": 1
+          },
+          {
+            "op": "box_integer",
+            "src": 1,
+            "dst": 3
+          },
+          {
+            "op": "clear",
+            "stack": 2
+          },
+          {
+            "op": "push",
+            "stack": 2,
+            "src": 3
+          },
+          {
+            "op": "constant",
+            "dst": 1,
+            "value": -1
+          },
+          {
+            "op": "field_dynamic",
+            "src": 0,
+            "index": 1,
+            "dst": 3
+          },
+          {
+            "op": "push",
+            "stack": 2,
+            "src": 3
+          },
+          {
+            "op": "pack",
+            "stack": 2,
+            "tag": 77,
+            "dst": 3
+          },
+          {
+            "op": "stack_length",
+            "stack": 2,
+            "dst": 1
+          },
+          {
+            "op": "return",
+            "src": 3
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 7,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 3
+          },
+          {
+            "kind": "integer",
+            "value": 9
+          }
+        ]
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Rejected",
+      "stage": "execution",
+      "reason": "negative field index"
+    }
+  },
+  {
+    "name": "v1-wide-node",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v1",
+      "program": {
+        "schema": "adva.data-machine.program.research.v1",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          }
+        ]
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Returned",
+      "value": {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "v0-wide-node-refusal",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "adva.data-machine.program.research.v0",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          },
+          {
+            "kind": "integer",
+            "value": 0
+          }
+        ]
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Refused",
+      "stage": "native-admission"
+    }
+  },
+  {
+    "name": "wrong-program-schema",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v0",
+      "program": {
+        "schema": "unknown.program",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": 0
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Refused",
+      "stage": "native-admission"
+    }
+  },
+  {
+    "name": "minimum-integer",
+    "request": {
+      "schema": "adva.machine.request.v0",
+      "profile": "data-machine-v1",
+      "program": {
+        "schema": "adva.data-machine.program.research.v1",
+        "name": "toolchain-fixture",
+        "registers": [
+          {
+            "name": "r0",
+            "kind": "data"
+          }
+        ],
+        "code": [
+          {
+            "op": "input",
+            "dst": 0
+          },
+          {
+            "op": "return",
+            "src": 0
+          }
+        ]
+      },
+      "input": {
+        "kind": "integer",
+        "value": -9223372036854775808
+      },
+      "fuel": 256,
+      "quantum": 256
+    },
+    "expected": {
+      "kind": "Returned",
+      "value": {
+        "kind": "integer",
+        "value": -9223372036854775808
+      }
+    }
+  }
+]

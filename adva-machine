@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+"""Local checkout entry; use the repository Python environment."""
+from toolchain.cli import main
+
+raise SystemExit(main())

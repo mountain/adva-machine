@@ -1,0 +1,37 @@
+{
+  "schema": "adva.machine.conformance-contract.v0",
+  "kind": "reproducible bounded engineering acceptance, not open-ended research",
+  "question": "Do the existing Rust and external Python v0/v1 implementations receive the same requests and preserve exact outcomes and same-profile state/trace?",
+  "level": "toolchain integration only",
+  "imports": [
+    "Frozen Rust admission/execution/replay",
+    "Existing external Python step receivers",
+    "Host filesystem and trusted local executable",
+    "Library metadata only; no new semantic import"
+  ],
+  "corpus": {
+    "path": "toolchain/corpus.json",
+    "sha256": "3f8d7198a0f34b6bc914dbd29ace0113f3760ca43b6eb4f4a9178a205621eb13",
+    "cases": 16
+  },
+  "protected": [
+    "Frozen native source and historical evidence remain unchanged",
+    "Unknown does not become divergence or success",
+    "A requested engine is not silently replaced",
+    "Every accepted execution requires native replay",
+    "Results/refusals and full primitive traces are compared separately from costs",
+    "Library integrity does not discharge native obligations"
+  ],
+  "limits": {
+    "wall": 120,
+    "cpu": 110,
+    "launches": 100,
+    "native_launches": 80,
+    "artifacts": 67108864
+  },
+  "per_child_address_space_bytes": 1073741824,
+  "automatic_retries": 0,
+  "attempts_per_invocation": 1,
+  "exit": "Finite family received, mismatch, execution error or resource exhaustion; retain all reports and failures. Each regression invocation uses a new output directory.",
+  "authorship": "ChatGPT (OpenAI), through Mingli Yuan authorized account proxy; not his technical review or correctness guarantee"
+}

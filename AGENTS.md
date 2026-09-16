@@ -1,5 +1,19 @@
 # Agent instructions
 
+## Local toolchain continuation, 2026-09-16
+
+The user's latest direction makes this local repository `adva-machine`, owning
+the Adva specification entry points and Rust/Python toolchains. The original
+GitHub `mountain/adva` is intended to evolve toward knowledge. `adva-library`'s
+eventual organization remains Open and is consumed at a fixed revision here.
+Read `docs/TOOLCHAIN_DIRECTION.md` for the concrete migration boundary.
+
+The integration practice below records the source repository's history. For
+this independent local continuation, commit completed work to local `main`;
+`adva-source` is the historical source remote, not a selected publishing target
+for machine changes. Preserve frozen paths/profiles and evidence while adding
+toolchain entry points. No remote repository rename or library split is implied.
+
 Before modifying semantic code, read:
 
 1. `README.md`

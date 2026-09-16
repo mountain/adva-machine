@@ -1,4 +1,26 @@
-# Adva
+# Adva-machine
+
+This local repository brings together Adva's specification entry points, Rust
+and Python toolchains, and bounded tools written in Adva. It continues the full
+history of `mountain/adva` at `bbfaf3a`. The original GitHub repository is intended
+to evolve toward knowledge; the eventual organization of `adva-library` remains
+open.
+
+Start with the [toolchain commands](toolchain/README.md),
+[specification index](spec/README.md), [Rust entry](adva-rust/README.md),
+[Python entry](adva-python/README.md) and
+[repository direction](docs/TOOLCHAIN_DIRECTION.md). Existing source paths,
+versioned semantic boundaries and historical evidence are preserved during this
+first integration step. No new GitHub repository has been published.
+
+```sh
+.venv/bin/python adva-machine doctor
+.venv/bin/python adva-machine capabilities
+.venv/bin/python adva-machine conform --output target/machine-conformance
+```
+
+The following inherited research introduction remains context for the machine
+and its original knowledge-oriented repository.
 
 **How can a finite observer construct, check, and extend arithmetic knowledge?**
 

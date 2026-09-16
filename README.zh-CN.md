@@ -1,4 +1,11 @@
-# Adva
+# Adva-machine
+
+本地仓库正在整合 Adva 规范、Rust/Python 工具链和 Adva 自身编写的有限工具。
+GitHub 原始 `adva` 将向知识方向发展，`adva-library` 的最终组织方式保留开放。
+
+先看[整合方向与当前入口](docs/TOOLCHAIN_DIRECTION.zh-CN.md)、
+[工具链使用说明](toolchain/README.md)和[规范索引](spec/README.md)。
+本阶段保留原有路径与历史证据，提供共同验收接口；下文是继承的研究背景。
 
 **有限的观察者，怎样构造、检验并扩展算术知识？**
 

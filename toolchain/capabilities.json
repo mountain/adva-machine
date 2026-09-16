@@ -1,0 +1,22 @@
+{
+  "schema": "adva.machine.capabilities.v0",
+  "repository_role": "Local specification and toolchain repository",
+  "engines": {
+    "rust": {"implementation": "Rust", "profiles": ["data-machine-v0", "data-machine-v1", "data-machine-v2"], "authority": "native admission, execution and replay", "entry": "adva-rust/run.py"},
+    "python": {"implementation": "Python research instruction model", "profiles": ["data-machine-v0", "data-machine-v1"], "requires": ["Rust admission", "Rust trace replay"], "authority": "external execution received by Rust", "entry": "adva-python/run.py"}
+  },
+  "additional_surfaces": {
+    "python_facade": {"path": "python/adva", "implementation": "Python API over Rust/PyO3", "independent_semantic_kernel": false},
+    "adva_interpreter": {"path": "programs/bounded-interpreter/interpreter.adva", "implementation": "Adva data-machine program", "object_language": "bounded tagged arithmetic trees", "host": "Rust VM or received Python reference VM", "full_self_interpreter": false},
+    "adva_self_compiler": {"path": "programs/bounded-self-compiler/compiler.source.adva", "scope": "finite structured research source to v1 target; C1=C2=C3"},
+    "adva_mix": {"path": "programs/bounded-mix/mix.source.adva", "scope": "conservative input binding and finite self-application", "general_optimizing_mix": "Open"}
+  },
+  "conversion_directions": {
+    "Adva-to-Rust-source": "NotImplemented",
+    "Adva-to-Python-source": "NotImplemented",
+    "Rust-source-to-Adva": "NotImplemented",
+    "Python-source-to-Adva": "NotImplemented"
+  },
+  "library_organization": "Open; pinned external dependency",
+  "full_three_independent_machine_conformance": "NotEstablished"
+}

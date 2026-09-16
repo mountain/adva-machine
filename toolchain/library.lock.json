@@ -1,0 +1,22 @@
+{
+  "schema": "adva.machine.library-lock.v0",
+  "repository": "https://github.com/mountain/adva-library",
+  "revision": "9928b11841f95235fbe4c17da431779f71eaa6b3",
+  "organization": "Open",
+  "authority": "documentary integrity, not semantic admission",
+  "interfaces": {
+    "math/manifest.json": "documentary catalog",
+    "index.json": "delivered research artifact index",
+    "phase-runner/run-program.adva": "native-run research fixture; requires Rust admission",
+    "stability/epoch-0001.json": "research snapshot; requires its native library loader"
+  },
+  "files": {
+    "README.md": "7ed012c0f22110912a292408f68b8db91d3fda0b6ad59c3c845d6b23e6a51854",
+    "index.json": "f294c01b0513b24d4fa6bf7e46df2e0e3407ae6ca1b269f917d48d70bff99212",
+    "math/manifest.json": "bf6b9a7418a713b51ffbec98a1ea642b516c6caa5aa81153731cf177f3ce6ddc",
+    "math/constraints/growth-obligation-v0000.json": "8f3f457b4991752ec1284968c8e36feffb0ce59aa96d6f63993c3f98396a2c03",
+    "math/constraints/growth-obligation-seal-v0000.json": "2513680a30871e9cbc2c5d74c8cea4d254f553eee0b2d7afdcce40335849c1cf",
+    "phase-runner/run-program.adva": "202afe49560e453702f6ab4f3bfef6c04637691190c0505d940d5858cfc7dc8e",
+    "stability/epoch-0001.json": "eafbee5a0e8d56d326088c608ee34e3f5557c55a9f1cdb40feb7aa73342013bb"
+  }
+}

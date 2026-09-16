@@ -213,5 +213,11 @@ jobs:
           timeout 180s python experiments/bounded_self_compiler/native_receive.py \
             --binary target/release/adva \
             --output "$RUNNER_TEMP/adva-self-compiler-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Check common machine toolchain and pinned library boundary
+        if: matrix.python-version == '3.12'
+        run: |
+          python -B adva-machine doctor
+          timeout 130s python -B adva-machine conform \
+            --output "$RUNNER_TEMP/adva-machine-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
       - name: Check documentary catalog, key words and open growth obligation
         run: python -S python/adva/adva.py math-check --key-words

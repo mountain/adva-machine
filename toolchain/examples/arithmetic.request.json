@@ -1,0 +1,365 @@
+{
+  "schema": "adva.machine.request.v0",
+  "profile": "data-machine-v0",
+  "program": {
+    "schema": "adva.data-machine.program.research.v0",
+    "name": "arithmetic-tree-interpreter",
+    "registers": [
+      {
+        "name": "work",
+        "kind": "stack"
+      },
+      {
+        "name": "values",
+        "kind": "stack"
+      },
+      {
+        "name": "item",
+        "kind": "data"
+      },
+      {
+        "name": "left_tree",
+        "kind": "data"
+      },
+      {
+        "name": "right_tree",
+        "kind": "data"
+      },
+      {
+        "name": "temp",
+        "kind": "data"
+      },
+      {
+        "name": "tag",
+        "kind": "integer"
+      },
+      {
+        "name": "constant",
+        "kind": "integer"
+      },
+      {
+        "name": "left",
+        "kind": "integer"
+      },
+      {
+        "name": "right",
+        "kind": "integer"
+      },
+      {
+        "name": "test",
+        "kind": "boolean"
+      }
+    ],
+    "code": [
+      {
+        "op": "clear",
+        "stack": 0
+      },
+      {
+        "op": "clear",
+        "stack": 1
+      },
+      {
+        "op": "input",
+        "dst": 2
+      },
+      {
+        "op": "push",
+        "stack": 0,
+        "src": 2
+      },
+      {
+        "op": "is_empty",
+        "stack": 0,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 45,
+        "no": 6
+      },
+      {
+        "op": "pop",
+        "stack": 0,
+        "dst": 2
+      },
+      {
+        "op": "tag",
+        "src": 2,
+        "dst": 6
+      },
+      {
+        "op": "constant",
+        "dst": 7,
+        "value": -1
+      },
+      {
+        "op": "equal",
+        "left": 6,
+        "right": 7,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 31,
+        "no": 11
+      },
+      {
+        "op": "constant",
+        "dst": 7,
+        "value": 0
+      },
+      {
+        "op": "equal",
+        "left": 6,
+        "right": 7,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 27,
+        "no": 14
+      },
+      {
+        "op": "constant",
+        "dst": 7,
+        "value": 1
+      },
+      {
+        "op": "equal",
+        "left": 6,
+        "right": 7,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 20,
+        "no": 17
+      },
+      {
+        "op": "constant",
+        "dst": 7,
+        "value": 2
+      },
+      {
+        "op": "equal",
+        "left": 6,
+        "right": 7,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 20,
+        "no": 49
+      },
+      {
+        "op": "field",
+        "src": 2,
+        "arity": 2,
+        "index": 0,
+        "dst": 3
+      },
+      {
+        "op": "field",
+        "src": 2,
+        "arity": 2,
+        "index": 1,
+        "dst": 4
+      },
+      {
+        "op": "box_integer",
+        "src": 6,
+        "dst": 5
+      },
+      {
+        "op": "push",
+        "stack": 0,
+        "src": 5
+      },
+      {
+        "op": "push",
+        "stack": 0,
+        "src": 4
+      },
+      {
+        "op": "push",
+        "stack": 0,
+        "src": 3
+      },
+      {
+        "op": "jump",
+        "target": 4
+      },
+      {
+        "op": "field",
+        "src": 2,
+        "arity": 1,
+        "index": 0,
+        "dst": 5
+      },
+      {
+        "op": "as_integer",
+        "src": 5,
+        "dst": 8
+      },
+      {
+        "op": "push",
+        "stack": 1,
+        "src": 5
+      },
+      {
+        "op": "jump",
+        "target": 4
+      },
+      {
+        "op": "as_integer",
+        "src": 2,
+        "dst": 6
+      },
+      {
+        "op": "pop",
+        "stack": 1,
+        "dst": 5
+      },
+      {
+        "op": "as_integer",
+        "src": 5,
+        "dst": 9
+      },
+      {
+        "op": "pop",
+        "stack": 1,
+        "dst": 5
+      },
+      {
+        "op": "as_integer",
+        "src": 5,
+        "dst": 8
+      },
+      {
+        "op": "constant",
+        "dst": 7,
+        "value": 1
+      },
+      {
+        "op": "equal",
+        "left": 6,
+        "right": 7,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 39,
+        "no": 41
+      },
+      {
+        "op": "add",
+        "left": 8,
+        "right": 9,
+        "dst": 8
+      },
+      {
+        "op": "jump",
+        "target": 42
+      },
+      {
+        "op": "multiply",
+        "left": 8,
+        "right": 9,
+        "dst": 8
+      },
+      {
+        "op": "box_integer",
+        "src": 8,
+        "dst": 5
+      },
+      {
+        "op": "push",
+        "stack": 1,
+        "src": 5
+      },
+      {
+        "op": "jump",
+        "target": 4
+      },
+      {
+        "op": "pop",
+        "stack": 1,
+        "dst": 5
+      },
+      {
+        "op": "is_empty",
+        "stack": 1,
+        "dst": 10
+      },
+      {
+        "op": "branch",
+        "condition": 10,
+        "yes": 48,
+        "no": 50
+      },
+      {
+        "op": "return",
+        "src": 5
+      },
+      {
+        "op": "reject",
+        "reason": "unsupported object tag"
+      },
+      {
+        "op": "reject",
+        "reason": "object value stack not singleton"
+      }
+    ]
+  },
+  "input": {
+    "kind": "node",
+    "tag": 1,
+    "fields": [
+      {
+        "kind": "node",
+        "tag": 0,
+        "fields": [
+          {
+            "kind": "integer",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "kind": "node",
+        "tag": 2,
+        "fields": [
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "kind": "node",
+            "tag": 0,
+            "fields": [
+              {
+                "kind": "integer",
+                "value": 4
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "fuel": 2048,
+  "quantum": 2048
+}

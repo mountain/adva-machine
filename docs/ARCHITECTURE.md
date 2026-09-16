@@ -1,5 +1,12 @@
 # Architecture
 
+The local `adva-machine` continuation adds a specification index under `spec/`,
+Rust/Python entry points, and the [common toolchain boundary](../toolchain/README.md).
+The [repository direction](TOOLCHAIN_DIRECTION.md) distinguishes these interfaces
+from future target-language backends and keeps library organization open. The
+existing implementation layout and semantic authority described below remain
+in force.
+
 The bounded research data machine in
 [its ADR](adr/bounded-data-machine-research.md) adds a separate typed register/tree
 execution carrier owned by Rust. The `adva data-run` entry validates program,
