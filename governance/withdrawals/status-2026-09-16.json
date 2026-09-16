@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-16",
+  "scope": "Identified third-party full documents, rendered pages and eight library inputs; not universal copyright clearance.",
+  "native_continuity": {
+    "status": "Passed",
+    "checks": 4,
+    "remote_run": "https://github.com/mountain/adva/actions/runs/35097572835",
+    "machine_revision": "e62d88dcc83fc4967260866518029942b9631b71",
+    "library_revision": "73a6af4ac4ed8225366d3c16794e309cff15f51d",
+    "implementation": "Same pinned Cargo inputs, Rust/Python sources, specification, programs and experiments; publication-only successor."
+  },
+  "public_calibration": {
+    "targeted_checks_passed": 115,
+    "full_input_checks_skipped": 4,
+    "reason": "Eight external golden-ratio inputs withdrawn; incomplete replay explicitly returns Invalid."
+  },
+  "preserved": "Original research, author/committer identities and dates, commit messages, topology, historical contracts, receipts and nonwithdrawn file bytes. Rewritten signed commits cannot retain their original valid cryptographic signatures.",
+  "external_residual": "GitHub read-only pull-request refs, cached old objects, forks and existing clones are outside these writable-ref results.",
+  "fresh_clone_required": true,
+  "repository": "mountain/adva-machine",
+  "main_tree_identified_withdrawn_copies": 0,
+  "history_status": "CleanForIdentifiedContentInWritableHeadsAndTags",
+  "fresh_clone_identified_withdrawn_objects": 0,
+  "verified_heads": 2,
+  "history_record": "governance/withdrawals/history-map-2026-09-16.json",
+  "history_run": "https://github.com/mountain/adva-machine/actions/runs/35097284263"
+}
