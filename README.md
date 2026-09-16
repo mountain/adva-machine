@@ -43,7 +43,7 @@ construction or observation that could make a difference.
 
 The implementation includes a Rust Lisp engine, a separately versioned bounded
 data language, a library of recorded constructions, and a substantial research
-record. **Pre-alpha research software.** [Unknown v0.2](Unknown-LICENSE-v0.2.md)
+record. **Pre-alpha research software.** [Unknown v0.3](Unknown-LICENSE-v0.3.md)
 dedicates the first-party work to the public domain, with a voluntary philosophical
 statement. See [LICENSE](LICENSE) and [licensing scope](LICENSING.md).
 

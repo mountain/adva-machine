@@ -3,7 +3,7 @@
 Authored by ChatGPT (OpenAI), through Mingli Yuan's authorized account proxy;
 not his technical review or correctness guarantee. Date: 2026-09-16.
 
-Four finite engineering regression invocations used the same fixed family in
+Five finite engineering regression invocations used the same fixed family in
 `conformance.contract.json`, each in a fresh output directory. All sixteen cases
 passed for the native Rust VM and the existing external Python reference VM in
 each invocation. Each used 80 child invocations, including 68 native calls, and
@@ -15,10 +15,28 @@ each invocation. Each used 80 child invocations, including 68 native calls, and
 | `local-02` | Versioned reports for malformed transport input | Passed | 6.542 | 5.749 |
 | `local-03` | Bounded regular-file reads and output path confinement | Passed | 4.763 | 3.966 |
 | `local-04` | Unknown v0.2 library adoption and licensing pins | Passed | 4.933 | 4.132 |
+| `local-05` | Unknown v0.3 adoption with retained predecessor locks | Passed | 4.749 | 4.018 |
 
 These figures include process startup, storage and native receiving; they are
 not a benchmark of relative execution performance. Producer snapshots preserve
 each revision rather than attributing earlier runs to later adapter bytes.
+
+`local-05` receives library revision `4a53db6` with eleven file pins, including
+the current Unknown v0.3 text and the unchanged historical v0.2 text. Its lock
+retains the complete `f652709` predecessor and that predecessor's own history.
+All earlier archives retain their original bytes. Native sources, Cargo.lock,
+profiles, the corpus, adapter sources and execution budgets are unchanged.
+The license revision states voluntary duties of evidence continuity; it does
+not change the meaning of a native result, create a theorem or discharge an
+open library obligation.
+
+For v0.3, 138 targeted toolchain/evidence, contract-chain, research-index and
+math-catalog regressions passed. Cargo metadata resolved the current LICENSE
+for all five workspace packages; Python distribution metadata included
+`LicenseRef-Unknown-0.3` and the exact three declared license files. The initial
+metadata probe lacked its build helper and then resolved a crate-relative
+license path from the wrong directory. Installing the helper and resolving each
+path against its Cargo manifest corrected the probe; no package rule was relaxed.
 
 `local-04` uses library revision `f652709` and checks ten interface/license files.
 The preceding three runs retain their original `9928b11` revision and seven pins.
@@ -68,9 +86,10 @@ The corrected transport and archive regression suite passed all 30 checks.
 Both language-specific entries also ran successfully from outside the checkout:
 the arithmetic request returned 14 and Rust freshly verified 134 steps in each
 case. The local release binary was built with the locked Cargo dependency set.
-CI is configured to run the common acceptance on Python 3.12; this new local
-repository has no selected publication destination, so remote CI for this change
-has not run.
+CI is configured to run the common acceptance on Python 3.12. At the initial
+local integration, no publication destination had been selected and remote CI
+had not run. The repository was subsequently published as `mountain/adva-machine`;
+these earlier records remain descriptions of their original local runs.
 
 The v2 Python route is explicitly Unsupported, with zero fallback launches.
 The PyO3 facade remains Rust-backed. Neither this record nor directory names

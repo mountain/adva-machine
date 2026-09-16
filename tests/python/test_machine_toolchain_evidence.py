@@ -14,7 +14,7 @@ from toolchain.conformance import receive_pair
 EVIDENCE = ROOT / "toolchain/evidence"
 
 
-@pytest.fixture(scope="module", params=("local-01", "local-02", "local-03", "local-04"))
+@pytest.fixture(scope="module", params=("local-01", "local-02", "local-03", "local-04", "local-05"))
 def retained(request):
     return receive(EVIDENCE / request.param)
 
@@ -100,7 +100,7 @@ def test_raw_requests_executions_and_native_receipts_agree(retained):
 
 
 def test_latest_acceptance_contains_current_adapter_sources():
-    retained = receive(EVIDENCE / "local-04")
+    retained = receive(EVIDENCE / "local-05")
     manifest = json.loads(retained["source-manifest.json"])
     assert set(manifest) == {str(p.relative_to(ROOT)) for p in (ROOT / "toolchain").glob("*.py")}
     for path, expected in manifest.items():

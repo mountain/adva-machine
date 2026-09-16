@@ -6,7 +6,7 @@ bytes remain fixed. In particular, `inputs.sha256` is not an automatically
 updated inventory of the current checkout, and the frozen packaging script
 expects the historical inputs it names.
 
-The current first-party work adopts [Unknown v0.2](../Unknown-LICENSE-v0.2.md),
+The current first-party work adopts [Unknown v0.3](../Unknown-LICENSE-v0.3.md),
 with scope described in [LICENSING.md](../LICENSING.md). References to private
 licensing or authorized collaborators inside the old record describe that
 historical state; they do not add restrictions to the current dedication.

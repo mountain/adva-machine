@@ -7,8 +7,8 @@ name = "adva"
 version = "0.1.0"
 description = "A typed Lisp engine and interoperable IR for program geometry"
 readme = "README.md"
-license = "LicenseRef-Unknown-0.2"
-license-files = ["LICENSE", "Unknown-LICENSE-v0.2.md", "LICENSING.md"]
+license = "LicenseRef-Unknown-0.3"
+license-files = ["LICENSE", "Unknown-LICENSE-v0.3.md", "LICENSING.md"]
 requires-python = ">=3.11"
 authors = [{ name = "Adva contributors" }]
 classifiers = [
