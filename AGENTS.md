@@ -52,6 +52,20 @@ current documentary `adva communicate` route implements transport in this
 refined vocabulary. No new CLI alias or native interpretation engine is implied.
 The earlier content-preservation and receiving obligations below still apply.
 
+Mingli also retains both triadic readings: participant A / participant B /
+shared nature or object, and Surface / Knowledge / Substrate. Read
+`spec/framework/triadic-context-v0.md` alongside v2 and free process v0.
+Record their task-specific correspondence; do not identify them by list order
+or with C/S/T charts. Participant agreement does not discharge required
+object-related observations. The pinned earlier specifications and calibration
+remain unchanged.
+
+`spec/framework/triadic-free-theory-v0.md` develops the conditional mathematical
+criteria for this context. Its finite interpretation, quadratic and descending
+graph models require explicit scope, evidence coverage and cost bounds. They
+do not supply arbitrary-prose translation or actual world observations. Neither
+consensus nor zero pressure alone is a free acceptance criterion.
+
 Mingli Yuan's instruction, 2026-09-16: adopt `communicate` and its supporting
 events as formal framework vocabulary. Read
 `spec/framework/communication-v1.md` and ADR 0047 before designing exchanges or

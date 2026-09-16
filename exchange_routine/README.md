@@ -60,6 +60,13 @@ three readings, transport, interpretation, pressure, joining reserve and scoped
 continuation. It distinguishes the user's direction from a supplied finite
 chart calibration and the still missing heterogeneous communication mechanism.
 
+Its [successor context card](examples/free-context-v1.json) incorporates the
+user's clarification: participant A / participant B / their shared object and
+Surface / Knowledge / Substrate are both applicable readings. It keeps the
+earlier preservation requirements and open questions, while making the shared
+object's observation and checking boundary explicit. See
+[triadic context v0](../spec/framework/triadic-context-v0.md).
+
 ## Inspect and compare cards
 
 Use the existing project Python environment with its `blake3` dependency:

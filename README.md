@@ -37,6 +37,13 @@ The [free process definition](spec/framework/free-process-v0.md) and
 [finite calibration](experiments/triadic_free/README.md) connect initial
 anchoring, pressure, adjustment and balance while keeping native free and
 heterogeneous interpretation open.
+The [two triadic readings](spec/framework/triadic-context-v0.md) retain both
+participant A / participant B / their shared object and the library's
+Surface / Knowledge / Substrate organization. Their correspondence must be
+stated for the task; agreement remains answerable to object-related evidence.
+The [conditional theory of free](spec/framework/triadic-free-theory-v0.md)
+gives finite interpretation, balance and continuation criteria with proofs,
+counterexamples and exact calibration evidence.
 
 ```sh
 .venv/bin/python adva-machine doctor

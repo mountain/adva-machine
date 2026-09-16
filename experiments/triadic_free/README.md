@@ -15,6 +15,13 @@ this fixed-chart model supplies no heterogeneous interpretation search. Its
 single account also does not implement the `33/100` side allocations and
 separate joining reserve discussed in Research 0192 and 0193.
 
+The subsequent [triadic context clarification](../../spec/framework/triadic-context-v0.md)
+retains both A / B / shared object and Surface / Knowledge / Substrate. This
+calibration's supplied C/S/T charts are not an implementation or identification
+of either reading. Its contract, source pins, original card and evidence remain
+unchanged; the [successor card](../../exchange_routine/examples/free-context-v1.json)
+records the clarified inquiry.
+
 ## One fixed task
 
 Use one global integer charge `(p,q)` with `p=2` fixed and `q=-2..4`. Derive

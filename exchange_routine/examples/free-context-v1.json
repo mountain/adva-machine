@@ -1,0 +1,131 @@
+{
+  "schema": "adva.structure-card.v1",
+  "id": "triadic-free-context-v1",
+  "question": "How do A and B develop a common interpretation answerable to their shared object, through Surface/Knowledge/Substrate duties, and when can the process justify a scoped free continuation?",
+  "origin": "Successor to triadic-free-process-v0, file exchange_routine/examples/free-process.json, SHA-256 aa5f159e264a7c37d8ffff89784403a97d01cca1c2f561a4d6839a307362ea6b. Mingli Yuan retains both readings on 2026-09-16. Authored by ChatGPT (OpenAI), contributed under Unknown v0.3 through his authorized account proxy; not his review or endorsement.",
+  "objects": [
+    {
+      "id": "participant-a",
+      "meaning": "A participant with its own initial reading, methods and limited observations."
+    },
+    {
+      "id": "participant-b",
+      "meaning": "Another participant whose reading and methods may differ from A."
+    },
+    {
+      "id": "shared-object",
+      "meaning": "The natural world or object jointly faced by A and B; distinct from their descriptions and common knowledge."
+    },
+    {
+      "id": "surface",
+      "meaning": "The retained Surface role: presenting, interacting and making scoped acceptance visible."
+    },
+    {
+      "id": "knowledge",
+      "meaning": "The retained Knowledge role: constructions, interpretations, evidence and unresolved claims about the object."
+    },
+    {
+      "id": "substrate",
+      "meaning": "The retained Substrate role: realizing processes, carrying presentations and performing declared checks."
+    },
+    {
+      "id": "anchor",
+      "meaning": "The initial common question and object scope, each starting reading, methods, obligations and finite resources."
+    },
+    {
+      "id": "communicate",
+      "meaning": "Seeking and testing a common interpretation while retaining object-related evidence and counterexamples."
+    },
+    {
+      "id": "free",
+      "meaning": "Anchored adjustment toward scoped balance and justified continuation; native implementation remains open."
+    }
+  ],
+  "relations": [
+    {
+      "from": "participant-a",
+      "relation": "interacts-with",
+      "to": "shared-object",
+      "status": "adopted-for-discussion",
+      "basis": "Mingli Yuan retains both A/B/shared-object and Surface/Knowledge/Substrate as applicable triadic readings."
+    },
+    {
+      "from": "participant-b",
+      "relation": "interacts-with",
+      "to": "shared-object",
+      "status": "adopted-for-discussion",
+      "basis": "Mingli Yuan retains both A/B/shared-object and Surface/Knowledge/Substrate as applicable triadic readings."
+    },
+    {
+      "from": "participant-a",
+      "relation": "exchanges-readings-with",
+      "to": "participant-b",
+      "status": "adopted-for-discussion",
+      "basis": "Mingli Yuan retains both A/B/shared-object and Surface/Knowledge/Substrate as applicable triadic readings."
+    },
+    {
+      "from": "communicate",
+      "relation": "is-constrained-by-observations-of",
+      "to": "shared-object",
+      "status": "proposed",
+      "basis": "Common interpretation is tested against the declared object-related evidence; participant agreement alone does not discharge it."
+    },
+    {
+      "from": "surface",
+      "relation": "presents",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "An architectural duty in the same inquiry, not a fixed identification with participant A."
+    },
+    {
+      "from": "knowledge",
+      "relation": "retains-interpretations-and-evidence-for",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "The object remains distinct from what the participants have recorded about it."
+    },
+    {
+      "from": "substrate",
+      "relation": "realizes-carrying-and-checking-for",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "Existing homogeneous file crossings are transport; heterogeneous correspondence is additional work."
+    },
+    {
+      "from": "free",
+      "relation": "starts-from",
+      "to": "anchor",
+      "status": "adopted-for-discussion",
+      "basis": "The user names an initial anchor and internal pressure conditions; the formal theory states conditional models."
+    },
+    {
+      "from": "free",
+      "relation": "uses",
+      "to": "communicate",
+      "status": "proposed",
+      "basis": "Finite intersection, balance and descent criteria require concrete predicates, evidence and cost bounds before actual use."
+    }
+  ],
+  "preserve": [
+    "Keep source, dependency and evidence chains, old free candidates and their NotRun records.",
+    "Retain the original anchor, actual reached states, all residuals and cumulative costs.",
+    "Keep period energy, directional variation, execution cost and physical energy separately scoped.",
+    "A scalar improvement cannot override a protected obligation; missing evidence is not zero.",
+    "FiniteBalanceWitness grants no native free, human acceptance, source deletion or automatic continuation.",
+    "Keep transport integrity, interpretation checks, balance and acceptance as separate judgments.",
+    "Use exact resource shares and retain failed-join costs; checkpoint non-advance does not refund work or reverse external effects.",
+    "Retain both triadic readings; their ordered labels do not establish a positional identity.",
+    "Keep the object, its observations, each interpretation and the record binding them distinct.",
+    "Retain object-related counterevidence even when participants agree; the object need not speak or sign."
+  ],
+  "open_questions": [
+    "Which actual native task supplies the three readings and their checked transformations?",
+    "How are the required observations obtained through real receiving contracts?",
+    "Which exact release effects and human acceptance requirements belong to that task?",
+    "Which common interpretation and falsifiable comparison can the heterogeneous sides construct, and what does checking it cost?",
+    "Which shared object, question and observation methods make the comparison falsifiable?",
+    "How do the actual events realize Surface/Knowledge/Substrate duties without conflating the object with knowledge?",
+    "Which of the conditional existence, convergence and cost assumptions are supported in the intended actual process?"
+  ],
+  "request": "Name A, B and the common object; state both initial readings and one object-related test; map presentation, knowledge and realization duties; then check the conditional theory against one bounded continuation. Retain missing evidence and the proposed reserve policy."
+}

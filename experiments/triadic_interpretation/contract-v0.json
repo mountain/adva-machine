@@ -1,0 +1,81 @@
+{
+  "schema": "adva.triadic-interpretation.contract.v0",
+  "base_revision": "43c10a25b819436607a517ec7d5a05acc633e183",
+  "authored_by": "ChatGPT (OpenAI), contributed under Unknown v0.3 through Mingli Yuan as authorized account proxy; not his review or endorsement.",
+  "question": "Check finite common-interpretation obstructions, descending-graph acceptance and cost bounds, exact anchored quadratic balance and contraction, indistinguishable future extensions, and exact allocation reserves.",
+  "level": "External finite exact arithmetic; no actual participants or physical observations, no native semantic identities or free operation.",
+  "assumptions": [
+    "The finite candidate family and three comparison predicates are supplied and complete except explicitly missing-evidence controls.",
+    "State graphs have three integer-ranked vertices and descending edges; acceptance masks and unit costs are stipulated.",
+    "Quadratic readings share a justified scale by assumption, with fixed rational object observations; no such physical correspondence is demonstrated.",
+    "Binary response prefixes admit both possible next values in the declared family.",
+    "Trusted local Python integer/Fraction runtime and quiescent files; an independently selected contract digest binds the reviewed task."
+  ],
+  "cross_domain_justification": "These are finite models of the conditional propositions. They check the stated arithmetic consequences without identifying A/B/object or Surface/Knowledge/Substrate with a native machine, or translating arbitrary prose.",
+  "protected_obligations": [
+    "Retain all enumerated cases and explicit obstructions; missing object or participant evidence stays Unknown.",
+    "Keep finite model claims distinct from the written proofs, real observations and native authority.",
+    "Do not alter the historical free/transport vocabulary, library pin, old contracts, producer sources or evidence.",
+    "Use no automatic retry or expanded domain; incomplete checking does not issue a whole-family witness."
+  ],
+  "checker": "Set intersection versus bitmask intersection; all complete descending paths versus reachable-sink traversal and backward cost recurrence; substituted gradients, displacement energy identity and coordinate-update contraction using exact fractions; explicit divergent suffixes and integer allocation identities.",
+  "family": {
+    "candidate_count": 3,
+    "graph_vertices": 3,
+    "graph_edge_candidates": [
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "object_weights": [
+      1,
+      2
+    ],
+    "coupling_weights": [
+      0,
+      1,
+      2
+    ],
+    "prior_weights": [
+      0,
+      1
+    ],
+    "displacements": [
+      -1,
+      0,
+      1
+    ],
+    "coordinate_rounds": 4,
+    "max_prefix_length": 5,
+    "max_integer_budget": 1000
+  },
+  "limits": {
+    "wall_seconds": 10,
+    "cooperative_seconds": 8,
+    "cpu_seconds": 5,
+    "address_space_bytes": 268435456,
+    "max_work": 20000,
+    "max_report_bytes": 524288,
+    "max_contract_bytes": 32768,
+    "max_source_bytes": 262144,
+    "max_sources": 8,
+    "automatic_retries": 0,
+    "native_calls": 0
+  },
+  "sources": {
+    "experiments/triadic_interpretation/calibration.py": "eeec400c53fad6dfffe916cc1c9b93a40c4b8fa307e5f13623eb6965d630f64b",
+    "experiments/triadic_free/calibration.py": "bf2b3ab6695a08e492ddc4ab518cbbdf09a5674ddd4b9aade33c646492d0ea42",
+    "experiments/triadic_free/model.py": "bccf9d0b920059ccca47b62c8e6cb1c6e3a84612339e9b18914636da6d909ec4",
+    "spec/framework/triadic-free-theory-v0.md": "682b39f1777e8b191c86814dc70271873445840b75c4a85f4929f3e14b73bdb5",
+    "spec/framework/triadic-context-v0.md": "608a10adebd6dc63f4af8d4bf49a366c491043450bb5389f54807693f8a2980d"
+  }
+}

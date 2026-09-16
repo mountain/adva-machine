@@ -23,6 +23,17 @@ across heterogeneous interfaces. The [v2 registry](framework/vocabulary-v2.json)
 pins this successor and its unchanged predecessor. Its distinction is adopted;
 it introduces no native opcode, command alias or general interpretation engine.
 
+[Triadic context v0](framework/triadic-context-v0.md) clarifies the sides of
+that inquiry: participant A / participant B / shared nature or object, together
+with Surface / Knowledge / Substrate. Both readings are retained; their
+task-specific correspondence and observation obligations remain explicit.
+Read it alongside the pinned vocabulary and free specification below.
+The [conditional theory](framework/triadic-free-theory-v0.md) supplies proofs
+for finite common interpretation, anchored quadratic balance and finite
+adjustment, and counterexamples separating them from consensus or stationarity.
+Its [exact finite checks](../experiments/triadic_interpretation/README.md) keep
+model assumptions and actual participant/world observations distinct.
+
 [Communication v1](framework/communication-v1.md) formally defines
 `communicate`, `send`, `receive`, `acknowledge` and `accept`. Their definition
 is adopted; the general native exchange operation is not yet implemented.
