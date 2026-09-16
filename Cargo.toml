@@ -13,6 +13,7 @@ version = "0.1.0"
 edition = "2024"
 rust-version = "1.85"
 authors = ["Adva contributors"]
+license-file = "LICENSE"
 repository = "https://github.com/mountain/adva"
 
 [workspace.dependencies]

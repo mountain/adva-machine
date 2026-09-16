@@ -1,5 +1,13 @@
 # Agent instructions
 
+## Unknown adoption
+
+The project adopts [Unknown v0.2](Unknown-LICENSE-v0.2.md): public domain with
+a voluntary philosophical statement. Use [LICENSING.md](LICENSING.md) for scope.
+Contribution and attribution practices below govern this project's workflow;
+they do not add copyright conditions on downstream use. Preserve separately
+licensed third-party material and frozen historical evidence.
+
 ## Local toolchain continuation, 2026-09-16
 
 The user's latest direction makes this local repository `adva-machine`, owning

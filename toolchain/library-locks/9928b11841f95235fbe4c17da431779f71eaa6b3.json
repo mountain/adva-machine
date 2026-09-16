@@ -1,7 +1,7 @@
 {
   "schema": "adva.machine.library-lock.v0",
   "repository": "https://github.com/mountain/adva-library",
-  "revision": "f652709c5dd2aecc7ed319e54452df1d4f4881d1",
+  "revision": "9928b11841f95235fbe4c17da431779f71eaa6b3",
   "organization": "Open",
   "authority": "documentary integrity, not semantic admission",
   "interfaces": {
@@ -11,20 +11,12 @@
     "stability/epoch-0001.json": "research snapshot; requires its native library loader"
   },
   "files": {
-    "README.md": "b3be8097403079ae2c5ecd3426182941c0dec05a067fb6aed0125d5d9693ab87",
+    "README.md": "7ed012c0f22110912a292408f68b8db91d3fda0b6ad59c3c845d6b23e6a51854",
     "index.json": "f294c01b0513b24d4fa6bf7e46df2e0e3407ae6ca1b269f917d48d70bff99212",
     "math/manifest.json": "bf6b9a7418a713b51ffbec98a1ea642b516c6caa5aa81153731cf177f3ce6ddc",
     "math/constraints/growth-obligation-v0000.json": "8f3f457b4991752ec1284968c8e36feffb0ce59aa96d6f63993c3f98396a2c03",
     "math/constraints/growth-obligation-seal-v0000.json": "2513680a30871e9cbc2c5d74c8cea4d254f553eee0b2d7afdcce40335849c1cf",
     "phase-runner/run-program.adva": "202afe49560e453702f6ab4f3bfef6c04637691190c0505d940d5858cfc7dc8e",
-    "stability/epoch-0001.json": "eafbee5a0e8d56d326088c608ee34e3f5557c55a9f1cdb40feb7aa73342013bb",
-    "LICENSE": "7a06f4b738b6dce4deeea5471a051cbad92b1d8bb0265aa983678720a4acfdee",
-    "Unknown-LICENSE-v0.2.md": "7a06f4b738b6dce4deeea5471a051cbad92b1d8bb0265aa983678720a4acfdee",
-    "LICENSING.md": "3c997d20f3ce11ed9a5279135ccb903027a3f57ada9ea88543c05fd39bbaa90e"
-  },
-  "previous_lock": {
-    "path": "toolchain/library-locks/9928b11841f95235fbe4c17da431779f71eaa6b3.json",
-    "sha256": "53b7dad334a437d79daa92cc52cefc7aa75b9f47d61fb1a3d8f3d30ce23e1fa9",
-    "reason": "Unknown v0.2 adoption changes library licensing documents only; mathematical artifacts and obligations remain unchanged."
+    "stability/epoch-0001.json": "eafbee5a0e8d56d326088c608ee34e3f5557c55a9f1cdb40feb7aa73342013bb"
   }
 }
