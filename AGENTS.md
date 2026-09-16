@@ -55,6 +55,13 @@ work and must not be described as an executed exchange. Formal vocabulary is
 adopted; the general native operation remains unimplemented. Preserve the
 existing operation registry, schemas, historical records and pinned consumers.
 
+For compact structure discussion and repeated exchange work, see
+`exchange_routine/README.md` and the `adva-exchange` entry. A structure card
+retains the question, objects, relations, preservation requirements and open
+questions. Its read-only check does not authorize transport or prove claims.
+Actual exchange uses independently bound review/contract inputs and the existing
+Rust receiving profile; the supervisor preserves each observation and failure.
+
 ## Documentation language
 
 Mingli Yuan's instruction, 2026-09-16: prioritize English documentation for

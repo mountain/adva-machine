@@ -27,6 +27,9 @@ knowledge and library migration. Its general native implementation remains open.
 The [first bounded Rust exchange profile](spec/framework/documentary-exchange-v1.md)
 provides `adva communicate send`, `receive` and `acknowledge` for an independently
 reviewed documentary library entry, retaining its source home and obligations.
+The [compact structure exchange routine](exchange_routine/README.md) adds a
+short discussion card, visible revision differences and one command to run
+the existing bounded Rust exchange with its evidence retained.
 
 ```sh
 .venv/bin/python adva-machine doctor

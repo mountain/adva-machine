@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+"""Local structure discussion and bounded Rust exchange routine."""
+from exchange_routine.cli import main
+
+raise SystemExit(main())

@@ -1,0 +1,20 @@
+{
+  "schema": "adva.exchange-routine.request.v1",
+  "binary": {
+    "path": "/absolute/path/to/trusted/adva",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "contract": {
+    "path": "reviewed-contract.json",
+    "blake3": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "publication_record": "completed-publication-review.json",
+  "source": "/absolute/path/to/source-library",
+  "receiver": {
+    "store": "/absolute/path/to/knowledge/received",
+    "name": "independently-declared-receiver",
+    "context": "independently-declared-context"
+  },
+  "acknowledgment": null,
+  "structure_member": null
+}

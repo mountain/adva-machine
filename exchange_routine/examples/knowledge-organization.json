@@ -1,0 +1,37 @@
+{
+  "schema": "adva.structure-card.v1",
+  "id": "knowledge-organization-discussion-v1",
+  "question": "How should existing Adva results preserve both mathematical topics and the formation of concepts through interaction?",
+  "origin": "Mingli Yuan's proposal in the 2026-09-16 conversation; this compact representation and relation labels were authored by ChatGPT (OpenAI) under Unknown v0.3 and remain open to correction.",
+  "objects": [
+    {"id": "interaction", "meaning": "An agent's interaction with nature, including mediated observations and communication."},
+    {"id": "experience", "meaning": "Situated records of observations, actions, outcomes and failures."},
+    {"id": "concept", "meaning": "A named distinction or relation formed through comparison and abstraction, with its scope retained."},
+    {"id": "math", "meaning": "Mathematical constructions, explicit assumptions and applicable checking rules."},
+    {"id": "arithmetic", "meaning": "The current mathematical topic view for discrete distinctions, counts and constructions."},
+    {"id": "geometry", "meaning": "The current mathematical topic view for spatial relations, paths and transformations."},
+    {"id": "logic", "meaning": "The current mathematical topic view for statements, inference rules and evidence requirements."},
+    {"id": "physical-process", "meaning": "A concrete realization or intervention with a declared encoding, environment and observation method."}
+  ],
+  "relations": [
+    {"from": "interaction", "relation": "supplies", "to": "experience", "status": "proposed", "basis": "The user's proposed account of concept formation; no universal empirical claim was checked here."},
+    {"from": "experience", "relation": "supports-formation-of", "to": "concept", "status": "proposed", "basis": "The user's account of concepts crystallizing through interaction, rendered as a relation for discussion."},
+    {"from": "concept", "relation": "can-be-articulated-in", "to": "math", "status": "proposed", "basis": "ChatGPT's operational elaboration; this does not claim every concept has a complete formalization."},
+    {"from": "math", "relation": "has-topic-view", "to": "arithmetic", "status": "adopted-for-discussion", "basis": "The user-selected current three-topic organization; topic membership grants no semantic authority."},
+    {"from": "math", "relation": "has-topic-view", "to": "geometry", "status": "adopted-for-discussion", "basis": "The user-selected current three-topic organization; existing derivation obligations remain attached."},
+    {"from": "math", "relation": "has-topic-view", "to": "logic", "status": "adopted-for-discussion", "basis": "The user's placement of logic within mathematics as a subject of inquiry."},
+    {"from": "math", "relation": "seeks-checked-realization-in", "to": "physical-process", "status": "proposed", "basis": "The user's proposed direction from mathematical form toward physical process; a general correspondence is not established."},
+    {"from": "physical-process", "relation": "supplies-new-conditions-for", "to": "interaction", "status": "proposed", "basis": "ChatGPT's continuation reading; the cycle records a research direction, not a closed theory of nature."}
+  ],
+  "preserve": [
+    "Retain existing source, dependency and evidence chains.",
+    "Keep concept formation, mathematical justification and physical realization separately inspectable.",
+    "Finite checks retain their domain and unresolved questions in an open universe."
+  ],
+  "open_questions": [
+    "Which preserved observations explain each existing concept's formation?",
+    "What must each proposed mathematical-to-physical correspondence preserve?",
+    "Which parts of this representation need correction before a catalog revision?"
+  ],
+  "request": "Restate the structure briefly, identify disagreements or missing links, and propose one bounded next step. Do not infer permission to move files, alter checking rules or mark hypotheses proved."
+}
