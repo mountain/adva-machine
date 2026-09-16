@@ -107,6 +107,13 @@ no package registry.
 
 ## Subsequent integration gates
 
+The [formal communication vocabulary](../spec/framework/communication-v1.md)
+governs content exchange across these boundaries. A receiving contract and
+recorded outcome are prerequisites for treating a library or knowledge move
+as complete. Its general native operation remains an implementation task;
+host file operations cannot substitute for it. The existing native/profile
+catalog and frozen evidence retain their original versions.
+
 1. Common requests, reports and finite conformance for existing implementations.
 2. A small explicit executable-library import contract, distinct from documentary
    citation and checked snapshot loading.

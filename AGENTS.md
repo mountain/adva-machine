@@ -24,6 +24,20 @@ Preserve frozen paths/profiles and evidence. Knowledge consumers pin machine
 and library versions; a new machine commit does not silently upgrade those
 consumers or rewrite their old evidence. No library split is implied.
 
+## Formal communication vocabulary and content migration
+
+Mingli Yuan's instruction, 2026-09-16: adopt `communicate` and its supporting
+events as formal framework vocabulary. Read
+`spec/framework/communication-v1.md` and ADR 0047 before designing exchanges or
+moving knowledge/library content. Use versioned receiving contracts, retain
+source/dependency/evidence chains and record receiver outcomes. Direct copying,
+moving, renaming or Git synchronization cannot substitute for an Adva content
+exchange. When the required operation is absent, implement its declared profile
+before migrating content. Specification and code authoring remain engineering
+work and must not be described as an executed exchange. Formal vocabulary is
+adopted; the general native operation remains unimplemented. Preserve the
+existing operation registry, schemas, historical records and pinned consumers.
+
 ## Documentation language
 
 Mingli Yuan's instruction, 2026-09-16: prioritize English documentation for

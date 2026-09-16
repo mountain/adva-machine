@@ -21,6 +21,10 @@ The knowledge repository is introducing a
 [fixed-version consumer route](https://github.com/mountain/adva/blob/main/docs/KNOWLEDGE_MACHINE_BOUNDARY.md)
 that preserves input, execution and historical evidence dependencies.
 
+The [formal communication vocabulary](spec/framework/communication-v1.md)
+defines exchange, reception, acknowledgment and scoped acceptance for future
+knowledge and library migration. Its general native implementation remains open.
+
 ```sh
 .venv/bin/python adva-machine doctor
 .venv/bin/python adva-machine capabilities

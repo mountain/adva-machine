@@ -1,0 +1,60 @@
+{
+  "schema": "adva.framework.vocabulary.v1",
+  "version": 1,
+  "status": "adopted-framework-vocabulary",
+  "adopted_on": "2026-09-16",
+  "repository": "https://github.com/mountain/adva-machine",
+  "specification": {
+    "path": "spec/framework/communication-v1.md",
+    "sha256": "53e10429b608b2e6a6b4ccbe2f007f201217e5f5180a4280941a054c193a7599"
+  },
+  "decision": "docs/adr/0047-formal-communication-vocabulary.md",
+  "authority": "Normative framework terminology and requirements for future implementing profiles; no new native judgment",
+  "implementation": {
+    "general_native_primitive": "NotImplemented",
+    "wire_encoding": "NotSpecified",
+    "executable_conformance_profile": "NotImplemented",
+    "native_opcode_registration": false,
+    "neutral_carrier_mechanism_extension": false
+  },
+  "terms": [
+    {
+      "word": "communicate",
+      "role": "exchange",
+      "definition": "Conduct a contract-governed exchange across declared interfaces, retaining provenance, dependencies, evidence, residuals, receiver observations and permitted continuation."
+    },
+    {
+      "word": "send",
+      "role": "sender-event",
+      "definition": "Record an attempted dispatch of an exact presentation to its declared interface."
+    },
+    {
+      "word": "receive",
+      "role": "receiver-event",
+      "definition": "Record arrival and the receiver's observed presentation, source claim and context."
+    },
+    {
+      "word": "acknowledge",
+      "role": "reply-event",
+      "definition": "Refer to an exact reception and its recorded outcome without implying acceptance."
+    },
+    {
+      "word": "accept",
+      "role": "scoped-admission-event",
+      "definition": "Record receiver admission of a named use or continuation after the contract's required checks."
+    }
+  ],
+  "historical_source_base": "0c1e972d6b2b955b0a5361f755cf2560ce44a248",
+  "historical_sources": {
+    "docs/research/0139-library-six-phase-and-communication.md": "a1ad5fd99985ae9886f8c5b55356bbffd70751028734c5f1acfe6858453bced3",
+    "docs/research/0158-evidence/downward-interpretation-v0/downward-interpretation-v0.md": "ed8d71906539a4e97e1b0ee288a80e59c7771618fc205ac5c4fd3a50b5cd2835"
+  },
+  "historical_library_receiver": {
+    "repository": "https://github.com/mountain/adva-library",
+    "revision": "4a53db6493389e046bd7293be9e3ae335ea2e9c7",
+    "path": "symbol-surface/receipts/native-load-v0/README.md",
+    "sha256": "88026e4c07108227ba0f6553af80dd586e9aefbc57e12f6a03e2938424f559b3",
+    "scope": "Existing external documentary receiver; not general communication conformance"
+  },
+  "authorship": "ChatGPT (OpenAI), through Mingli Yuan's authorized account proxy; account use is not technical review or a correctness guarantee"
+}

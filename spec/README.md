@@ -13,3 +13,16 @@ records integrity, not semantic correctness.
 The common toolchain request/report boundary is described in
 [`../toolchain/README.md`](../toolchain/README.md). Its wrapper schema is neither
 a replacement for `adva.ir` version 1 nor a new stable Adva language.
+
+## Formal framework vocabulary
+
+[Communication v1](framework/communication-v1.md) formally defines
+`communicate`, `send`, `receive`, `acknowledge` and `accept`. Their definition
+is adopted; the general native exchange operation is not yet implemented.
+[ADR 0047](../docs/adr/0047-formal-communication-vocabulary.md) records that
+decision and its implementation gate.
+
+[The framework registry](framework/vocabulary-v1.json) pins the normative
+document and its historical sources. It is a vocabulary index, not a parser,
+operation registry or conformance result. `catalog.json` continues to pin the
+existing native contracts and research profiles independently.
