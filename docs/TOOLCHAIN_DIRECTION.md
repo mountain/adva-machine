@@ -4,6 +4,11 @@ Direction supplied by Mingli Yuan, 2026-09-16. Design and implementation by
 ChatGPT (OpenAI), through his authorized account proxy; account use does not
 imply his technical review or guarantee correctness.
 
+This is the primary English direction document for international collaboration.
+A [supporting Chinese summary](TOOLCHAIN_DIRECTION.zh-CN.md) is available.
+New design decisions are maintained here first, following the
+[documentation policy](DEVELOPMENT.md#documentation-language).
+
 ## Repository responsibilities
 
 The user's explicit current direction takes precedence over the provisional

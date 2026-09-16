@@ -1,9 +1,13 @@
 # Adva-machine
 
+本页为辅助中文导读。面向国际合作，项目优先维护[英文主文档](README.md)，
+新规范、设计与使用说明先以英语编写。参见[文档语言约定](docs/DEVELOPMENT.md#documentation-language)。
+
 本地仓库正在整合 Adva 规范、Rust/Python 工具链和 Adva 自身编写的有限工具。
 GitHub 原始 `adva` 将向知识方向发展，`adva-library` 的最终组织方式保留开放。
 
-先看[整合方向与当前入口](docs/TOOLCHAIN_DIRECTION.zh-CN.md)、
+先看[整合方向与当前入口（英文）](docs/TOOLCHAIN_DIRECTION.md)
+（[中文摘要](docs/TOOLCHAIN_DIRECTION.zh-CN.md)）、
 [工具链使用说明](toolchain/README.md)和[规范索引](spec/README.md)。
 本阶段保留原有路径与历史证据，提供共同验收接口；下文是继承的研究背景。
 

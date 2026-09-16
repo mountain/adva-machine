@@ -3,6 +3,24 @@
 This guide retains the engineering detail behind the [project introduction](../README.md).
 Read [AGENTS.md](../AGENTS.md) before changing semantic code.
 
+## Documentation language
+
+English is the primary maintained documentation language for international
+collaboration, as requested by Mingli Yuan on 2026-09-16. Write new specifications,
+ADRs, design notes, API and toolchain guides, research reports, release notes and
+shared change descriptions in English first. Default documentation links should
+point to the English version.
+
+Translations and summaries in Chinese or other languages are welcome as
+supporting material. Label them as translations or summaries and link to the
+primary English document. If a translation falls behind, mark that clearly and
+resolve discrepancies against the English version. Publishing an English update
+does not require a simultaneous translation.
+
+Historical quotations and retained evidence keep their original wording;
+add an English explanation when needed for readers. This language convention
+does not change versioned semantic authority or evidence requirements.
+
 ## PSC0: a first program
 
 PSC0 is the finite, binder-free, linear program core. The separately versioned

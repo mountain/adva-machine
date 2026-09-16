@@ -6,6 +6,10 @@ history of `mountain/adva` at `bbfaf3a`. The original GitHub repository is inten
 to evolve toward knowledge; the eventual organization of `adva-library` remains
 open.
 
+English is the primary documentation language for international collaboration.
+Other language versions provide supporting translations or summaries; see the
+[documentation policy](docs/DEVELOPMENT.md#documentation-language).
+
 Start with the [toolchain commands](toolchain/README.md),
 [specification index](spec/README.md), [Rust entry](adva-rust/README.md),
 [Python entry](adva-python/README.md) and

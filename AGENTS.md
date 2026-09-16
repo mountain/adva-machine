@@ -14,6 +14,19 @@ this independent local continuation, commit completed work to local `main`;
 for machine changes. Preserve frozen paths/profiles and evidence while adding
 toolchain entry points. No remote repository rename or library split is implied.
 
+## Documentation language
+
+Mingli Yuan's instruction, 2026-09-16: prioritize English documentation for
+international collaboration. Write and maintain specifications, design records,
+user/developer guides, research reports and shared change descriptions in English
+first. Default navigation and references should lead to the English version.
+Chinese and other language versions are optional supporting translations or
+summaries; label their role and link to the primary English document. Correct
+translation discrepancies against that document. See the
+[documentation policy](docs/DEVELOPMENT.md#documentation-language).
+
+## Required reading
+
 Before modifying semantic code, read:
 
 1. `README.md`
