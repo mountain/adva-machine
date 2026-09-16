@@ -26,3 +26,11 @@ decision and its implementation gate.
 document and its historical sources. It is a vocabulary index, not a parser,
 operation registry or conformance result. `catalog.json` continues to pin the
 existing native contracts and research profiles independently.
+
+[Documentary library entry exchange v1](framework/documentary-exchange-v1.md)
+now supplies a bounded Rust `adva communicate` CLI receiving route. It binds
+one reviewed original entry, retains its home and obligations, and records
+documentary acceptance and an observed acknowledgment. General communication
+and native mathematical admission remain open. [ADR 0048](../docs/adr/0048-bounded-documentary-communication.md)
+records the operational boundary; the earlier vocabulary registry remains a
+frozen record of adoption, not the current implementation inventory.

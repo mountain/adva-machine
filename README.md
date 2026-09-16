@@ -24,6 +24,9 @@ that preserves input, execution and historical evidence dependencies.
 The [formal communication vocabulary](spec/framework/communication-v1.md)
 defines exchange, reception, acknowledgment and scoped acceptance for future
 knowledge and library migration. Its general native implementation remains open.
+The [first bounded Rust exchange profile](spec/framework/documentary-exchange-v1.md)
+provides `adva communicate send`, `receive` and `acknowledge` for an independently
+reviewed documentary library entry, retaining its source home and obligations.
 
 ```sh
 .venv/bin/python adva-machine doctor

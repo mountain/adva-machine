@@ -40,7 +40,11 @@ mod data_machine_v2_cli;
 #[path = "support/library_cli.rs"]
 mod library_cli;
 
+#[path = "support/communication_cli.rs"]
+mod communication_cli;
+
 const USAGE: &str = "usage:
+  adva communicate <send|receive|acknowledge> --contract <json> --expect-contract <BLAKE3> [profile options]
   adva library check --path <library-root> --epoch N --output <new-report.json> [--fuel N] [--expect-digest BLAKE3]
   adva library reuse --path <library-root> --epoch N --word N --input N --output <new-report.json> [--fuel N] [--expect-digest BLAKE3]
   adva run <program.adva> --output <result.adva> [--print]
@@ -109,6 +113,7 @@ fn run() -> Result<(), Box<dyn Error>> {
         .next()
         .ok_or_else(|| invalid_input("missing command"))?;
     match command.as_str() {
+        "communicate" => communication_cli::entry(arguments),
         "library" => library_cli::run(arguments),
         "run" => native_run_cli::run(arguments),
         "data-run-v1" => data_machine_v1_cli::run(arguments),
