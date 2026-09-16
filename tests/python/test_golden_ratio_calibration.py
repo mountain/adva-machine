@@ -66,6 +66,41 @@ def staged_copy(tmp_path):
     return root
 
 
+def withdrawn_resources():
+    """Only explicitly inventoried withdrawals may be absent from a public clone."""
+    records = load(ROOT / "governance/withdrawals/known-withdrawn-content.json")["records"]
+    return {"adva-library/" + r["path"]: r["sha256"] for r in records
+            if r["path"].startswith("golden-ratio/")}
+
+
+def require_complete_private_inputs():
+    missing = [a["staged_path"] for a in load(INDEX)["artifacts"]
+               if not (ROOT / a["staged_path"]).is_file()]
+    known = withdrawn_resources()
+    assert all(p in known for p in missing), missing
+    if missing:
+        pytest.skip("Full historical replay requires lawfully obtained external inputs: "
+                    + ", ".join(missing))
+
+
+def test_public_checkout_refuses_incomplete_historical_replay(tmp_path):
+    missing = [a for a in load(INDEX)["artifacts"]
+               if not (ROOT / a["staged_path"]).is_file()]
+    if not missing:
+        pytest.skip("Private complete-input checkout; fresh replay is tested separately")
+    known = withdrawn_resources()
+    assert len(missing) == 8
+    assert all(known[a["staged_path"]] == a["sha256"] for a in missing)
+    output = tmp_path / "withdrawn-inputs.json"
+    completed = invoke(ROOT, output)
+    report = load(output)
+    assert completed.returncode == 2
+    assert report["status"] == "Invalid"
+    assert "FileNotFoundError" in report["reason"]
+    assert any(a["staged_path"] in report["reason"] for a in missing)
+    assert report["cost"]["child_processes"] == 0
+
+
 def test_staged_index_matches_every_delivered_artifact():
     index = load(INDEX)
     assert index["schema"] == "adva.golden-ratio-resource-index.research"
@@ -75,7 +110,9 @@ def test_staged_index_matches_every_delivered_artifact():
     assert len(index["artifacts"]) == 15
     for artifact in index["artifacts"]:
         path = ROOT / artifact["staged_path"]
-        assert path.is_file(), artifact["staged_path"]
+        if not path.is_file():
+            assert withdrawn_resources().get(artifact["staged_path"]) == artifact["sha256"]
+            continue
         assert path.stat().st_size == artifact["bytes"]
         assert digest(path) == artifact["sha256"]
     excluded = {entry["name"] for entry in index["delivery"]["excluded_delivered_entries"]}
@@ -117,6 +154,7 @@ def test_retained_evidence_records_a_passed_bounded_run():
 
 
 def test_fresh_run_reproduces_the_retained_evidence(tmp_path):
+    require_complete_private_inputs()
     output = tmp_path / "fresh.json"
     completed = invoke(ROOT, output)
     assert completed.returncode == 0, completed.stderr
@@ -138,6 +176,7 @@ def test_fresh_run_reproduces_the_retained_evidence(tmp_path):
 
 
 def test_tampered_plate_is_refused(staged_copy, tmp_path):
+    require_complete_private_inputs()
     plate = staged_copy / "adva-library/golden-ratio/plates/whirling-squares.webp"
     plate.write_bytes(plate.read_bytes() + b"\x00")
     output = tmp_path / "tampered.json"
@@ -149,6 +188,7 @@ def test_tampered_plate_is_refused(staged_copy, tmp_path):
 
 
 def test_tampered_container_member_is_refused(staged_copy, tmp_path):
+    require_complete_private_inputs()
     index = staged_copy / "adva-library/golden-ratio/index.json"
     document = json.loads(index.read_text(encoding="utf-8"))
     entry = next(e for e in document["digest_records"]["container_members"] if e["name"] == "evidence.json")
@@ -172,6 +212,7 @@ def test_editing_the_frozen_contract_is_detected(staged_copy, tmp_path):
 
 
 def test_declared_pdf_metadata_must_match_the_bytes(staged_copy, tmp_path):
+    require_complete_private_inputs()
     index = staged_copy / "adva-library/golden-ratio/index.json"
     document = json.loads(index.read_text(encoding="utf-8"))
     artifact = next(a for a in document["artifacts"] if a["role"] == "source-object")

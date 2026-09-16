@@ -13,6 +13,7 @@ import shutil
 import subprocess
 import tarfile
 import tomllib
+from resolve_publication_revision import resolve_revision
 
 ROOT = Path(__file__).resolve().parents[1]
 REVISION = "caabb28b95bb7484680b8d0039fd5a571de421d6"
@@ -28,13 +29,14 @@ SNAPSHOTS = {
 
 def prepare(destination):
     destination.mkdir(parents=True, exist_ok=False)
+    effective_revision = resolve_revision(ROOT, REVISION)
     # A changed live checker/example requires an explicit new compatibility decision.
     for name in FILES:
-        frozen = subprocess.check_output(["git", "show", REVISION + ":" + name], cwd=ROOT)
+        frozen = subprocess.check_output(["git", "show", effective_revision + ":" + name], cwd=ROOT)
         if frozen != (ROOT / name).read_bytes():
             raise ValueError("live source differs from frozen replay: " + name)
     archive = destination / "source.tar"
-    subprocess.run(["git", "archive", "--format=tar", "--output", str(archive), REVISION,
+    subprocess.run(["git", "archive", "--format=tar", "--output", str(archive), effective_revision,
                     "Cargo.toml", "Cargo.lock", "crates", "experiments/labs-search",
                     "docs", "programs"],
                    cwd=ROOT, check=True, timeout=30)
@@ -67,7 +69,7 @@ def prepare(destination):
             raise ValueError("unexpected historical checker")
         shutil.copyfile(original, library / name)
     (destination / "provenance.json").write_text(json.dumps({
-        "revision": REVISION, "checker_revision": CHECKER,
+        "revision": REVISION, "resolved_revision": effective_revision, "checker_revision": CHECKER,
         "unchanged_live_sources": FILES, "snapshots_sha256": SNAPSHOTS,
         "scope": "Historical 0150 seed replay only; current reader remains strict.",
     }, indent=2) + "\n")

@@ -113,7 +113,12 @@ def test_the_module_uses_the_successor_and_verifies_the_frozen_digest():
 def test_the_base_commit_boundary_holds_at_this_commit():
     """The profile requires nothing under crates to have changed since its base."""
     active = load(ACTIVE)
-    base = active["base_commit"]
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "publication_revision", ROOT / "scripts/resolve_publication_revision.py")
+    resolver = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(resolver)
+    base = resolver.resolve_revision(ROOT, active["base_commit"])
     ancestor = subprocess.run(
         ["git", "merge-base", "--is-ancestor", base, "HEAD"], cwd=ROOT, capture_output=True
     )
