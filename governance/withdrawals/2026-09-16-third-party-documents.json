@@ -1,0 +1,878 @@
+{
+  "schema": "adva.publication-withdrawal.v1",
+  "date": "2026-09-16",
+  "reason": "These third-party document copies were imported despite receipts restricting full texts and rendered pages to local research. Public redistribution permission has not been established. Withdrawal is precautionary, not a legal finding.",
+  "records": [
+    {
+      "path": "trials/burau-boundary-pair-round-01/2607.05283v1.pdf",
+      "bytes": 2828411,
+      "sha256": "ecaf125b6075bcbcca9d7b9a55274cb1c8e16bb1bf22bbe0737bf25ded381c7c",
+      "git_blob": "265ac5b0aa6eeb779ed66454177f3f408becd063"
+    },
+    {
+      "path": "trials/burau-boundary-pair-round-01/9904100v2.pdf",
+      "bytes": 110820,
+      "sha256": "04e402f09205809eeadc47eaf7ccebc2cb18802c146c45923d9025be5fd8d8b8",
+      "git_blob": "e84f8d5a231e6b67976bc0a29f7858c33734e410"
+    },
+    {
+      "path": "trials/burau-boundary-pair-round-01/bbb-full.txt",
+      "bytes": 69051,
+      "sha256": "c0ccb6c0829e78932d81eb2b2793f75c92f4c78d86d987f39639b39fe1d46286",
+      "git_blob": "bf4fb0f263d8987709c11a7997e845c54cec22d7"
+    },
+    {
+      "path": "trials/burau-boundary-pair-round-01/bigelow-full.txt",
+      "bytes": 14318,
+      "sha256": "6258a46a2153393c27eb3976e1473e658bfd80057ff1aedf7fec633b2063f42b",
+      "git_blob": "48b084677ba2bcbbaf0114d3975800556b3cc4ea"
+    },
+    {
+      "path": "trials/meaning-pair-round-01/a-full.txt",
+      "bytes": 292561,
+      "sha256": "62823bea96116adbc313a638c4b8503356eaae02d15419bfa6d1f5b5041fee3d",
+      "git_blob": "bc10eff80a9e45c49780dbc6a60ec009a14a6090"
+    },
+    {
+      "path": "trials/meaning-pair-round-01/b-full.txt",
+      "bytes": 109007,
+      "sha256": "a918b693c2244865a31918fb789855d9383639e4f6d910a6060b5b31263d3b89",
+      "git_blob": "2a4ae03937f8a37f392552bfd6c051692cc8fa1c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/a-full.txt",
+      "bytes": 287493,
+      "sha256": "f10842b8b7167cf0897713924c4816b8e18a8c01f803d94353097bf9e510214d",
+      "git_blob": "d6a190870dbf0005590005f3b655f64784a01104"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/b-full.txt",
+      "bytes": 4805,
+      "sha256": "68b46f450990d7f1a09e0cfd3517f3726530757303a54b12e6f740c056f254c6",
+      "git_blob": "7a700f18cee5b33f45bf4e422af557856eef8974"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-01.png",
+      "bytes": 707566,
+      "sha256": "aafeb44a8287567ab9972736255571d01f4363fecb40ec9e2c11cc40e99cc18a",
+      "git_blob": "f7c0d6a44a6c08b3e3f25b638dd9fd26235d0f2d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-02.png",
+      "bytes": 605432,
+      "sha256": "d38b53529bd26ef994ade5106b7483f917c915f4cbe638f2a7757ac9dba81547",
+      "git_blob": "d01c4c2b9af422c39a2c5de78b17f51e61982a14"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-03.png",
+      "bytes": 803311,
+      "sha256": "9ed73637bda23baf2e5f16adda90895338836ebce2c114e46da4a66bec275a48",
+      "git_blob": "ab13419d56556e2eac0189b29ced88ad01aaf461"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-04.png",
+      "bytes": 536857,
+      "sha256": "9579a66bfd9f794181d33f4cf9dd3dc80cd0de170337d0909e5641e99277f40b",
+      "git_blob": "fdaf9b320df8fc9ec0eb74c4ffa6c6614c4e53e6"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-05.png",
+      "bytes": 279072,
+      "sha256": "4991140219a00866f9b70de29496ce079f0efdf4228d7ae545dccbeab69afb8a",
+      "git_blob": "3562686b58c13e2e5d224b109ca885e36ec9c580"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-06.png",
+      "bytes": 159826,
+      "sha256": "5083e705bbd2253a11a87c02a6e1745f0ab6b710b12056db846d8ec70cb56b74",
+      "git_blob": "018a12e7468db46a058cb729e4b7ca73dfb91239"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-07.png",
+      "bytes": 616975,
+      "sha256": "7562ba94cd2142c0c37cda09328e844f0a4566aa912fe10b37161e0600fda69f",
+      "git_blob": "87562df359664c998f2263052fd57f52de24235c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-08.png",
+      "bytes": 802582,
+      "sha256": "44e13a3b69a39db84c40f70c2cd7210882e24d33521131d076410d61241b28e6",
+      "git_blob": "7e8fa6c2c5b97623609ce67b2090ab241ce0bc2d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-09.png",
+      "bytes": 195055,
+      "sha256": "be0e96ec87e5f978575389de8e56618ce85b2cd407e4e24aab5d6f36718bb8b4",
+      "git_blob": "b04b9f6bb298ea1e5c179fcd5e5ba934984a055b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-10.png",
+      "bytes": 323068,
+      "sha256": "c6c1ca6eaac8549cfc9d297e05d9f21da5f574e67a4182352b307eaadbd5cb20",
+      "git_blob": "359645db6106324bace3b6fc5679a217221fa1f0"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-11.png",
+      "bytes": 241825,
+      "sha256": "eb600701c2a85453ab8bf78ec10c0225b612fc0504c2931583988116da008312",
+      "git_blob": "c3764e1dad08a18a5ef3adc2bd1be17bf8df558d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-12.png",
+      "bytes": 316103,
+      "sha256": "8df10dbe3efd0a57853f2d401bc5588cbb7dc973adafa6592df8adc0369ea0f7",
+      "git_blob": "1463c933d67fd7fb0c1fa080c567faaa92513f2c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-13.png",
+      "bytes": 382545,
+      "sha256": "999dd7eda4b135adf4fff9e28a56617723523c977c80361ca58814081473c218",
+      "git_blob": "d791dacc72fd33b4bba00c6c9b647dee65b195b5"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-14.png",
+      "bytes": 482968,
+      "sha256": "f1d332163bde639583902a897e3d678e188b63e982d05e6026d07436e4f410d1",
+      "git_blob": "cae0927b4b04a3d6a9f3604039a38ca41b3dcd92"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-15.png",
+      "bytes": 397622,
+      "sha256": "ee828ea44a5be73c7a7ed9f17241f1962e9d9a4bf2112c3f5c64cfe25d5fce7b",
+      "git_blob": "900a874311d891d5659f1654ca83f3e669853803"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-16.png",
+      "bytes": 255837,
+      "sha256": "83780ee3936f8fe0416c4b45357b11b7e11ae1e68fda23535799f48b28be4d00",
+      "git_blob": "5ea514d5150bf1a4bd888113b6c0cd9fa7a5b6a3"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-17.png",
+      "bytes": 335477,
+      "sha256": "04fb66fa45a136c43dde1d0a3c6f0d8ca4121bcca0a049030d8178eddec09e99",
+      "git_blob": "ec7a96db2147dfb37e8e1a71d4ff70348744f537"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-18.png",
+      "bytes": 437738,
+      "sha256": "f7a6921b2fc9dbdda37b94b8e0c13ab32d487aa1c8708bedad560c60a655a04f",
+      "git_blob": "2a3059ceafb188442a6908adb7a1b250b2c26f2f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-19.png",
+      "bytes": 386499,
+      "sha256": "481f4ffa94307a5b1c9167bdcd37593bcec003307eb6ad06afb11645a27bac59",
+      "git_blob": "53454dc1ffeb8bc2d6dc21351f7b478d53701ba5"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-20.png",
+      "bytes": 435088,
+      "sha256": "91f86e460829b20c8b933effd018f08a8a3af79314c35f7abf3a6c8da94dcf67",
+      "git_blob": "8df7b34eb3ec1c4b997cd01b210bbe1a10e1a161"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-21.png",
+      "bytes": 414077,
+      "sha256": "4244b46a84ede523367d3eb96edce26c1bbaf5782e4cc5174ff43d79d3a6eec9",
+      "git_blob": "5a2a528a4def3836d3a62e9dc16e6954d4de1c0e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-22.png",
+      "bytes": 430593,
+      "sha256": "a0c59155ce92c8e235dc19974dbf82bdcc6c8b0d5434076942e974b8b7b0fd01",
+      "git_blob": "22e25318caa1a112e9c2cd110f8cd804fd49fe40"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-23.png",
+      "bytes": 630228,
+      "sha256": "4a0a2ef936c881073d9f03506f1e22f3adee83b3b661a20713b39402c06b1339",
+      "git_blob": "ff51cd122df29159b9a7b13303cf8f7a7552595a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-24.png",
+      "bytes": 334279,
+      "sha256": "d1ee921032d8ca0f12a495199fea23caf58f5fea108ce6ac084f7afefbeb0371",
+      "git_blob": "f076f573baf992848cf2dfa2fc2e1659868834dd"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-25.png",
+      "bytes": 316103,
+      "sha256": "8df10dbe3efd0a57853f2d401bc5588cbb7dc973adafa6592df8adc0369ea0f7",
+      "git_blob": "1463c933d67fd7fb0c1fa080c567faaa92513f2c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-26.png",
+      "bytes": 368300,
+      "sha256": "c17349455bb9ae24180cdd6c01e3986a46fb0458a9fbfc5ce2dd44c10d96a999",
+      "git_blob": "279aecf1299ecfc0f4c988a9375b337e6f2bccbd"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-27.png",
+      "bytes": 385250,
+      "sha256": "5e9bdd13805ae3b5245438e1ffbf1f95aa90ddfaf7f2d42e074fad53bec36dec",
+      "git_blob": "246c6a93098d3ddc5d399ef3460ec416718cc9a9"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-28.png",
+      "bytes": 555746,
+      "sha256": "2fbf22cbf16a1a3c25c47c781e991fdc17c177a355a96aa5113e5e579296e4f5",
+      "git_blob": "4c0ae97a74ef88e38a78ec160b112c9c877577b0"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-29.png",
+      "bytes": 806919,
+      "sha256": "f10f1a457daaec6413729d91b135eaf9b828eec7b3847d3c6237f9c385a431cb",
+      "git_blob": "4bae5e001089772bce63e77985cc3e5ba3209540"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-30.png",
+      "bytes": 308110,
+      "sha256": "c3efde82778b1ce0492b8ce25df6aa4dddbbc3c945316285f37ca14ae3d7cf06",
+      "git_blob": "ec220383c1ffdfe771a9f088a725dc7b20a4ba2c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-31.png",
+      "bytes": 400322,
+      "sha256": "7a334113edeb84950a05af342e4c9403fbd74bc546ac7bccb5d51985c74eba55",
+      "git_blob": "e21e4bea43c5073a6cd88c0c11af262ba85a5a3a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-32.png",
+      "bytes": 187692,
+      "sha256": "8c1f6d29b7fdd99794e6e4193b935e6296ac1137883376c725bb17c31e545759",
+      "git_blob": "5e9a7fca2629ae12dd46c129fb5f4e274f3cfe5e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-33.png",
+      "bytes": 579001,
+      "sha256": "18f3a488e9792bf6db7549b4f61fa52655d33eb750db3f868cfdb655540dfc00",
+      "git_blob": "9f1e54305d9d32fadbf00b512265d023c53422af"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-34.png",
+      "bytes": 806092,
+      "sha256": "55f18dbe92c0dbb3a1418b829413d9043c87c5bc4ed811d55db0c9ba0da67c64",
+      "git_blob": "0153934d6a0fa89ba899f7e105dfacbed930f06e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-35.png",
+      "bytes": 728072,
+      "sha256": "a006f9e0cf66f3c7177f84f550a21f736dad726466e794a6b2b32aeb7996a5e5",
+      "git_blob": "e4363e0070f3521e7f002302ed17414b959efd3f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-36.png",
+      "bytes": 466583,
+      "sha256": "686f0ae15a0a80dbde773e167ab8210c8b5121e33265d045de0849648c3770fc",
+      "git_blob": "4726dac8092c0fa9e819a6c2ded38353b888a78b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/alpha-37.png",
+      "bytes": 763498,
+      "sha256": "1946a585d848b602e9383a63ce100a4ba27df8d16e700bf46147ba6c8079223d",
+      "git_blob": "5c86ac23e02d2a5b22ea03c67e78a3eee11bd21e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-001.png",
+      "bytes": 386571,
+      "sha256": "01456cd86a012d82bf7a5d6ed2ce55b2c00881ff8a24847bf413fafbf2c2ebac",
+      "git_blob": "c81c07d08d462248ec5c7701ec6b19e2b4b1947b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-002.png",
+      "bytes": 422869,
+      "sha256": "7e10dcd90461b666423c7dafc6590183a697ae78be2f819cbbe5b60ad414c865",
+      "git_blob": "d84cac888f8543532c0a8363975843d61d2a17fd"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-003.png",
+      "bytes": 129076,
+      "sha256": "e5fdf10657bbe1797c665978a089cbaa09757d349eed8159e587718b0eef7bdb",
+      "git_blob": "d414760dbf5c19c6de6306d2ff7749b7edfd5bc9"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-004.png",
+      "bytes": 356767,
+      "sha256": "0fda84ce66e26e0efb20c654c04d992b69b4053d90a06ba33d65f67b8930c003",
+      "git_blob": "9a708579225238b62c416b88db20ec6d08564321"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-005.png",
+      "bytes": 306072,
+      "sha256": "6ed2f4b9f93655a1217ff42b8f02b62901d9c9c96f3c5b5ada514a81765c2bc4",
+      "git_blob": "aa8e54d49d3551b31279cb2083abe5620bb03678"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-006.png",
+      "bytes": 278222,
+      "sha256": "d541a15e7ae6d7377918825508b7bb84647a6d4ed6878ce4f0c2dca4c8671949",
+      "git_blob": "9408d70b8d0d7d918aedc5b42e4c2533c08e54ee"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-007.png",
+      "bytes": 404926,
+      "sha256": "edb60787975d0e6970d805693c73ace8e92341029f8f386b16bd1e07852020ef",
+      "git_blob": "f042a8aa76f9decad642e4dc2bfc87a547073cc9"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-008.png",
+      "bytes": 228931,
+      "sha256": "9bdfcd910077f3bf62b12856112357bc5e0fc45c88a042588292f287ab41007f",
+      "git_blob": "1c6254dcc9c87d03a08007047e186f266e46f5af"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-009.png",
+      "bytes": 551726,
+      "sha256": "c2a6a4e344b9fa1502038e37073de93e6957d3acf868e1e3292224eb6f87d2cf",
+      "git_blob": "76c30cd41d754dbffb2e56d5003893d3505d0b64"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-010.png",
+      "bytes": 319380,
+      "sha256": "1d35f8fa99629f1f2bd996e9a371a00a61a4c6ada9b0aa61cc88eece69cb2fa0",
+      "git_blob": "4753cef017502f4fe33fc70d6596ca6d2668f675"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-011.png",
+      "bytes": 255646,
+      "sha256": "1dcd23d8c3785566fec277fc7b2ac3cf1a2803ef01b4de502fec09f520c0c75f",
+      "git_blob": "42caea73d80d907956cf90ae0f6d658cdf7dea1e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-012.png",
+      "bytes": 342094,
+      "sha256": "798bfd474ddd0dc3970571879eb8b1e5238903460ba5676d2eb1563bc9b4c247",
+      "git_blob": "f7f3713f981e0282dee8debf8a1f6c370df3a123"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-013.png",
+      "bytes": 425019,
+      "sha256": "153a95b9e7c5646e4c1c3a3c491d42a8963b6d16f5bbf4cfde3e16077721b3bb",
+      "git_blob": "5f9362d7d1bc6c5bcaef2758fdf66614b9ad5d31"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-014.png",
+      "bytes": 236206,
+      "sha256": "533fee2b7343cdeb94edb8d8cb0ecec4dd0353d507ba50b8da75c13cbe58246c",
+      "git_blob": "8936440ea26d29d19a08aa4acadad5a00ae9d762"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-015.png",
+      "bytes": 517855,
+      "sha256": "446a0a4f07c432d6d787955c8d3587dbc8be28a7dfc2cf32fb73604bfb4eb124",
+      "git_blob": "11e2c35f769835195cc7274b1e931036979736a5"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-016.png",
+      "bytes": 578982,
+      "sha256": "75424a6952e520192a420ff5cbeed257421d5a8bf2a0ca2f302ef1131991e846",
+      "git_blob": "854eaa063bac7c8b912ae102dd363d72818d029f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-017.png",
+      "bytes": 484207,
+      "sha256": "b03a5f98a42a738827c8c4797f8238fe618a412c8282ff2b7a8c9875c44f8808",
+      "git_blob": "f10090030525ca9838a31697ca27416985d63b59"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-018.png",
+      "bytes": 448295,
+      "sha256": "c82f7017b32b3aff6fc7b2b1121c3212ebd5536b984479fa75b22214443357cd",
+      "git_blob": "5f28e6268f03e9fd4a8ec79d12cab65beaa86cf9"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-019.png",
+      "bytes": 478475,
+      "sha256": "e32ec0f68d070a7ff2b9c4d2eaa8b9f78944f25587dadb45dc1eac465766452c",
+      "git_blob": "5d56253aa3f8b7590f04bc647ddf33ad0c95ecc2"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-020.png",
+      "bytes": 474122,
+      "sha256": "4fe6d781b761972fbc3d9a6331346ca34b367bab867f287f901cf48ac9923b79",
+      "git_blob": "ed99a8bffbd168f4f680b0d70dfc48401656290f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-021.png",
+      "bytes": 485205,
+      "sha256": "26aef66c4ddc57e17f8b4ac9bc6ae0319173b25f669e0412ea2c9552ea3e4fe4",
+      "git_blob": "ba257cb9235118e13b5a648e6a7276e80bde2006"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-022.png",
+      "bytes": 461216,
+      "sha256": "75d06b085bd7536198a6c4c3d231380a8d0d817a8676c1f34bd32882867925dc",
+      "git_blob": "86a1f8227b7191ecc69696dede2c5236bec68cb1"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-023.png",
+      "bytes": 165234,
+      "sha256": "bbe0a635fc0f90588a8e9f43080477f6936320e0737e61aeb5d961e1320b83db",
+      "git_blob": "69835fa4dda598e10d7f8c2090b13035119d89fd"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-024.png",
+      "bytes": 401866,
+      "sha256": "3119c6e53b479eb5ef6955d9852f77b42f78f49ad32df42ee0fa0de616f9eb32",
+      "git_blob": "2eb7816deb26b89142b41a7d61fe44970aff397b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-025.png",
+      "bytes": 422975,
+      "sha256": "a2e5d7c79065c04141616ca675afeef197e1e2f5f4fe98d1fc8a3ceb9febc196",
+      "git_blob": "8f421f1d505f5ec75d3b8fea5470a05cb6afbd56"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-026.png",
+      "bytes": 386008,
+      "sha256": "516f54f73a40c2607c8838d7b50389666a3a44af6d66219e99ecff42a20a8212",
+      "git_blob": "f3a781d81be498f1c16535ed9c3d8e60852a44e2"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-027.png",
+      "bytes": 356550,
+      "sha256": "48a164c8462ed4d7d4d29e23ffc001d40043b3db448aa637a9731b5d556de2e9",
+      "git_blob": "5d86b2c1b912f984b2bc3793749288e5a6457df1"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-028.png",
+      "bytes": 292380,
+      "sha256": "6df73998d41a4b76edba508010e3df3868d6af77d8c489ca5ade78d2449a6459",
+      "git_blob": "8b61c83015302de3bc594de553237d4abdac9376"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-029.png",
+      "bytes": 390891,
+      "sha256": "dd618048a7df298edf17e76c51dc789cfdee5a60dbef8c4a2b309c97b6fd54ec",
+      "git_blob": "ba5acc5f132af376ed888efc9c59f8ea40fa8f5f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-030.png",
+      "bytes": 257586,
+      "sha256": "8b7cfccb4ee928ca3568861c7c3190e68848663be38c31328a516b78a41b0834",
+      "git_blob": "34d7a7e2c5e08b3a975db508a9a85b5a0e08a62c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-031.png",
+      "bytes": 395264,
+      "sha256": "aa9efabcc983c3a1e838f5375468ea92973f8bc70105a9f5c895bedd0deb1702",
+      "git_blob": "0dd4ba4e9a1500f825da2fc12c5eebb5fa127294"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-032.png",
+      "bytes": 235747,
+      "sha256": "27edfadd59a145782d9b1a13441e59f19784ad50ebb7efe12f2b51f652e2ebec",
+      "git_blob": "2b92de8cffb526ae1265128e89e04844a2f953c2"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-033.png",
+      "bytes": 175763,
+      "sha256": "b12c57fa31c0bdf36249030a70604027ca06fff792a575d98328a86cb07ed7ff",
+      "git_blob": "3750ce1c83816b4cee1f7b9bcb8ba41fa5f2cb42"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-034.png",
+      "bytes": 178135,
+      "sha256": "d4f21c196ba8be396c6e255f1d2817d32d0eb96bc5a9b1fa548640593793cf8d",
+      "git_blob": "951ff769716f9201ca1dffb408989651e4061df4"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-035.png",
+      "bytes": 252035,
+      "sha256": "fdaf67a1b5c14f2afb8342d2835460cb81d63bd12d0c80ea584850733d955da7",
+      "git_blob": "b4ec3bd73021acbe1be3030687a72b27b6225c96"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-036.png",
+      "bytes": 360940,
+      "sha256": "da2f3de1053b7d21ae7291f6aec69d0ab72e11a17f088ccfeb451f9827da2d9a",
+      "git_blob": "0556f065caaac05a971701470a81b3ee46ebecd0"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-037.png",
+      "bytes": 405698,
+      "sha256": "bfce865cca9e18155270caf87b749944758ebf301f189426a637b4ed859cd782",
+      "git_blob": "3b25291a028813502ef2ec5045797edf9039e92e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-038.png",
+      "bytes": 589938,
+      "sha256": "83858e8aaee80416458bd22c537966e0a2a423388446f798559f08c19bd0e5d2",
+      "git_blob": "3bf8e6ca89012576f99a206c5ade038db54ff3b6"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-039.png",
+      "bytes": 345725,
+      "sha256": "2eb0c3798b923134c5042d5e42ad0bb5ccbe02039d17febbfc357518c510241e",
+      "git_blob": "5c166fa4c1fd2c473651dbf1fcdced53593683f2"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-040.png",
+      "bytes": 21092,
+      "sha256": "2dd18313a97e0f0740bbf7fab4f84407c2a1fdb0d3bf2e9f3b00b668f3380d21",
+      "git_blob": "965558a73269f68afb51831d45b8898bfd921c23"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-041.png",
+      "bytes": 147583,
+      "sha256": "0e7e183a2e74fce2f9be1455346296330b246b40bf2b70450eae06132acd8e3e",
+      "git_blob": "beec5ff1eadbb35c3ac401f853ff5eaa9323e523"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-042.png",
+      "bytes": 454652,
+      "sha256": "dc3237e336c8aa92612c7a3046a00feb0bc6c91953e362ab18ede5a3880388c5",
+      "git_blob": "b967427362b20d2220b4e310fe343926da437661"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-043.png",
+      "bytes": 455281,
+      "sha256": "312d18c56557f9a48b21d1bc0d824a10fe315dda0a510e21601d4ea1ec43be4f",
+      "git_blob": "ba18631d256116015eef661cac7c9c1a4a11903b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-044.png",
+      "bytes": 274429,
+      "sha256": "0a3a25309eec88564d77b7c07cf8f116445135b3e6000c835a77b99c02e2b3b5",
+      "git_blob": "7ffc9880e84293281cbe5bd477c529dcca2142fe"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-045.png",
+      "bytes": 460318,
+      "sha256": "7f9c3d809a59a0d85350e6a6f7c4815f58bdc74fdb13284f1c3a71ddb9f98fb9",
+      "git_blob": "a9fd98da587eb76d95cdce4df0b5d651233ffc2a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-046.png",
+      "bytes": 380789,
+      "sha256": "3ffd6f5012229759440aa301e00f2e5f36d8369dc2b1c0b8524140fc0a6973c4",
+      "git_blob": "e8bdda26efc10460998021349234e9ef332cfb73"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-047.png",
+      "bytes": 398763,
+      "sha256": "a537a14238d4dfc8ae09a78b73cca278f8d0d286d2d8eba99288cdbf326c7481",
+      "git_blob": "9a2eff1dffb7e6396aa86cbaddf6f4a2a279c4c3"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-048.png",
+      "bytes": 310339,
+      "sha256": "0475219398bf1891450207aba1ee8594f7552e745c593e374c84643563a69919",
+      "git_blob": "b7820aab2d74c890157143e1dae349ae6336d653"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-049.png",
+      "bytes": 389034,
+      "sha256": "2e0491fd4def81467ddc045665cf6d739322ea15860137733f623190373b9feb",
+      "git_blob": "a44b90a4aba81c1123a84a3b74a86d7d17458b5d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-050.png",
+      "bytes": 417199,
+      "sha256": "2fede6ca9f9e89c06270fc44fa2f43da2e08370ea0a4378db60a8f23d4575fa7",
+      "git_blob": "b6c4ae4a7202507ffec144b492627d99a8bb87fb"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-051.png",
+      "bytes": 340293,
+      "sha256": "846382049663d2123cebffc0cbffcb36c2a5a6ac6fdf8afda6148c4e95402ac9",
+      "git_blob": "d1db7e4b2382eecd0437f6dd944abede7c455f0d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-052.png",
+      "bytes": 478256,
+      "sha256": "368358f0f5cbb24e3d3fbd1a743c60848752bc2132cc3eecb55a2f9f9c0a7294",
+      "git_blob": "7b74f9500483d1c6a77e8b3840758c517ac5abe6"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-053.png",
+      "bytes": 389647,
+      "sha256": "491239cefec8cf4d405e897a5de69107f90e2c2fb7c6fe669286f21adb3dc2e3",
+      "git_blob": "08d1bbe1fecfb5adfbc278724ca14be03be2a944"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-054.png",
+      "bytes": 391894,
+      "sha256": "10bb1e36e8d02478604f3f7c71318b427c7491e6f7759f5329a786db3f3b2828",
+      "git_blob": "aa337c0058827e42eb69f32f328bfdbae00fedc7"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-055.png",
+      "bytes": 397787,
+      "sha256": "4453d9f202b84cf6cca2b47807095b029646566c2186368af52b36880608b48d",
+      "git_blob": "4c04c2b5ed96e00c7cb1a0c384e3bafdd52f3872"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-056.png",
+      "bytes": 383927,
+      "sha256": "e0598db7f9fc1137d55004a8ece0b2989ec1abc654a51ae00ce336f62e88f5e2",
+      "git_blob": "406eb22d41250365db208ecf8d53bb1e2a5802ca"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-057.png",
+      "bytes": 218249,
+      "sha256": "fe7b87bdb33bd142e26b0765cc83aa9581cd8236c990232378cc5de312a7c0f6",
+      "git_blob": "ac305c6bd1933d16ccf1d7e062b1b1401a298584"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-058.png",
+      "bytes": 465534,
+      "sha256": "7e3e51168121ee03e7b21659916e5af607c7b8afebe5ccf6712d22a4184249d1",
+      "git_blob": "91c09d984a73ae8243be93a15d929634affc2b4a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-059.png",
+      "bytes": 427211,
+      "sha256": "9ead6d2d7dec1eab378e11a9e64a9d7e807d4ab17617bacecdd9f4f08abf88bf",
+      "git_blob": "69e09bfda90de6342b3c8e237957ffc3b23726bb"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-060.png",
+      "bytes": 250960,
+      "sha256": "8c0cfab9e15a5f49da52a6907b97c32942904db8f55676e8aaf8cffe7023838c",
+      "git_blob": "6e003b2fc251fbdf32bfc9c6be2b8214c00dfeda"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-061.png",
+      "bytes": 392595,
+      "sha256": "3541b2d7e8f94bce135b4548909df15d4fa8d6545bbdec1b83c1ebae3b1acc12",
+      "git_blob": "200c200b2990f9749036dd996f6ec420bcead9d7"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-062.png",
+      "bytes": 495103,
+      "sha256": "e045d5ed5d334aab70fa0a10bce663b73cd981950dabe733b0eb965ccf6ebc7f",
+      "git_blob": "488d6d9f7775a72c28c2b55d77cded4644d26770"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-063.png",
+      "bytes": 257748,
+      "sha256": "725538892809fbd38e4af2ce52101349ec10f2878010373d2f1e4ea58c626388",
+      "git_blob": "d767a660db712a589cf72ffe7b7ef14b2e420eac"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-064.png",
+      "bytes": 374722,
+      "sha256": "3f130c146103ee1dd70634ec289af8638f0839489ab9490a8ac6d7aceeefec30",
+      "git_blob": "288320d6b17cd9e6c214acf770d1798f559cfa0d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-065.png",
+      "bytes": 72509,
+      "sha256": "904dd32fb39f622795bba4873e6b0e26f7cb78ef8320dd55cc72bcbb4b0e26ec",
+      "git_blob": "6c19785796c66e5dc62604371990fe92ff822a3f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-066.png",
+      "bytes": 391265,
+      "sha256": "818a8a472c7919e51ea01b41cb63550aa5f348279852c339cc25a82fa5412854",
+      "git_blob": "8e4928bc9a867590420ca4efe88c5ecd3583c2d0"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-067.png",
+      "bytes": 210891,
+      "sha256": "b59d0e32dcd1399dbbc19a86b93a9b68ea65d143720930cd78280f8764ca90bd",
+      "git_blob": "c384a9ab0a398e3da091a9ed3f6c3cb1b7b2f24a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-068.png",
+      "bytes": 414794,
+      "sha256": "e801ed5b2602863b231bf45dd64b41719a271c7a41c48c1bc1b7d29e78b81eb3",
+      "git_blob": "11d5c443f3a7549e29498160a96b4f057caa9169"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-069.png",
+      "bytes": 352071,
+      "sha256": "0666537c79bb32d0fabf34bb31220430c043ce1bd28bc565f32f4844c764b2d9",
+      "git_blob": "812c19fc40872271ca36b9371d880f4cd294eb4e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-070.png",
+      "bytes": 203619,
+      "sha256": "d794c5a2c91d83e33175e28bd816e512713656ed72e4ffe59e799f86f1dbf5be",
+      "git_blob": "c09fbe68b0f9f5d9c8b805d09751851c40660054"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-071.png",
+      "bytes": 402554,
+      "sha256": "8399531e5b10ceeb44f9853504993e489ec8ae390abe5144d2d7f08ffc65138c",
+      "git_blob": "205c17518f51d5beeac35be697783a1c8fcbd3d3"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-072.png",
+      "bytes": 424149,
+      "sha256": "edf276a290a710df0870609564310a80739c011e7522c77acf6bebcb8e49aed4",
+      "git_blob": "b8b875fe62638111b94270dd10a4a3aed7ca1e4a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-073.png",
+      "bytes": 429941,
+      "sha256": "4f381d6efb6c4a5ee574acd3ff936508a44a00ea92ed60916ee8dadd733b6d5c",
+      "git_blob": "d57246b07cd9c4d330faab043f77aee5900d64f4"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-074.png",
+      "bytes": 471518,
+      "sha256": "0c52099a2dda46fd5881fd189eb196575da261db47780ceca0dfd1933a87b547",
+      "git_blob": "3fd3a82829127405e5ed783f7b59d80687604973"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-075.png",
+      "bytes": 368702,
+      "sha256": "24bb6fd5517fd0ee0e80baaa0345ef3dd4165e5b0d363e01578e8ddd825c5827",
+      "git_blob": "0d64c6c7e8067bbaaea574bfd6c84c27a0652221"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-076.png",
+      "bytes": 382412,
+      "sha256": "c94fa6bf1bf67a468eb5506a2d3c00c8e9b69f375e82674fe12c0128b5935fe5",
+      "git_blob": "3a48fc883298c487507e67b9f8c8e180b7453c6e"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-077.png",
+      "bytes": 340453,
+      "sha256": "c16fe3ed2db72806e7b7ee779520d7cb09b0b117fcaffacc5b04ab90e137ce5e",
+      "git_blob": "47f2030ec9a1d3d03bff3712a8312472913ef5b4"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-078.png",
+      "bytes": 248775,
+      "sha256": "541e3c65de10103940d1fdabb6efbf77f25525db7adb7f74dd546df6f93bae0a",
+      "git_blob": "dda605d520d034f61ea360fb6c63b547fa6a7006"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-079.png",
+      "bytes": 12573,
+      "sha256": "abc5997a793cd8560616a8629121fd2bdb0aac59d1353ed915c623a0523f9b4a",
+      "git_blob": "5af54c9d6d50c70c23ef09f94401342151367fbe"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-080.png",
+      "bytes": 491888,
+      "sha256": "051dbe611b15ae8ecb276125d8c84da9f338bd3c0c134bf7f1ffb9f225ece1b9",
+      "git_blob": "808093731e72f51cdaba83cb855d20e6082aef9b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-081.png",
+      "bytes": 36139,
+      "sha256": "4b815ca6f47e20071fa51529338b1a48b187f92c66e2c2b00823b5525f90286c",
+      "git_blob": "f63da07321acb9725693932ab50c0e2410aed6b8"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-082.png",
+      "bytes": 416467,
+      "sha256": "84b63fbc4cd2be0d5cf7568b9215a01bd3864b38f4fa234ff296f371a6c039e5",
+      "git_blob": "5d1c646a408e04e5c2041603342adb685809ee17"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-083.png",
+      "bytes": 336886,
+      "sha256": "679066e7eac803aa19423b781a1aedda5b28f6b91bd9aa839f4015f078bdba5b",
+      "git_blob": "47de07979eb3882600440edf7f5a29b2a88c280c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-084.png",
+      "bytes": 333985,
+      "sha256": "bf1f998c07a951576d9c8ee8f277f1396ff49d5889f58a9483c9587bfb9e513e",
+      "git_blob": "fe905f9d53c7fa16e536fee8272b641f70c9db8f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-085.png",
+      "bytes": 407577,
+      "sha256": "179965e73370494c7187c72511cb7a2d0ea96cfa7494919f3bbab6ae57e5c1dc",
+      "git_blob": "7dd0dba8d7d9df16eb74c3445fde335e39135dbb"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-086.png",
+      "bytes": 238897,
+      "sha256": "1f3f093544d7f9f73c38501df6c8ef3fab6daf58882bb01cf38d1cbb609f30c2",
+      "git_blob": "183cc3a3b4113ce641bca2bd9377b35342e775a9"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-087.png",
+      "bytes": 304908,
+      "sha256": "989e68ee0ee0f92cd61b8b16c9b27dc6e189bb4679962551b6bc52565b3b67ee",
+      "git_blob": "eedbd52fb395cababc17cb9e08b175db9383780a"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-088.png",
+      "bytes": 190663,
+      "sha256": "f672de8ac8a681114c810be1a4122a33afb383f1ee010c52da55d593f52450bf",
+      "git_blob": "c47b0e4a39ebcff4a0cfcf162581b83a022671d3"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-089.png",
+      "bytes": 146866,
+      "sha256": "11e1e54b507d1fc4362568a78bff173a315d9dcab96eb7900cb10c1984715149",
+      "git_blob": "cfe402ae0bbb27f382b16af96cd3a392ee63a825"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-090.png",
+      "bytes": 310711,
+      "sha256": "1dbc4a2d53e4d153af15df4b12aedf9067bb8cee70d41d2876249d19ea1cde5c",
+      "git_blob": "25fac329c137345f5a5e591af61590b86dc9287f"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-091.png",
+      "bytes": 240631,
+      "sha256": "d5a0b7fb21f510fa373cbb5f5e4d82bcf8057d9cbfc39dcda1b750fe8218a8c1",
+      "git_blob": "ccc24e9e6d809d6eb30d3626f417ac21e7eb917c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-092.png",
+      "bytes": 76114,
+      "sha256": "86ef685ff45f2d80b396b5b825c42a43d26b7db5a2da26c5bff0bf1e9a9f6f02",
+      "git_blob": "4756c42eb734cf9556c9d83501d91994d4f81649"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-093.png",
+      "bytes": 209941,
+      "sha256": "7ad1478e283a9d5c1def9072b610d2bd93d0bf4e95b818d0c3d31c3faf951912",
+      "git_blob": "40f0925b9a52fbc9c54672021451b0c2ed7273fa"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-094.png",
+      "bytes": 184390,
+      "sha256": "c012aa805317cf9cc524c29515f018bbf977bd0d5211992b93eb6699e13f4def",
+      "git_blob": "70b7840530f4e5a1f7e3b4d6b416be9147c0a67b"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-095.png",
+      "bytes": 168280,
+      "sha256": "5af384131e0b7d59a5ac20481aadb8b0380d0c363d8fa05327d7ee97c0addba5",
+      "git_blob": "2061dbf19a017a1976db9a11be14c618e6254d0d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-096.png",
+      "bytes": 214654,
+      "sha256": "71a8a8f7f44471509904b43b8f2bdc3c32472e31073cba56a34e3923dc7ed1be",
+      "git_blob": "9ffa6f76327935aad5bf5c5145ea40da7902617c"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-097.png",
+      "bytes": 95392,
+      "sha256": "92d5ee382748ff934fab972442863818cfc033a67c028d00b10b3f7f17092371",
+      "git_blob": "15829f57240f8c15dec2b5d026c755b9cb55334d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-098.png",
+      "bytes": 59400,
+      "sha256": "49fbfe1d4b1e64082374480d848892647bb6bbeaaf59fdb096372bcf81c4bd14",
+      "git_blob": "3ff4addfb4fd6ec2e5ed3560132cbbfae9fa6f1d"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-099.png",
+      "bytes": 336575,
+      "sha256": "15a6a83e0c9603cd862e27c9ad4c4418cd516edcd25de27758e0179520b3be44",
+      "git_blob": "00aad54740b3791f3b47b4649ee0a8b4f21dad76"
+    },
+    {
+      "path": "trials/meaning-pair-round-02/pixels/gpt4-100.png",
+      "bytes": 206083,
+      "sha256": "a6f0e849a4e661c40968f1566a4a908a2aab1c96747f4b32521a458ba6c3b440",
+      "git_blob": "ebe3cd50cf65ff002410c6c4b056f086cbe29ad9"
+    }
+  ],
+  "authorship": "ChatGPT (OpenAI), through Mingli Yuan's authorized account proxy; not personal authorship, review or a correctness guarantee by the account owner."
+}
