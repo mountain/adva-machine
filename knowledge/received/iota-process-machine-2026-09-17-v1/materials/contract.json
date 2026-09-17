@@ -1,0 +1,53 @@
+{
+  "schema": "adva.iota-interpretation-trial.v1",
+  "question": "Can the same iota-only package cross into both knowledge and machine repositories, with independently checked term/ledger readings and separately recorded documentary transport and executable observations?",
+  "level": "Finite external interpretation experiment, existing Rust data-machine execution and existing documentary transport; no new PSC0 authority",
+  "source_revision": "84285109349ce2d6dea8e6884d9cf99318cb49d8",
+  "machine_revision": "efa4031cd18b315b25179d1b4967ff6bdd5060a8",
+  "knowledge_baseline": "1bdadfc2a1263aac0139aeef9be69ed756e9c186",
+  "fixtures": ["independent-iota", "joined-iota", "nested-iota", "chain-and-single", "independent-identities", "identity", "double-identity", "discard", "discard-pending", "copy", "copy-pending", "changed-roles"],
+  "native_probes": ["identity", "discard", "copy"],
+  "protected": [
+    "Iota remains the sole source combinator; application and declared apertures are retained",
+    "Explicit boundary roles, event dependencies, cut terms, copying and discarded arguments",
+    "Full annotated process evidence remains an exact external reference; compact summaries do not replace it",
+    "Native source/occurrence identities, physical interpretation and general communication stay open",
+    "The old machine dependency lock, library catalog and original Java evidence remain unchanged"
+  ],
+  "comparisons": [
+    "Source tagged trees versus receiver prefix terms, with exact round trips",
+    "All local root reductions using an independently written spine reducer",
+    "All cut states and graph edges reconstructed from source and dependencies",
+    "Three observer clocks preserve dependencies and yield admitted threshold cuts",
+    "Cut-graph Laplacian partition coefficients and declared Wick sign",
+    "Native Rust identity, K-discard and S-copy execution with replay"
+  ],
+  "controls": ["swapped-iota-expansion", "same-bytes-different-role-reading", "equal-value-erases-process", "concurrency-is-simultaneity", "missing-correspondence", "missing-object-evidence", "exhausted-join-reserve", "erased-discard", "identified-copy-occurrences", "incomplete-cut-family"],
+  "limits": {
+    "material_files": 8,
+    "bytes_per_material": 65536,
+    "total_material_bytes": 262144,
+    "source_archive_expanded_bytes": 16777216,
+    "source_export_wall_seconds": 30,
+    "events_per_family": 24,
+    "cuts_per_family": 128,
+    "counted_work_per_check": 1000000,
+    "wall_seconds_per_check": 120,
+    "cpu_seconds_per_check": 110,
+    "address_space_bytes": 1073741824,
+    "artifacts_per_check": 33554432,
+    "native_launches_per_check": 9,
+    "native_fuel_per_probe": 100000,
+    "explicit_checks": ["source-preflight", "knowledge-after-reception", "machine-after-reception"],
+    "explicit_transports": ["knowledge", "machine"],
+    "native_launches_per_transport": 4,
+    "transport_wall_seconds_each": 30,
+    "transport_cpu_seconds_each": 25,
+    "transport_artifacts_each": 8388608,
+    "total_native_launches": 35,
+    "join_predicate_units": 3,
+    "automatic_retries": 0
+  },
+  "exit": "Stop the affected plan on unexpected mismatch or exhaustion, retain observations, and do not publish a positive interpretation result. Corrections require a separately recorded finite continuation.",
+  "authorship": "Codex (OpenAI), original contribution under Unknown v0.3 through Mingli Yuan account proxy; not his review or endorsement"
+}

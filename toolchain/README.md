@@ -118,3 +118,8 @@ The separate [process/cut v2 companion](../programs/iota-boundary/process-v2.md)
 adds checked finite dependency families, observer simultaneous layers and an
 interactive real/imaginary-time observation. Its four native requests use this
 existing runner; its external cut coordinates do not become PSC0 certificates.
+
+The [locally received iota package](../knowledge/exchanges/iota-process-machine-2026-09-17-v1/README.md)
+retains its own transport receipt and post-arrival interpretation result.
+It supplies an object interpreter and probes for this runner; it does not add
+an engine or change the existing profile.

@@ -1,0 +1,124 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "iota-process-machine-2026-09-17-v1",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/contract.json",
+      "bytes": 3472,
+      "sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6",
+      "blake3": "5dd643dc0ae511db697f37618c5ebc0037888836712a8fd2bd6a129cd4817ee9"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/iota.md",
+      "bytes": 7246,
+      "sha256": "f2f13d6fefafb11d451dcc46166e0b77f35013a971460387ee5c0e9b6bf72454",
+      "blake3": "8398b4fedb3ee3f7912afca8d4a9447e0f8f86e8def336c7580e612be87bb52a"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/kernel-program.json",
+      "bytes": 15808,
+      "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9",
+      "blake3": "fb4974b443d12e6f54b370200e40573343ee55467fc694389f4163563e278257"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json",
+      "bytes": 29903,
+      "sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1",
+      "blake3": "364362fcbf022330037e50b9027bcf7e8ec532971104f5b98101e0c2f48ff324"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/probes.json",
+      "bytes": 2935,
+      "sha256": "df23300aa61b7bf4c2e464c1dda68176518f72e2153396ea0524e4392a0cad49",
+      "blake3": "a3b8a27635ae27b1eda227d2d8237f8278293af520b5bfa2ca0caa1707e429c0"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/dependencies.json",
+      "bytes": 2481,
+      "sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3",
+      "blake3": "74da99dc8271d871d01bdbcb94b969acf23b8194a741bd4e05a793319a8425f5"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/structure.json",
+      "bytes": 3057,
+      "sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071",
+      "blake3": "1e6befbf7ffd9a65d79cc5564f3801b615f473e98a865d143c29b86daa7badb2"
+    },
+    {
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/check.py",
+      "bytes": 16749,
+      "sha256": "bf876a7a58cc0835ea72e9f5435853229bf259c1bc248c886ebe39232ce8c847",
+      "blake3": "244ff9060199f57929bb9bad699237ae6a49741bf0d6cc0ba8c0bdd52edccb99"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-iota/tree/602d5239011a3a463e72ce8db98e5f0da5c84690/exchange_v1",
+    "source_version": "602d5239011a3a463e72ce8db98e5f0da5c84690",
+    "creator_or_rights_holder": "Codex (OpenAI), original project contributions through Mingli Yuan authorized account proxy; account use is not his authorship or review.",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-iota/blob/602d5239011a3a463e72ce8db98e5f0da5c84690/LICENSE",
+      "https://github.com/mountain/adva-iota/blob/602d5239011a3a463e72ce8db98e5f0da5c84690/LICENSING.md",
+      "https://github.com/mountain/adva-iota/blob/602d5239011a3a463e72ce8db98e5f0da5c84690/exchange_v1/materials/iota.md",
+      "https://github.com/mountain/adva-iota/blob/602d5239011a3a463e72ce8db98e5f0da5c84690/exchange_v1/evidence/source-publication-review.json"
+    ],
+    "rights_holder_authority_evidence": "The full authored code/prose, original interpreter builder and synthetic source observations were reviewed in this session. The exact packet is contributed under Unknown v0.3. It excludes the historical MIT-derived Java and fixtures, external code packages, fonts, images and third-party quoted expression. Git history, source SHA-256 values and the earlier scope inventory bind the source; no broader dedication is inferred.",
+    "jurisdictions_and_limitations": "Project-original contribution under the dedication and fallback provisions of Unknown v0.3, only for rights contributors can release. This project review of identified expression is not a worldwide legal-status certificate and does not relicense referenced material.",
+    "incorporated_components": [
+      {
+        "source_path": "exchange_v1/materials/contract.json",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/iota.md",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/kernel-program.json",
+        "basis": "project-original",
+        "role": "ordinary data-machine program generated from original boundary_v1/build.py"
+      },
+      {
+        "source_path": "exchange_v1/materials/interpretations.json",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/probes.json",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/dependencies.json",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/structure.json",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      },
+      {
+        "source_path": "exchange_v1/materials/check.py",
+        "basis": "project-original",
+        "role": "original prose, finite synthetic process projection, adapter code or provenance metadata; no referenced third-party contents included"
+      }
+    ],
+    "transformations": [
+      "The exporter projects original v2 tagged-tree records into compact prefix terms, event masks, cut terms, clocks and final aperture references, retaining exact full-source hashes.",
+      "The existing original v1 interpreter builder emits an ordinary data-machine program.",
+      "Native envelopes encode these exact bytes. Receipts, acknowledgment and invocation outputs retain the reviewed original catalog entry and project-generated metadata. New receiver check artifacts are separately inspected before publication."
+    ]
+  },
+  "review": {
+    "reviewer": "Codex (OpenAI)",
+    "reviewed_at": "2026-09-17",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Admit exactly these eight original materials for the independently named documentary receiving context. Full payload expression, original derivation inputs, catalog entry and protocol output formats were reviewed. Post-reception comparison artifacts will undergo a separate exact-output publication inventory. This is not native semantic or human acceptance."
+  }
+}

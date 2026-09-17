@@ -1,0 +1,280 @@
+{
+  "schema": "adva.iota-interpretation-result.v1",
+  "stage": "machine-after-reception",
+  "package_sha256": "58aad08d14563201e8adb632db0a61d23016851878f103ba002da9aebba7e772",
+  "status": "ScopedInterpretationChecked",
+  "native_admission": "NoPSC0Admission",
+  "physical_interpretation": "Open",
+  "families": [
+    {
+      "name": "independent-iota",
+      "events": 2,
+      "cuts": 4,
+      "edges": 4,
+      "schedules_counted": 2,
+      "partition_linear": "-2"
+    },
+    {
+      "name": "joined-iota",
+      "events": 3,
+      "cuts": 5,
+      "edges": 5,
+      "schedules_counted": 2,
+      "partition_linear": "-5/3"
+    },
+    {
+      "name": "nested-iota",
+      "events": 3,
+      "cuts": 4,
+      "edges": 3,
+      "schedules_counted": 1,
+      "partition_linear": "-3/2"
+    },
+    {
+      "name": "chain-and-single",
+      "events": 3,
+      "cuts": 6,
+      "edges": 7,
+      "schedules_counted": 3,
+      "partition_linear": "-7/3"
+    },
+    {
+      "name": "independent-identities",
+      "events": 10,
+      "cuts": 36,
+      "edges": 60,
+      "schedules_counted": 252,
+      "partition_linear": "-15"
+    },
+    {
+      "name": "identity",
+      "events": 5,
+      "cuts": 6,
+      "edges": 5,
+      "schedules_counted": 1,
+      "partition_linear": "-5/2"
+    },
+    {
+      "name": "double-identity",
+      "events": 10,
+      "cuts": 11,
+      "edges": 10,
+      "schedules_counted": 1,
+      "partition_linear": "-5"
+    },
+    {
+      "name": "discard",
+      "events": 10,
+      "cuts": 11,
+      "edges": 10,
+      "schedules_counted": 1,
+      "partition_linear": "-5"
+    },
+    {
+      "name": "discard-pending",
+      "events": 10,
+      "cuts": 11,
+      "edges": 10,
+      "schedules_counted": 1,
+      "partition_linear": "-5"
+    },
+    {
+      "name": "copy",
+      "events": 12,
+      "cuts": 13,
+      "edges": 12,
+      "schedules_counted": 1,
+      "partition_linear": "-6"
+    },
+    {
+      "name": "copy-pending",
+      "events": 22,
+      "cuts": 48,
+      "edges": 72,
+      "schedules_counted": 252,
+      "partition_linear": "-18"
+    },
+    {
+      "name": "changed-roles",
+      "events": 2,
+      "cuts": 4,
+      "edges": 4,
+      "schedules_counted": 2,
+      "partition_linear": "-2"
+    }
+  ],
+  "native": [
+    {
+      "name": "identity",
+      "steps": 1126,
+      "verification": "NativeReplayPassed"
+    },
+    {
+      "name": "discard",
+      "steps": 3025,
+      "verification": "NativeReplayPassed"
+    },
+    {
+      "name": "copy",
+      "steps": 4838,
+      "verification": "NativeReplayPassed"
+    }
+  ],
+  "controls": [
+    {
+      "name": "swapped-iota-expansion",
+      "status": "Counterexample",
+      "before": "@ib",
+      "wrong": "@@bks",
+      "retained": "@@bsk"
+    },
+    {
+      "name": "same-bytes-different-role-reading",
+      "status": "Counterexample",
+      "reason": "same bytes with incompatible role interpretation"
+    },
+    {
+      "name": "equal-value-erases-process",
+      "status": "Counterexample",
+      "normal": "a",
+      "cut_counts": [
+        6,
+        11
+      ]
+    },
+    {
+      "name": "concurrency-is-simultaneity",
+      "status": "Counterexample",
+      "events": [
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "missing-correspondence",
+      "status": "Unknown",
+      "reason": "required correspondence or observation unavailable",
+      "spent": 1,
+      "advance": false
+    },
+    {
+      "name": "missing-object-evidence",
+      "status": "Unknown",
+      "reason": "required correspondence or observation unavailable",
+      "spent": 3,
+      "advance": false
+    },
+    {
+      "name": "exhausted-join-reserve",
+      "status": "Unknown",
+      "reason": "join reserve exhausted",
+      "spent": 2,
+      "advance": false
+    },
+    {
+      "name": "erased-discard",
+      "status": "Counterexample",
+      "reason": "discarded argument erased or changed"
+    },
+    {
+      "name": "identified-copy-occurrences",
+      "status": "Counterexample",
+      "reason": "copy occurrences identified"
+    },
+    {
+      "name": "incomplete-cut-family",
+      "status": "Counterexample",
+      "reason": "incomplete or incorrect cut family"
+    }
+  ],
+  "checkpoint_advanced": true,
+  "join": {
+    "status": "ScopedInterpretationChecked",
+    "spent": 3,
+    "advance": true
+  },
+  "permitted_use": "Finite iota term/ledger comparison and the three checked native probes; documentary transport has its own receipt",
+  "assertions": 1490,
+  "counted_work": 3655,
+  "cost": {
+    "wall_seconds": 1.2310414349994971,
+    "cpu_seconds_including_children": 1.0483589999999998,
+    "artifact_bytes_before_report": 2421867,
+    "native_calls": 9,
+    "child_calls": [
+      {
+        "label": "native-identity/admission",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.012601241000083974
+      },
+      {
+        "label": "native-identity/execution",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.0363193709999905
+      },
+      {
+        "label": "native-identity/reception",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.036279186002502684
+      },
+      {
+        "label": "native-discard/admission",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.012142125000536907
+      },
+      {
+        "label": "native-discard/execution",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.1694903930001601
+      },
+      {
+        "label": "native-discard/reception",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.12078547599958256
+      },
+      {
+        "label": "native-copy/admission",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.014429184000618989
+      },
+      {
+        "label": "native-copy/execution",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.3223120869988634
+      },
+      {
+        "label": "native-copy/reception",
+        "native": true,
+        "status": "Exited",
+        "exit_code": 0,
+        "wall_seconds": 0.32754456300244783
+      }
+    ],
+    "limits": {
+      "wall_seconds": 120,
+      "cpu_seconds": 110,
+      "child_launches": 9,
+      "native_launches": 9,
+      "artifact_bytes": 32505856,
+      "address_space_per_child": 1073741824
+    }
+  },
+  "authorship": "Codex (OpenAI), through Mingli Yuan account proxy; no independent human or second-agent review"
+}

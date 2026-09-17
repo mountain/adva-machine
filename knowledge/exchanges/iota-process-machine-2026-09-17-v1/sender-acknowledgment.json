@@ -1,0 +1,12 @@
+{
+  "contract_blake3": "e29e9b17f14379333f221935d92b3cb48e669d339937693698fca5bb1113379d",
+  "envelope_blake3": "6a0e7072ee7d76eb3ef73620a1c1a350b0a00e931b087d550ea2938b2c8beff1",
+  "exchange_id": "iota-process-machine-2026-09-17-v1",
+  "native_admission": "NotGranted",
+  "new_acceptance_effects": 0,
+  "observed_receiver_status": "AcceptedDocumentary",
+  "receipt_blake3": "dfbadf4c81cfe54cad4150e77d57e43380fddaca58436af7d3e5f49934b475aa",
+  "schema": "adva.communication.acknowledgment.v1",
+  "semantic_verification": "NotRun",
+  "status": "Acknowledged"
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "adva.iota-two-receivers-plan.v1",
+  "contracts": [
+    {
+      "role": "knowledge",
+      "exchange_id": "iota-process-knowledge-2026-09-17-v1",
+      "source_revision": "602d5239011a3a463e72ce8db98e5f0da5c84690",
+      "contract_blake3": "145026407de138cdd2affd4ea54dd7a1a8dd3fa78e6f0ea3499609baa124774e",
+      "request_sha256": "83f2294aa58b45f8f2efe6353ca8f1b3ae2018b215fc336470997cbc48392ebf",
+      "package_sha256": "58aad08d14563201e8adb632db0a61d23016851878f103ba002da9aebba7e772",
+      "files": 8,
+      "bytes": 81651,
+      "receiver": "mountain/adva:iota-reference-store",
+      "context": "iota/documentary-entry-v1:knowledge"
+    },
+    {
+      "role": "machine",
+      "exchange_id": "iota-process-machine-2026-09-17-v1",
+      "source_revision": "602d5239011a3a463e72ce8db98e5f0da5c84690",
+      "contract_blake3": "e29e9b17f14379333f221935d92b3cb48e669d339937693698fca5bb1113379d",
+      "request_sha256": "de8220e1eaeeb550150a28f291a3b913823c9dc34123d312a09b8058c9ab487a",
+      "package_sha256": "58aad08d14563201e8adb632db0a61d23016851878f103ba002da9aebba7e772",
+      "files": 8,
+      "bytes": 81651,
+      "receiver": "mountain/adva-machine:iota-reference-store",
+      "context": "iota/documentary-entry-v1:machine"
+    }
+  ],
+  "fixed_native_launches": 35,
+  "automatic_retries": 0,
+  "source_preflight": "Passed",
+  "knowledge_global_machine_lock": "Unchanged"
+}

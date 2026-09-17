@@ -1,0 +1,310 @@
+{
+  "schema": "adva.iota-receiver-evidence.v1",
+  "role": "machine",
+  "package_sha256": "58aad08d14563201e8adb632db0a61d23016851878f103ba002da9aebba7e772",
+  "archives": [
+    {
+      "path": "transport.tar.gz",
+      "bytes": 33374,
+      "sha256": "7f85d8de4d2c9980d1c9b4c3baa5e37c2d7a4ae0c224e4e8100867e3b0039e15",
+      "members": {
+        "ack-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "ack-1.stdout.txt": {
+          "bytes": 894,
+          "sha256": "4d0e5cba2596b88655f09b267793369bba241429a908ba847cd06b1ff7e92b3d"
+        },
+        "contract.json": {
+          "bytes": 3633,
+          "sha256": "fb6dccb6f5e3d4ea8b1ca883bb82d52566330959424539a1befb2f320c4f7a7c"
+        },
+        "envelope.json": {
+          "bytes": 286439,
+          "sha256": "df4bed57ddd430acb3905d74f6992fd6d8ecb1c935913f45d3a82e457374cfd5"
+        },
+        "plan.json": {
+          "bytes": 741,
+          "sha256": "df0808883ede70d9fdbd877c6862bd8b944ef156f969c570cd9e998ee8fcddd7"
+        },
+        "producer.json": {
+          "bytes": 944,
+          "sha256": "b8eff237221a66e13233580bc46e7c545eae1e4b37274e73812fce10addde3ec"
+        },
+        "publication-record.json": {
+          "bytes": 7507,
+          "sha256": "f8278cc8d22a0ec30953fcf0267e62a2232fb5af65867f39b374936a4e678495"
+        },
+        "receive-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "receive-1.stdout.txt": {
+          "bytes": 524,
+          "sha256": "1e7217d5dff48fa27b32015f0588e80dc6478d590b79d41be91ec210cede9fed"
+        },
+        "replay-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "replay-1.stdout.txt": {
+          "bytes": 492,
+          "sha256": "69ee26e2f6f6f0f9d567df9d839f3ce5da64e203c18ee2579dbd9c59659ec705"
+        },
+        "request-original.json": {
+          "bytes": 908,
+          "sha256": "de8220e1eaeeb550150a28f291a3b913823c9dc34123d312a09b8058c9ab487a"
+        },
+        "result.json": {
+          "bytes": 4125,
+          "sha256": "74c474e0522dcc3b013667fd58f651c43150287ce2ef69f8a73a0e30d1db211a"
+        },
+        "send-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "send-1.stdout.txt": {
+          "bytes": 559,
+          "sha256": "4ce08e79bbe4f08b3320bc508eae001a4a891aa0afe86037bb43eaf554e30ffd"
+        }
+      }
+    },
+    {
+      "path": "interpretation.tar.gz",
+      "bytes": 427559,
+      "sha256": "6ac9d13b259452f0f09701fe3653d5d2d73b8cff13604c9abc7fcc7fd07471b7",
+      "members": {
+        "contract.json": {
+          "bytes": 3472,
+          "sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6"
+        },
+        "native-copy/admission.adva": {
+          "bytes": 40183,
+          "sha256": "3d3965a91d5b76f1c912c1f1de2c96b2bc63f55dd2a716f9830ff6eaab187b63"
+        },
+        "native-copy/admission.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-copy/admission.stdout.txt": {
+          "bytes": 109,
+          "sha256": "8022569d293b3a970d734fa20c6b7cb2f1fa73daffc537e4d3489e62a6ff1d3e"
+        },
+        "native-copy/execution.adva": {
+          "bytes": 913216,
+          "sha256": "4f033153c2b55b33f49ed388754e3d1e58de703f0d8cf8ce070741f196cc5d02"
+        },
+        "native-copy/execution.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-copy/execution.stdout.txt": {
+          "bytes": 104,
+          "sha256": "a8dbc13dd2f9662b232c42c0cdc3281f09251d3ddb7ef63246dea388d4f59f64"
+        },
+        "native-copy/input.json": {
+          "bytes": 1145,
+          "sha256": "5b04758d7693062759f22a5f1fc5dfdd3414b8c37d21abd9d1009fce6e8b0568"
+        },
+        "native-copy/program.adva": {
+          "bytes": 15808,
+          "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9"
+        },
+        "native-copy/reception.adva": {
+          "bytes": 192686,
+          "sha256": "2c191d48781a63921a584fe73a3474f14c0410bb530b59e7669127384f28953b"
+        },
+        "native-copy/reception.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-copy/reception.stdout.txt": {
+          "bytes": 104,
+          "sha256": "82e7b708f3b423ca27e6f02319063a6ff06609382c2d630a06981e13a249e226"
+        },
+        "native-copy/report.json": {
+          "bytes": 10420,
+          "sha256": "e74e35ae536d7cf05aaa5570b2bfd115359a2f1ffd1d79df0147db7deaa19a7b"
+        },
+        "native-copy/request.json": {
+          "bytes": 17067,
+          "sha256": "f8dea653dddbc777425fbac7224de8b1b9bae2539d811f5739d3d873267e138b"
+        },
+        "native-discard/admission.adva": {
+          "bytes": 39136,
+          "sha256": "668ba5c68a1876c38e727411f74f1c4839afea598f0e6861c1a9ca7d0c623afa"
+        },
+        "native-discard/admission.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-discard/admission.stdout.txt": {
+          "bytes": 112,
+          "sha256": "d3cbaafc4214e58d83d3f07a399dc24581c3e529779690fb8793675d51811699"
+        },
+        "native-discard/execution.adva": {
+          "bytes": 597925,
+          "sha256": "d22dba5d2e3e91a776a5486ac51246239136d0c55241c599f2075c8f9c665727"
+        },
+        "native-discard/execution.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-discard/execution.stdout.txt": {
+          "bytes": 107,
+          "sha256": "47ddcdc67b1e0c7d29fc553040afd5fefaa4a8ce451f6d5f0d20198d471e6b39"
+        },
+        "native-discard/input.json": {
+          "bytes": 975,
+          "sha256": "4690a8c435f437535b59cd017e5ce4bfe409f7192ec250f7df79cf989f3bad8b"
+        },
+        "native-discard/program.adva": {
+          "bytes": 15808,
+          "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9"
+        },
+        "native-discard/reception.adva": {
+          "bytes": 134075,
+          "sha256": "833d9a4215f44866558514d58430ff9a3fbca57961a05e16b7be4d2aa9614088"
+        },
+        "native-discard/reception.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-discard/reception.stdout.txt": {
+          "bytes": 107,
+          "sha256": "c256ed77031982ebfd89c6c1caee57eafefab626ed7ab89ae921430a03a0f317"
+        },
+        "native-discard/report.json": {
+          "bytes": 7649,
+          "sha256": "90c16402d9573e09ae894f96d294236933c70f2e06083cc3e760a0a7bb684965"
+        },
+        "native-discard/request.json": {
+          "bytes": 16897,
+          "sha256": "970d1c9b7f9fb4de3f1c45aed27bb88fe0c57422eac7617046a6ade9415f0e19"
+        },
+        "native-identity/admission.adva": {
+          "bytes": 37989,
+          "sha256": "8871635a3bea909b347786f9b4621b2417d29882454e9c5949972edae02539a5"
+        },
+        "native-identity/admission.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-identity/admission.stdout.txt": {
+          "bytes": 113,
+          "sha256": "71f9a4f1229560905e8aed3de6fcd9191cbb0ba609e5ab081e54700b7f0408fd"
+        },
+        "native-identity/execution.adva": {
+          "bytes": 266648,
+          "sha256": "278471631775a92c6be1fc54272d1b83d3666c0af06e619e62a7303877e6e7fe"
+        },
+        "native-identity/execution.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-identity/execution.stdout.txt": {
+          "bytes": 108,
+          "sha256": "fdc163ab7685a033dcf069cf13a1ffbcfd36e64a6190dba1a29342eee4dafa70"
+        },
+        "native-identity/input.json": {
+          "bytes": 734,
+          "sha256": "28ffda02145f8baade14ca4094e9e286ec9183a998442433e9dee79dc896a0bb"
+        },
+        "native-identity/program.adva": {
+          "bytes": 15808,
+          "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9"
+        },
+        "native-identity/reception.adva": {
+          "bytes": 71704,
+          "sha256": "4581e4779e41e81063f89563f5c3e04769c421a0810f4e24434b14f8d15f3e9d"
+        },
+        "native-identity/reception.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "native-identity/reception.stdout.txt": {
+          "bytes": 108,
+          "sha256": "f2ef86bb0bc96d6b43ea04dc12210a5f03e7a5038371da0b27576f01658d75b0"
+        },
+        "native-identity/report.json": {
+          "bytes": 4223,
+          "sha256": "9fd449321c19024baa28bba3a7a35dd4baf5a28726e8366e800e0092a640e730"
+        },
+        "native-identity/request.json": {
+          "bytes": 16656,
+          "sha256": "c98bf716632150d39af36a055cb449f9110c2f39fce81cefb167ca56d5bb087c"
+        },
+        "package-inventory.json": {
+          "bytes": 671,
+          "sha256": "790fd7c8b234900e1463133d3578c26e2e5a8d7c97367f58948821481fe43044"
+        },
+        "result.json": {
+          "bytes": 6668,
+          "sha256": "93c4df4fa62cb28c6460ba3a580a03518fee2edccab47c589625f4f758b21ac4"
+        }
+      }
+    }
+  ],
+  "received_files": {
+    "materials/check.py": {
+      "bytes": 16749,
+      "sha256": "bf876a7a58cc0835ea72e9f5435853229bf259c1bc248c886ebe39232ce8c847"
+    },
+    "materials/contract.json": {
+      "bytes": 3472,
+      "sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6"
+    },
+    "materials/dependencies.json": {
+      "bytes": 2481,
+      "sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3"
+    },
+    "materials/interpretations.json": {
+      "bytes": 29903,
+      "sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1"
+    },
+    "materials/iota.md": {
+      "bytes": 7246,
+      "sha256": "f2f13d6fefafb11d451dcc46166e0b77f35013a971460387ee5c0e9b6bf72454"
+    },
+    "materials/kernel-program.json": {
+      "bytes": 15808,
+      "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9"
+    },
+    "materials/probes.json": {
+      "bytes": 2935,
+      "sha256": "df23300aa61b7bf4c2e464c1dda68176518f72e2153396ea0524e4392a0cad49"
+    },
+    "materials/structure.json": {
+      "bytes": 3057,
+      "sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071"
+    },
+    "receipt.json": {
+      "bytes": 7154,
+      "sha256": "14d4d4d374b45dee1e00222875e52aa4fe48eb5c400aee1ab5801f42290de6f9"
+    }
+  },
+  "loose_records": {
+    "transport-result.json": {
+      "bytes": 4125,
+      "sha256": "74c474e0522dcc3b013667fd58f651c43150287ce2ef69f8a73a0e30d1db211a"
+    },
+    "interpretation-result.json": {
+      "bytes": 6668,
+      "sha256": "93c4df4fa62cb28c6460ba3a580a03518fee2edccab47c589625f4f758b21ac4"
+    },
+    "sender-acknowledgment.json": {
+      "bytes": 560,
+      "sha256": "bcf5f06a62d344c294ec98144e85dc5fea7d350eaddd7f1650e1cbab95477eef"
+    },
+    "delivery-plan.json": {
+      "bytes": 1406,
+      "sha256": "a771fb546e1d6113d368d1bf6892a5f99d74dc2d2a2c1324b4540e8c05ed95cf"
+    },
+    "contract.json": {
+      "bytes": 3633,
+      "sha256": "fb6dccb6f5e3d4ea8b1ca883bb82d52566330959424539a1befb2f320c4f7a7c"
+    }
+  },
+  "verification": "Read every archive member back and match bytes/SHA-256; recheck exact received inventory and byte equality to pinned sender materials. Metadata copies preserve existing observations and are not new protocol events."
+}

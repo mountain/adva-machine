@@ -5,6 +5,13 @@ request for this machine. Rust executes the supplied interpreter instructions
 and receives the resulting trace through the existing run command. Iota is the
 object language; the engine remains rust.
 
+An [eight-file iota package has now been received locally](../../knowledge/exchanges/iota-process-machine-2026-09-17-v1/README.md)
+through the existing Rust documentary transport. It contains the original
+interpreter program, three probes and the finite process/cut comparison, with
+a separate post-arrival execution record. The same packet is also received by
+adva under its own contract. This route does not require access to the private
+development repository for the compact checks.
+
 The external interpreter has 344 instructions and 42 registers. Its source
 grammar contains only iota, binary application, and three declared apertures.
 Entry and exit policies explicitly associate those apertures with construction

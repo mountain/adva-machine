@@ -1,0 +1,167 @@
+{
+  "accepted_use": "documentary-reference",
+  "catalog_entry": {
+    "assumptions": [
+      "Conservative finite source trace families; all domains are explicitly assigned.",
+      "The native receipt grants documentary use only; check.py is a separately authorized bounded comparison."
+    ],
+    "checker": null,
+    "domains": [
+      "logic"
+    ],
+    "evidence": [],
+    "geometry_lineage": null,
+    "home": "logic",
+    "key": "logic-iota-process-v1",
+    "materials": [
+      {
+        "path": "adva-library/exchange_v1/materials/contract.json",
+        "sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/iota.md",
+        "sha256": "f2f13d6fefafb11d451dcc46166e0b77f35013a971460387ee5c0e9b6bf72454"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/kernel-program.json",
+        "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/interpretations.json",
+        "sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/probes.json",
+        "sha256": "df23300aa61b7bf4c2e464c1dda68176518f72e2153396ea0524e4392a0cad49"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/dependencies.json",
+        "sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/structure.json",
+        "sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071"
+      },
+      {
+        "path": "adva-library/exchange_v1/materials/check.py",
+        "sha256": "bf876a7a58cc0835ea72e9f5435853229bf259c1bc248c886ebe39232ce8c847"
+      }
+    ],
+    "open_obligations": [
+      "Full annotated ancestry is external and not imported as PSC0 identities.",
+      "Physical simultaneity and Hamiltonian interpretation remain open.",
+      "Human acceptance and general heterogeneous communication are not inferred."
+    ],
+    "recorded_status": "proposed-document",
+    "reuse_requires": [
+      "Independently bind this package digest and receiving context.",
+      "Use the declared machine and fresh output for optional three-probe execution.",
+      "Retain source, residuals, negative controls and each receiver outcome."
+    ],
+    "scope": "Original finite documentary projection and explicit three-probe execution contract; not a general communication engine or native PSC0 import.",
+    "theory": {
+      "boundary_roles": [
+        "{}",
+        "[]",
+        "()"
+      ],
+      "kind": "finite-object-language-observation",
+      "primitive": "iota",
+      "wire_namespace": "adva-library/ is the existing documentary profile prefix, resolved against this explicitly bound source root; this is not the global library catalog."
+    },
+    "title": "Iota generator, process cuts and two-interface interpretation"
+  },
+  "checker": {
+    "cargo_lock_blake3": "b7ece200175a70289c91230326b00947d3451f34e589e4ad2b9dfc61170bf1ae",
+    "implementation_blake3": "866cd49ca485d62e0adb16528f29dbceef8a5f3ded0219544fc879bfe662bb8a"
+  },
+  "context": "iota/documentary-entry-v1:machine",
+  "contract_blake3": "e29e9b17f14379333f221935d92b3cb48e669d339937693698fca5bb1113379d",
+  "envelope_blake3": "6a0e7072ee7d76eb3ef73620a1c1a350b0a00e931b087d550ea2938b2c8beff1",
+  "events": [
+    "receive",
+    "check-integrity-and-contract",
+    "accept-documentary-reference"
+  ],
+  "exchange_id": "iota-process-machine-2026-09-17-v1",
+  "files": [
+    {
+      "blake3": "5dd643dc0ae511db697f37618c5ebc0037888836712a8fd2bd6a129cd4817ee9",
+      "bytes": 3472,
+      "destination": "materials/contract.json",
+      "sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6",
+      "source": "exchange_v1/materials/contract.json"
+    },
+    {
+      "blake3": "8398b4fedb3ee3f7912afca8d4a9447e0f8f86e8def336c7580e612be87bb52a",
+      "bytes": 7246,
+      "destination": "materials/iota.md",
+      "sha256": "f2f13d6fefafb11d451dcc46166e0b77f35013a971460387ee5c0e9b6bf72454",
+      "source": "exchange_v1/materials/iota.md"
+    },
+    {
+      "blake3": "fb4974b443d12e6f54b370200e40573343ee55467fc694389f4163563e278257",
+      "bytes": 15808,
+      "destination": "materials/kernel-program.json",
+      "sha256": "1534330547a37f687d8f3f74c799ee83c9b583858c6370ce46385a50b4f7ece9",
+      "source": "exchange_v1/materials/kernel-program.json"
+    },
+    {
+      "blake3": "364362fcbf022330037e50b9027bcf7e8ec532971104f5b98101e0c2f48ff324",
+      "bytes": 29903,
+      "destination": "materials/interpretations.json",
+      "sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1",
+      "source": "exchange_v1/materials/interpretations.json"
+    },
+    {
+      "blake3": "a3b8a27635ae27b1eda227d2d8237f8278293af520b5bfa2ca0caa1707e429c0",
+      "bytes": 2935,
+      "destination": "materials/probes.json",
+      "sha256": "df23300aa61b7bf4c2e464c1dda68176518f72e2153396ea0524e4392a0cad49",
+      "source": "exchange_v1/materials/probes.json"
+    },
+    {
+      "blake3": "74da99dc8271d871d01bdbcb94b969acf23b8194a741bd4e05a793319a8425f5",
+      "bytes": 2481,
+      "destination": "materials/dependencies.json",
+      "sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3",
+      "source": "exchange_v1/materials/dependencies.json"
+    },
+    {
+      "blake3": "1e6befbf7ffd9a65d79cc5564f3801b615f473e98a865d143c29b86daa7badb2",
+      "bytes": 3057,
+      "destination": "materials/structure.json",
+      "sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071",
+      "source": "exchange_v1/materials/structure.json"
+    },
+    {
+      "blake3": "244ff9060199f57929bb9bad699237ae6a49741bf0d6cc0ba8c0bdd52edccb99",
+      "bytes": 16749,
+      "destination": "materials/check.py",
+      "sha256": "bf876a7a58cc0835ea72e9f5435853229bf259c1bc248c886ebe39232ce8c847",
+      "source": "exchange_v1/materials/check.py"
+    }
+  ],
+  "native_admission": "NotGranted",
+  "origin": {
+    "catalog_blake3": "80960792407c41cd36fc9fc26aa3bc1debb3e0d4f26abcb153455253226ddd8e",
+    "catalog_path": "exchange_v1/catalog.json",
+    "repository": "https://github.com/mountain/adva-iota",
+    "revision": "602d5239011a3a463e72ce8db98e5f0da5c84690"
+  },
+  "profile": "documentary-library-entry-v1",
+  "publication": "BoundReviewedRecord",
+  "publication_record_blake3": "144477148d3d11538a705addda3ab68368cedaea8ce026576b2c47129ddf4a45",
+  "receiver": "mountain/adva-machine:iota-reference-store",
+  "residual": "Origin claims are pinned, not authenticated; referenced proofs and human acceptance are not checked. No source retirement or new catalog home.",
+  "resource_contract": {
+    "automatic_retries": 0,
+    "cooperative_seconds": 5,
+    "read_bytes_per_invocation": 8388608
+  },
+  "rights_determined_by_machine": false,
+  "schema": "adva.communication.receipt.v1",
+  "semantic_verification": "NotRun",
+  "sender": "mountain/adva-iota:original-documentary-catalog",
+  "status": "AcceptedDocumentary"
+}
