@@ -1,0 +1,12 @@
+{
+  "schema": "adva.machine.iota-entry-validation.v1",
+  "question": "Does the external emitter's request execute through the unmodified public adva-machine run entry with Rust reception?",
+  "level": "One finite engineering entry check after the separate 26-case interpreter campaign",
+  "input": "Pinned adva-iota boundary_v1 duplicate fixture",
+  "protected": ["Pure-iota interpreter bytes", "Both role policies", "Complete 12-event reduction history", "Original native fuel"],
+  "expected": {"outcome": "Returned", "native_steps": 4838, "verification": "NativeReplayPassed", "object_status": 0, "object_contractions": 12},
+  "limits": {"attempts": 1, "wall_seconds_outer": 40, "machine_wall_seconds": 30, "machine_cpu_seconds": 25, "native_launches": 3, "fuel": 50000, "artifact_bytes": 134217728},
+  "exit": "Stop at the first failure or limit and retain the request and report. No automatic retry.",
+  "publication": "Only original integration prose and documentary digests are added to machine; external implementation and full execution artifacts remain in adva-iota.",
+  "authorship": "Codex (OpenAI), original contribution under Unknown v0.3 through Mingli Yuan's account proxy; not his review or guarantee"
+}

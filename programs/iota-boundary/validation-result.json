@@ -1,0 +1,29 @@
+{
+  "schema": "adva-iota.public-entry-check.v1",
+  "status": "Passed",
+  "interpreter_revision": "abc4a3b52f255f04693e6d1b399e90979f4244c5",
+  "machine_baseline": "664658278423900d30f37c4f5af158c7707e2be3",
+  "outcome": "Returned",
+  "verification": "NativeReplayPassed",
+  "native_steps": 4838,
+  "object_contractions": 12,
+  "full_oracle_match": true,
+  "request_sha256": "3562d32851b8807c61234ee42b6e90bb24c21821bdc11978143a83f33fb5364e",
+  "binary_sha256": "b105331d7a6d7b3fe51d85b71961750f070ccae672a0181b039569028a43374a",
+  "native_profile": "352cd9c1cb22a91966912bbe52980848c0c045163b22ef13f1a964f8211c3eed",
+  "authorship": "Codex (OpenAI), original contribution under Unknown v0.3 through Mingli Yuan's authorized account proxy; not his review or guarantee",
+  "contract_sha256": "5d1d73f11b44826b15a3e9d0620ef097f37621574c9bd67475b794a93627c41b",
+  "external_evidence": {
+    "repository": "adva-iota",
+    "revision": "2443cb8732401c607b1c4970d2e2262aeafdc1a1",
+    "path": "boundary_v1/evidence/machine-entry-01.json",
+    "sha256": "300a6bcd0d5c726e7890eb27a6d9d8d88fa51dfb3cf8917969d19c255561aaef"
+  },
+  "observed_cost": {
+    "wall_seconds": 0.5504869309988862,
+    "cpu_seconds_including_children": 0.48782099999999995,
+    "artifact_bytes_before_report": 1219774,
+    "native_calls": 3
+  },
+  "scope": "Public entry and native replay for one previously checked fixture; full 26-case campaign is separately pinned in the external repository."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "adva.machine.iota-reference.v1",
+  "repository_name": "adva-iota",
+  "publication_remote": null,
+  "revision": "2443cb8732401c607b1c4970d2e2262aeafdc1a1",
+  "machine_baseline": "664658278423900d30f37c4f5af158c7707e2be3",
+  "native_profile": "352cd9c1cb22a91966912bbe52980848c0c045163b22ef13f1a964f8211c3eed",
+  "authority": "Optional documentary reference; actual program admission and replay belong to Rust",
+  "files": {
+    "boundary_v1/interpreter.adva": "2899a7d3138d61ec591c89fd369b66dc0ee69c454c6d888b0033cfa6132942ea",
+    "boundary_v1/build.py": "df7652830ead645c8d87c2b96fd21211d454dd92a0d84865bd4e472f4dbfdc1d",
+    "boundary_v1/__main__.py": "32ae28412793466e494917ac463e1467ea68cec90b2e2686fe167728f422fd80",
+    "boundary_v1/cases.py": "7b7dfb03e2062e8b1683c440197b76cba0ac2da2959800d1e716456ee1f17b6d",
+    "boundary_v1/model.py": "98a55bce42b664982ee9dc7a97df168d0b946b10e0e725068ac0e9580fbd0e6e",
+    "boundary_v1/wick.py": "2164612331107c11075661c04a118d058edd3bfde4bcfba4bbcad46081f3462b",
+    "boundary_v1/README.md": "d513e57b770f804e240cbe9ed1cbcf789babf9cfb355ea1e11f7a5e2a32ea4ac",
+    "boundary_v1/contract.json": "a9a06d2d7c3c1fa726b93c55be31454f8eba26cd3d0b822b388dce6db58b89d7",
+    "boundary_v1/continuation-2.json": "e6e041d56a80865f43b834e4ccc502702943484e1272060aa19cb53f5e72c296",
+    "boundary_v1/evidence/manifest.json": "c0e7c08815dcaf46bebf9ded9606d1952f73c0830357d18aed31cc17c2a71ebc",
+    "boundary_v1/evidence/attempt-2-result.json": "5025cd1e0bcbe01236454395e0bcb26d9cf98f6072c0e0ed9aad907d20794449",
+    "boundary_v1/evidence/machine-entry-01.json": "300a6bcd0d5c726e7890eb27a6d9d8d88fa51dfb3cf8917969d19c255561aaef",
+    "boundary_v1/evidence/machine-entry-01.tar.gz": "664d7db95a88dec3d2b19500f014793221e3d999c63f22d81194ace6e358301f"
+  }
+}

@@ -106,3 +106,10 @@ geometry obligation or turn documentary references into executable packages.
 The final library layout remains Open. The current usable agreement is a fixed
 external dependency plus explicit artifact roles. A later standard-library or
 package split requires a native import contract for the entries it executes.
+
+## Iota object-language example
+
+The independent boundary-aware iota successor emits requests for this existing
+runner. See [the pinned integration guide](../programs/iota-boundary/README.md)
+for pure-iota source, explicit three-domain policies, retained reduction history
+and the Rust execution/replay boundary.
