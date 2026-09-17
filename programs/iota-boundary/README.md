@@ -20,11 +20,14 @@ for nested boundary syntax.
 
 ## Reproduce
 
-The independent checkout currently has no publication remote.
-[dependency.json](dependency.json) pins its local commit and the relevant file
-digests. It is a documentary pin, not an automatic dependency installer or
-transport certificate. The standard runner binds and checks the actual supplied
-request and native executable profile; it does not read this optional manifest.
+The independent checkout is published at
+[mountain/adva-iota](https://github.com/mountain/adva-iota), a private repository
+requiring collaborator access. [dependency.json](dependency.json) retains the
+checked revision and file digests; its null publication remote records the
+state before the repository was created. It is a documentary pin, not an
+automatic dependency installer or transport certificate. The standard runner
+binds and checks the actual supplied request and native executable profile;
+it does not read this optional manifest.
 
 From the pinned adva-iota checkout:
 

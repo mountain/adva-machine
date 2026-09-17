@@ -7,12 +7,14 @@ clocks, and a declared real/imaginary-time operator. Iota remains the sole
 source combinator; explicit aperture policies still supply construction {},
 space [], and time () roles.
 
-[process-v2-reference.json](process-v2-reference.json) pins the completed local
-revision, specification, implementation and evidence. The checkout has no
-publication remote. Open `process_v2/evidence/explorer.html` from that revision
-in a browser; it works without a server or external assets. The English
-`process_v2/SPEC.md` is primary; the Chinese explorer is a companion.
-The earlier [v1 integration](README.md), pins and evidence remain unchanged.
+[process-v2-reference.json](process-v2-reference.json) pins the checked
+revision, specification, implementation and evidence. Its null publication
+remote records the state before publication. The checkout is now available at
+[mountain/adva-iota](https://github.com/mountain/adva-iota), a private repository
+requiring collaborator access. Open `process_v2/evidence/explorer.html` from the
+pinned revision in a browser; it works without a server or external assets.
+The English `process_v2/SPEC.md` is primary; the Chinese explorer is a companion.
+The earlier [v1 integration](README.md) semantics, pins and evidence remain unchanged.
 
 ## From a generator to a process and its slices
 
