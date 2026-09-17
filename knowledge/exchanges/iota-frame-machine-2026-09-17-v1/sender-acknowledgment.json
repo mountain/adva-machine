@@ -1,0 +1,12 @@
+{
+  "contract_blake3": "d58159934dc98e0fc8fc443bb641db5ac8dd08e0e5a03ae879693b82a5ab962d",
+  "envelope_blake3": "67fd6357c4532df26dfeb900a07dbbf45583f07d2046803fa9a6fdd30f8c2a86",
+  "exchange_id": "iota-frame-machine-2026-09-17-v1",
+  "native_admission": "NotGranted",
+  "new_acceptance_effects": 0,
+  "observed_receiver_status": "AcceptedDocumentary",
+  "receipt_blake3": "940dec4739c0fbbeec14fb0190423e5c12c5586289d6b3f7393eb38821ab586d",
+  "schema": "adva.communication.acknowledgment.v1",
+  "semantic_verification": "NotRun",
+  "status": "Acknowledged"
+}

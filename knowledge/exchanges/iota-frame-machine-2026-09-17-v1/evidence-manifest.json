@@ -1,0 +1,92 @@
+{
+  "schema": "adva.iota-frame-receiver-evidence.v1",
+  "package_sha256": "3a05875e0134684978c81ef3bdb2d6a2a4455403fa5d9901856df6e28f1337a7",
+  "archives": [
+    {
+      "path": "transport.tar.gz",
+      "bytes": 30154,
+      "sha256": "5d380cad5ac41cb7e61da0a2e423c8231f0af3a980a2b90d326cd1bf1bcd2790",
+      "members": {
+        "ack-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "ack-1.stdout.txt": {
+          "bytes": 892,
+          "sha256": "f5fc4278f7e0921b58fb6946c616850129c199f8a3ef4eb3f2aaa8f493f8347d"
+        },
+        "contract.json": {
+          "bytes": 3542,
+          "sha256": "6e9ae974a254c4c0fefd0df1434d0ac0014d31e801ef5138d930e4efe92f1048"
+        },
+        "envelope.json": {
+          "bytes": 257493,
+          "sha256": "39498cdc1bf3250caa2b5b8b0bbd3985346d9a5759d156c27c5f82de2c27c27e"
+        },
+        "plan.json": {
+          "bytes": 741,
+          "sha256": "9bce73a1a9924710e59fcf64ff61565de8818f158ec000ca3acc5d15264474da"
+        },
+        "producer.json": {
+          "bytes": 944,
+          "sha256": "b8eff237221a66e13233580bc46e7c545eae1e4b37274e73812fce10addde3ec"
+        },
+        "publication-record.json": {
+          "bytes": 7212,
+          "sha256": "3eaf28467423317bb9d039d891fb21e6da82dc3d57798b5d1b4f4476e8a14ef4"
+        },
+        "receive-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "receive-1.stdout.txt": {
+          "bytes": 524,
+          "sha256": "a843cb51935955485b5f935353391503aa54e4def11ef29c004e7d16edab8d67"
+        },
+        "replay-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "replay-1.stdout.txt": {
+          "bytes": 492,
+          "sha256": "f193ccf889a0dc29f5c54005f930ebbc469a078c281f9b587cbe6f58b2128fea"
+        },
+        "request-original.json": {
+          "bytes": 880,
+          "sha256": "4bd057812a492e7bdc7a23473670bd62d6984e0b14538ad88d0b8c6b9daa6943"
+        },
+        "result.json": {
+          "bytes": 4124,
+          "sha256": "dab22bdfa0bc096dccf1c80881da0563323e3e0f08c1789b4c911d26299e4b65"
+        },
+        "send-1.stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "send-1.stdout.txt": {
+          "bytes": 557,
+          "sha256": "ff6847fa0882df4a3dbdf39713022a27384d97cb326b675f9940bd98ea766239"
+        }
+      }
+    },
+    {
+      "path": "frame-check.tar.gz",
+      "bytes": 29137,
+      "sha256": "dcd8820b1499f6f6ad5fa438c71654c364e5199d6c92776921f982c79c34e6d2",
+      "members": {
+        "result.json": {
+          "bytes": 715,
+          "sha256": "86736c6cd492b8230a1ea6128bac95aee8f6d08e38cda3e63cde2db5d95451e0"
+        },
+        "witness.json": {
+          "bytes": 279609,
+          "sha256": "58d273936212786a10e2974d158e409074d76ad61869b4259384575b111e4b6f"
+        }
+      }
+    }
+  ],
+  "receipt_sha256": "38da15ea9a09476e570fb11525a5ab2e5687d12d922c928efff1e0f223f777dc",
+  "new_native_calls": 4,
+  "native_object_calls": 0,
+  "authorship": "Codex (OpenAI); one checker at three sites, not independent verifiers."
+}

@@ -1,0 +1,124 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "iota-frame-machine-2026-09-17-v1",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/contract.json",
+      "bytes": 5077,
+      "sha256": "746b8d0d1db972fef0b7f5fca6cce97157ef630fca0de2daca83880514feac40",
+      "blake3": "845f336e92e7f9cddbe574400e20c1af0026289a0fe72528e409c0cb14030772"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/frame.md",
+      "bytes": 7457,
+      "sha256": "d8967cc3e6b953d547a22010f37d9997a023d1b55935928f88becba86862dae0",
+      "blake3": "0527e46396c5559bfeaebc93e73c03caa88e4f1727c7dad07fd43a8da68186d5"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/frames.json",
+      "bytes": 36904,
+      "sha256": "d98fe110220b40a413286e83d05219a14bad071e2909a234431cdf8a6ab67a04",
+      "blake3": "ccf605a6c822aa1ce233ecea6362af39670c69a7ea3e017feceb4bf8778c0409"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/processes.json",
+      "bytes": 4197,
+      "sha256": "51fae616ec15a52217c41e3cf7e0fd1c8ff650d200cd0ace57b8f8b99bc2f80f",
+      "blake3": "b380933f41c4a271cb0ac30c6e113f65c31f786c2150b6e9e78c7e00f62fb866"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/algebra.py",
+      "bytes": 2804,
+      "sha256": "1c299f816223208a2b199672b26e86b2a8716fb83088af7b27eda35211b386c6",
+      "blake3": "4ee9f8602846b7b6082470deca6c9e9ce198fef0e2617437432e9f1c746ac7ca"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/check.py",
+      "bytes": 15429,
+      "sha256": "7130b205e25dba89e95fd367d0a349da08df644d352889cf790ce66eb7a20f34",
+      "blake3": "b848e15644769eb4fa668454f8751ed2a4dd9c0a2284d2c39a2df6e4caebb1e4"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/dependencies.json",
+      "bytes": 1494,
+      "sha256": "468bc01fb12371fffec1383f5efed20b7842af9db1bd3bc3aa36fbb0f0b05e92",
+      "blake3": "b730b65bf4954d37751b5928f4871192ab21301ae1c6f9529f64c9be08143086"
+    },
+    {
+      "path": "knowledge/received/iota-frame-machine-2026-09-17-v1/materials/structure.json",
+      "bytes": 2756,
+      "sha256": "c9052b15a716cb8c52754dcede6be3c3c21eabb17046ddf78f05d0391d4d9757",
+      "blake3": "c3f3a6190f178a7513cd2a7677cb3b4eac6297f86561537776ab9a64fcce8df7"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-iota/tree/1a7041d8b714c695a7a9a8ea23f78fb70c7e151a/frame_v1",
+    "source_version": "1a7041d8b714c695a7a9a8ea23f78fb70c7e151a",
+    "creator_or_rights_holder": "Codex (OpenAI), original project contributions through Mingli Yuan authorized account proxy; account use is not his authorship or review.",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-iota/blob/1a7041d8b714c695a7a9a8ea23f78fb70c7e151a/LICENSE",
+      "https://github.com/mountain/adva-iota/blob/1a7041d8b714c695a7a9a8ea23f78fb70c7e151a/LICENSING.md",
+      "https://github.com/mountain/adva-iota/blob/1a7041d8b714c695a7a9a8ea23f78fb70c7e151a/frame_v1/materials/frame.md",
+      "https://github.com/mountain/adva-iota/blob/1a7041d8b714c695a7a9a8ea23f78fb70c7e151a/frame_v1/evidence/source-publication-review.json"
+    ],
+    "rights_holder_authority_evidence": "Exact eight-file original frame packet inspected: newly authored rational algebra, checker, specification, finite synthetic matrices and four projections of previously reviewed project-original iota records. Dedicated under Unknown v0.3 by Codex (OpenAI). No historical MIT-derived Java, fixture expression or external dependency contents included. The source review pins each byte; repository references remain references.",
+    "jurisdictions_and_limitations": "Project-original contribution under the dedication and fallback provisions of Unknown v0.3, only for rights contributors can release. This project review of identified expression is not a worldwide legal-status certificate and does not relicense referenced material.",
+    "incorporated_components": [
+      {
+        "source_path": "frame_v1/materials/contract.json",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/frame.md",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/frames.json",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/processes.json",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/algebra.py",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/check.py",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/dependencies.json",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      },
+      {
+        "source_path": "frame_v1/materials/structure.json",
+        "basis": "project-original",
+        "role": "Original frame prose/code/data or projection of the previously reviewed original process packet; exact dependency pins retained."
+      }
+    ],
+    "transformations": [
+      "Original rational chart construction over four existing synthetic iota process projections.",
+      "UTF-8 documentary transport of exact reviewed bytes; encoded envelopes and generated receipts remain project metadata.",
+      "Receiver numeric witnesses and execution metadata receive their own exact output review before publication."
+    ]
+  },
+  "review": {
+    "reviewer": "Codex (OpenAI)",
+    "reviewed_at": "2026-09-17",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "The exact candidate files, source projection, original implementations and source witness were inspected. All incorporated expression has the project-original Unknown basis. This review admits this packet and its native documentary encodings; separately generated receiver evidence is reviewed after execution."
+  }
+}

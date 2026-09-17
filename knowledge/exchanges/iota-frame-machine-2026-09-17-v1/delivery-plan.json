@@ -1,0 +1,28 @@
+{
+  "schema": "adva.iota-frame-delivery-plan.v1",
+  "package_sha256": "3a05875e0134684978c81ef3bdb2d6a2a4455403fa5d9901856df6e28f1337a7",
+  "source_revision": "1a7041d8b714c695a7a9a8ea23f78fb70c7e151a",
+  "contracts": [
+    {
+      "role": "knowledge",
+      "exchange_id": "iota-frame-knowledge-2026-09-17-v1",
+      "source_revision": "1a7041d8b714c695a7a9a8ea23f78fb70c7e151a",
+      "request_sha256": "5305dfa11b4843086ce433442a83d314cded969cb6e405dfc429897feac0a86b",
+      "contract_blake3": "9346f1bdecf1546587aeb9483c6737494bc8a63c21072eb357765e10a97d9b91",
+      "files": 8,
+      "bytes": 76118
+    },
+    {
+      "role": "machine",
+      "exchange_id": "iota-frame-machine-2026-09-17-v1",
+      "source_revision": "1a7041d8b714c695a7a9a8ea23f78fb70c7e151a",
+      "request_sha256": "4bd057812a492e7bdc7a23473670bd62d6984e0b14538ad88d0b8c6b9daa6943",
+      "contract_blake3": "d58159934dc98e0fc8fc443bb641db5ac8dd08e0e5a03ae879693b82a5ab962d",
+      "files": 8,
+      "bytes": 76118
+    }
+  ],
+  "automatic_retries": 0,
+  "native_object_launches": 0,
+  "native_transport_launches": 8
+}

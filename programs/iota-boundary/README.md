@@ -89,3 +89,11 @@ remain in adva-iota at the pinned revision.
 Code and report authorship: Codex (OpenAI), original contribution under Unknown
 v0.3 through Mingli Yuan's authorized account proxy. This is not Mingli's
 authorship, technical review or correctness guarantee.
+
+## Frame companion
+
+The [iota interpretation frame profile](../../spec/framework/iota-frame-v1.md)
+now jointly carries the minimal generator, complex structure and exponential
+reading. Its [local receiving result](../../knowledge/exchanges/iota-frame-machine-2026-09-17-v1/README.md)
+checks twelve finite charts, observer covariance and clock equality; native
+process identity and historical execution claims retain their existing scope.

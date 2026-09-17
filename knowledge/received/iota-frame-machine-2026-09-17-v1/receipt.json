@@ -1,0 +1,165 @@
+{
+  "accepted_use": "documentary-reference",
+  "catalog_entry": {
+    "assumptions": [
+      "Exact previous iota packet remains a required dependency.",
+      "This source catalog offers documentary reference; the frame checker is separately executed."
+    ],
+    "checker": null,
+    "domains": [
+      "logic"
+    ],
+    "evidence": [],
+    "geometry_lineage": null,
+    "home": "logic",
+    "key": "logic-iota-frame-v1",
+    "materials": [
+      {
+        "path": "adva-library/frame_v1/materials/contract.json",
+        "sha256": "746b8d0d1db972fef0b7f5fca6cce97157ef630fca0de2daca83880514feac40"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/frame.md",
+        "sha256": "d8967cc3e6b953d547a22010f37d9997a023d1b55935928f88becba86862dae0"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/frames.json",
+        "sha256": "d98fe110220b40a413286e83d05219a14bad071e2909a234431cdf8a6ab67a04"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/processes.json",
+        "sha256": "51fae616ec15a52217c41e3cf7e0fd1c8ff650d200cd0ace57b8f8b99bc2f80f"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/algebra.py",
+        "sha256": "1c299f816223208a2b199672b26e86b2a8716fb83088af7b27eda35211b386c6"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/check.py",
+        "sha256": "7130b205e25dba89e95fd367d0a349da08df644d352889cf790ce66eb7a20f34"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/dependencies.json",
+        "sha256": "468bc01fb12371fffec1383f5efed20b7842af9db1bd3bc3aa36fbb0f0b05e92"
+      },
+      {
+        "path": "adva-library/frame_v1/materials/structure.json",
+        "sha256": "c9052b15a716cb8c52754dcede6be3c3c21eabb17046ddf78f05d0391d4d9757"
+      }
+    ],
+    "open_obligations": [
+      "General interpretation frame and PSC0 identity correspondence remain open.",
+      "Physical semantics and complete nested boundaries are not derived."
+    ],
+    "recorded_status": "proposed-document",
+    "reuse_requires": [
+      "Retain exact process and dependency pins.",
+      "Carry metric, observer, boundaries, clock and residuals with representation changes.",
+      "Run the declared bounded comparison in a fresh output; do not infer semantic admission from transport."
+    ],
+    "scope": "Finite rational frame/covariance profile, twelve charts over four retained iota processes; exact coefficients through order twelve.",
+    "theory": {
+      "carried_readings": [
+        "complex structure J",
+        "exponential coefficient rule",
+        "declared process cuts and clocks"
+      ],
+      "kind": "finite-iota-interpretation-frame",
+      "primitive": "iota"
+    },
+    "title": "A frame carrying iota, i and exponential evolution"
+  },
+  "checker": {
+    "cargo_lock_blake3": "b7ece200175a70289c91230326b00947d3451f34e589e4ad2b9dfc61170bf1ae",
+    "implementation_blake3": "866cd49ca485d62e0adb16528f29dbceef8a5f3ded0219544fc879bfe662bb8a"
+  },
+  "context": "iota/frame-v1:machine",
+  "contract_blake3": "d58159934dc98e0fc8fc443bb641db5ac8dd08e0e5a03ae879693b82a5ab962d",
+  "envelope_blake3": "67fd6357c4532df26dfeb900a07dbbf45583f07d2046803fa9a6fdd30f8c2a86",
+  "events": [
+    "receive",
+    "check-integrity-and-contract",
+    "accept-documentary-reference"
+  ],
+  "exchange_id": "iota-frame-machine-2026-09-17-v1",
+  "files": [
+    {
+      "blake3": "845f336e92e7f9cddbe574400e20c1af0026289a0fe72528e409c0cb14030772",
+      "bytes": 5077,
+      "destination": "materials/contract.json",
+      "sha256": "746b8d0d1db972fef0b7f5fca6cce97157ef630fca0de2daca83880514feac40",
+      "source": "frame_v1/materials/contract.json"
+    },
+    {
+      "blake3": "0527e46396c5559bfeaebc93e73c03caa88e4f1727c7dad07fd43a8da68186d5",
+      "bytes": 7457,
+      "destination": "materials/frame.md",
+      "sha256": "d8967cc3e6b953d547a22010f37d9997a023d1b55935928f88becba86862dae0",
+      "source": "frame_v1/materials/frame.md"
+    },
+    {
+      "blake3": "ccf605a6c822aa1ce233ecea6362af39670c69a7ea3e017feceb4bf8778c0409",
+      "bytes": 36904,
+      "destination": "materials/frames.json",
+      "sha256": "d98fe110220b40a413286e83d05219a14bad071e2909a234431cdf8a6ab67a04",
+      "source": "frame_v1/materials/frames.json"
+    },
+    {
+      "blake3": "b380933f41c4a271cb0ac30c6e113f65c31f786c2150b6e9e78c7e00f62fb866",
+      "bytes": 4197,
+      "destination": "materials/processes.json",
+      "sha256": "51fae616ec15a52217c41e3cf7e0fd1c8ff650d200cd0ace57b8f8b99bc2f80f",
+      "source": "frame_v1/materials/processes.json"
+    },
+    {
+      "blake3": "4ee9f8602846b7b6082470deca6c9e9ce198fef0e2617437432e9f1c746ac7ca",
+      "bytes": 2804,
+      "destination": "materials/algebra.py",
+      "sha256": "1c299f816223208a2b199672b26e86b2a8716fb83088af7b27eda35211b386c6",
+      "source": "frame_v1/materials/algebra.py"
+    },
+    {
+      "blake3": "b848e15644769eb4fa668454f8751ed2a4dd9c0a2284d2c39a2df6e4caebb1e4",
+      "bytes": 15429,
+      "destination": "materials/check.py",
+      "sha256": "7130b205e25dba89e95fd367d0a349da08df644d352889cf790ce66eb7a20f34",
+      "source": "frame_v1/materials/check.py"
+    },
+    {
+      "blake3": "b730b65bf4954d37751b5928f4871192ab21301ae1c6f9529f64c9be08143086",
+      "bytes": 1494,
+      "destination": "materials/dependencies.json",
+      "sha256": "468bc01fb12371fffec1383f5efed20b7842af9db1bd3bc3aa36fbb0f0b05e92",
+      "source": "frame_v1/materials/dependencies.json"
+    },
+    {
+      "blake3": "c3f3a6190f178a7513cd2a7677cb3b4eac6297f86561537776ab9a64fcce8df7",
+      "bytes": 2756,
+      "destination": "materials/structure.json",
+      "sha256": "c9052b15a716cb8c52754dcede6be3c3c21eabb17046ddf78f05d0391d4d9757",
+      "source": "frame_v1/materials/structure.json"
+    }
+  ],
+  "native_admission": "NotGranted",
+  "origin": {
+    "catalog_blake3": "9a681c03c3b2a64a9d5d7772152bc7965f4df625589168658c530ef7af0842f1",
+    "catalog_path": "frame_v1/catalog.json",
+    "repository": "https://github.com/mountain/adva-iota",
+    "revision": "1a7041d8b714c695a7a9a8ea23f78fb70c7e151a"
+  },
+  "profile": "documentary-library-entry-v1",
+  "publication": "BoundReviewedRecord",
+  "publication_record_blake3": "e5fb3ca14a1a6cc1391f4f400852fc1792fedd1940eca815235cef59200139dd",
+  "receiver": "mountain/adva-machine:iota-frame-store",
+  "residual": "Origin claims are pinned, not authenticated; referenced proofs and human acceptance are not checked. No source retirement or new catalog home.",
+  "resource_contract": {
+    "automatic_retries": 0,
+    "cooperative_seconds": 5,
+    "read_bytes_per_invocation": 8388608
+  },
+  "rights_determined_by_machine": false,
+  "schema": "adva.communication.receipt.v1",
+  "semantic_verification": "NotRun",
+  "sender": "mountain/adva-iota:frame-catalog",
+  "status": "AcceptedDocumentary"
+}

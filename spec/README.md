@@ -62,3 +62,10 @@ tests supplied chart correspondences, retained residuals and bounded replay.
 Native free, interpretation search and the three-share/reserve policy remain
 open. [ADR 0050](../docs/adr/0050-triadic-free-process-calibration.md) records
 the definition, vocabulary refinement and measured boundary.
+
+## Finite iota interpretation frame
+
+The [iota frame v1 profile](framework/iota-frame-v1.md) binds iota processes,
+complex structure and exponential observations in a checked finite research
+frame. Its received witnesses preserve domain boundaries, metric, observer,
+clock and residuals; no stable keyword or native frame type is added.

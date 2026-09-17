@@ -1,0 +1,62 @@
+{
+  "schema": "adva.iota-frame-trial.v1",
+  "question": "Can one finite interpretation frame carry iota process structure, i as a complex structure, and e as exponential evolution, while preserving observations, clock equality and residuals under declared coordinate changes?",
+  "level": "External exact rational calibration over the previously received iota process; no stable native operation or mathematical proof-kernel promotion",
+  "source_baseline": "c701c598c439377f591b49846273afa2ac6afe84",
+  "machine_baseline": "a02a8a94d31b8903ab3a3c3d01d0a5f67677430d",
+  "knowledge_baseline": "5eb98451092d26b1b6ae4089faf106a500d5fd35",
+  "families": ["independent-iota", "nested-iota", "chain-and-single", "changed-roles"],
+  "charts": ["identity", "scaled", "mixed"],
+  "series_order": 12,
+  "imported_assumptions": [
+    "The previous exact eight-file packet supplies conservative finite process families and their historical native execution evidence.",
+    "Choose the undirected cut graph Laplacian divided by twice its maximum degree; this is a declared observation, not a physical Hamiltonian.",
+    "Standard rational matrix algebra, realification of complex multiplication and the convergent exponential series are mathematical premises; finite checks are not a general proof kernel.",
+    "The source norm bound is one, so the exponential tail on absolute parameter <= 1 is at most 3/13!; this bound is transported in the G norm."
+  ],
+  "protected": [
+    "Iota remains the sole primitive source combinator; e and i belong to the interpretation frame.",
+    "Explicit entry/exit roles for construction {}, space [] and time (), directed events, cut basis and history bindings survive.",
+    "J, H, metric G and observer O must travel together under an invertible chart.",
+    "Observer event clock and exponential parameter are distinct; positive affine clock calibration preserves equality groups.",
+    "The original process, discarded arguments, copy coordinates and unresolved full ancestry stay available; equal operators do not identify processes.",
+    "Resource account and previous spent model fuel persist; actual host work is separately charged.",
+    "Old received bytes, native identities, native profiles, historical failures and consumer locks remain unchanged."
+  ],
+  "checks": [
+    "Recheck all twelve old term/ledger families with the pinned checker; bind the four selected projections exactly.",
+    "Check twelve candidate frames: process binding, basis, boundaries, inverse, J^2=-I, metric compatibility, H adjointness, complex linearity and generator skewness.",
+    "Check Gaussian phase coefficients, exponential covariance, observer covariance, Wick coefficients, metric unitarity and two-parameter heat semigroup coefficients through degree twelve.",
+    "Check positive affine clock calibration and all pairwise clock equality comparisons.",
+    "Retain counterexamples to omitted metric/observer, false complex structure, wrong H, missing cuts, policy/history changes, added source e, wrong factorial law, conflated clock, split simultaneity, fuel refill, singular chart and wrong Wick sign.",
+    "Retain equal-operator/different-role residual and equal-dimension/different-process witness; missing evidence yields Unknown."
+  ],
+  "open": [
+    "General interpretation Frame, nested boundary calculus and PSC0 process/ancestry admission remain open.",
+    "No physical time, energy, Hamiltonian or quantum dynamics is derived.",
+    "No language equivalence, native complex scalar, native process exponential, general communication or free is implemented."
+  ],
+  "limits": {
+    "events_per_family": 24,
+    "cuts_per_family": 128,
+    "matrix_dimension": 12,
+    "counted_work_per_check": 12000000,
+    "wall_seconds_per_check": 120,
+    "cpu_seconds_per_check": 110,
+    "address_space_bytes": 1073741824,
+    "artifact_bytes": 16777216,
+    "source_export_wall_seconds": 30,
+    "explicit_checks": ["source-preflight", "knowledge-after-reception", "machine-after-reception"],
+    "explicit_transports": ["knowledge", "machine"],
+    "native_object_launches": 0,
+    "native_transport_launches_each": 4,
+    "total_native_launches": 8,
+    "transport_wall_seconds_each": 30,
+    "transport_cpu_seconds_each": 25,
+    "transport_artifacts_each": 8388608,
+    "automatic_retries": 0
+  },
+  "accounting": "Count each scalar multiply/accumulate position visited by matrix multiplication, each scaled/added entry and each predicate/legacy traversal tick. Charge negative controls and witness readback. Model frame debit is stipulated, not measured CPU. Authoring, export, publication and baseline tests are separately reported preparation.",
+  "exit": "Unexpected mismatch or exhaustion stops the affected run with retained evidence and no positive checkpoint. Any correction requires a separately recorded finite continuation; never rewrite an old result.",
+  "authorship": "Codex (OpenAI), original contribution under Unknown v0.3 through Mingli Yuan account proxy; not his authorship, review, endorsement or correctness guarantee"
+}

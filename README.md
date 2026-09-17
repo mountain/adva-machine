@@ -6,6 +6,10 @@ history of `mountain/adva` at `bbfaf3a`. The original GitHub repository is inten
 to evolve toward knowledge; the eventual organization of `adva-library` remains
 open.
 
+The [iota frame profile](spec/framework/iota-frame-v1.md) jointly carries the
+minimal iota process, complex structure and exponential readings. Its finite
+checks retain metric, observer, clock and process residuals across three charts.
+
 English is the primary documentation language for international collaboration.
 Other language versions provide supporting translations or summaries; see the
 [documentation policy](docs/DEVELOPMENT.md#documentation-language).
