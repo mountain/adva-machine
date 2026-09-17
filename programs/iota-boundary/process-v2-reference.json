@@ -1,0 +1,135 @@
+{
+  "schema": "adva.machine.iota-process-reference.v2",
+  "repository_name": "adva-iota",
+  "publication_remote": null,
+  "revision": "84285109349ce2d6dea8e6884d9cf99318cb49d8",
+  "machine_baseline": "52a18fe0d10b23842013ec604d804f9506e3aaba",
+  "knowledge_baseline": "1bdadfc2a1263aac0139aeef9be69ed756e9c186",
+  "native_profile": "352cd9c1cb22a91966912bbe52980848c0c045163b22ef13f1a964f8211c3eed",
+  "native_binary_sha256": "b105331d7a6d7b3fe51d85b71961750f070ccae672a0181b039569028a43374a",
+  "authority": "Optional documentary reference. Rust admits and replays the supplied data-machine requests; external process coordinates, cuts, observer clocks and operators are not native PSC0 certificates.",
+  "contribution": "Original documentary pin and report by Codex (OpenAI), contributed under Unknown v0.3 through Mingli Yuan account proxy; no copied implementation or external package contents.",
+  "entry_points": {
+    "specification": "process_v2/SPEC.md",
+    "report": "process_v2/README.md",
+    "explorer": "process_v2/evidence/explorer.html",
+    "evidence_inventory": "process_v2/evidence/manifest.json"
+  },
+  "checked": {
+    "fixtures": 12,
+    "events": 92,
+    "cuts": 159,
+    "schedules": 519,
+    "diamonds": 55,
+    "intervals": 1762,
+    "adjacent_interval_compositions": 2060,
+    "campaign_assertions": 4144,
+    "dom_assertions": 990,
+    "native_requests": 4,
+    "native_launches": 12,
+    "native_execution_instructions": 16732,
+    "native_replay": "Passed"
+  },
+  "files": {
+    "process_v2/README.md": {
+      "sha256": "7cae544856fbb7019bc0fd3ae62e4852051c261f093f9ed148d853a03f7f9b1c",
+      "bytes": 9701
+    },
+    "process_v2/SPEC.md": {
+      "sha256": "6110912c88e9a5e6d7f029830ea38c677bbc972f44de1f9be1f71d752f1d42df",
+      "bytes": 5745
+    },
+    "process_v2/__init__.py": {
+      "sha256": "16a56cfe3abeaba6c22963d8ee7fa9f9425f0fd4806d601443c24919768e3cce",
+      "bytes": 65
+    },
+    "process_v2/check_viewer.cjs": {
+      "sha256": "12bac1e546acc628aca578f4c4c8167a693b1918bfed66a390d38e95ec799082",
+      "bytes": 3764
+    },
+    "process_v2/contract.json": {
+      "sha256": "38ef6fff047645b7a16830f229999cb5aa3022881fbf9bb5319b860c3b92c839",
+      "bytes": 4066
+    },
+    "process_v2/evidence/attempt-1.tar.gz": {
+      "sha256": "e0da00f867c04323caff9f7c8e0fdef556700d5921fc1cd7dac2e980fcaf49b1",
+      "bytes": 994183
+    },
+    "process_v2/evidence/baseline-check.json": {
+      "sha256": "30dfd224f1bc183f52c79bc5c8976c4083d907b0a0528c5485b42a6a202dfe70",
+      "bytes": 2062
+    },
+    "process_v2/evidence/baseline-tests.json": {
+      "sha256": "b979029b7b911a384fc7c50e19295adb9b6a599b881090f366ff2af763fecbc0",
+      "bytes": 637
+    },
+    "process_v2/evidence/explorer.html": {
+      "sha256": "9eee2e8912d802aa600bf5fbbc165ccf74fea66b58ab59e70c6fe541f1d8969b",
+      "bytes": 3102117
+    },
+    "process_v2/evidence/manifest.json": {
+      "sha256": "652bbb26d3cafeefe44cfd767bfd167aaff6db2abfcd90c94fc586a77a95d650",
+      "bytes": 19687
+    },
+    "process_v2/evidence/result.json": {
+      "sha256": "54b447719b8ffb47d4ee77c0d0d0c90d9e97418e4aedc846f04f25f8f4d3c3e2",
+      "bytes": 7755
+    },
+    "process_v2/evidence/viewer-check.json": {
+      "sha256": "0ef578c3aa924ea74740c661223fb9a816c9c3763f88d201d2e7d6c793468e18",
+      "bytes": 1332
+    },
+    "process_v2/fixtures.py": {
+      "sha256": "a419857e12548697ad4f25b64b4f0991654d5a4522d67cf82658103d6bf016ca",
+      "bytes": 1845
+    },
+    "process_v2/native.py": {
+      "sha256": "b062e69fadb5065de80ff266e24d5e2d451192c06729fc813a42338b09494249",
+      "bytes": 5724
+    },
+    "process_v2/observers.py": {
+      "sha256": "594135a4f9b9e4c06bd061d3675866edf8dceab31f68bcd7b92019a52348db0d",
+      "bytes": 3587
+    },
+    "process_v2/operator.py": {
+      "sha256": "a8e28df2105eabc427e8ddfa633c36e9d86e34424306bcca6ad2fd8473b12e59",
+      "bytes": 3896
+    },
+    "process_v2/process.py": {
+      "sha256": "63523069ccfd8a8de17d33b1ecec5d19df0fd88d932cd59c8c47ef9bd81e562e",
+      "bytes": 11688
+    },
+    "process_v2/resources.py": {
+      "sha256": "f78001f61f0ea1fd0ab3989e69b379ed22e0aad02ea120e51da5b5ac58399fb0",
+      "bytes": 609
+    },
+    "process_v2/run.py": {
+      "sha256": "41df00b95ce052286ec38c555b45b975c515c663e28421e889310f53ba6520f7",
+      "bytes": 11636
+    },
+    "process_v2/viewer-check-contract.json": {
+      "sha256": "aaeb403f177941f0c4f18659a608fa8f2c968b06dc3c53ff1f3703e14fc531f6",
+      "bytes": 1003
+    },
+    "process_v2/viewer.html": {
+      "sha256": "0dabc8905544f8cd905e4fb8b7fc11c68a8753aab29a6fbdb0e63f39c2c66c79",
+      "bytes": 18107
+    },
+    "process_v2/viewer.py": {
+      "sha256": "e6961aee76f847df6b1f1de35ccce06caae7164876e28537ac2eaf1c42c56e96",
+      "bytes": 553
+    },
+    "boundary_v1/__init__.py": {
+      "sha256": "1188db4e3f505aa7a799ab0a29b4551c625112f4e829c83cfd75748a8739655d",
+      "bytes": 78
+    },
+    "boundary_v1/build.py": {
+      "sha256": "df7652830ead645c8d87c2b96fd21211d454dd92a0d84865bd4e472f4dbfdc1d",
+      "bytes": 9225
+    },
+    "boundary_v1/model.py": {
+      "sha256": "98a55bce42b664982ee9dc7a97df168d0b946b10e0e725068ac0e9580fbd0e6e",
+      "bytes": 3981
+    }
+  }
+}

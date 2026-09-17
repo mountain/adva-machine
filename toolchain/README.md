@@ -113,3 +113,8 @@ The independent boundary-aware iota successor emits requests for this existing
 runner. See [the pinned integration guide](../programs/iota-boundary/README.md)
 for pure-iota source, explicit three-domain policies, retained reduction history
 and the Rust execution/replay boundary.
+
+The separate [process/cut v2 companion](../programs/iota-boundary/process-v2.md)
+adds checked finite dependency families, observer simultaneous layers and an
+interactive real/imaginary-time observation. Its four native requests use this
+existing runner; its external cut coordinates do not become PSC0 certificates.
