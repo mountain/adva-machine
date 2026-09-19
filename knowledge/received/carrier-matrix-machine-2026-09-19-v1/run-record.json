@@ -1,7 +1,7 @@
 {
   "schema": "adva.carrier-matrix.run-record.v0",
   "is_a_communication_receipt": false,
-  "receipt_status": "Pending. No documentary exchange was executed, so no adva.communication.receipt.v1 exists for this package. Authoring and checking are engineering work and are not reported as an executed exchange.",
+  "receipt_status": "Executed. The documentary route ran and produced receipt.json beside this record.",
   "exchange_id": "carrier-matrix-machine-2026-09-19-v1",
   "profile": "carrier-matrix-v0",
   "specification": "spec/framework/carrier-matrix-v0.md",
@@ -159,11 +159,24 @@
     "hole_found_and_fixed": "The first adversarial pass showed that a corrupted declared cut cochain passed silently, because the main path derives the pairing rather than reading the declaration. The checker now requires the declared cochain to equal the derived pairing; the retest refuses both cochain corruptions."
   },
   "residual": [
-    "No communication receipt exists; the documentary route was not executed.",
+    "The origin revision is a LOCAL commit of adva-machine; it is not pushed, so the recorded source_url resolves only after that publication. The receiver does not fetch it and does not claim it resolves.",
+    "The publication record is a self-review by the same agent that authored and checked the materials; it is not independent verification.",
     "No catalog entry was created and spec/catalog.json is unchanged, so the dependency pins held by consumers still match.",
     "Larger carriers are not exercised; a k-by-k family would need a diagram with at least k independent directions.",
     "The declared signed basis and composition order fix the recorded coefficient value; only their equality across directions is claimed.",
     "Agreement with the recorded product expectation is a regression cross-check, not evidence of correctness.",
     "Every number cited by the specification is recorded in this checker's witness; no specification figure is carried over from another implementation."
-  ]
+  ],
+  "communication_receipt": {
+    "present": true,
+    "path": "receipt.json",
+    "schema": "adva.communication.receipt.v1",
+    "status": "AcceptedDocumentary",
+    "accepted_use": "documentary-reference",
+    "blake3": "cf3ee36d1051c6a856f6245c1ac41b2045c933263ffe7c6b3589044d96c30a01",
+    "native_admission": "NotGranted",
+    "semantic_verification": "NotRun",
+    "rights_determined_by_machine": false,
+    "note": "This file is the local check record, not the receipt. The receipt is a separate pinned file produced by the Rust receiving route."
+  }
 }

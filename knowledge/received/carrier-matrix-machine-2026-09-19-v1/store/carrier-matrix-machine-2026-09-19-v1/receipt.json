@@ -1,0 +1,157 @@
+{
+  "accepted_use": "documentary-reference",
+  "catalog_entry": {
+    "assumptions": [
+      "The declared causal cube is the three-branch fixture of the chirality calibration.",
+      "The incidence pairing is computed from the declared enabled edges, never read from a stored value.",
+      "Standard exterior algebra over a finite declared direction set is a mathematical premise.",
+      "No native keyword, operation, value type, IR version or registry entry is introduced."
+    ],
+    "checker": null,
+    "domains": [
+      "logic"
+    ],
+    "evidence": [],
+    "geometry_lineage": null,
+    "home": "logic",
+    "key": "logic-carrier-matrix-v0",
+    "materials": [
+      {
+        "path": "adva-library/logic_v0/materials/contract.json",
+        "sha256": "69c63065053eb964cd9f54ded0f3c092f9877acb80a458e50d4c4266c885adbc"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/carrier.md",
+        "sha256": "8d38f48f9e9fa35ed966931c1bb611172f4c17bc9e75d0371762ed05d32bdd85"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/structure.json",
+        "sha256": "c6cdeb9a93649798a33813dfd970d0d120e961b062a8d014b83800cd85a389f1"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/tables.json",
+        "sha256": "581cd9815fd5c88fd3c732fa8175a5a0cd690e14b2c6cd8ebb83cb2fec591cbb"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/algebra.py",
+        "sha256": "45e088988c8ae236312f10d37878184a8cadbc0e32e1c36353238bec598bf0bb"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/check.py",
+        "sha256": "f009ebace243a1a29b1e33c3be78321d6b44c027e300ef164ec17f77f483af7c"
+      },
+      {
+        "path": "adva-library/logic_v0/materials/dependencies.json",
+        "sha256": "23a47a6a08d5645ca305209c47aadd1535007500acb8a50e031d21922ec951ba"
+      }
+    ],
+    "open_obligations": [
+      "No native carrier type, table surface form or operation registration exists or is proposed.",
+      "Larger tables are not exercised; a k-by-k family would need at least k independent directions.",
+      "Spectrum, diagonalization and dynamics remain excluded and are not approached."
+    ],
+    "recorded_status": "proposed-document",
+    "reuse_requires": [
+      "Retain the exact declared structure, tables, carriers and cochain options.",
+      "Re-run the checker at the pinned package digest; a changed structure changes the carrier.",
+      "Keep the non-vacuity guard and the control-bite guard; a law that passes without them certifies nothing."
+    ],
+    "scope": "Finite research materials for the carrier matrix profile, version 0: one checked cut read as a carrier, a matrix-unit family on the grade-1 exterior carrier, composition as the matrix product, and the middle-index summation supplied by the cut's own pairing rather than a new operation.",
+    "theory": {
+      "carried_readings": [
+        "exterior carrier and its grade-1 subspace",
+        "matrix-unit family from wedge and contraction",
+        "product as composition with the cut's pairing collapsing the middle index"
+      ],
+      "kind": "finite-carrier-matrix-correspondence",
+      "primitive": "checked cut direction set"
+    },
+    "title": "A carrier on which a table is an operator"
+  },
+  "checker": {
+    "cargo_lock_blake3": "b7ece200175a70289c91230326b00947d3451f34e589e4ad2b9dfc61170bf1ae",
+    "implementation_blake3": "866cd49ca485d62e0adb16528f29dbceef8a5f3ded0219544fc879bfe662bb8a"
+  },
+  "context": "carrier/matrix-v0:machine",
+  "contract_blake3": "f7a7caf9526f64865ac0a27feff329cda933a41f71cc05cf8b3240cf3d3bb319",
+  "envelope_blake3": "a77efeb04ace1bd03914bd93e57702dae1cd3918bba9a4686a4354b5124b8185",
+  "events": [
+    "receive",
+    "check-integrity-and-contract",
+    "accept-documentary-reference"
+  ],
+  "exchange_id": "carrier-matrix-machine-2026-09-19-v1",
+  "files": [
+    {
+      "blake3": "e7c96017765a2658fb003d3e985c66c565e133f2ef7fb2fef0aada877b405ea6",
+      "bytes": 6245,
+      "destination": "materials/contract.json",
+      "sha256": "69c63065053eb964cd9f54ded0f3c092f9877acb80a458e50d4c4266c885adbc",
+      "source": "logic_v0/materials/contract.json"
+    },
+    {
+      "blake3": "fcaf6b265774fcc6218d9dfa40bf0d4e6a4eb822f226416f40db516bc87f8c9a",
+      "bytes": 4435,
+      "destination": "materials/carrier.md",
+      "sha256": "8d38f48f9e9fa35ed966931c1bb611172f4c17bc9e75d0371762ed05d32bdd85",
+      "source": "logic_v0/materials/carrier.md"
+    },
+    {
+      "blake3": "9d042a25046fb69e425976b0dbb2de9a7271ac59c97cf09bb1dd0e9c677c3e38",
+      "bytes": 3302,
+      "destination": "materials/structure.json",
+      "sha256": "c6cdeb9a93649798a33813dfd970d0d120e961b062a8d014b83800cd85a389f1",
+      "source": "logic_v0/materials/structure.json"
+    },
+    {
+      "blake3": "1a50997e8099c85bf8fe8abc87fe01256bdcecb8846dbcc1f346863d048a3156",
+      "bytes": 1426,
+      "destination": "materials/tables.json",
+      "sha256": "581cd9815fd5c88fd3c732fa8175a5a0cd690e14b2c6cd8ebb83cb2fec591cbb",
+      "source": "logic_v0/materials/tables.json"
+    },
+    {
+      "blake3": "cf393888f20241635b46f11a09e195a1635495f0fb97e9c34454caf5ba85af8a",
+      "bytes": 8798,
+      "destination": "materials/algebra.py",
+      "sha256": "45e088988c8ae236312f10d37878184a8cadbc0e32e1c36353238bec598bf0bb",
+      "source": "logic_v0/materials/algebra.py"
+    },
+    {
+      "blake3": "cdc0fc6544bd5a4c670a8943ea072464b3fa218cf6757039759acafd5782a702",
+      "bytes": 19280,
+      "destination": "materials/check.py",
+      "sha256": "f009ebace243a1a29b1e33c3be78321d6b44c027e300ef164ec17f77f483af7c",
+      "source": "logic_v0/materials/check.py"
+    },
+    {
+      "blake3": "b81f7334dec3a5499873922dc628ceb088f2405c5bc3fbffd2ad8bd4aedde1a3",
+      "bytes": 903,
+      "destination": "materials/dependencies.json",
+      "sha256": "23a47a6a08d5645ca305209c47aadd1535007500acb8a50e031d21922ec951ba",
+      "source": "logic_v0/materials/dependencies.json"
+    }
+  ],
+  "native_admission": "NotGranted",
+  "origin": {
+    "catalog_blake3": "23596e3c6fe6289da995bdbddda8525c33a54114861e040bf14c20fd1cb09367",
+    "catalog_path": "logic_v0/catalog.json",
+    "repository": "https://github.com/mountain/adva-machine",
+    "revision": "d2896e538119b6ac44697be8f895ede1f2b5a1d9"
+  },
+  "profile": "documentary-library-entry-v1",
+  "publication": "BoundReviewedRecord",
+  "publication_record_blake3": "a75040e49420e986ad4e787a1d4e05b2ca90788fc2152dbc294813d211790c7a",
+  "receiver": "mountain/adva-machine:carrier-store",
+  "residual": "Origin claims are pinned, not authenticated; referenced proofs and human acceptance are not checked. No source retirement or new catalog home.",
+  "resource_contract": {
+    "automatic_retries": 0,
+    "cooperative_seconds": 5,
+    "read_bytes_per_invocation": 8388608
+  },
+  "rights_determined_by_machine": false,
+  "schema": "adva.communication.receipt.v1",
+  "semantic_verification": "NotRun",
+  "sender": "mountain/adva-machine:carrier-source",
+  "status": "AcceptedDocumentary"
+}

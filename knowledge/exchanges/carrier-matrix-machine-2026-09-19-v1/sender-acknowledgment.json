@@ -1,0 +1,12 @@
+{
+  "contract_blake3": "f7a7caf9526f64865ac0a27feff329cda933a41f71cc05cf8b3240cf3d3bb319",
+  "envelope_blake3": "a77efeb04ace1bd03914bd93e57702dae1cd3918bba9a4686a4354b5124b8185",
+  "exchange_id": "carrier-matrix-machine-2026-09-19-v1",
+  "native_admission": "NotGranted",
+  "new_acceptance_effects": 0,
+  "observed_receiver_status": "AcceptedDocumentary",
+  "receipt_blake3": "cf3ee36d1051c6a856f6245c1ac41b2045c933263ffe7c6b3589044d96c30a01",
+  "schema": "adva.communication.acknowledgment.v1",
+  "semantic_verification": "NotRun",
+  "status": "Acknowledged"
+}
