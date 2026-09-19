@@ -1,0 +1,70 @@
+{
+  "schema": "adva.carrier-matrix-trial.v0",
+  "question": "Can one checked cut supply a carrier on which a table is realized as an operator, composition is the matrix product, and the middle-index summation is the cut's own pairing rather than a new operation -- with the carrier, the composition order and the cochain each separated by a control?",
+  "level": "External exact integer calibration over one declared causal cube; no stable native operation, value type, IR version or proof-kernel promotion",
+  "machine_baseline": "dbbe46b2569214eef69c9d5a3e1774dfa12e2cbf",
+  "knowledge_baseline": "89cf06ef11f4808040440845fd5ce5bfa085eb95",
+  "library_baseline": "73a6af4ac4ed8225366d3c16794e309cff15f51d",
+  "profile": "spec/framework/carrier-matrix-v0.md",
+  "directions": ["neg", "scale", "id"],
+  "carriers": ["Lambda^1 E", "Lambda^2 E", "all of Lambda^*", "W = Lambda^1 + Lambda^2"],
+  "declared_cut_cochain": "identity (the cut)",
+  "imported_assumptions": [
+    "The declared causal cube is the three-branch fixture of the chirality calibration: three unary events enabled simultaneously on pairwise disjoint source-bearing frontier wires, with one source-free parameter port that is not a direction.",
+    "The incidence pairing dx_i(g_j) = delta_ij is COMPUTED by the checker from the declared enabled edges by comparing cut-membership coordinates across each forward generation edge; it is never read from the contract or the structure file.",
+    "Standard exterior algebra over a finite declared direction set is a mathematical premise. Finite checks are not a general proof kernel.",
+    "Integer arithmetic is exact and no floating point value is computed, compared or retained.",
+    "The tables in tables.json are declared exact integer inputs, not derived quantities."
+  ],
+  "protected": [
+    "This trial introduces no native keyword, operation, value type, IR version, schema, registry entry, consumer lock or Seal.",
+    "Value equality and observational equivalence never authorize contraction. The middle-index identification is licensed only by the checked identity E_ij E_kl = delta_jk E_il over the declared finite index set.",
+    "No tensor product semantics is claimed for any frontier, and no matrix interpretation is claimed for programs, diagrams or program space in general.",
+    "No spectrum, eigenvalue, resolvent, process exponential, clock or time parameter is introduced.",
+    "No physical reading is drawn: no direction is a state, no operator is an observable, and the derived volume action is not a physical imaginary unit.",
+    "No library, epoch, pin, geometry obligation or native Seal status is changed."
+  ],
+  "checks": [
+    "Derive the incidence pairing from the declared enabled edges over every vertex and direction, and require it to be single-valued and equal to the identity pairing.",
+    "Anchor the exterior algebra on the cut duality eps_i iota_j + iota_j eps_i = delta_ij I over all index pairs.",
+    "Check the matrix-unit law E_ij E_kl = delta_jk E_il for E_ij = eps_i iota_j restricted to the grade-1 carrier, over every index quadruple.",
+    "Check that the family spans a full matrix algebra: identity sum_i E_ii = I, associativity over every index triple, and distributivity.",
+    "Realize two declared tables as operators and require composition to equal the ordinary matrix product.",
+    "Check the summation identities sum_i eps_i iota_i = deg, sum_i iota_i eps_i = n - deg and their sum = n I.",
+    "Check the derived volume action Omega = c_1 c_2 c_3 on W satisfies Omega^2 = -I and leaves W invariant.",
+    "Check carrier symmetry: the derived volume action carries one coefficient on all three directions, and every choice of causal line returns the same boundary split."
+  ],
+  "controls": [
+    "Lambda^2 E, also three dimensional, must fail the matrix-unit law.",
+    "All of Lambda^*, rather than grade 1, must fail the matrix-unit law.",
+    "The reversed composition order iota_j eps_i must fail the matrix-unit law.",
+    "Every corrupted cochain must break the matrix product, not merely lower the law score.",
+    "The zero cochain must pass the matrix-unit law vacuously and must be caught by the non-vacuity guard, so that a law passing without the guard certifies nothing.",
+    "The pure wedge volume must be nilpotent, so interchange alone cannot produce the order-four lift.",
+    "A family that is identically zero must never be reported as a survivor.",
+    "A control that cannot fail must itself be reported as Unknown rather than as a pass."
+  ],
+  "open": [
+    "No native carrier type, table surface form or operation registration exists or is proposed by this trial.",
+    "Larger tables are not exercised; a k-by-k family would require a diagram with at least k independent directions.",
+    "Spectrum, diagonalization and dynamics remain excluded and are not approached here.",
+    "The correspondence between this carrier profile and any other profile, including the iota interpretation frame, is not established."
+  ],
+  "limits": {
+    "directions": 3,
+    "exterior_dimension": 8,
+    "carrier_dimension": 3,
+    "extended_carrier_dimension": 6,
+    "counted_work_per_check": 4000000,
+    "wall_seconds_per_check": 60,
+    "cpu_seconds_per_check": 55,
+    "address_space_bytes": 1073741824,
+    "artifact_bytes": 16777216,
+    "explicit_checks": ["source-preflight", "machine-after-reception"],
+    "native_object_launches": 0,
+    "automatic_retries": 0
+  },
+  "accounting": "Count each scalar multiply/accumulate position visited by matrix multiplication, each scaled or added entry, each blade visited while deriving the incidence pairing, and each control and witness readback. Model coordinates are stipulated, not measured CPU. Authoring and baseline tests are separately reported preparation.",
+  "exit": "Unexpected mismatch or exhaustion stops the run with retained evidence and no positive checkpoint. Any correction requires a separately recorded finite continuation. Never rewrite an old result.",
+  "authorship": "DeepSeek Harness (deepseek-v4-flash-vision-exp), original contribution under Unknown v0.3 through Mingli Yuan's authorized account proxy; not his authorship, review, endorsement or correctness guarantee"
+}

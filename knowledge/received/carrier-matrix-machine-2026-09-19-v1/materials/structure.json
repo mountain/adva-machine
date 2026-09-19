@@ -1,0 +1,221 @@
+{
+  "schema": "adva.carrier-matrix.structure.v0",
+  "status": "declared finite structure; external research coordinates only",
+  "directions": [
+    {
+      "index": 0,
+      "operation": "neg",
+      "note": "unary negation on a source-bearing wire"
+    },
+    {
+      "index": 1,
+      "operation": "scale",
+      "note": "multiplication by the declared constant 2"
+    },
+    {
+      "index": 2,
+      "operation": "id",
+      "note": "the identity event; carries no change of value"
+    }
+  ],
+  "cube": {
+    "vertices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "enabled": [
+      {
+        "mask": 0,
+        "direction": 0
+      },
+      {
+        "mask": 0,
+        "direction": 1
+      },
+      {
+        "mask": 0,
+        "direction": 2
+      },
+      {
+        "mask": 1,
+        "direction": 1
+      },
+      {
+        "mask": 1,
+        "direction": 2
+      },
+      {
+        "mask": 2,
+        "direction": 0
+      },
+      {
+        "mask": 2,
+        "direction": 2
+      },
+      {
+        "mask": 3,
+        "direction": 2
+      },
+      {
+        "mask": 4,
+        "direction": 0
+      },
+      {
+        "mask": 4,
+        "direction": 1
+      },
+      {
+        "mask": 5,
+        "direction": 1
+      },
+      {
+        "mask": 6,
+        "direction": 0
+      }
+    ],
+    "note": "An edge (mask, direction) is enabled exactly when that direction has not yet crossed the cut. The set is declared here and the incidence pairing is COMPUTED from it by the checker."
+  },
+  "carrier": {
+    "name": "Lambda^1 E",
+    "grade": 1,
+    "signed_basis": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "note": "the grade-1 carrier; three dimensional for three directions"
+  },
+  "extended_carrier": {
+    "name": "W = Lambda^1 E + Lambda^2 E",
+    "signed_basis": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        5,
+        -1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "note": "the signed basis of the chirality calibration. The coefficient VALUES of the volume action depend on this declared presentation; the claim that they AGREE across directions does not."
+  },
+  "cochains": {
+    "identity (the cut)": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "off-diagonal swap": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "zero": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "doubled diagonal": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        2
+      ]
+    ],
+    "sign flip on one axis": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "declared_cut_cochain": "identity (the cut)"
+}

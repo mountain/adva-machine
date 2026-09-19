@@ -1,0 +1,20 @@
+{
+  "schema": "adva.carrier-matrix.dependencies.v0",
+  "previous_materials": {},
+  "previous_package_sha256": null,
+  "note": "This is version 0. It depends on no previous received packet: the declared structure and tables are self-contained, and the incidence pairing is derived rather than received. The chirality calibration and the carrier matrix specification are documentary references, not runtime dependencies.",
+  "documentary_references": [
+    {
+      "path": "spec/framework/carrier-matrix-v0.md",
+      "role": "the specification this packet implements"
+    },
+    {
+      "path": "docs/research/0010-causal-cut-chirality-cube.md",
+      "role": "the bounded endogenous derivation this packet reuses, not re-derives"
+    }
+  ],
+  "native_dependencies": {
+    "rust_crates": "none; this checker imports no native module",
+    "python_requirement": "Python 3.11+ standard library only"
+  }
+}

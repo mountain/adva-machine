@@ -69,3 +69,15 @@ The [iota frame v1 profile](framework/iota-frame-v1.md) binds iota processes,
 complex structure and exponential observations in a checked finite research
 frame. Its received witnesses preserve domain boundaries, metric, observer,
 clock and residuals; no stable keyword or native frame type is added.
+
+## Carrier matrix profile
+
+The [carrier matrix v0 profile](framework/carrier-matrix-v0.md) reads one
+checked cut as a carrier: a table is realized as an operator on the grade-1
+exterior carrier, composition is the matrix product, and the summation over the
+middle index is the cut's own pairing rather than a new operation. Its checker
+derives the incidence pairing from the declared enabled edges instead of reading
+it, and its controls separate the carrier, the composition order and the
+cochain. It registers no native keyword, operation, value type or IR version,
+and its received run record is a local record rather than a communication
+receipt until the documentary route is executed.

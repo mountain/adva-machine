@@ -1,0 +1,169 @@
+{
+  "schema": "adva.carrier-matrix.run-record.v0",
+  "is_a_communication_receipt": false,
+  "receipt_status": "Pending. No documentary exchange was executed, so no adva.communication.receipt.v1 exists for this package. Authoring and checking are engineering work and are not reported as an executed exchange.",
+  "exchange_id": "carrier-matrix-machine-2026-09-19-v1",
+  "profile": "carrier-matrix-v0",
+  "specification": "spec/framework/carrier-matrix-v0.md",
+  "authority": "DeepSeek Harness (deepseek-v4-flash-vision-exp), original contribution under Unknown v0.3 through Mingli Yuan's authorized account proxy; not his authorship, review, endorsement or correctness guarantee",
+  "native_admission": "NotGranted",
+  "semantic_verification": "NotRun",
+  "new_native_object_executions": 0,
+  "package_sha256": "c5020b7b9e041e2606abb6109dd921583bc369a7b78b56af3b74b9ff217349c3",
+  "files": [
+    {
+      "path": "materials/contract.json",
+      "sha256": "69c63065053eb964cd9f54ded0f3c092f9877acb80a458e50d4c4266c885adbc",
+      "bytes": 6245
+    },
+    {
+      "path": "materials/carrier.md",
+      "sha256": "8d38f48f9e9fa35ed966931c1bb611172f4c17bc9e75d0371762ed05d32bdd85",
+      "bytes": 4435
+    },
+    {
+      "path": "materials/structure.json",
+      "sha256": "c6cdeb9a93649798a33813dfd970d0d120e961b062a8d014b83800cd85a389f1",
+      "bytes": 3302
+    },
+    {
+      "path": "materials/tables.json",
+      "sha256": "581cd9815fd5c88fd3c732fa8175a5a0cd690e14b2c6cd8ebb83cb2fec591cbb",
+      "bytes": 1426
+    },
+    {
+      "path": "materials/algebra.py",
+      "sha256": "45e088988c8ae236312f10d37878184a8cadbc0e32e1c36353238bec598bf0bb",
+      "bytes": 8798
+    },
+    {
+      "path": "materials/check.py",
+      "sha256": "f009ebace243a1a29b1e33c3be78321d6b44c027e300ef164ec17f77f483af7c",
+      "bytes": 19280
+    },
+    {
+      "path": "materials/dependencies.json",
+      "sha256": "23a47a6a08d5645ca305209c47aadd1535007500acb8a50e031d21922ec951ba",
+      "bytes": 903
+    }
+  ],
+  "executed": {
+    "checker": "materials/check.py",
+    "stage": "source-preflight",
+    "result_schema": "adva.carrier-matrix-result.v0",
+    "status": "CarrierMatrixChecked",
+    "assertions": 266,
+    "counted_work": 159835,
+    "controls": 9,
+    "directions": 3,
+    "carrier_dimension": 3,
+    "witness_sha256": "5326c651565e61c5c542d52c7d4f22f5c6af93b3ae2c65ad89567d19237a47a6",
+    "wall_seconds": 0.0146,
+    "host": "darwin/arm64, Python 3.14.6, standard library only",
+    "native_object_launches": 0,
+    "automatic_retries": 0
+  },
+  "measured": {
+    "incidence_pairing_derived": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "edge_witnesses": 36,
+    "cut_duality_pairs": 9,
+    "matrix_unit_law": "81/81",
+    "associativity_triples": 729,
+    "product_AB": [
+      [
+        2,
+        1,
+        5
+      ],
+      [
+        10,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        2
+      ]
+    ],
+    "volume_squares_to_minus_identity": true,
+    "carrier_coefficient_common_value": -1,
+    "carrier_coefficient_is_presentation_dependent": true,
+    "corrupted_cochain_law_scores": {
+      "off-diagonal swap": "45/81",
+      "doubled diagonal": "54/81",
+      "sign flip on one axis": "72/81",
+      "zero": "81/81 (vacuous)"
+    },
+    "carrier_controls_law_scores": {
+      "Lambda^2 E": "45/81",
+      "all of Lambda^*": "45/81",
+      "reversed composition order": "27/81"
+    }
+  },
+  "adversarial_validation": {
+    "note": "Each corruption had its package pin recomputed first, so a refusal comes from a substantive check rather than from the pin gate.",
+    "rejected": [
+      {
+        "corruption": "all enabled edges of one direction removed",
+        "reason": "incidence pairing is not single-valued"
+      },
+      {
+        "corruption": "declared cut cochain swapped",
+        "reason": "the declared cut cochain is not the derived pairing"
+      },
+      {
+        "corruption": "declared cut cochain doubled",
+        "reason": "the declared cut cochain is not the derived pairing"
+      },
+      {
+        "corruption": "table entry changed",
+        "reason": "the product does not equal the recorded expectation"
+      },
+      {
+        "corruption": "recorded expectation zeroed",
+        "reason": "the product does not equal the recorded expectation"
+      },
+      {
+        "corruption": "wedge sign convention inverted",
+        "reason": "cut duality fails at (0,0)"
+      },
+      {
+        "corruption": "contraction sign convention inverted",
+        "reason": "cut duality fails at (0,0)"
+      }
+    ],
+    "decoy_accepted": [
+      {
+        "change": "unread contract prose modified",
+        "expected": "still CarrierMatrixChecked",
+        "observed": "CarrierMatrixChecked"
+      }
+    ],
+    "hole_found_and_fixed": "The first adversarial pass showed that a corrupted declared cut cochain passed silently, because the main path derives the pairing rather than reading the declaration. The checker now requires the declared cochain to equal the derived pairing; the retest refuses both cochain corruptions."
+  },
+  "residual": [
+    "No communication receipt exists; the documentary route was not executed.",
+    "No catalog entry was created and spec/catalog.json is unchanged, so the dependency pins held by consumers still match.",
+    "Larger carriers are not exercised; a k-by-k family would need a diagram with at least k independent directions.",
+    "The declared signed basis and composition order fix the recorded coefficient value; only their equality across directions is claimed.",
+    "Agreement with the recorded product expectation is a regression cross-check, not evidence of correctness.",
+    "Every number cited by the specification is recorded in this checker's witness; no specification figure is carried over from another implementation."
+  ]
+}

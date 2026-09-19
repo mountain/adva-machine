@@ -11,7 +11,8 @@
   "research_profiles": [
     "data-machine-v0",
     "data-machine-v1",
-    "data-machine-v2"
+    "data-machine-v2",
+    "carrier-matrix-v0"
   ],
   "authority": "Existing native Rust admission/certificates; catalog hashes record file integrity only",
   "files": {
