@@ -87,12 +87,21 @@ It grants no admission and changes no declared limit or budget.
 | Check | macOS 26.6.2 arm64, Python 3.14.6 | Debian 13 aarch64, Python 3.13.5 |
 | --- | --- | --- |
 | `adva-machine conform` | `Passed`, 16 of 16, `address_space_limit_installed: false` | `Passed`, 16 of 16, **`address_space_limit_installed: true`** |
-| `pytest tests/python` | 2,886 passed, **12 failed**, 5 skipped | **2,895 passed, 0 failed**, 5 skipped |
+| `pytest tests/python` | 2,888 passed, **0 failed**, 10 skipped | **2,895 passed, 0 failed**, 5 skipped |
+| of those skips | 5 host-limit checks, named with a pointer here | none for the host limits |
 
-The twelve macOS failures are the three launchers that still install the
-Linux-only limit unconditionally — `experiments/phase_runner/run_six.py`,
-`experiments/triadic_free/calibration.py` and
-`experiments/pascal_commutator_certificate/run.py` — recorded with their
-measured reasons in Research 0210. They are expected on this host, not
-unexplained: the guest exists so that the same checks can be seen passing where
-the limit is real.
+Since [Research 0213](../research/0213-honest-capability-probes-and-host-named-skips.md)
+the launchers probe whether the Linux-only address-space limit can be
+*installed*, not whether it exists as an attribute, so a host that cannot
+install it refuses by name: `experiments/phase_runner/run_six.py` reports
+`RequiredProcessLimitsUnavailable` and
+`experiments/pascal_commutator_certificate/run.py` raises its declared
+`RuntimeError("required process limits unavailable")`. The five checks that need
+the limit are skipped on macOS with that reason and run here; the guest exists so
+that they can be seen passing where the limit is real.
+
+`experiments/triadic_free/calibration.py` still installs the limit
+unconditionally: both a guard and a refusal there were measured and reverted,
+because they change what that calibration's retained report or its four
+input-validation tests mean — a decision about a host-labelled report version,
+not a local guard.

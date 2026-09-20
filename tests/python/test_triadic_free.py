@@ -12,6 +12,13 @@ import sys
 
 import pytest
 
+# The declared per-child address-space limit is Linux-only: on a platform that
+# cannot install it a bounded child dies inside preexec_fn, so these checks are
+# reported as not runnable here rather than failing (Research 0210, 0213).
+ADDRESS_SPACE_LIMIT_INSTALLABLE = sys.platform == "linux"
+SKIP_LIMIT = ("the declared per-child address-space limit is Linux-only "
+              "(Research 0210); run it on the Linux guest: docs/maintenance/LINUX_HOST_FIXTURE.md")
+
 from experiments.triadic_free.calibration import execute, preflight, strict_json
 from experiments.triadic_free.model import Account, Refused, check_case, digest, run_case
 
@@ -224,6 +231,7 @@ def test_retained_report_replays_against_exact_contract_and_sources():
         assert retained["expected_matched"] is True
 
 
+@pytest.mark.skipif(not ADDRESS_SPACE_LIMIT_INSTALLABLE, reason=SKIP_LIMIT)
 def test_cli_retains_report_and_refuses_overwrite(tmp_path):
     output = tmp_path / "result.json"
     command = [sys.executable, str(ROOT / "experiments/triadic_free/calibration.py"),

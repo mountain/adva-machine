@@ -23,7 +23,9 @@ def main():
               "file_sha256": {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest() for name in ("contract.json", "generate.py", "check.py", "run.py")}}
     try:
         import resource
-        if os.name != "posix":
+        # RLIMIT_AS is Linux-only: where the platform cannot install it, the
+        # declared limits are unavailable and this run refuses by name.
+        if os.name != "posix" or sys.platform != "linux" or not hasattr(resource, "RLIMIT_AS"):
             raise RuntimeError("required process limits unavailable")
         def limits():
             resource.setrlimit(resource.RLIMIT_CPU, (budget["cpu_seconds_per_child"],) * 2)

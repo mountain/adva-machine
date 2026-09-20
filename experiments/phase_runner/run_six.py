@@ -141,9 +141,19 @@ def input_path(base, name):
     return resolved
 
 
+# RLIMIT_AS is a Linux-only limit. Its presence as an attribute does not mean
+# the platform can install it: where it cannot, the call fails inside
+# preexec_fn and takes the whole child launch with it, so the phase reports the
+# declared "required process limits unavailable" instead of a crash.
+ADDRESS_SPACE_LIMIT_INSTALLABLE = (
+    os.name == "posix" and sys.platform == "linux" and hasattr(resource, "RLIMIT_AS")
+)
+
+
 def child_limits(limits):
-    resource.setrlimit(resource.RLIMIT_AS,
-                       (limits["child_virtual_memory_kib"] * 1024,) * 2)
+    if ADDRESS_SPACE_LIMIT_INSTALLABLE:
+        resource.setrlimit(resource.RLIMIT_AS,
+                           (limits["child_virtual_memory_kib"] * 1024,) * 2)
     resource.setrlimit(resource.RLIMIT_FSIZE, (limits["output_bytes_per_file"],) * 2)
 
 
@@ -169,7 +179,7 @@ def run_transport_phase(phase, base, report_dir, backend, limits):
     if backend is None or not backend.is_absolute() or not backend.is_file() or not os.access(backend, os.X_OK):
         return empty_phase(phase["name"], "BackendUnavailable")
     # File output bounds and process-group cleanup are mandatory for execution.
-    supported = os.name == "posix" and resource is not None and hasattr(resource, "RLIMIT_AS")
+    supported = ADDRESS_SPACE_LIMIT_INSTALLABLE
     if not supported:
         return empty_phase(phase["name"], "RequiredProcessLimitsUnavailable")
     cap = limits["output_bytes_per_file"]

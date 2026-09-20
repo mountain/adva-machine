@@ -1,0 +1,43 @@
+{
+  "child_cpu_seconds": 0.053805,
+  "child_peak_rss_platform_units": 17196,
+  "children": [
+    {
+      "exit_code": 0,
+      "output": "certificate.json",
+      "wall_seconds": 0.016896319000125004
+    },
+    {
+      "exit_code": 0,
+      "output": "check.json",
+      "wall_seconds": 0.017457598999953916
+    },
+    {
+      "exit_code": 0,
+      "output": "controls.json",
+      "wall_seconds": 0.033759397000039826
+    }
+  ],
+  "file_sha256": {
+    "check.py": "da61ca73e75dd5c8800e2ee8cbbd5ecb86516810b4f044e47dadd6845aa23d18",
+    "contract.json": "bbfc51983e4ef4b40cf03b2193af817024c955af645cf69d01566767418b2521",
+    "generate.py": "6bdb6a05783b1fbee4c5bc31148ac554eab439c18d2dfa18b3d6202c66c621ce",
+    "run.py": "9b63bfc83055a34caaf238aef9f7a9e578008421ec6cb8aa97419e4e1bf00c18"
+  },
+  "output_sha256": {
+    "certificate.json": "802306cb7fa32844cae380de831023bdc5860c4baf455111f34c376fe43f517c",
+    "check.json": "02f418ec9a4420356b4a7a366096339919a696f71c4c3e0135c622a31c7199a3",
+    "controls.json": "d09eced46852b53813df31f517c4bc5b1eef59647488832d6f415f17f873f8cb"
+  },
+  "platform": "linux",
+  "python": "3.13.5",
+  "retries": 0,
+  "schema": "adva.external.pascal-commutator-execution.v0",
+  "status": "VerifiedExternalConditionalCertificate",
+  "wall_seconds_through_checking": 0.06844504300011067,
+  "supersedes": {
+    "record": "execution.json",
+    "reason": "The 2026-09-20 host-portability correction changed the launcher's capability probe from attribute presence to installability (RLIMIT_AS is Linux-only), so run.py's digest changed while every produced output stayed byte-identical. This record retains the first run made after that change, on a Linux host where the declared limits are installed.",
+    "outputs_unchanged": true
+  }
+}

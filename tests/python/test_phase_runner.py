@@ -58,6 +58,13 @@ pathlib.Path(output_path).write_text(json.dumps(
 '''
 
 
+# The declared per-child address-space limit is Linux-only: on a platform that
+# cannot install it a bounded child dies inside preexec_fn, so these checks are
+# reported as not runnable here rather than failing (Research 0210, 0213).
+ADDRESS_SPACE_LIMIT_INSTALLABLE = sys.platform == "linux"
+SKIP_LIMIT = ("the declared per-child address-space limit is Linux-only "
+              "(Research 0210); run it on the Linux guest: docs/maintenance/LINUX_HOST_FIXTURE.md")
+
 class PhaseRunnerTest(unittest.TestCase):
     def setup_contract(self, base, mode="normal", run_mode="ok"):
         (base / "child.py").write_text(CHILD)
@@ -101,6 +108,7 @@ class PhaseRunnerTest(unittest.TestCase):
         report = json.loads((base / "reports/run-report.json").read_text())
         return code, report
 
+    @unittest.skipUnless(ADDRESS_SPACE_LIMIT_INSTALLABLE, SKIP_LIMIT)
     def test_synthetic_six_state_chaining_then_run_then_missing_free_adapter(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
@@ -136,6 +144,7 @@ class PhaseRunnerTest(unittest.TestCase):
             self.assertEqual(run["actual_launches"], 0)
             self.assertEqual(free["reason"], "RunPhaseNotCompleted")
 
+    @unittest.skipUnless(ADDRESS_SPACE_LIMIT_INSTALLABLE, SKIP_LIMIT)
     def test_synthetic_run_nonzero_exit_stops_phase(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
@@ -148,6 +157,7 @@ class PhaseRunnerTest(unittest.TestCase):
             self.assertEqual(run["steps"][1]["status"], "NotRun")
             self.assertEqual(free["reason"], "RunPhaseNotCompleted")
 
+    @unittest.skipUnless(ADDRESS_SPACE_LIMIT_INSTALLABLE, SKIP_LIMIT)
     def test_synthetic_run_timeout_stops_without_retry(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
