@@ -1,4 +1,7 @@
 """One bounded engineering acceptance run over a fixed shared request family."""
+import platform
+import sys
+
 from .boundary import ROOT, catalog, digest, library_receipt, strict_json
 from .execute import run
 
@@ -59,4 +62,21 @@ def conform(binary, account, library=None):
             "case_count": len(rows), "engines": ["rust", "python"], "cases": rows,
             "observer": "exact outcomes and same-profile primitive states/traces; costs separate",
             "scope": "v0/v1 finite family, not independent full-language implementations",
+            "host": host(),
             "library": library}
+
+
+def host():
+    """Where this acceptance ran, so that two hosts' records are distinguishable.
+
+    A record is a claim about one host: which process limits were installable,
+    which toolchain versions produced it, and which library checkout it read.
+    Naming the host is provenance, not authentication, and it makes no claim
+    that two hosts' acceptances are equivalent.
+    """
+    return {
+        "platform": sys.platform,
+        "machine": platform.machine(),
+        "release": platform.release(),
+        "python": platform.python_version(),
+    }

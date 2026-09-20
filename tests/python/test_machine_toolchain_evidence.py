@@ -1,6 +1,7 @@
 """Receive retained engineering evidence without trusting its summary alone."""
 from copy import deepcopy
 import json
+import sys
 from pathlib import Path
 import shutil
 
@@ -99,8 +100,19 @@ def test_raw_requests_executions_and_native_receipts_agree(retained):
     assert receipts == 24 and total_steps == 478
 
 
+def test_latest_acceptance_names_the_host_it_ran_on():
+    retained = receive(EVIDENCE / "local-07")
+    report = json.loads(retained["report.json"])
+    host = report["host"]
+    assert host["platform"] == sys.platform
+    assert host["machine"] and host["release"] and host["python"]
+    limits = report["cost"]["limits"]
+    assert limits["address_space_limit_installed"] == (sys.platform == "linux")
+    assert limits["address_space_per_child"] == 1073741824
+
+
 def test_latest_acceptance_contains_current_adapter_sources():
-    retained = receive(EVIDENCE / "local-06")
+    retained = receive(EVIDENCE / "local-07")
     manifest = json.loads(retained["source-manifest.json"])
     assert set(manifest) == {str(p.relative_to(ROOT)) for p in (ROOT / "toolchain").glob("*.py")}
     for path, expected in manifest.items():
