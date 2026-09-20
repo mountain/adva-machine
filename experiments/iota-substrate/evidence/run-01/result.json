@@ -32,7 +32,7 @@
       "normal_form_nodes": 283,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": null,
-      "elapsed_seconds": 0.284519375,
+      "elapsed_seconds": 0.2855125,
       "exhausted_reason": null,
       "oracle": null,
       "verdict": "Recorded-No-Oracle",
@@ -58,7 +58,7 @@
       "normal_form_nodes": 511,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": null,
-      "elapsed_seconds": 1.343531625,
+      "elapsed_seconds": 1.338029917,
       "exhausted_reason": null,
       "oracle": {
         "document": "materials/result.json",
@@ -101,7 +101,7 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.346816042,
+      "elapsed_seconds": 0.337847875,
       "exhausted_reason": null,
       "oracle": {
         "document": "materials/result.json",
@@ -145,7 +145,7 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.279434292,
+      "elapsed_seconds": 0.278481209,
       "exhausted_reason": null,
       "oracle": {
         "document": "materials/result.json",
@@ -189,7 +189,7 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.332148,
+      "elapsed_seconds": 0.326209458,
       "exhausted_reason": null,
       "oracle": {
         "document": "materials/result.json",
@@ -256,7 +256,12 @@
   "total_contractions": 5348,
   "trace_rows_compared": 1808,
   "trace_rows_matched": 1808,
+  "cases": [],
+  "cases_matched": 0,
+  "cases_mismatched": 0,
+  "transcript_rows_compared": 0,
+  "transcript_rows_agreeing": 0,
   "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
   "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules.",
-  "wall_seconds": 7.09944325
+  "wall_seconds": 7.122783375
 }

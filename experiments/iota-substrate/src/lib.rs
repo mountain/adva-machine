@@ -246,6 +246,110 @@ fn parse_node(bytes: &[u8], position: &mut usize) -> Result<Term, String> {
     }
 }
 
+// ---------------------------------------------------------------------------
+// The iota-lang case grammar
+// ---------------------------------------------------------------------------
+
+/// Parse the case grammar of the recorded `SKITest` contract: S-expressions
+/// whose tokens are `i`, `k`, `s`, `j` or `ι`, and lowercase words as opaque
+/// variables.
+///
+/// This grammar is **not** the murphy grammar above. There the character `i`
+/// denotes the Iota combinator; here `i` denotes the identity combinator and
+/// the Iota combinator is written `j` or `ι`. The two grammars are separate
+/// declarations, and the declared collision is itself a control: no term mixes
+/// them, and nothing here identifies the two `i` tokens.
+pub fn parse_sexpr(source: &str) -> Result<Term, String> {
+    let mut tokens: Vec<String> = Vec::new();
+    let mut word = String::new();
+    for ch in source.chars() {
+        match ch {
+            '(' | ')' => {
+                if !word.is_empty() {
+                    tokens.push(std::mem::take(&mut word));
+                }
+                tokens.push(ch.to_string());
+            }
+            c if c.is_whitespace() => {
+                if !word.is_empty() {
+                    tokens.push(std::mem::take(&mut word));
+                }
+            }
+            c => word.push(c),
+        }
+    }
+    if !word.is_empty() {
+        tokens.push(word);
+    }
+    let mut position = 0usize;
+    let term = parse_sexpr_node(&tokens, &mut position)?;
+    if position != tokens.len() {
+        return Err(format!(
+            "unread case tokens from position {position} of {}",
+            tokens.len()
+        ));
+    }
+    Ok(term)
+}
+
+fn parse_sexpr_node(tokens: &[String], position: &mut usize) -> Result<Term, String> {
+    let token = tokens
+        .get(*position)
+        .ok_or_else(|| "truncated case term".to_string())?
+        .clone();
+    *position += 1;
+    match token.as_str() {
+        "(" => {
+            let mut term = parse_sexpr_node(tokens, position)?;
+            loop {
+                match tokens.get(*position).map(String::as_str) {
+                    Some(")") => {
+                        *position += 1;
+                        return Ok(term);
+                    }
+                    Some(_) => {
+                        let argument = parse_sexpr_node(tokens, position)?;
+                        term = Term::App(Box::new(term), Box::new(argument));
+                    }
+                    None => return Err("unclosed case application".to_string()),
+                }
+            }
+        }
+        ")" => Err("unexpected closing parenthesis".to_string()),
+        "i" => Ok(Term::Const('I')),
+        "k" => Ok(Term::Const('K')),
+        "s" => Ok(Term::Const('S')),
+        "j" | "ι" => Ok(Term::Const('j')),
+        other => {
+            if !other.is_empty()
+                && other
+                    .chars()
+                    .all(|c| c.is_ascii_lowercase() || c.is_ascii_digit())
+            {
+                Ok(Term::Var(other.to_string()))
+            } else {
+                Err(format!("unsupported case token {other:?}"))
+            }
+        }
+    }
+}
+
+/// Print a term in the recorded contract's token spelling: `i`, `k` and `s`
+/// are the identity, K and S combinators and `ι` is the Iota combinator,
+/// exactly as the recorded expectations write them.
+pub fn print_sexpr(term: &Term) -> Result<String, String> {
+    match term {
+        Term::Const('I') => Ok("i".to_string()),
+        Term::Const('K') => Ok("k".to_string()),
+        Term::Const('S') => Ok("s".to_string()),
+        Term::Const('j') => Ok("ι".to_string()),
+        Term::Const(other) => Err(format!("unprintable combinator {other:?}")),
+        Term::Var(name) => Ok(name.clone()),
+        Term::App(f, x) => Ok(format!("({} {})", print_sexpr(f)?, print_sexpr(x)?)),
+        Term::Lam(_, _) => Err("a lambda is outside the case grammar".to_string()),
+    }
+}
+
 fn free_vars(term: &Term, out: &mut BTreeSet<String>) {
     match term {
         Term::Var(name) => {
@@ -719,6 +823,30 @@ pub struct Family {
     pub note: Option<String>,
 }
 
+/// One recorded case of the iota-lang contract.
+#[derive(Clone, Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Case {
+    pub label: String,
+    /// `iota-lang` selects the S-expression case grammar.
+    pub grammar: String,
+    /// The case term, transcribed from the recorded contract.
+    pub term: String,
+    /// The recorded expectation, transcribed unchanged.
+    pub expected: String,
+    #[serde(default)]
+    pub note: Option<String>,
+}
+
+/// An independently supplied transcript, used only to compare transcriptions.
+#[derive(Clone, Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Comparison {
+    pub document: String,
+    pub document_sha256: String,
+    pub note: String,
+}
+
 #[derive(Clone, Debug, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct TraceBinding {
@@ -741,6 +869,10 @@ pub struct Contract {
     pub families: Vec<Family>,
     #[serde(default)]
     pub trace: Option<TraceBinding>,
+    #[serde(default)]
+    pub cases: Vec<Case>,
+    #[serde(default)]
+    pub comparison: Option<Comparison>,
     pub controls: Vec<String>,
     pub acceptance: String,
     pub residual: String,
@@ -803,6 +935,24 @@ pub struct OracleResult {
     pub digest_match: Option<bool>,
 }
 
+/// One executed case's retained result.
+#[derive(Clone, Debug, Serialize)]
+pub struct CaseResult {
+    pub label: String,
+    pub grammar: String,
+    pub term: String,
+    pub expected: String,
+    pub observed: Option<String>,
+    pub contractions: u64,
+    pub status: ReductionStatus,
+    pub matched_recorded_expectation: bool,
+    /// The same case as transcribed by the independently supplied transcript.
+    pub transcript_term: Option<String>,
+    pub transcript_agrees: Option<bool>,
+    pub verdict: String,
+    pub note: Option<String>,
+}
+
 #[derive(Clone, Debug, Serialize)]
 pub struct ControlResult {
     pub name: String,
@@ -828,6 +978,11 @@ pub struct RunReport {
     pub total_contractions: u64,
     pub trace_rows_compared: usize,
     pub trace_rows_matched: usize,
+    pub cases: Vec<CaseResult>,
+    pub cases_matched: usize,
+    pub cases_mismatched: usize,
+    pub transcript_rows_compared: usize,
+    pub transcript_rows_agreeing: usize,
     pub acceptance: String,
     pub residual: String,
     pub wall_seconds: f64,
@@ -1032,6 +1187,70 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
             oracle: oracle_result,
             verdict,
             note: family.note.clone(),
+        });
+    }
+
+    // Recorded cases of the iota-lang contract, transcribed as declared.
+    let mut cases: Vec<CaseResult> = Vec::new();
+    let mut transcript_terms: BTreeMap<String, String> = BTreeMap::new();
+    if let Some(comparison) = &contract.comparison {
+        let raw = read_document(&root, &comparison.document, &comparison.document_sha256)
+            .map_err(|e| format!("case comparison refused: {e}"))?;
+        let text = String::from_utf8_lossy(&raw);
+        for line in text.lines() {
+            let line = line.trim();
+            if !line.starts_with('{') {
+                continue;
+            }
+            let value: serde_json::Value = serde_json::from_str(line)
+                .map_err(|e| format!("case comparison line refused: {e}"))?;
+            if value["kind"].as_str() != Some("case") {
+                continue;
+            }
+            if let (Some(name), Some(term)) = (value["name"].as_str(), value["term"].as_str()) {
+                transcript_terms.insert(name.to_string(), term.to_string());
+            }
+        }
+    }
+    for case in &contract.cases {
+        if case.grammar != "iota-lang" {
+            return Err(format!(
+                "case {} declares unsupported grammar {}",
+                case.label, case.grammar
+            ));
+        }
+        let term = parse_sexpr(&case.term)
+            .map_err(|e| format!("case {} term refused: {e}", case.label))?;
+        let reduction = reduce(&term, &contract.limits, false);
+        let observed = match reduction.term.as_ref() {
+            Some(term) => Some(print_sexpr(term)?),
+            None => None,
+        };
+        let matched = observed.as_deref() == Some(case.expected.as_str());
+        let transcript = transcript_terms.get(&case.label).cloned();
+        let agrees = match &transcript {
+            Some(text) => Some(parse_sexpr(text)? == term),
+            None => None,
+        };
+        let verdict = match reduction.status {
+            ReductionStatus::Exhausted => "Exhausted-Unknown",
+            ReductionStatus::NormalForm if matched => "Matched-Recorded-Expectation",
+            ReductionStatus::NormalForm => "Mismatched-Recorded-Expectation",
+        };
+        total_contractions += reduction.contractions;
+        cases.push(CaseResult {
+            label: case.label.clone(),
+            grammar: case.grammar.clone(),
+            term: case.term.clone(),
+            expected: case.expected.clone(),
+            observed,
+            contractions: reduction.contractions,
+            status: reduction.status,
+            matched_recorded_expectation: matched,
+            transcript_term: transcript,
+            transcript_agrees: agrees,
+            verdict: verdict.to_string(),
+            note: case.note.clone(),
         });
     }
 
@@ -1268,6 +1487,70 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         );
     }
 
+    if contract.controls.iter().any(|c| c == "grammar-collision") {
+        let murphy = parse_iota("i");
+        let case_reading = parse_sexpr("i");
+        let declared =
+            matches!(murphy, Ok(Term::Const('j'))) && matches!(case_reading, Ok(Term::Const('I')));
+        let distinct = murphy.ok() != case_reading.ok();
+        control(
+            "grammar-collision",
+            "the same token denotes different combinators in the two declared grammars",
+            format!("same token, distinct readings: {distinct}"),
+            declared && distinct,
+        );
+    }
+
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "expectation-falsifier-cases")
+    {
+        match cases.first() {
+            Some(first) => {
+                let altered = format!("{}-altered", first.expected);
+                let refuses = first.observed.as_deref() != Some(altered.as_str());
+                control(
+                    "expectation-falsifier-cases",
+                    "an altered recorded expectation is refused rather than accepted",
+                    format!(
+                        "case={} observed={:?} altered={:?}",
+                        first.label, first.observed, altered
+                    ),
+                    refuses,
+                );
+            }
+            None => control(
+                "expectation-falsifier-cases",
+                "an altered recorded expectation is refused rather than accepted",
+                "no case declared".to_string(),
+                false,
+            ),
+        }
+    }
+
+    if contract.controls.iter().any(|c| c == "variable-inertness") {
+        let mut checked = 0usize;
+        let mut inert = true;
+        for case in &contract.cases {
+            let Ok(term) = parse_sexpr(&case.term) else {
+                continue;
+            };
+            if matches!(term, Term::App(ref head, _) if matches!(**head, Term::Var(_))) {
+                checked += 1;
+                let reduction = reduce(&term, &contract.limits, false);
+                inert &= reduction.contractions == 0
+                    && reduction.normal_form_is_redex_free == Some(true);
+            }
+        }
+        control(
+            "variable-inertness",
+            "a case whose head is an opaque variable is already a normal form",
+            format!("checked={checked} inert={inert}"),
+            checked > 0 && inert,
+        );
+    }
+
     let refreshed = contract
         .controls
         .iter()
@@ -1289,7 +1572,10 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         )
     });
     let trace_ok = trace_mismatch.is_none();
-    let outcome = if controls_ok && families_ok && trace_ok {
+    let cases_ok = cases
+        .iter()
+        .all(|case| case.verdict == "Matched-Recorded-Expectation");
+    let outcome = if controls_ok && families_ok && trace_ok && cases_ok {
         "IotaSubstrateChecked"
     } else {
         "IotaSubstrateMismatched"
@@ -1306,6 +1592,23 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         limits: contract.limits,
         families,
         controls,
+        cases_matched: cases
+            .iter()
+            .filter(|case| case.matched_recorded_expectation)
+            .count(),
+        cases_mismatched: cases
+            .iter()
+            .filter(|case| !case.matched_recorded_expectation)
+            .count(),
+        transcript_rows_compared: cases
+            .iter()
+            .filter(|case| case.transcript_agrees.is_some())
+            .count(),
+        transcript_rows_agreeing: cases
+            .iter()
+            .filter(|case| case.transcript_agrees == Some(true))
+            .count(),
+        cases,
         checked_families: contract.families.len(),
         frozen_oracle_families,
         total_contractions,

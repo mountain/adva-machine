@@ -84,6 +84,22 @@ The executed artifacts are the
 the [exchange record](../../knowledge/exchanges/murphy-iota-machine-2026-09-20-v1/README.md)
 and the [receipt](../../knowledge/received/murphy-iota-machine-2026-09-20-v1/receipt.json).
 
+## The iota-lang case corpus
+
+A second contract, `experiments/iota-substrate/contract-iota-lang.json`, replays
+the 17 recorded cases of the external iota-lang reduction contract under the
+same declared rules, in a **separately declared case grammar**
+(S-expressions over `i` = identity, `k`, `s`, `ι` = Iota, and opaque variables).
+The two grammars' `i` tokens denote different combinators; both readings are
+declared, they are never mixed, and a control asserts the collision.
+
+All 17 recorded expectations were reproduced in 57 contractions. The run also
+compares its own transcription with Research 0167's frozen replay and reports
+where they differ; that transcript is never used as an expected value. The
+discrimination — which iota-lang material can and cannot test this substrate —
+and the two transcription findings are recorded in
+[Research 0205](../../docs/research/0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md).
+
 ## What this profile does not establish
 
 - **No native admission.** `ValueType` remains `Real | Bool`. No
@@ -97,6 +113,10 @@ and the [receipt](../../knowledge/received/murphy-iota-machine-2026-09-20-v1/rec
   `Unknown`.
 - **No independent verification.** Two machine implementations by different
   agents agree; neither was reviewed by a person.
+- **No equivalence, in either direction.** The case corpus compares a recorded
+  string contract with one native reducer. It does not establish that the
+  iota-lang machine agrees with this substrate, that the recorded strings are
+  iota-lang's intended semantics, or that bounded rewriting is confluent.
 - **Not the whole transported unit.** The 2×2 table adjoint programs and their
   sixteen assertions, the Zot CEK stage, the text probe, the retained failed
   reflection control and the declared end-leaf representation bridge are not

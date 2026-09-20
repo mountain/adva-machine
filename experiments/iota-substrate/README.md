@@ -112,6 +112,36 @@ not vacuous:
   actually matched;
 * `source-alteration` — one altered byte changes the source digest.
 
+## The iota-lang case corpus
+
+`contract-iota-lang.json` adds a second, separately declared corpus: the 17
+recorded cases of the external iota-lang reduction contract
+(`src/tests/java/iota/SKITest.java` at checkout HEAD `a1865e6…`, sha256
+`c9b84b92…`), transcribed faithfully. It declares its own case grammar —
+S-expressions whose tokens are `i` (the identity combinator), `k`, `s`, `ι`
+(the Iota combinator) and lowercase opaque variables — because the murphy
+grammar's `i` is the *Iota* combinator while the case grammar's `i` is the
+*identity*. Both readings are declared, nothing mixes them, and a control
+asserts the collision rather than resolving it silently.
+
+```sh
+# from the machine repository root; no --origin is needed for this corpus
+experiments/iota-substrate/target/release/adva-iota-substrate \
+  --contract experiments/iota-substrate/contract-iota-lang.json \
+  --output /tmp/iota-substrate-iota-lang-01
+```
+
+Result: **17 of 17 recorded expectations reproduced**, 57 contractions, four
+controls passed. The run also reports, separately, whether Research 0167's
+frozen replay transcribed the same terms: 10 of 17 agree, and the seven that
+differ are `testII` … `testIIIIII` and `testIota4`/`testIota5`. The transcript
+is used only for that comparison and never as an expected value. The findings
+are recorded in
+[Research 0205](../../docs/research/0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md),
+which also lists the iota-lang layers that are **not** usable here: the parser
+contract, the DualMachine suite, the two Clojure-shaped resource definitions and
+the never-compiled Java machine itself.
+
 ## What this does not establish
 
 * **No native admission.** `ValueType` remains `Real | Bool`. No

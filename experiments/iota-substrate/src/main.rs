@@ -80,15 +80,29 @@ fn main() -> ExitCode {
         return ExitCode::from(3);
     }
     println!(
-        "outcome={} families={} contractions={} trace={}/{} controls={} wall={:.3}s",
+        "outcome={} families={} cases={}/{} transcript={}/{} contractions={} trace={}/{} controls={} wall={:.3}s",
         report.outcome,
         report.checked_families,
+        report.cases_matched,
+        report.cases.len(),
+        report.transcript_rows_agreeing,
+        report.transcript_rows_compared,
         report.total_contractions,
         report.trace_rows_matched,
         report.trace_rows_compared,
         report.controls.iter().filter(|c| c.passed).count(),
         report.wall_seconds
     );
+    for case in &report.cases {
+        println!(
+            "  case {:<12} {:>4} contractions  expected {:<18} observed {:<18} {}",
+            case.label,
+            case.contractions,
+            case.expected,
+            case.observed.as_deref().unwrap_or("Unknown"),
+            case.verdict
+        );
+    }
     for family in &report.families {
         println!(
             "  {:<12} {:>6} contractions  peak {:>6}  {}",

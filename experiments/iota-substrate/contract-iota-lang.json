@@ -1,0 +1,155 @@
+{
+  "schema": "adva.iota-substrate.contract.v0",
+  "profile": "iota-substrate-v0",
+  "question": "Does the machine's native Iota/S/K substrate reproduce the recorded behavioural contract of the external iota-lang checkout, case by case, when each case is transcribed faithfully rather than re-encoded?",
+  "level": "Research-local native Rust reduction over a recorded external test contract. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added; the iota-lang checkout is read, never modified or imported.",
+  "assumptions": [
+    "The recorded contract is src/tests/java/iota/SKITest.java at checkout HEAD a1865e6d70d55a0d9457b33570e533463818d7d6, sha256 c9b84b9206daa10c5977e22f90bc30ba9cbe016c038ad1036644d8025a58e133, 17 @Test methods.",
+    "In the case grammar the token i is the identity combinator, k is K, s is S and the Iota combinator is written ι or j; lowercase words are opaque variables.",
+    "In the murphy grammar the character i is the Iota combinator. The two grammars are separate declarations and no term mixes them.",
+    "The rules are the declared Iota/S/K rules: j a -> a S K, I a -> a, K a b -> a, S x y z -> x z (y z).",
+    "Reduction order is leftmost-outermost, with one contraction counted per applied combinator.",
+    "Every expectation is transcribed from the recorded file unchanged; a case whose expectation the declared rules do not reach is retained as a mismatch rather than repaired.",
+    "The iota-lang sources never compiled and its machine was never executed (Research 0167), so the recorded expectations are a written contract, not a recording of a running machine."
+  ],
+  "limits": {
+    "contractions_per_family": 20000,
+    "nodes_per_family": 200000,
+    "seconds_per_family": 30.0
+  },
+  "families": [],
+  "cases": [
+    {
+      "label": "testXY",
+      "grammar": "iota-lang",
+      "term": "(x y)",
+      "expected": "(x y)",
+      "note": "A form whose head is an opaque variable: no redex exists."
+    },
+    {
+      "label": "testI",
+      "grammar": "iota-lang",
+      "term": "(i x)",
+      "expected": "x",
+      "note": "The identity combinator in the case grammar."
+    },
+    {
+      "label": "testK",
+      "grammar": "iota-lang",
+      "term": "((k x) y)",
+      "expected": "x",
+      "note": "The K rule."
+    },
+    {
+      "label": "testS",
+      "grammar": "iota-lang",
+      "term": "(((s x) y) z)",
+      "expected": "((x z) (y z))",
+      "note": "The S rule."
+    },
+    {
+      "label": "testFalse",
+      "grammar": "iota-lang",
+      "term": "(((s k) x) y)",
+      "expected": "y",
+      "note": "S applied to a raw combinator: S K x y = K y (x y) = y under the declared arity rules."
+    },
+    {
+      "label": "testReverse",
+      "grammar": "iota-lang",
+      "term": "((((s (k (s i))) k) x) y)",
+      "expected": "(y x)",
+      "note": "The recorded reverse form; (s i) is a partial application and stays."
+    },
+    {
+      "label": "testKSKS",
+      "grammar": "iota-lang",
+      "term": "(((k s) k) s)",
+      "expected": "(s s)",
+      "note": "K with two combinators as operands."
+    },
+    {
+      "label": "testKKKSKS",
+      "grammar": "iota-lang",
+      "term": "(((((k k) k) s) k) s)",
+      "expected": "(s s)",
+      "note": "A deeper operand-nesting case of the same kind."
+    },
+    {
+      "label": "testSKK",
+      "grammar": "iota-lang",
+      "term": "((((s k) k) x) y)",
+      "expected": "(x y)",
+      "note": "S K K behaves as the identity on two opaque variables."
+    },
+    {
+      "label": "testII",
+      "grammar": "iota-lang",
+      "term": "(i i)",
+      "expected": "i",
+      "note": "The identity applied to itself."
+    },
+    {
+      "label": "testIII",
+      "grammar": "iota-lang",
+      "term": "((i i) i)",
+      "expected": "i",
+      "note": "Three identities."
+    },
+    {
+      "label": "testIIII",
+      "grammar": "iota-lang",
+      "term": "((i i) (i i))",
+      "expected": "i",
+      "note": "Four identities; the recorded file builds this term, not a repeated (i i)."
+    },
+    {
+      "label": "testIIIII",
+      "grammar": "iota-lang",
+      "term": "(((i i) (i i)) i)",
+      "expected": "i",
+      "note": "Five identities."
+    },
+    {
+      "label": "testIIIIII",
+      "grammar": "iota-lang",
+      "term": "(((i i) (i i)) (i i))",
+      "expected": "i",
+      "note": "Six identities."
+    },
+    {
+      "label": "testIota2",
+      "grammar": "iota-lang",
+      "term": "((ι ι) x)",
+      "expected": "x",
+      "note": "The Iota encoding of the identity combinator."
+    },
+    {
+      "label": "testIota4",
+      "grammar": "iota-lang",
+      "term": "(((ι (ι (ι ι))) x) y)",
+      "expected": "x",
+      "note": "The Iota encoding of K: 3 iotas nested, matching the resource definitions under a right-nested list reading."
+    },
+    {
+      "label": "testIota5",
+      "grammar": "iota-lang",
+      "term": "((((ι (ι (ι (ι ι)))) x) y) z)",
+      "expected": "((x z) (y z))",
+      "note": "The Iota encoding of S: 4 iotas nested."
+    }
+  ],
+  "comparison": {
+    "document": "docs/research/0167-evidence/replay.jsonl",
+    "document_sha256": "e1bb323b8fe677342b7de8cf0da65eb90426088fb9602a12485249edb306c0a4",
+    "note": "The audit's replay of the same 17 cases against the reconnected Java machine, supplied independently and used only to compare transcriptions: for each case this run reports whether the transcript's term is the recorded term. The transcript is never used as an expected value."
+  },
+  "controls": [
+    "sha256-fips-vectors",
+    "grammar-collision",
+    "expectation-falsifier-cases",
+    "variable-inertness"
+  ],
+  "acceptance": "Every case must reduce inside the declared bounds and print exactly the recorded expectation. A case that does not is retained as a mismatch and fails the run. The transcription comparison is reported separately and does not change any verdict.",
+  "residual": "This is a case corpus, not a language equivalence. It does not establish that the recorded iota-lang machine agrees with this substrate, that the substrate implements the SKI or Iota calculus, or that the recorded expectations are the intended semantics of iota-lang: the checkout never compiled, its machine was never executed, and its test file declares none of the identifiers it uses. The parser cases, the DualMachine suite and the two Clojure-shaped resource definitions are outside this contract and are not executed here. Native admission remains NotGranted."
+}
