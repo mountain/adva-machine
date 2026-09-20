@@ -57,6 +57,9 @@ def verify(root):
         json.loads(retained[f"{run}/report.json"])["cost"]
         for run in ("run-01", "run-02", "publication-03")
     ]
+    correction, problems = verify_correction(root)
+    if problems:
+        raise ValueError("; ".join(problems))
     print(
         json.dumps(
             {
@@ -65,11 +68,61 @@ def verify(root):
                 "recorded_relay_runs": 2,
                 "recorded_supervised_calls": sum(cost["processes"] for cost in costs),
                 "recorded_child_cpu_seconds": sum(cost["child_cpu_seconds"] for cost in costs),
-                "scope": "Stored-byte checks and comparisons; no native replay or authentication.",
+                "evidence_corrections": [correction["version"]],
+                "implementation_correspondence_checked": True,
+                "closure_re_established": False,
+                "scope": (
+                    "Stored-byte checks, the recorded implementation correspondence and comparisons; no native "
+                    "replay, no new relay lap and no authentication."
+                ),
             },
             indent=2,
         )
     )
+
+
+def verify_correction(evidence):
+    """Check the retained corrected implementation against the repository.
+
+    The bundle froze the implementations of 2026-09-09; two later supervisor
+    fixes were committed without a retained copy, so
+    `postcommit-check-02/relation.json` records the corrected bytes and the
+    class of drift. This check makes that record load-bearing: the current
+    implementation must equal the retained copy, the historical versions must
+    stay distinct and byte-preserved, and the record's library pins must agree
+    with the contract's. A relay lap is *not* re-run here.
+    """
+    repo = Path(__file__).resolve().parents[2]
+    relation = json.loads((evidence / "postcommit-check-02/relation.json").read_bytes())
+    problems = []
+
+    python = relation["correspondence"]["python_implementation"]
+    current = hashlib.sha256((repo / python["path"]).read_bytes()).hexdigest()
+    if current != python["current_sha256"] or current != python["retained_here"]:
+        problems.append("python implementation differs from its retained copy")
+
+    historical = {name: entry["sha256"] for name, entry in python["historical_versions"].items()}
+    if len(set(historical.values())) != len(historical):
+        problems.append("historical python versions are not distinct")
+    if current in historical.values():
+        problems.append("current implementation reuses a historical version's bytes")
+    if python["matches_any_historical_version"] != (current in historical.values()):
+        problems.append("recorded historical-version membership disagrees")
+
+    rust = relation["correspondence"]["rust_observer_example"]
+    rust_current = hashlib.sha256((repo / rust["path"]).read_bytes()).hexdigest()
+    if rust_current != rust["current_sha256"] or rust_current != rust["retained_here"]:
+        problems.append("rust observer example differs from its retained copy")
+
+    contract = json.loads((repo / "experiments/quine_relay/contract.json").read_bytes())
+    measured = relation["not_re_established"]["measured_gate_status"]
+    if (
+        measured["contract_library_commit"] != contract["library_commit"]
+        or measured["contract_library_tree"] != contract["library_tree"]
+    ):
+        problems.append("the correction record and the contract disagree on the library pins")
+    return relation, problems
+
 
 
 if __name__ == "__main__":

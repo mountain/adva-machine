@@ -1,0 +1,69 @@
+{
+  "schema": "adva.quine-relay.evidence-correction.v0",
+  "version": "postcommit-check-02",
+  "date": "2026-09-20",
+  "reason": "The retained bundle froze the implementations of 2026-09-09. Two later fixes to the Python supervisor were committed without a retained copy, so the recorded byte correspondence between the implementation and its evidence no longer held for that side. This version restores it by retaining the current bytes as a new version; every earlier entry stays byte-preserved.",
+  "correspondence": {
+    "python_implementation": {
+      "path": "python/adva/quine_relay.py",
+      "current_sha256": "6ad1e190975d60a45d407be5a525bf7deea8a2ff8ef5061090da4a2f49ae35c5",
+      "retained_here": "6ad1e190975d60a45d407be5a525bf7deea8a2ff8ef5061090da4a2f49ae35c5",
+      "historical_versions": {
+        "run-01": {
+          "sha256": "d53153ae66da97285744e9ef5038ef39198f727f08337847ecb4ceb17dae49f5",
+          "bytes": 16743
+        },
+        "run-02": {
+          "sha256": "fa2c3483d3c76f60d8b5c4b6a59b44a87aa7a4a3c7e59f164062f02e36f383e3",
+          "bytes": 19153
+        },
+        "publication-03": {
+          "sha256": "9701a7f28c9352a676a97b8b87ad28ccadf1775eda8c0f20a7a93403f3b66131",
+          "bytes": 22306
+        }
+      },
+      "matches_any_historical_version": false
+    },
+    "rust_observer_example": {
+      "path": "crates/adva-witness/examples/quine_relay.rs",
+      "current_sha256": "af6c706250f2fc9b138e6a2da126f66827ec4fcd9498c01236384b74c0ade9f6",
+      "retained_here": "af6c706250f2fc9b138e6a2da126f66827ec4fcd9498c01236384b74c0ade9f6",
+      "historical_sha256": "af6c706250f2fc9b138e6a2da126f66827ec4fcd9498c01236384b74c0ade9f6",
+      "unchanged_since_publication": true
+    }
+  },
+  "drift_class": [
+    {
+      "area": "child CPU admission",
+      "change": "A whole-second limit is admitted only when a whole second remains; the earlier form rounded a fractional remainder up to one second with max(1, ...).",
+      "commit": "e33bccb (2026-09-10, 'fix: preserve numeric precision and parent CPU budget boundaries')"
+    },
+    {
+      "area": "child CPU accounting",
+      "change": "The allowance is computed in the supervisor before side effects and installed after fork, because RUSAGE_CHILDREN cannot measure the supervisor's completed children from the child.",
+      "commit": "524709a (2026-09-10, 'Version the log differential correction and refuse expanded CPU allowances')"
+    },
+    {
+      "area": "address-space limit",
+      "change": "RLIMIT_AS is installed only on Linux; the limit is unsupported on the host used for later checks, where CPU, file-size and core limits remain.",
+      "commit": "d60258a (2026-09-09, 'fix: guard RLIMIT_AS behind linux in the quine relay supervisor')"
+    }
+  ],
+  "unchanged_relations": [
+    "The retained run-02 and publication-03 reports and every stored payload keep their bytes and digests.",
+    "The retained byte closure of those runs (p equals its regeneration and its scale control; q equals its regeneration) is untouched.",
+    "The Rust observer example has not changed since publication, so its evidence correspondence still holds directly."
+  ],
+  "not_re_established": {
+    "closure_of_the_corrected_implementation": "Not re-established here. A new relay lap needs its own calibration: the contract pins library commit a705aa2290d6ff73f6aaf89e3717413889c6d7ee and tree b67934ad294fc8eccadd3dc54a9288e5ad013d5a, while the checkout's library is at a different revision, so the library gate refuses before any relay runs.",
+    "measured_gate_status": {
+      "source_base_protected_paths_changed_since_base": 0,
+      "base_commit_ancestor_of_head": true,
+      "library_revision": "73a6af4ac4ed8225366d3c16794e309cff15f51d",
+      "library_tree": "20d3ddca02b2590e5dd51dc49ab169d1479b68f1",
+      "contract_library_commit": "a705aa2290d6ff73f6aaf89e3717413889c6d7ee",
+      "contract_library_tree": "b67934ad294fc8eccadd3dc54a9288e5ad013d5a"
+    }
+  },
+  "scope": "A byte-correspondence correction. It does not re-run the relay, does not re-derive p, q or r, does not authenticate anything, and does not change the contract's pins or budgets."
+}

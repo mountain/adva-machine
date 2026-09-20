@@ -1,6 +1,6 @@
 # Research notes, calibrations and the bounded record
 
-This directory holds the research record of the repository: **217 numbered
+This directory holds the research record of the repository: **218 numbered
 notes, 41 named notes and 25 supporting directories**. Nothing here is a stable
 API, a native admission, a Seal, or a proof beyond the finite scope each note
 declares for itself.
@@ -691,7 +691,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0161-advance-receipts-and-iota-substrate-projection.md`](0161-advance-receipts-and-iota-substrate-projection.md)
 - [`0162-bounded-advance-loop.md`](0162-bounded-advance-loop.md)
 - [`0163-evidence-stutter-and-progress-gate.md`](0163-evidence-stutter-and-progress-gate.md)
-- [`0164-paired-quotation-quine-relay.md`](0164-paired-quotation-quine-relay.md)
+- [`0164-paired-quotation-quine-relay.md`](0164-paired-quotation-quine-relay.md) — see the 2026-09-20 correction: the retained implementations predate three supervisor fixes, so the corrected bytes and the class of drift are retained in `0164-evidence/postcommit-check-02/` and checked by the evidence verifier; a fresh relay lap is refused by the pinned library gate and needs its own calibration.
 - [`0165-two-documents-interpretation-relation.md`](0165-two-documents-interpretation-relation.md)
 - [`0166-interpretation-obligation.md`](0166-interpretation-obligation.md)
 - [`0167-li-yorke-period-three-and-homotopy-continuation.md`](0167-li-yorke-period-three-and-homotopy-continuation.md)
@@ -738,6 +738,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0206-the-flat-list-reading-at-the-program-data-junction.md`](0206-the-flat-list-reading-at-the-program-data-junction.md) — seven declared cases decide which nesting reading of a flat list `[t1 … tn]` transports application: right-nested holds for the external I/K/S declarations, left-nested fails for K and S, and the reading is not decided below three elements.
 - [`0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md`](0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md) — the accepted murphy package is respelled `ι` for the Iota combinator by a declared, checked renaming: same term, same witness and the same frozen oracles, with the renamed spelling refusing `i` and the received bytes left byte-identical.
 - [`0208-accepting-the-renamed-murphy-unit.md`](0208-accepting-the-renamed-murphy-unit.md) — the renamed unit published in `mountain/adva` is accepted: its bytes are identical to this machine's derivation, its renamed programs reproduce all four frozen counted oracles, and every recorded coordinate relation holds with the same slot order in both spellings, with `J⁴ = I` retained as a measured `Unknown` boundary.
+- [`0209-the-quine-relay-implementation-correspondence-corrected.md`](0209-the-quine-relay-implementation-correspondence-corrected.md) — the retained relay bundle froze implementations that three later supervisor fixes changed: the corrected bytes, the drift class, the falsifier and the measured library-gate refusal are recorded, with the closure explicitly left un-re-established.
 
 ### Named notes
 
@@ -805,7 +806,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0158-evidence/`](0158-evidence/)
 - [`0161-evidence/`](0161-evidence/)
 - [`0162-evidence/`](0162-evidence/)
-- [`0164-evidence/`](0164-evidence/)
+- [`0164-evidence/`](0164-evidence/) — `postcommit-check-02/` retains the corrected implementations and `relation.json`; every earlier payload keeps its bytes.
 - [`0165-evidence/`](0165-evidence/)
 - [`0167-evidence/`](0167-evidence/)
 - [`0168-evidence/`](0168-evidence/)

@@ -1,0 +1,76 @@
+{
+  "schema": "adva.quine-relay.contract.research.v0",
+  "question": "Can mutually quoted Python p and Rust q produce a finite PSC0 r whose checked byte observation equals p exactly, while retaining two distinct library contexts?",
+  "level": "finite source-byte calibration over existing Rust APIs",
+  "base_commit": "7643ac6bfca4235f6e558e8ae9e2f5eeb113a3e5",
+  "library_commit": "a705aa2290d6ff73f6aaf89e3717413889c6d7ee",
+  "library_tree": "b67934ad294fc8eccadd3dc54a9288e5ad013d5a",
+  "imports": [
+    "Finite mutual quotation: the complete source is reconstructed from a template and quoted data; no stage reads its own source.",
+    "Both library epoch-0001 snapshots must be freshly rechecked by the existing Rust loader.",
+    "The retained word has before 2*x and after x+x. Concrete reuse is checked for all x in 1..8, within the existing -8..8 bound.",
+    "Byte b uses u=(b mod 8)+1 and v=b-2*u, then the PSC0 program evaluates (u+u)+v using explicit copy.",
+    "All literals and intermediate values of that frozen emitter are exactly representable by the existing f64 realization. No general exact-integer scalar is added."
+  ],
+  "interface": {
+    "p": "Python source with the standalone named-library context and both quotation templates embedded as data",
+    "q": "Rust source with the same complete context record, viewed as a pinned dependency",
+    "r": "A closed ordinary PSC0 module returning an ordered Real frontier",
+    "byte_observer": "The Rust research example compiles and evaluates r through adva-lisp, accepts only finite integer outputs in 0..255, and writes exactly those bytes.",
+    "duality": "Candidate mutual quotation correspondence; not D*, observer pullback, an inverse evaluator or a native equation cell",
+    "required_equality": "literal source bytes, including final newline",
+    "retained_distinctions": "library roles, paths, branch versus gitlink, original programs, compiled diagram, graft trace, history, certificates and all controls"
+  },
+  "protected": [
+    "No stable Rust semantics or operation registry changes.",
+    "No source reads, network, repository reads or runtime input by generated p or q; r is closed.",
+    "The output observer receives r only, never expected p or the quotation templates.",
+    "No edits to either library, epochs, pins, geometry obligation, or native Seal status.",
+    "The existing adva run admission caps stay unchanged. This is a separate research output profile over the existing compiler, not a new interpreter.",
+    "Code closure does not establish learning, consciousness, repository authenticity, public visibility, semantic identity or the intended general duality."
+  ],
+  "controls": [
+    "One changed reconstructed byte must fail closure.",
+    "A fractional output must be rejected by the byte observer.",
+    "An undeclared print operation must be rejected by the existing parser.",
+    "Replacing add(copy u) with scale 2 u must retain equal bytes and a distinct program diagram.",
+    "A different library commit must fail the fixed context gate.",
+    "Loaded library word reuse at zero must be rejected.",
+    "The regenerated p must reproduce q again exactly."
+  ],
+  "limits": {
+    "wall_seconds": 300,
+    "child_cpu_seconds": 60,
+    "aggregate_child_cpu_seconds": 180,
+    "address_space_bytes": 2147483648,
+    "max_processes": 32,
+    "max_file_bytes": 67108864,
+    "max_retained_bytes": 201326592,
+    "max_python_source_bytes": 16384,
+    "max_lisp_source_bytes": 1048576,
+    "max_ast_terms": 100000,
+    "max_ast_depth": 16,
+    "library_fuel": 50000,
+    "candidate_constructions": 1,
+    "full_relay_laps": 1,
+    "correction_replays": 1
+  },
+  "enforcement": "The supervisor counts every child including Git queries, builds and checks; applies one wall deadline, process-group cleanup, per-child CPU/address/file caps and aggregate child CPU checks. It includes report serialization and retained-file inventory in the deadline. Static reading and implementation authoring precede the run and are not experiment timings.",
+  "exit": "ClosedFiniteByteRelay only after all frozen controls; Rejected on a failed claim; Unknown on resource exhaustion. Keep partial evidence, never overwrite a prior run, and do not reset fuel automatically.",
+  "publication": "The driver writes local evidence only. The user separately authorized committing and pushing the research implementation and selected evidence on 2026-09-09. Original trial contracts remain unchanged in the retained records; no library admission or automatic publication is performed.",
+  "revision": 1,
+  "source_boundary": {
+    "protected_paths": [
+      "Cargo.toml",
+      "Cargo.lock",
+      "crates",
+      ".cargo",
+      "rust-toolchain",
+      "rust-toolchain.toml",
+      "build.rs"
+    ],
+    "policy": "The kernel base must be an ancestor of HEAD. Tracked Rust build inputs must equal the base in the worktree, except the archived research byte observer example. This admits descendant experiment, evidence and documentation commits without accepting kernel changes.",
+    "trust": "Trusted local checkout and toolchain; Git content checks are not a sandbox or an audit of untracked build configuration."
+  },
+  "revision_reason": "Publication preparation: permit research-only descendant commits with unchanged kernel build inputs; retain the original HEAD-equality contracts in the evidence."
+}

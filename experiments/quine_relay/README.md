@@ -127,6 +127,21 @@ their manifests, the Pascal pins, geometry's Open obligation nor native Seal
 status. Repository publication is a separately authorized action, and closure
 does not admit a knowledge epoch or promote a language feature.
 
+## Retained implementations and the 2026-09-20 correction
+
+The retained bundle froze the implementations of 2026-09-09. Three later
+supervisor fixes — a stricter whole-second child CPU admission, the
+before-fork CPU allowance computation, and the Linux-only `RLIMIT_AS`
+installation — changed `python/adva/quine_relay.py` without a retained copy, so
+the recorded implementation correspondence no longer held for that side.
+`docs/research/0164-evidence/postcommit-check-02/` retains the corrected bytes
+and the drift class, and `verify_evidence.py` now checks the correspondence as
+well as the stored bytes. No earlier payload was edited, no relay lap was
+re-run, and the closure is explicitly **not** re-established: the contract pins
+a library revision the checkout no longer holds, so the library gate refuses
+before any relay work starts. See
+[Research 0209](../../docs/research/0209-the-quine-relay-implementation-correspondence-corrected.md).
+
 ## Recorded result
 
 The 2026-09-09 local run closed the relay with a 5,772-byte Python source,
