@@ -100,9 +100,21 @@ def test_raw_requests_executions_and_native_receipts_agree(retained):
     assert receipts == 24 and total_steps == 478
 
 
-def test_latest_acceptance_names_the_host_it_ran_on():
-    retained = receive(EVIDENCE / "local-07")
-    report = json.loads(retained["report.json"])
+def test_latest_acceptance_for_this_host_names_it():
+    """A retained acceptance is one host's statement, so read this host's own.
+
+    Records carry a host block from `local-07` on. A record produced elsewhere is
+    not this host's acceptance: when no retained record was produced here, the
+    gap is reported rather than passed or silently accepted.
+    """
+    newest = None
+    for directory, report in retained_acceptances():
+        host = report.get("host")
+        if host and host.get("platform") == sys.platform:
+            newest = (directory, report)
+    if newest is None:
+        pytest.skip(f"no retained acceptance carries a host block for {sys.platform}")
+    _, report = newest
     host = report["host"]
     assert host["platform"] == sys.platform
     assert host["machine"] and host["release"] and host["python"]
@@ -111,8 +123,19 @@ def test_latest_acceptance_names_the_host_it_ran_on():
     assert limits["address_space_per_child"] == 1073741824
 
 
+def retained_acceptances():
+    """Every archived acceptance, oldest first, with its recorded host block."""
+    found = []
+    for directory in sorted(EVIDENCE.iterdir()):
+        report_path = directory / "report.json"
+        if report_path.is_file():
+            found.append((directory, json.loads(report_path.read_bytes())))
+    return found
+
+
 def test_latest_acceptance_contains_current_adapter_sources():
-    retained = receive(EVIDENCE / "local-07")
+    directory, _ = retained_acceptances()[-1]
+    retained = receive(directory)
     manifest = json.loads(retained["source-manifest.json"])
     assert set(manifest) == {str(p.relative_to(ROOT)) for p in (ROOT / "toolchain").glob("*.py")}
     for path, expected in manifest.items():

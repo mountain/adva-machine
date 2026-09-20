@@ -1,6 +1,6 @@
 # Research notes, calibrations and the bounded record
 
-This directory holds the research record of the repository: **220 numbered
+This directory holds the research record of the repository: **221 numbered
 notes, 41 named notes and 25 supporting directories**. Nothing here is a stable
 API, a native admission, a Seal, or a proof beyond the finite scope each note
 declares for itself.
@@ -741,6 +741,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0209-the-quine-relay-implementation-correspondence-corrected.md`](0209-the-quine-relay-implementation-correspondence-corrected.md) — the retained relay bundle froze implementations that three later supervisor fixes changed: the corrected bytes, the drift class, the falsifier and the measured library-gate refusal are recorded, with the closure explicitly left un-re-established.
 - [`0210-the-address-space-limit-is-linux-only.md`](0210-the-address-space-limit-is-linux-only.md) — installing the test extra exposed that `RLIMIT_AS` is a Linux-only limit whose unconditional installation kills the child launch: three sites are corrected with `conform` back to 16 of 16, the acceptance relation is re-established by `toolchain/evidence/local-06`, and twelve tests in three files remain open with their measured reasons.
 - [`0211-an-acceptance-record-names-its-host.md`](0211-an-acceptance-record-names-its-host.md) — every acceptance report now carries a `host` block (platform, machine, release, interpreter), `toolchain/evidence/local-07` is the fresh acceptance, and a new check makes a record produced on one host fail when read as another's.
+- [`0212-the-same-tree-accepted-on-a-linux-host.md`](0212-the-same-tree-accepted-on-a-linux-host.md) — the same tree runs on a Lima Debian 13 host: `conform` 16 of 16 with the address-space limit *installed* (`local-08`), and the whole python suite reports 2,895 passed and 0 failed against 2,886/12 on macOS.
 
 ### Named notes
 
