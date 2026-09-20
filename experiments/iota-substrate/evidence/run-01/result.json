@@ -1,0 +1,262 @@
+{
+  "schema": "adva.iota-substrate.result.v0",
+  "profile": "iota-substrate-v0",
+  "question": "Can the machine parse and reduce pure Iota source in its own Rust source, under declared bounds, and reproduce an externally frozen contraction count, rule histogram, node peak and normal-form digest exactly?",
+  "level": "Research-local native Rust reduction over an external frozen witness. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added.",
+  "native_admission": "NotGranted",
+  "stable_semantic_api": false,
+  "outcome": "IotaSubstrateChecked",
+  "limits": {
+    "contractions_per_family": 20000,
+    "nodes_per_family": 200000,
+    "seconds_per_family": 30.0
+  },
+  "families": [
+    {
+      "label": "P",
+      "kind": "iota",
+      "program": "materials/murphy.iota",
+      "program_bytes": 824,
+      "program_sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+      "characters": 823,
+      "receipt_sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+      "status": "normal-form",
+      "contractions": 893,
+      "rules": {
+        "K": 213,
+        "S": 269,
+        "j": 411
+      },
+      "peak_nodes": 833,
+      "normal_form_sha256": "71a2cf635a70a1f5dc88a14340ba106a07c6270fa243246adb72d677cb4abd12",
+      "normal_form_nodes": 283,
+      "normal_form_is_redex_free": true,
+      "expected_normal_form_matched": null,
+      "elapsed_seconds": 0.284519375,
+      "exhausted_reason": null,
+      "oracle": null,
+      "verdict": "Recorded-No-Oracle",
+      "note": "The named program: the value from Zot word 0001011011 before the stop/printer wrapper. The frozen publication evidence retains its 823 characters and its beta normal form; it retains no counted combinator reduction for P alone, so this family is recorded without a frozen oracle."
+    },
+    {
+      "label": "PP",
+      "kind": "iota",
+      "program": "materials/PP.iota",
+      "program_bytes": 1648,
+      "program_sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
+      "characters": 1647,
+      "receipt_sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
+      "status": "normal-form",
+      "contractions": 1808,
+      "rules": {
+        "K": 437,
+        "S": 549,
+        "j": 822
+      },
+      "peak_nodes": 7627,
+      "normal_form_sha256": "8d0434eb47a6741a205db37b61bca00fb722f915e5f5a38f58e4fd7a192445fa",
+      "normal_form_nodes": 511,
+      "normal_form_is_redex_free": true,
+      "expected_normal_form_matched": null,
+      "elapsed_seconds": 1.343531625,
+      "exhausted_reason": null,
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/PP_reduction",
+        "contractions": 1808,
+        "rules": {
+          "K": 437,
+          "S": 549,
+          "j": 822
+        },
+        "peak_nodes": 7627,
+        "normal_form_sha256": "8d0434eb47a6741a205db37b61bca00fb722f915e5f5a38f58e4fd7a192445fa",
+        "contractions_match": true,
+        "rules_match": true,
+        "peak_nodes_match": true,
+        "digest_match": true
+      },
+      "verdict": "Matched-Frozen-Oracle",
+      "note": "Ordinary self-application P P, the family whose counted reduction the publication froze."
+    },
+    {
+      "label": "C",
+      "kind": "coordinate",
+      "program": "materials/C.iota",
+      "program_bytes": 744,
+      "program_sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
+      "characters": 743,
+      "receipt_sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
+      "status": "normal-form",
+      "contractions": 919,
+      "rules": {
+        "I": 1,
+        "K": 250,
+        "S": 296,
+        "j": 372
+      },
+      "peak_nodes": 9395,
+      "normal_form_sha256": "dc74b1b624debdd47da8eb3ab4a6db368f0ed898c68d911f69f0cf448b6e266c",
+      "normal_form_nodes": 9,
+      "normal_form_is_redex_free": true,
+      "expected_normal_form_matched": true,
+      "elapsed_seconds": 0.346816042,
+      "exhausted_reason": null,
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/C",
+        "contractions": 919,
+        "rules": {
+          "I": 1,
+          "K": 250,
+          "S": 296,
+          "j": 372
+        },
+        "peak_nodes": 9395,
+        "normal_form_sha256": "dc74b1b624debdd47da8eb3ab4a6db368f0ed898c68d911f69f0cf448b6e266c",
+        "contractions_match": true,
+        "rules_match": true,
+        "peak_nodes_match": true,
+        "digest_match": true
+      },
+      "verdict": "Matched-Frozen-Oracle",
+      "note": "Coordinate conjugation applied to the declared four-slot product."
+    },
+    {
+      "label": "J",
+      "kind": "coordinate",
+      "program": "materials/J.iota",
+      "program_bytes": 672,
+      "program_sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
+      "characters": 671,
+      "receipt_sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
+      "status": "normal-form",
+      "contractions": 831,
+      "rules": {
+        "I": 1,
+        "K": 226,
+        "S": 268,
+        "j": 336
+      },
+      "peak_nodes": 7889,
+      "normal_form_sha256": "d40812c3d9b2532e9b840b4f1ca33fe15fd5410f46d6a8593c5eb93cbea7f386",
+      "normal_form_nodes": 9,
+      "normal_form_is_redex_free": true,
+      "expected_normal_form_matched": true,
+      "elapsed_seconds": 0.279434292,
+      "exhausted_reason": null,
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/J",
+        "contractions": 831,
+        "rules": {
+          "I": 1,
+          "K": 226,
+          "S": 268,
+          "j": 336
+        },
+        "peak_nodes": 7889,
+        "normal_form_sha256": "d40812c3d9b2532e9b840b4f1ca33fe15fd5410f46d6a8593c5eb93cbea7f386",
+        "contractions_match": true,
+        "rules_match": true,
+        "peak_nodes_match": true,
+        "digest_match": true
+      },
+      "verdict": "Matched-Frozen-Oracle",
+      "note": "The complex structure applied to the declared four-slot product."
+    },
+    {
+      "label": "N",
+      "kind": "coordinate",
+      "program": "materials/N.iota",
+      "program_bytes": 726,
+      "program_sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
+      "characters": 725,
+      "receipt_sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
+      "status": "normal-form",
+      "contractions": 897,
+      "rules": {
+        "I": 1,
+        "K": 244,
+        "S": 289,
+        "j": 363
+      },
+      "peak_nodes": 8545,
+      "normal_form_sha256": "66c6cc711068270a16d4dbfeb691587fe2b042cfe06194ef63e494de48011fc8",
+      "normal_form_nodes": 9,
+      "normal_form_is_redex_free": true,
+      "expected_normal_form_matched": true,
+      "elapsed_seconds": 0.332148,
+      "exhausted_reason": null,
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/N",
+        "contractions": 897,
+        "rules": {
+          "I": 1,
+          "K": 244,
+          "S": 289,
+          "j": 363
+        },
+        "peak_nodes": 8545,
+        "normal_form_sha256": "66c6cc711068270a16d4dbfeb691587fe2b042cfe06194ef63e494de48011fc8",
+        "contractions_match": true,
+        "rules_match": true,
+        "peak_nodes_match": true,
+        "digest_match": true
+      },
+      "verdict": "Matched-Frozen-Oracle",
+      "note": "Coordinate negation applied to the declared four-slot product."
+    }
+  ],
+  "controls": [
+    {
+      "name": "sha256-fips-vectors",
+      "expectation": "the local SHA-256 reproduces the three FIPS 180-4 vectors",
+      "observed": "0:e3b0c44298fc1c14 3:ba7816bf8f01cfea 56:248d6a61d20638b8 ",
+      "passed": true
+    },
+    {
+      "name": "digest-falsifier",
+      "expectation": "an altered expected digest is refused rather than accepted",
+      "observed": "altered=0d0434eb47a6741a actual=8d0434eb47a6741a",
+      "passed": true
+    },
+    {
+      "name": "order-alternative",
+      "expectation": "a different declared order changes the counts or the digest",
+      "observed": "declared=1808:8d0434eb47a6 other=1981:8d0434eb47a6",
+      "passed": true
+    },
+    {
+      "name": "budget-exhaustion",
+      "expectation": "a tight bound reports Unknown with no normal-form claim",
+      "observed": "status=Exhausted reason=Some(\"contraction limit\")",
+      "passed": true
+    },
+    {
+      "name": "non-vacuity",
+      "expectation": "every family contracts and at least one frozen oracle is matched",
+      "observed": "min_contractions=831 frozen_matches=4",
+      "passed": true
+    },
+    {
+      "name": "source-alteration",
+      "expectation": "one altered byte changes the source digest",
+      "observed": "altered=458de092482a1a29 original=da47f5cf6cdfb49a",
+      "passed": true
+    }
+  ],
+  "checked_families": 5,
+  "frozen_oracle_families": 4,
+  "total_contractions": 5348,
+  "trace_rows_compared": 1808,
+  "trace_rows_matched": 1808,
+  "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
+  "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules.",
+  "wall_seconds": 7.09944325
+}

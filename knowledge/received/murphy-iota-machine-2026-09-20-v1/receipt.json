@@ -1,0 +1,176 @@
+{
+  "accepted_use": "documentary-reference",
+  "catalog_entry": {
+    "assumptions": [
+      "The source grammar is i for the Iota combinator and *AB for application; any other character is refused.",
+      "The Iota rule is j a -> a S K, with I a -> a, K a b -> a and S x y z -> x z (y z).",
+      "Reduction order is leftmost-outermost on combinator trees.",
+      "One contraction is counted per applied combinator and named by that combinator.",
+      "nodes(t) counts one per application and one per leaf.",
+      "The normal-form digest is SHA-256 over the canonical JSON encoding [\"a\",f,x], [\"c\",name], [\"v\",name], [\"l\",name,body].",
+      "The coordinate families apply the program to the declared four-slot product Z(p,q,r,s) = lambda k. k p q r s through bracket abstraction without eta optimization.",
+      "The named value and its evidence are project-original contributions admitted on 2026-09-19 under Unknown v0.3; no third-party expressive material is incorporated."
+    ],
+    "checker": null,
+    "domains": [
+      "logic"
+    ],
+    "evidence": [],
+    "geometry_lineage": null,
+    "home": "logic",
+    "key": "logic-murphy-iota-v0",
+    "materials": [
+      {
+        "path": "adva-library/experiments/murphy/murphy.iota",
+        "sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf"
+      },
+      {
+        "path": "adva-library/experiments/murphy/evidence/PP.iota",
+        "sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781"
+      },
+      {
+        "path": "adva-library/experiments/murphy/evidence/C.iota",
+        "sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0"
+      },
+      {
+        "path": "adva-library/experiments/murphy/evidence/J.iota",
+        "sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99"
+      },
+      {
+        "path": "adva-library/experiments/murphy/evidence/N.iota",
+        "sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9"
+      },
+      {
+        "path": "adva-library/experiments/murphy/evidence/result.json",
+        "sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd"
+      },
+      {
+        "path": "adva-library/experiments/murphy/contract.json",
+        "sha256": "2678ac10ccbce9d57837fa5e5a3a328dde2ef452ae8cad926179e4989ea0b73f"
+      },
+      {
+        "path": "adva-library/experiments/murphy/inputs/source_manifest.json",
+        "sha256": "2b15d760f0c125c3743c8fb307284eacb4b9eee8566df0b803ddaa010c0586f8"
+      }
+    ],
+    "open_obligations": [
+      "This entry is a proposed document: the receiving profile registers no checker and no evidence for it, and it grants no native admission.",
+      "The unit retains no counted combinator reduction for the named value P alone; only its self-application, its coordinate families and its beta normal form are frozen.",
+      "The 2x2 table adjoint programs and their sixteen assertions are not part of this transport package.",
+      "The text probe, the declared end-leaf representation bridge, the Zot CEK stage and the retained failed reflection control are not replayed by this transport.",
+      "A choice of real form or grading is required at the carrier boundary: the carrier's Omega is minus the frame's canonical J, J alone does not select a unique C, and the carrier contraction symbol is not the Iota combinator."
+    ],
+    "recorded_status": "proposed-document",
+    "reuse_requires": [
+      "Retain the exact transported bytes at their recorded digests; a changed program changes the reduction.",
+      "Keep the declared source grammar, rule set, reduction order, node counting and digest encoding together; any one of them alone does not identify the witness.",
+      "Re-run the external checker from the retained materials rather than citing this entry as a result.",
+      "Keep the non-frozen families recorded rather than promoted: a recorded row is not a matched oracle."
+    ],
+    "scope": "The published murphy unit retained in this repository: the named Iota value obtained from Zot word 0001011011 before the stop/printer wrapper, its ordinary self-application, the three coordinate permutation programs on the declared four-slot product, and the frozen counted witness for those families. This catalog entry registers a documentary reference only. It makes no native judgment, installs no operation and repeats no proof; the unit's own external checker, its evidence and its residuals remain with the unit at experiments/murphy.",
+    "theory": {
+      "carried_readings": [
+        "pure Iota source under a declared source grammar",
+        "leftmost-outermost combinator reduction with counted contractions",
+        "normal-form digest over a canonical term encoding",
+        "coordinate conjugation on an explicit four-slot product"
+      ],
+      "kind": "external-iota-reduction-witness",
+      "primitive": "the Iota combinator with the declared S, K and I rules"
+    },
+    "title": "murphy: a named Iota value, its self-application and its coordinate conjugation"
+  },
+  "checker": {
+    "cargo_lock_blake3": "b7ece200175a70289c91230326b00947d3451f34e589e4ad2b9dfc61170bf1ae",
+    "implementation_blake3": "866cd49ca485d62e0adb16528f29dbceef8a5f3ded0219544fc879bfe662bb8a"
+  },
+  "context": "murphy/iota-v0:machine",
+  "contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+  "envelope_blake3": "c81c160e39bce705b7dfae68855001345ff7cdfe7a3d9407189e4b913beeb1fe",
+  "events": [
+    "receive",
+    "check-integrity-and-contract",
+    "accept-documentary-reference"
+  ],
+  "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+  "files": [
+    {
+      "blake3": "ff1c8da44a90024b288220241baa0a1e8fcb9076a9805bccf957476802ca52c0",
+      "bytes": 824,
+      "destination": "materials/murphy.iota",
+      "sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+      "source": "experiments/murphy/murphy.iota"
+    },
+    {
+      "blake3": "af012e59e26b61ec40dcb5b5a5900066c6afba46c67b81a8315c7866c8a0cc89",
+      "bytes": 1648,
+      "destination": "materials/PP.iota",
+      "sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
+      "source": "experiments/murphy/evidence/PP.iota"
+    },
+    {
+      "blake3": "4981946ec1e0791398e1f455820aace5f123e7c5d06e3d7bfad222a6a8210b71",
+      "bytes": 744,
+      "destination": "materials/C.iota",
+      "sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
+      "source": "experiments/murphy/evidence/C.iota"
+    },
+    {
+      "blake3": "0c0ac39d0dda8048d40027ff9688b91e75063f853acbb0531a3a3d8ef32b9b12",
+      "bytes": 672,
+      "destination": "materials/J.iota",
+      "sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
+      "source": "experiments/murphy/evidence/J.iota"
+    },
+    {
+      "blake3": "bdcebb6ff1a63fd9fede216901e8caca3987553ae6cedcd18f555e0f4d3247c8",
+      "bytes": 726,
+      "destination": "materials/N.iota",
+      "sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
+      "source": "experiments/murphy/evidence/N.iota"
+    },
+    {
+      "blake3": "926ca98a6b6111e21fe2d5bda6935344888d7e86b0a1bcdc28269ab5ade8501c",
+      "bytes": 48694,
+      "destination": "materials/result.json",
+      "sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+      "source": "experiments/murphy/evidence/result.json"
+    },
+    {
+      "blake3": "ce3051199ee098e1cbb51e112c1ac2fee78544cb33750ea93df1604107525d5c",
+      "bytes": 2353,
+      "destination": "materials/contract.json",
+      "sha256": "2678ac10ccbce9d57837fa5e5a3a328dde2ef452ae8cad926179e4989ea0b73f",
+      "source": "experiments/murphy/contract.json"
+    },
+    {
+      "blake3": "c95e84ed5193d04581ca737d6251d87872ec04b64dd9475c44d5c35fb6b7d5af",
+      "bytes": 1022,
+      "destination": "materials/source_manifest.json",
+      "sha256": "2b15d760f0c125c3743c8fb307284eacb4b9eee8566df0b803ddaa010c0586f8",
+      "source": "experiments/murphy/inputs/source_manifest.json"
+    }
+  ],
+  "native_admission": "NotGranted",
+  "origin": {
+    "catalog_blake3": "1213cb36ff4beff1fc9bfffe689b5e31baaaaa6bfd797407076e06fe92c662c3",
+    "catalog_path": "experiments/murphy/catalog.json",
+    "repository": "https://github.com/mountain/adva",
+    "revision": "0106e98da1e241e18bea2264a5cefba4d01dca50"
+  },
+  "profile": "documentary-library-entry-v1",
+  "publication": "BoundReviewedRecord",
+  "publication_record_blake3": "876cd248c569ed9f1c795bdaf0c862ae4d00df2b0d05a8822f3a5ad80cbef39f",
+  "receiver": "mountain/adva-machine:murphy-store",
+  "residual": "Origin claims are pinned, not authenticated; referenced proofs and human acceptance are not checked. No source retirement or new catalog home.",
+  "resource_contract": {
+    "automatic_retries": 0,
+    "cooperative_seconds": 5,
+    "read_bytes_per_invocation": 8388608
+  },
+  "rights_determined_by_machine": false,
+  "schema": "adva.communication.receipt.v1",
+  "semantic_verification": "NotRun",
+  "sender": "mountain/adva:murphy-catalog",
+  "status": "AcceptedDocumentary"
+}

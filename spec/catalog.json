@@ -12,7 +12,8 @@
     "data-machine-v0",
     "data-machine-v1",
     "data-machine-v2",
-    "carrier-matrix-v0"
+    "carrier-matrix-v0",
+    "iota-substrate-v0"
   ],
   "authority": "Existing native Rust admission/certificates; catalog hashes record file integrity only",
   "files": {
@@ -29,6 +30,10 @@
     "Cargo.lock": "b1042015a8b0f395aaa5334663356f3d253c7c493f8e50181ea9f318330416b9",
     "experiments/bounded_native_interpreter/reference.py": "0205374e770c70ffebe9004be12f0ab70c72357dedcd49c42c71dcecd3d51f45",
     "experiments/bounded_self_compiler/reference.py": "90849b9919fd693c8739272419091435eabbf747831a3beca4fe412f8afc4244",
-    "programs/bounded-interpreter/interpreter.adva": "e54309bfe45c64eed31c1b2b52b1eabfef92d8dce6213e1bf9db0d71e1b655b1"
+    "programs/bounded-interpreter/interpreter.adva": "e54309bfe45c64eed31c1b2b52b1eabfef92d8dce6213e1bf9db0d71e1b655b1",
+    "experiments/iota-substrate/src/lib.rs": "8a05a5a438d8fe1fa8aed6e849da4fefc1a0ef4148b899e144d895c65f68d623",
+    "experiments/iota-substrate/src/main.rs": "b6fb449796591429edea673169963684831d838bd8da1c4cd6e4c3c488707e0c",
+    "experiments/iota-substrate/Cargo.toml": "7c8df5830ffe8305d32e7446ebf8c031674d9c48ee62ee84e19868b788d38a68",
+    "experiments/iota-substrate/Cargo.lock": "2442916738d79067b8bd4b1ca6326c8012e3df213765edc0221fef50ffd3c516"
   }
 }

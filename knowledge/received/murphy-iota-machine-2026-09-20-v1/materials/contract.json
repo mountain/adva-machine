@@ -1,0 +1,17 @@
+{
+  "schema": "adva.murphy.publication-replay.v1",
+  "question": "Reproduce the named Zot-derived Iota value, its self-application, coordinate conjugation/adjoint and the declared opaque-character boundary before publication.",
+  "level": "external reference research, not native Adva",
+  "name": "murphy",
+  "source_word": "0001011011",
+  "input_families": ["one pinned Zot word", "one self-application", "three complex-coordinate permutations", "three 2x2 table permutations", "twelve existing rational frames", "one declared three-direction carrier", "four Kip Thorne character probes"],
+  "assumptions": ["standard iota f = f S K", "standard lambda beta and SKI rules", "explicit four-slot signed complex coordinates", "upstream frame and carrier fixtures interpreted only as external data", "left-associated iota character chain with no terminator for the text probe"],
+  "protected_boundaries": ["no native machine launches", "no source/occurrence identity allocation", "no general Adva D* or conjugate of murphy", "no string decoder or inferred end-leaf splice", "no dependency lock or historical evidence changes"],
+  "limits": {"total_wall_seconds": 120, "max_seconds_per_child": 45, "python_address_space_bytes": 1073741824, "node_max_old_space_mib": 256, "max_cpu_seconds_per_child": 45, "max_output_file_bytes": 16777216},
+  "existing_reducer_limits": {"contractions_per_case": 20000, "tree_nodes": 200000, "wall_seconds_per_case": 30, "lambda_counted_work": 4000000, "lambda_wall_seconds": 30, "matrix_dimension": 12, "coefficient_order": 12},
+  "exit": "Run each declared stage once. Stop on first failure, timeout or missing input; retain artifacts. No automatic retries or wider family.",
+  "acceptance": "Exact source pins; translation and pure-Iota bytes match; replayed witnesses match frozen results after removing only documented timing and timing-derived file digests; declared text results match symbolic derivation.",
+  "publication_only_changes": ["lambda_ref budget exhaustion now raises TimeoutError so it is recorded as Unknown", "adjoint.py handles that budget exception as Unknown", "added named alias, text probe and bounded publication replay; prior evidence bytes retained"],
+  "authored_by": "ChatGPT (OpenAI)",
+  "submitted_through": "Mingli Yuan authorized account proxy; not human technical review or endorsement"
+}

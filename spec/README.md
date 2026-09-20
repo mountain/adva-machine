@@ -81,3 +81,14 @@ it, and its controls separate the carrier, the composition order and the
 cochain. It registers no native keyword, operation, value type or IR version,
 and its received run record is a local record rather than a communication
 receipt until the documentary route is executed.
+
+## Iota substrate profile
+
+The [iota substrate v0 profile](framework/iota-substrate-v0.md) adds a
+research-local native parser and combinator reducer for pure Iota source,
+checked against the externally frozen `murphy` witness rather than against its
+own expectations. It reproduces the transported unit's contraction counts, rule
+histograms, node peaks and normal-form digests exactly, including all 1,808
+retained trace rows, and reports bound exhaustion as `Unknown`. It is its own
+workspace root so the pinned `Cargo.lock` stays byte-unchanged, and it registers
+no native keyword, operation, value type, IR version or stable semantic type.

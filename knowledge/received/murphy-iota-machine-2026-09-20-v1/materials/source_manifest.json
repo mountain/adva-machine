@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "frames.json",
+    "repository": "mountain/adva-iota",
+    "ref": "a9540b4d93076674ce2ea954ad7b08b1bb86fff5",
+    "path": "frame_v1/materials/frames.json",
+    "git_blob": "17fff68d3bc950b5987fcdebd08844e16ca559bf",
+    "url": "https://github.com/mountain/adva-iota/blob/a9540b4d93076674ce2ea954ad7b08b1bb86fff5/frame_v1/materials/frames.json",
+    "sha256": "d98fe110220b40a413286e83d05219a14bad071e2909a234431cdf8a6ab67a04"
+  },
+  {
+    "filename": "carrier_structure.json",
+    "repository": "mountain/adva-machine",
+    "ref": "25818eb259dd8a16c50214e825a8b3af3d641333",
+    "path": "knowledge/received/carrier-matrix-machine-2026-09-19-v1/materials/structure.json",
+    "git_blob": "13c077987542c096bf10f513d849bddad507f8fd",
+    "url": "https://github.com/mountain/adva-machine/blob/25818eb259dd8a16c50214e825a8b3af3d641333/knowledge/received/carrier-matrix-machine-2026-09-19-v1/materials/structure.json",
+    "sha256": "c6cdeb9a93649798a33813dfd970d0d120e961b062a8d014b83800cd85a389f1"
+  }
+]

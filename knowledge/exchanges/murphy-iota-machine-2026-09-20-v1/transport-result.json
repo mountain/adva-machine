@@ -1,0 +1,112 @@
+{
+  "schema": "adva.exchange-run-record.v0",
+  "is_a_communication_receipt": false,
+  "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+  "profile": "documentary-library-entry-v1",
+  "runner": "Direct invocation of the compiled Rust `adva communicate` commands. The Python exchange runner refused on this host inside its process-limit wrapper (`preexec_fn` failed under macOS), so the three declared commands were invoked directly and their unchanged observations are retained here.",
+  "attempts": [
+    {
+      "action": "send",
+      "attempt": "send-1",
+      "observation": {
+        "action": "send",
+        "attempt": "send-1",
+        "bytes_read": 71669,
+        "contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "envelope_blake3": "c81c160e39bce705b7dfae68855001345ff7cdfe7a3d9407189e4b913beeb1fe",
+        "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+        "observed_events": [
+          "contract-bound",
+          "publication-record-bound",
+          "send"
+        ],
+        "profile": "documentary-library-entry-v1",
+        "receiver_observation": "Unknown",
+        "status": "Sent",
+        "supplied_contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "wall_seconds": 0.005791042
+      }
+    },
+    {
+      "action": "receive",
+      "attempt": "receive-1",
+      "observation": {
+        "acceptance_effects": 1,
+        "action": "receive",
+        "attempt": "receive-1",
+        "bytes_read": 270118,
+        "observed_events": [
+          "contract-bound",
+          "publication-record-bound",
+          "receive",
+          "check-integrity-and-contract",
+          "record-staging-started",
+          "accept-documentary-reference"
+        ],
+        "profile": "documentary-library-entry-v1",
+        "receipt_blake3": "8a161fef76845b59d17b83347c5c7743f57543c7f56161e09633c0af3c5f2213",
+        "status": "AcceptedDocumentary",
+        "supplied_contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "wall_seconds": 0.045312709
+      }
+    },
+    {
+      "action": "acknowledge",
+      "attempt": "ack-1",
+      "observation": {
+        "action": "acknowledge",
+        "attempt": "ack-1",
+        "bytes_read": 213435,
+        "contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "envelope_blake3": "c81c160e39bce705b7dfae68855001345ff7cdfe7a3d9407189e4b913beeb1fe",
+        "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+        "native_admission": "NotGranted",
+        "new_acceptance_effects": 0,
+        "observed_events": [
+          "contract-bound",
+          "publication-record-bound",
+          "sent-presentation-read",
+          "check-integrity-and-contract",
+          "reply-observed",
+          "acknowledge"
+        ],
+        "observed_receiver_status": "AcceptedDocumentary",
+        "profile": "documentary-library-entry-v1",
+        "receipt_blake3": "8a161fef76845b59d17b83347c5c7743f57543c7f56161e09633c0af3c5f2213",
+        "schema": "adva.communication.acknowledgment.v1",
+        "semantic_verification": "NotRun",
+        "status": "Acknowledged",
+        "supplied_contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "wall_seconds": 0.010996459
+      }
+    },
+    {
+      "action": "receive",
+      "attempt": "receive-2 (explicit repeated delivery)",
+      "observation": {
+        "acceptance_effects": 0,
+        "action": "receive",
+        "attempt": "receive-2",
+        "bytes_read": 270118,
+        "observed_events": [
+          "contract-bound",
+          "publication-record-bound",
+          "receive",
+          "check-integrity-and-contract",
+          "prior-acceptance-rechecked"
+        ],
+        "profile": "documentary-library-entry-v1",
+        "receipt_blake3": "8a161fef76845b59d17b83347c5c7743f57543c7f56161e09633c0af3c5f2213",
+        "status": "AlreadyAccepted",
+        "supplied_contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+        "wall_seconds": 0.010554708
+      }
+    }
+  ],
+  "receipt_blake3": "8a161fef76845b59d17b83347c5c7743f57543c7f56161e09633c0af3c5f2213",
+  "receipt_sha256": "5bc5713a1341899dbaeab591b41cafda5bffe4bcfa9441430a534f9d3f60ccc6",
+  "native_admission": "NotGranted",
+  "semantic_verification": "NotRun",
+  "new_native_object_executions": 0,
+  "note": "The two older exchange contracts still replay with this build: the root Cargo.lock and crate sources are byte-unchanged, and the checker pins recorded in those contracts were re-verified when this contract was written."
+}

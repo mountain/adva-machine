@@ -1,0 +1,12 @@
+{
+  "contract_blake3": "e1172b2a90f598b261da14255aca29cbce786b272c3b12c64bcf8a0cc3d2ad2c",
+  "envelope_blake3": "c81c160e39bce705b7dfae68855001345ff7cdfe7a3d9407189e4b913beeb1fe",
+  "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+  "native_admission": "NotGranted",
+  "new_acceptance_effects": 0,
+  "observed_receiver_status": "AcceptedDocumentary",
+  "receipt_blake3": "8a161fef76845b59d17b83347c5c7743f57543c7f56161e09633c0af3c5f2213",
+  "schema": "adva.communication.acknowledgment.v1",
+  "semantic_verification": "NotRun",
+  "status": "Acknowledged"
+}

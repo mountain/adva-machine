@@ -1,0 +1,28 @@
+[package]
+name = "adva-iota-substrate"
+description = "Research-local native Iota/S/K substrate checked against the murphy frozen evidence"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["Adva contributors"]
+license-file = "../../LICENSE"
+repository = "https://github.com/mountain/adva-machine"
+publish = false
+
+# This experiment is deliberately its own workspace root. The machine's
+# `Cargo.lock` is a declared, pinned input (`spec/catalog.json`,
+# `bootstrap/inputs.sha256`) and two received documentary exchange contracts
+# bind its BLAKE3, so this crate must not move it. Keeping the substrate outside
+# the root workspace leaves that lock byte-identical.
+[workspace]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

@@ -1,0 +1,83 @@
+{
+  "schema": "adva.communication.contract.v1",
+  "profile": "documentary-library-entry-v1",
+  "exchange_id": "murphy-iota-machine-2026-09-20-v1",
+  "sender": "mountain/adva:murphy-catalog",
+  "receiver": "mountain/adva-machine:murphy-store",
+  "context": "murphy/iota-v0:machine",
+  "purpose": "documentary-reference",
+  "origin": {
+    "repository": "https://github.com/mountain/adva",
+    "revision": "0106e98da1e241e18bea2264a5cefba4d01dca50",
+    "catalog_path": "experiments/murphy/catalog.json",
+    "catalog_blake3": "1213cb36ff4beff1fc9bfffe689b5e31baaaaa6bfd797407076e06fe92c662c3"
+  },
+  "entry_key": "logic-murphy-iota-v0",
+  "home": "logic",
+  "entry_blake3": "d1f181c771fee698eefb7e730434abec5e0176d39f1a463c8481fd69e4bafb89",
+  "publication_record_blake3": "876cd248c569ed9f1c795bdaf0c862ae4d00df2b0d05a8822f3a5ad80cbef39f",
+  "files": [
+    {
+      "source": "experiments/murphy/murphy.iota",
+      "destination": "materials/murphy.iota",
+      "bytes": 824,
+      "blake3": "ff1c8da44a90024b288220241baa0a1e8fcb9076a9805bccf957476802ca52c0",
+      "sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf"
+    },
+    {
+      "source": "experiments/murphy/evidence/PP.iota",
+      "destination": "materials/PP.iota",
+      "bytes": 1648,
+      "blake3": "af012e59e26b61ec40dcb5b5a5900066c6afba46c67b81a8315c7866c8a0cc89",
+      "sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781"
+    },
+    {
+      "source": "experiments/murphy/evidence/C.iota",
+      "destination": "materials/C.iota",
+      "bytes": 744,
+      "blake3": "4981946ec1e0791398e1f455820aace5f123e7c5d06e3d7bfad222a6a8210b71",
+      "sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0"
+    },
+    {
+      "source": "experiments/murphy/evidence/J.iota",
+      "destination": "materials/J.iota",
+      "bytes": 672,
+      "blake3": "0c0ac39d0dda8048d40027ff9688b91e75063f853acbb0531a3a3d8ef32b9b12",
+      "sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99"
+    },
+    {
+      "source": "experiments/murphy/evidence/N.iota",
+      "destination": "materials/N.iota",
+      "bytes": 726,
+      "blake3": "bdcebb6ff1a63fd9fede216901e8caca3987553ae6cedcd18f555e0f4d3247c8",
+      "sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9"
+    },
+    {
+      "source": "experiments/murphy/evidence/result.json",
+      "destination": "materials/result.json",
+      "bytes": 48694,
+      "blake3": "926ca98a6b6111e21fe2d5bda6935344888d7e86b0a1bcdc28269ab5ade8501c",
+      "sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd"
+    },
+    {
+      "source": "experiments/murphy/contract.json",
+      "destination": "materials/contract.json",
+      "bytes": 2353,
+      "blake3": "ce3051199ee098e1cbb51e112c1ac2fee78544cb33750ea93df1604107525d5c",
+      "sha256": "2678ac10ccbce9d57837fa5e5a3a328dde2ef452ae8cad926179e4989ea0b73f"
+    },
+    {
+      "source": "experiments/murphy/inputs/source_manifest.json",
+      "destination": "materials/source_manifest.json",
+      "bytes": 1022,
+      "blake3": "c95e84ed5193d04581ca737d6251d87872ec04b64dd9475c44d5c35fb6b7d5af",
+      "sha256": "2b15d760f0c125c3743c8fb307284eacb4b9eee8566df0b803ddaa010c0586f8"
+    }
+  ],
+  "read_budget": 8388608,
+  "dependency_policy": "retain-references-no-execution",
+  "checker": {
+    "implementation_blake3": "866cd49ca485d62e0adb16528f29dbceef8a5f3ded0219544fc879bfe662bb8a",
+    "cargo_lock_blake3": "b7ece200175a70289c91230326b00947d3451f34e589e4ad2b9dfc61170bf1ae"
+  }
+}

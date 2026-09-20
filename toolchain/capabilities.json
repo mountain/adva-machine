@@ -9,7 +9,8 @@
     "python_facade": {"path": "python/adva", "implementation": "Python API over Rust/PyO3", "independent_semantic_kernel": false},
     "adva_interpreter": {"path": "programs/bounded-interpreter/interpreter.adva", "implementation": "Adva data-machine program", "object_language": "bounded tagged arithmetic trees", "host": "Rust VM or received Python reference VM", "full_self_interpreter": false},
     "adva_self_compiler": {"path": "programs/bounded-self-compiler/compiler.source.adva", "scope": "finite structured research source to v1 target; C1=C2=C3"},
-    "adva_mix": {"path": "programs/bounded-mix/mix.source.adva", "scope": "conservative input binding and finite self-application", "general_optimizing_mix": "Open"}
+    "adva_mix": {"path": "programs/bounded-mix/mix.source.adva", "scope": "conservative input binding and finite self-application", "general_optimizing_mix": "Open"},
+    "iota_substrate": {"path": "experiments/iota-substrate", "implementation": "Research-local native Iota/S/K parser and reducer, its own workspace root", "source_grammar": "i for the Iota combinator and *AB for application", "checked_against": "the received murphy unit's frozen witness, including all 1,808 retained trace rows", "stable_semantic_api": false, "native_admission": "NotGranted", "profile": "spec/framework/iota-substrate-v0.md"}
   },
   "conversion_directions": {
     "Adva-to-Rust-source": "NotImplemented",

@@ -1,0 +1,132 @@
+{
+  "schema": "adva.iota-substrate.contract.v0",
+  "profile": "iota-substrate-v0",
+  "question": "Can the machine parse and reduce pure Iota source in its own Rust source, under declared bounds, and reproduce an externally frozen contraction count, rule histogram, node peak and normal-form digest exactly?",
+  "level": "Research-local native Rust reduction over an external frozen witness. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added.",
+  "assumptions": [
+    "The Iota rule is i f = f S K, with the standard S, K and I rules.",
+    "Reduction order is leftmost-outermost on combinator trees.",
+    "One contraction is counted per applied combinator, named by that combinator.",
+    "nodes(t) counts one per application and one per leaf.",
+    "The normal-form digest is SHA-256 over the canonical JSON encoding ['a',f,x], ['c',name], ['v',name], ['l',name,body].",
+    "The coordinate families apply the program to the declared four-slot product Z(p,q,r,s) = lambda k. k p q r s through bracket abstraction without eta.",
+    "The frozen witness is the murphy publication unit in mountain/adva, admitted 2026-09-19 as project-original."
+  ],
+  "limits": {
+    "contractions_per_family": 20000,
+    "nodes_per_family": 200000,
+    "seconds_per_family": 30.0
+  },
+  "families": [
+    {
+      "label": "P",
+      "kind": "iota",
+      "program": "materials/murphy.iota",
+      "note": "The named program: the value from Zot word 0001011011 before the stop/printer wrapper. The frozen publication evidence retains its 823 characters and its beta normal form; it retains no counted combinator reduction for P alone, so this family is recorded without a frozen oracle."
+    },
+    {
+      "label": "PP",
+      "kind": "iota",
+      "program": "materials/PP.iota",
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/PP_reduction"
+      },
+      "note": "Ordinary self-application P P, the family whose counted reduction the publication froze."
+    },
+    {
+      "label": "C",
+      "kind": "coordinate",
+      "program": "materials/C.iota",
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/C"
+      },
+      "note": "Coordinate conjugation applied to the declared four-slot product."
+    },
+    {
+      "label": "J",
+      "kind": "coordinate",
+      "program": "materials/J.iota",
+      "permutation": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/J"
+      },
+      "note": "The complex structure applied to the declared four-slot product."
+    },
+    {
+      "label": "N",
+      "kind": "coordinate",
+      "program": "materials/N.iota",
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/N"
+      },
+      "note": "Coordinate negation applied to the declared four-slot product."
+    }
+  ],
+  "trace": {
+    "label": "PP",
+    "document": "evidence/PP-trace.json",
+    "document_sha256": "32eb5bb5ebc33f5d4dd88fb3125fec052e0402eb52e5f8a016487f218dd9a88f"
+  },
+  "controls": [
+    "sha256-fips-vectors",
+    "digest-falsifier",
+    "order-alternative",
+    "budget-exhaustion",
+    "non-vacuity",
+    "source-alteration"
+  ],
+  "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
+  "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules.",
+  "identity": {
+    "receipt": "knowledge/received/murphy-iota-machine-2026-09-20-v1/receipt.json",
+    "receipt_sha256": "5bc5713a1341899dbaeab591b41cafda5bffe4bcfa9441430a534f9d3f60ccc6",
+    "materials": "knowledge/received/murphy-iota-machine-2026-09-20-v1",
+    "files": [
+      {
+        "path": "materials/murphy.iota",
+        "receipt_destination": "materials/murphy.iota"
+      },
+      {
+        "path": "materials/PP.iota",
+        "receipt_destination": "materials/PP.iota"
+      },
+      {
+        "path": "materials/C.iota",
+        "receipt_destination": "materials/C.iota"
+      },
+      {
+        "path": "materials/J.iota",
+        "receipt_destination": "materials/J.iota"
+      },
+      {
+        "path": "materials/N.iota",
+        "receipt_destination": "materials/N.iota"
+      }
+    ]
+  }
+}
