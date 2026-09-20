@@ -128,10 +128,12 @@
       "note": "The same control at five elements."
     }
   ],
+  "renamings": [],
+  "renamings_preserved": 0,
   "readings_held": 5,
   "readings_failed_as_declared": 2,
   "readings_unexpected": 0,
   "acceptance": "Every declared holding case must reduce inside the bounds and print exactly its expected normal form, and every declared failing case must print something else, with the observed value retained. A case that does not behave as declared fails the run.",
   "residual": "This decides one declared reading of one flat-list notation on four declared forms; it is not the representation map the murphy note names. It does not transport observation, does not define a decoder or an encoder, does not connect the bracket notation to the Adva data language, and makes no claim about general program conjugation or about any left/right duality of programs. Native admission remains NotGranted.",
-  "wall_seconds": 0.000138792
+  "wall_seconds": 0.00010025
 }

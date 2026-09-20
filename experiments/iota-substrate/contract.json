@@ -10,7 +10,8 @@
     "nodes(t) counts one per application and one per leaf.",
     "The normal-form digest is SHA-256 over the canonical JSON encoding ['a',f,x], ['c',name], ['v',name], ['l',name,body].",
     "The coordinate families apply the program to the declared four-slot product Z(p,q,r,s) = lambda k. k p q r s through bracket abstraction without eta.",
-    "The frozen witness is the murphy publication unit in mountain/adva, admitted 2026-09-19 as project-original."
+    "The frozen witness is the murphy publication unit in mountain/adva, admitted 2026-09-19 as project-original.",
+    "The Iota combinator's spelling is declared: `i` in the received documentary bytes, `ι` in the renamed copy. Neither spelling is silently accepted where the other is declared, and `i` keeps its identity meaning in the separate iota-lang case grammar."
   ],
   "limits": {
     "contractions_per_family": 20000,
@@ -98,10 +99,12 @@
     "order-alternative",
     "budget-exhaustion",
     "non-vacuity",
-    "source-alteration"
+    "source-alteration",
+    "renaming-refuses-legacy-token",
+    "renaming-is-not-vacuous"
   ],
   "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
-  "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules.",
+  "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules. The renamed copy is a derived artifact of this run, not a second reception: it carries no receipt of its own, it does not replace or restate the received bytes, and the documentary spelling remains the one the receipt pins.",
   "identity": {
     "receipt": "knowledge/received/murphy-iota-machine-2026-09-20-v1/receipt.json",
     "receipt_sha256": "5bc5713a1341899dbaeab591b41cafda5bffe4bcfa9441430a534f9d3f60ccc6",
@@ -128,5 +131,77 @@
         "receipt_destination": "materials/N.iota"
       }
     ]
-  }
+  },
+  "renaming": {
+    "from": "i",
+    "to": "ι",
+    "output": "renamed",
+    "note": "The received bytes spell the Iota combinator `i`, which mathematics and this repository's own iota interpretation frame use for the imaginary unit. The renamed copy spells it `ι`; the received files are never rewritten, and each renamed program must parse to the same term and reduce to the same witness as its original."
+  },
+  "renamings": [
+    {
+      "label": "P",
+      "program": "materials/murphy.iota",
+      "note": "The unit retains no frozen counted reduction for P alone; the renaming is checked against its own original instead.",
+      "kind": "iota"
+    },
+    {
+      "label": "PP",
+      "program": "materials/PP.iota",
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/PP_reduction"
+      },
+      "kind": "iota"
+    },
+    {
+      "label": "C",
+      "program": "materials/C.iota",
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/C"
+      },
+      "kind": "coordinate",
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "label": "J",
+      "program": "materials/J.iota",
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/J"
+      },
+      "kind": "coordinate",
+      "permutation": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "label": "N",
+      "program": "materials/N.iota",
+      "oracle": {
+        "document": "materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/N"
+      },
+      "kind": "coordinate",
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ]
+    }
+  ]
 }

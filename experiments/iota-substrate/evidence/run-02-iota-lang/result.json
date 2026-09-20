@@ -288,10 +288,12 @@
   "transcript_rows_compared": 17,
   "transcript_rows_agreeing": 10,
   "readings": [],
+  "renamings": [],
+  "renamings_preserved": 0,
   "readings_held": 0,
   "readings_failed_as_declared": 0,
   "readings_unexpected": 0,
   "acceptance": "Every case must reduce inside the declared bounds and print exactly the recorded expectation. A case that does not is retained as a mismatch and fails the run. The transcription comparison is reported separately and does not change any verdict.",
   "residual": "This is a case corpus, not a language equivalence. It does not establish that the recorded iota-lang machine agrees with this substrate, that the substrate implements the SKI or Iota calculus, or that the recorded expectations are the intended semantics of iota-lang: the checkout never compiled, its machine was never executed, and its test file declares none of the identifiers it uses. The parser cases, the DualMachine suite and the two Clojure-shaped resource definitions are outside this contract and are not executed here. Native admission remains NotGranted.",
-  "wall_seconds": 0.000371792
+  "wall_seconds": 0.000363709
 }

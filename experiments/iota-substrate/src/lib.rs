@@ -211,39 +211,101 @@ pub fn term_digest(term: &Term) -> String {
     sha256_hex(canonical_json(term).as_bytes())
 }
 
-/// Parse pure Iota source: `i` is the Iota combinator, `*AB` is application.
+/// Which character spells the Iota combinator in a source.
+///
+/// The received murphy bytes use `i`. Mathematics, and this repository's own
+/// iota interpretation frame, use `i` for the imaginary unit, so a renamed
+/// spelling `ι` is declared and checked. The two spellings are declared, never
+/// silently mixed, and `i` remains readable **only** under `Documentary`.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum IotaSpelling {
+    /// `i` is the Iota combinator. This is the spelling of the received bytes.
+    Documentary,
+    /// `ι` is the Iota combinator, and `i` is refused in a source.
+    Renamed,
+}
+
+impl IotaSpelling {
+    pub fn parse(name: &str) -> Option<Self> {
+        match name {
+            "documentary" => Some(Self::Documentary),
+            "renamed" => Some(Self::Renamed),
+            _ => None,
+        }
+    }
+
+    pub fn name(self) -> &'static str {
+        match self {
+            Self::Documentary => "documentary",
+            Self::Renamed => "renamed",
+        }
+    }
+}
+
+/// Parse pure Iota source: the Iota combinator and `*AB` application.
 ///
 /// Leading and trailing ASCII whitespace is stripped exactly as the external
 /// reference does; any other character, and any unconsumed suffix, is refused.
 pub fn parse_iota(source: &str) -> Result<Term, String> {
+    parse_iota_with(source, IotaSpelling::Documentary)
+}
+
+/// Parse pure Iota source under one declared spelling.
+pub fn parse_iota_with(source: &str, spelling: IotaSpelling) -> Result<Term, String> {
     let code = source.trim();
-    let bytes = code.as_bytes();
+    let symbols: Vec<char> = code.chars().collect();
     let mut position = 0usize;
-    let term = parse_node(bytes, &mut position)?;
-    if position != bytes.len() {
-        return Err(format!("unread Iota suffix at byte {position}"));
+    let term = parse_node(&symbols, &mut position, spelling)?;
+    if position != symbols.len() {
+        return Err(format!("unread Iota suffix at character {position}"));
     }
     Ok(term)
 }
 
-fn parse_node(bytes: &[u8], position: &mut usize) -> Result<Term, String> {
-    let byte = *bytes
+fn parse_node(
+    symbols: &[char],
+    position: &mut usize,
+    spelling: IotaSpelling,
+) -> Result<Term, String> {
+    let symbol = *symbols
         .get(*position)
         .ok_or_else(|| "truncated Iota source".to_string())?;
     *position += 1;
-    match byte {
-        b'i' => Ok(Term::Const('j')),
-        b'*' => {
-            let left = parse_node(bytes, position)?;
-            let right = parse_node(bytes, position)?;
+    match (symbol, spelling) {
+        ('*', _) => {
+            let left = parse_node(symbols, position, spelling)?;
+            let right = parse_node(symbols, position, spelling)?;
             Ok(Term::App(Box::new(left), Box::new(right)))
         }
-        other => Err(format!(
-            "invalid Iota character {:?} at byte {}",
-            other as char,
+        ('ι', _) => Ok(Term::Const('j')),
+        ('i', IotaSpelling::Documentary) => Ok(Term::Const('j')),
+        ('i', IotaSpelling::Renamed) => Err(
+            "the renamed spelling refuses `i`: in mathematics `i` is the imaginary unit, and here the Iota combinator is written `ι`"
+                .to_string(),
+        ),
+        (other, _) => Err(format!(
+            "invalid Iota character {other:?} at character {}",
             *position - 1
         )),
     }
+}
+
+/// The declared renaming map: the documentary spelling `i` becomes `ι`.
+///
+/// The received bytes are never rewritten; this produces the renamed copy from
+/// them, and the run checks that the two spellings parse to the same term and
+/// reduce to the same witness.
+pub fn rename_iota_source(source: &str, from: char, to: char) -> Result<String, String> {
+    let code = source.trim();
+    if let Some(found) = code.chars().find(|c| *c != from && *c != '*') {
+        return Err(format!(
+            "renaming expects only {from:?} and '*', found {found:?}"
+        ));
+    }
+    Ok(code
+        .chars()
+        .map(|c| if c == from { to } else { c })
+        .collect())
 }
 
 // ---------------------------------------------------------------------------
@@ -974,6 +1036,9 @@ pub struct Family {
     pub kind: String,
     pub program: String,
     /// Declared slot order for `coordinate` families.
+    /// `documentary` (default) or `renamed`; the received files are documentary.
+    #[serde(default)]
+    pub spelling: Option<String>,
     #[serde(default)]
     pub permutation: Option<Vec<usize>>,
     #[serde(default)]
@@ -993,6 +1058,37 @@ pub struct Case {
     pub term: String,
     /// The recorded expectation, transcribed unchanged.
     pub expected: String,
+    #[serde(default)]
+    pub note: Option<String>,
+}
+
+/// The declared renaming of the Iota combinator's source spelling.
+#[derive(Clone, Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Renaming {
+    /// The spelling the received bytes use.
+    pub from: String,
+    /// The declared renamed spelling.
+    pub to: String,
+    /// A directory under the run output where the renamed copy is written.
+    pub output: String,
+    pub note: String,
+}
+
+/// One program carried across the renaming, with its optional frozen oracle.
+#[derive(Clone, Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct RenamedProgram {
+    pub label: String,
+    pub program: String,
+    /// `iota` or `coordinate`, exactly as the corresponding family declares.
+    #[serde(default)]
+    pub kind: Option<String>,
+    /// Declared slot order for a `coordinate` program.
+    #[serde(default)]
+    pub permutation: Option<Vec<usize>>,
+    #[serde(default)]
+    pub oracle: Option<Oracle>,
     #[serde(default)]
     pub note: Option<String>,
 }
@@ -1052,6 +1148,10 @@ pub struct Contract {
     pub comparison: Option<Comparison>,
     #[serde(default)]
     pub readings: Vec<ReadingCase>,
+    #[serde(default)]
+    pub renaming: Option<Renaming>,
+    #[serde(default)]
+    pub renamings: Vec<RenamedProgram>,
     pub controls: Vec<String>,
     pub acceptance: String,
     pub residual: String,
@@ -1132,6 +1232,31 @@ pub struct CaseResult {
     pub note: Option<String>,
 }
 
+/// One program's retained renaming result.
+#[derive(Clone, Debug, Serialize)]
+pub struct RenamingResult {
+    pub label: String,
+    pub program: String,
+    pub original_bytes: u64,
+    pub original_sha256: String,
+    pub original_characters: usize,
+    pub renamed_bytes: u64,
+    pub renamed_sha256: String,
+    pub renamed_characters: usize,
+    pub renamed_path: String,
+    pub term_digest_original: String,
+    pub term_digest_renamed: String,
+    pub same_term: bool,
+    pub contractions_original: u64,
+    pub contractions_renamed: u64,
+    pub rules_match: bool,
+    pub peak_nodes_match: bool,
+    pub normal_form_digest_match: bool,
+    pub oracle_matched: Option<bool>,
+    pub verdict: String,
+    pub note: Option<String>,
+}
+
 /// One executed reading case's retained result.
 #[derive(Clone, Debug, Serialize)]
 pub struct ReadingResult {
@@ -1178,6 +1303,8 @@ pub struct RunReport {
     pub transcript_rows_compared: usize,
     pub transcript_rows_agreeing: usize,
     pub readings: Vec<ReadingResult>,
+    pub renamings: Vec<RenamingResult>,
+    pub renamings_preserved: usize,
     pub readings_held: usize,
     pub readings_failed_as_declared: usize,
     pub readings_unexpected: usize,
@@ -1212,7 +1339,11 @@ fn read_document(root: &Path, relative: &str, expected: &str) -> Result<Vec<u8>,
 /// `origin_root` resolves the independently supplied origin documents (the
 /// step trace). Everything else resolves against the contract's materials root,
 /// so the crossed bytes and the separately supplied oracle stay distinguishable.
-pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport, String> {
+pub fn run_contract(
+    contract: &Contract,
+    origin_root: &Path,
+    output_root: &Path,
+) -> Result<RunReport, String> {
     let started = Instant::now();
     let root: PathBuf = match &contract.identity {
         Some(identity) => PathBuf::from(&identity.materials),
@@ -1265,7 +1396,17 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         let program_sha256 = sha256_hex(&raw);
         let text = std::str::from_utf8(&raw)
             .map_err(|e| format!("family {} program is not UTF-8: {e}", family.label))?;
-        let program = parse_iota(text)
+        let spelling = match family.spelling.as_deref() {
+            None | Some("documentary") => IotaSpelling::Documentary,
+            Some("renamed") => IotaSpelling::Renamed,
+            Some(other) => {
+                return Err(format!(
+                    "family {} declares unsupported spelling {other}",
+                    family.label
+                ));
+            }
+        };
+        let program = parse_iota_with(text, spelling)
             .map_err(|e| format!("family {} program refused: {e}", family.label))?;
         let (term, expected) = match family.kind.as_str() {
             "iota" => (program.clone(), None),
@@ -1491,6 +1632,146 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
             verdict: verdict.to_string(),
             note: case.note.clone(),
         });
+    }
+
+    // The declared renaming of the Iota combinator's source spelling.
+    let mut renamings: Vec<RenamingResult> = Vec::new();
+    if let Some(declaration) = &contract.renaming {
+        let from = declaration
+            .from
+            .chars()
+            .next()
+            .filter(|_| declaration.from.chars().count() == 1)
+            .ok_or_else(|| "the renaming source spelling must be one character".to_string())?;
+        let to = declaration
+            .to
+            .chars()
+            .next()
+            .filter(|_| declaration.to.chars().count() == 1)
+            .ok_or_else(|| "the renaming target spelling must be one character".to_string())?;
+        let directory = output_root.join(&declaration.output);
+        std::fs::create_dir_all(&directory)
+            .map_err(|e| format!("renamed output directory refused: {e}"))?;
+        for program in &contract.renamings {
+            let raw = fs::read(root.join(&program.program))
+                .map_err(|e| format!("renamed program {} unreadable: {e}", program.label))?;
+            let original_sha256 = sha256_hex(&raw);
+            let text = std::str::from_utf8(&raw)
+                .map_err(|e| format!("renamed program {} is not UTF-8: {e}", program.label))?;
+            let original = parse_iota_with(text, IotaSpelling::Documentary)
+                .map_err(|e| format!("renamed program {} refused: {e}", program.label))?;
+            let renamed_source = rename_iota_source(text, from, to)?;
+            let renamed = parse_iota_with(&renamed_source, IotaSpelling::Renamed)
+                .map_err(|e| format!("renamed program {} refused: {e}", program.label))?;
+            let same_term = term_digest(&original) == term_digest(&renamed);
+            // The same declared shape as the corresponding family: a coordinate
+            // program is checked on its four-slot application, not bare.
+            let kind = program.kind.as_deref().unwrap_or("iota");
+            let build = |term: &Term| -> Result<(Term, Option<Term>), String> {
+                match kind {
+                    "iota" => Ok((term.clone(), None)),
+                    "coordinate" => {
+                        let order = program.permutation.clone().ok_or_else(|| {
+                            format!("renamed program {} declares no permutation", program.label)
+                        })?;
+                        if order.len() != 4 || order.iter().any(|k| *k > 3) {
+                            return Err(format!(
+                                "renamed program {} permutation is not four slots",
+                                program.label
+                            ));
+                        }
+                        Ok((
+                            coordinate_application(term)?,
+                            Some(expected_permutation(&order)),
+                        ))
+                    }
+                    other => Err(format!(
+                        "renamed program {} declares unsupported kind {other}",
+                        program.label
+                    )),
+                }
+            };
+            let (original_term, expected) = build(&original)?;
+            let (renamed_term, _) = build(&renamed)?;
+            let same_term = same_term && term_digest(&original_term) == term_digest(&renamed_term);
+            let original_reduction = reduce(&original_term, &contract.limits, false);
+            let renamed_reduction = reduce(&renamed_term, &contract.limits, false);
+            let structure_match = match (expected.as_ref(), renamed_reduction.term.as_ref()) {
+                (Some(expected), Some(actual)) => expected == actual,
+                _ => true,
+            };
+            total_contractions += renamed_reduction.contractions;
+            let rules_match = original_reduction.rules == renamed_reduction.rules;
+            let peak_nodes_match = original_reduction.peak_nodes == renamed_reduction.peak_nodes;
+            let digest_match =
+                original_reduction.normal_form_sha256 == renamed_reduction.normal_form_sha256;
+
+            let mut oracle_matched = None;
+            if let Some(oracle) = &program.oracle {
+                let raw = read_document(&root, &oracle.document, &oracle.document_sha256)
+                    .map_err(|e| format!("renamed program {} {e}", program.label))?;
+                let document: serde_json::Value = serde_json::from_slice(&raw).map_err(|e| {
+                    format!("renamed program {} oracle parse failed: {e}", program.label)
+                })?;
+                let entry = document.pointer(&oracle.pointer).ok_or_else(|| {
+                    format!(
+                        "renamed program {} oracle pointer {} missing",
+                        program.label, oracle.pointer
+                    )
+                })?;
+                let expected_contractions = entry["contractions"].as_u64();
+                let expected_rules = rules_from_json(&entry["rules"]);
+                let expected_peak = entry["peak_nodes"].as_u64();
+                let expected_digest = entry["normal_form_sha256"].as_str().map(str::to_string);
+                oracle_matched = Some(
+                    expected_contractions == Some(renamed_reduction.contractions)
+                        && expected_rules == Some(renamed_reduction.rules.clone())
+                        && expected_peak == Some(renamed_reduction.peak_nodes)
+                        && expected_digest == renamed_reduction.normal_form_sha256,
+                );
+            }
+            let file_name = Path::new(&program.program)
+                .file_name()
+                .map(|name| name.to_string_lossy().to_string())
+                .unwrap_or_else(|| program.label.clone());
+            let renamed_path = directory.join(file_name);
+            fs::write(&renamed_path, format!("{renamed_source}\n"))
+                .map_err(|e| format!("renamed output write failed: {e}"))?;
+            let renamed_bytes =
+                fs::read(&renamed_path).map_err(|e| format!("renamed output read failed: {e}"))?;
+            let preserved = same_term
+                && rules_match
+                && peak_nodes_match
+                && digest_match
+                && structure_match
+                && oracle_matched.unwrap_or(true);
+            renamings.push(RenamingResult {
+                label: program.label.clone(),
+                program: program.program.clone(),
+                original_bytes: raw.len() as u64,
+                original_sha256,
+                original_characters: text.trim().chars().count(),
+                renamed_bytes: renamed_bytes.len() as u64,
+                renamed_sha256: sha256_hex(&renamed_bytes),
+                renamed_characters: renamed_source.chars().count(),
+                renamed_path: renamed_path.display().to_string(),
+                term_digest_original: term_digest(&original),
+                term_digest_renamed: term_digest(&renamed),
+                same_term,
+                contractions_original: original_reduction.contractions,
+                contractions_renamed: renamed_reduction.contractions,
+                rules_match,
+                peak_nodes_match,
+                normal_form_digest_match: digest_match,
+                oracle_matched,
+                verdict: if preserved {
+                    "Preserved-Under-Renaming".to_string()
+                } else {
+                    "Changed-Under-Renaming".to_string()
+                },
+                note: program.note.clone(),
+            });
+        }
     }
 
     // Declared trace comparison against the independently supplied origin trace.
@@ -1861,6 +2142,51 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         }
     }
 
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "renaming-refuses-legacy-token")
+    {
+        let refused = parse_iota_with("i", IotaSpelling::Renamed).is_err();
+        let accepted = matches!(
+            parse_iota_with("ι", IotaSpelling::Renamed),
+            Ok(Term::Const('j'))
+        );
+        let documentary_kept = matches!(
+            parse_iota_with("i", IotaSpelling::Documentary),
+            Ok(Term::Const('j'))
+        );
+        control(
+            "renaming-refuses-legacy-token",
+            "the renamed spelling refuses `i` while the documentary spelling keeps reading it",
+            format!(
+                "refused={refused} iota-accepted={accepted} documentary-kept={documentary_kept}"
+            ),
+            refused && accepted && documentary_kept,
+        );
+    }
+
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "renaming-is-not-vacuous")
+    {
+        let mut real = true;
+        let mut described = 0usize;
+        for case in &renamings {
+            described += 1;
+            real &= case.original_sha256 != case.renamed_sha256
+                && case.original_characters == case.renamed_characters
+                && case.renamed_bytes != case.original_bytes;
+        }
+        control(
+            "renaming-is-not-vacuous",
+            "each renamed copy has the same character count, different bytes and a different digest",
+            format!("programs={described} real-renaming={real}"),
+            described > 0 && real,
+        );
+    }
+
     let refreshed = contract
         .controls
         .iter()
@@ -1888,11 +2214,15 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
     let readings_ok = readings
         .iter()
         .all(|case| case.verdict == "Holds-As-Declared" || case.verdict == "Fails-As-Declared");
-    let outcome = if controls_ok && families_ok && trace_ok && cases_ok && readings_ok {
-        "IotaSubstrateChecked"
-    } else {
-        "IotaSubstrateMismatched"
-    };
+    let renamings_ok = renamings
+        .iter()
+        .all(|case| case.verdict == "Preserved-Under-Renaming");
+    let outcome =
+        if controls_ok && families_ok && trace_ok && cases_ok && readings_ok && renamings_ok {
+            "IotaSubstrateChecked"
+        } else {
+            "IotaSubstrateMismatched"
+        };
 
     Ok(RunReport {
         schema: "adva.iota-substrate.result.v0".to_string(),
@@ -1937,6 +2267,11 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
             })
             .count(),
         readings,
+        renamings_preserved: renamings
+            .iter()
+            .filter(|case| case.verdict == "Preserved-Under-Renaming")
+            .count(),
+        renamings,
         checked_families: contract.families.len(),
         frozen_oracle_families,
         total_contractions,

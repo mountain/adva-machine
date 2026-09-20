@@ -111,6 +111,18 @@ This is one explicit realization of the program/data junction, not the general
 representation map; see
 [Research 0206](../../docs/research/0206-the-flat-list-reading-at-the-program-data-junction.md).
 
+## The Iota combinator's declared spelling
+
+The received murphy bytes spell the Iota combinator `i`; mathematics, this
+repository's iota frame and the iota-lang case corpus all give that letter a
+different meaning. The profile therefore declares two spellings: `documentary`
+(`i`, the received bytes, kept only so those bytes parse as received) and
+`renamed` (`ι`, which refuses `i`). Every renamed program must parse to the same
+term and reduce to the same witness as its original, including the frozen
+oracles; the renamed copy is written beside the run result and is a derived
+artifact, not a second reception. See
+[Research 0207](../../docs/research/0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md).
+
 ## What this profile does not establish
 
 - **No native admission.** `ValueType` remains `Real | Bool`. No

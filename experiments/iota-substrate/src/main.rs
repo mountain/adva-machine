@@ -56,17 +56,17 @@ fn main() -> ExitCode {
         }
     };
     let origin_root = origin.unwrap_or_else(|| PathBuf::from("."));
-    let report = match run_contract(&contract, &origin_root) {
+    if let Err(error) = fs::create_dir_all(&output_path) {
+        eprintln!("output directory creation failed: {error}");
+        return ExitCode::from(3);
+    }
+    let report = match run_contract(&contract, &origin_root, &output_path) {
         Ok(report) => report,
         Err(error) => {
             eprintln!("run refused: {error}");
             return ExitCode::from(3);
         }
     };
-    if let Err(error) = fs::create_dir_all(&output_path) {
-        eprintln!("output directory creation failed: {error}");
-        return ExitCode::from(3);
-    }
     let rendered = match serde_json::to_vec_pretty(&report) {
         Ok(rendered) => rendered,
         Err(error) => {
@@ -93,6 +93,19 @@ fn main() -> ExitCode {
         report.controls.iter().filter(|c| c.passed).count(),
         report.wall_seconds
     );
+    for case in &report.renamings {
+        println!(
+            "  renamed {:<6} chars {}->{}  bytes {}->{}  same term {}  witness {}  {}",
+            case.label,
+            case.original_characters,
+            case.renamed_characters,
+            case.original_bytes,
+            case.renamed_bytes,
+            case.same_term,
+            case.contractions_renamed,
+            case.verdict
+        );
+    }
     for case in &report.readings {
         println!(
             "  reading {:<22} {:<13} expected {:<20} observed {:<20} {}",

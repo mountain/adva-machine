@@ -165,6 +165,25 @@ contractions, three controls passed. The finding is recorded in
 which also states what it is not: this is one reading of one notation, not the
 representation map the murphy note names.
 
+## The Iota combinator's spelling on the accepted package
+
+Mathematics uses `i` for the imaginary unit, this repository's
+[iota frame](../../spec/framework/iota-frame-v1.md) uses `i` for the complex
+structure `J`, and the iota-lang case corpus uses `i` for the **identity**
+combinator. The murphy documentary source uses it for the **Iota** combinator.
+So the accepted package is respelled `ι`, by a declared, checked renaming rather
+than by rewriting the received bytes: the receipt pins those bytes, and the
+repeated-delivery recheck compares the received directory against exactly that
+inventory.
+
+The corresponding run produces `renamed/` beside `result.json`, and requires of
+each of the five programs that both spellings parse to the same canonical term
+and reduce to the same witness — same rule histogram, node peak, normal-form
+digest, and the same frozen oracle where the unit froze one. Two controls carry
+the rename: the renamed spelling **refuses** `i`, and the renaming is not
+vacuous (character count unchanged, bytes and digest different). See
+[Research 0207](../../docs/research/0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md).
+
 ## What this does not establish
 
 * **No native admission.** `ValueType` remains `Real | Bool`. No
