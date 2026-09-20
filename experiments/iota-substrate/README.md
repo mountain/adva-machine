@@ -184,6 +184,35 @@ the rename: the renamed spelling **refuses** `i`, and the renaming is not
 vacuous (character count unchanged, bytes and digest different). See
 [Research 0207](../../docs/research/0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md).
 
+## Accepting the renamed unit published at the origin
+
+`contract-murphy-renamed.json` accepts the derived publication unit
+`murphy-iota-v0` published in `mountain/adva` at revision `76c4aa8`. It reads
+that unit at the revision through `--origin` and requires
+
+- every published file to be **byte-identical** to the copy this run derives
+  from the received package (5 of 5);
+- the renamed programs to reproduce the frozen counted witnesses (4 of 4
+  oracles; `P` stays recorded because the unit froze no counted oracle for it);
+- the renaming to preserve term, rule histogram, node peak and normal-form
+  digest (5 of 5);
+- every recorded coordinate relation to hold or differ exactly as declared,
+  **with the same outcome under both spellings** — `C² = I`, `J² = N`,
+  `C J C = N J`, `N² = I`, the negative witnesses `J² ≠ I` and `C ≠ J`, and
+  `J⁴ = I`, which exhausts the declared bounds and is therefore retained as a
+  measured `Unknown` rather than claimed.
+
+```sh
+# from the machine repository root; the origin is the adva checkout
+experiments/iota-substrate/target/release/adva-iota-substrate \
+  --contract experiments/iota-substrate/contract-murphy-renamed.json \
+  --output /tmp/iota-substrate-acceptance-01 \
+  --origin /path/to/adva
+```
+
+The acceptance and its boundaries are recorded in
+[Research 0208](../../docs/research/0208-accepting-the-renamed-murphy-unit.md).
+
 ## What this does not establish
 
 * **No native admission.** `ValueType` remains `Real | Bool`. No

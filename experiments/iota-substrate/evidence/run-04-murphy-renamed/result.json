@@ -1,8 +1,8 @@
 {
   "schema": "adva.iota-substrate.result.v0",
   "profile": "iota-substrate-v0",
-  "question": "Can the machine parse and reduce pure Iota source in its own Rust source, under declared bounds, and reproduce an externally frozen contraction count, rule histogram, node peak and normal-form digest exactly?",
-  "level": "Research-local native Rust reduction over an external frozen witness. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added.",
+  "question": "Does the published renamed unit preserve every semantic relation the murphy unit froze: the counted witnesses, the coordinate laws and their negative witnesses, under both spellings?",
+  "level": "Research-local native acceptance of a derived publication unit. It grants no native admission, introduces no operation and reissues no digest of the admitted unit.",
   "native_admission": "NotGranted",
   "stable_semantic_api": false,
   "outcome": "IotaSubstrateChecked",
@@ -15,11 +15,11 @@
     {
       "label": "P",
       "kind": "iota",
-      "program": "materials/murphy.iota",
-      "program_bytes": 824,
-      "program_sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/murphy.iota",
+      "program_bytes": 1236,
+      "program_sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
       "characters": 823,
-      "receipt_sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+      "receipt_sha256": null,
       "status": "normal-form",
       "contractions": 893,
       "rules": {
@@ -32,20 +32,20 @@
       "normal_form_nodes": 283,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": null,
-      "elapsed_seconds": 0.258402792,
+      "elapsed_seconds": 0.25656425,
       "exhausted_reason": null,
       "oracle": null,
       "verdict": "Recorded-No-Oracle",
-      "note": "The named program: the value from Zot word 0001011011 before the stop/printer wrapper. The frozen publication evidence retains its 823 characters and its beta normal form; it retains no counted combinator reduction for P alone, so this family is recorded without a frozen oracle."
+      "note": null
     },
     {
       "label": "PP",
       "kind": "iota",
-      "program": "materials/PP.iota",
-      "program_bytes": 1648,
-      "program_sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/PP.iota",
+      "program_bytes": 2472,
+      "program_sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
       "characters": 1647,
-      "receipt_sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
+      "receipt_sha256": null,
       "status": "normal-form",
       "contractions": 1808,
       "rules": {
@@ -58,10 +58,10 @@
       "normal_form_nodes": 511,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": null,
-      "elapsed_seconds": 1.37565425,
+      "elapsed_seconds": 1.386690375,
       "exhausted_reason": null,
       "oracle": {
-        "document": "materials/result.json",
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
         "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
         "pointer": "/lambda/PP_reduction",
         "contractions": 1808,
@@ -78,16 +78,16 @@
         "digest_match": true
       },
       "verdict": "Matched-Frozen-Oracle",
-      "note": "Ordinary self-application P P, the family whose counted reduction the publication froze."
+      "note": null
     },
     {
       "label": "C",
       "kind": "coordinate",
-      "program": "materials/C.iota",
-      "program_bytes": 744,
-      "program_sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/C.iota",
+      "program_bytes": 1116,
+      "program_sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
       "characters": 743,
-      "receipt_sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
+      "receipt_sha256": null,
       "status": "normal-form",
       "contractions": 919,
       "rules": {
@@ -101,10 +101,10 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.343710042,
+      "elapsed_seconds": 0.352160667,
       "exhausted_reason": null,
       "oracle": {
-        "document": "materials/result.json",
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
         "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
         "pointer": "/lambda/coordinate_reductions/C",
         "contractions": 919,
@@ -122,16 +122,16 @@
         "digest_match": true
       },
       "verdict": "Matched-Frozen-Oracle",
-      "note": "Coordinate conjugation applied to the declared four-slot product."
+      "note": null
     },
     {
       "label": "J",
       "kind": "coordinate",
-      "program": "materials/J.iota",
-      "program_bytes": 672,
-      "program_sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/J.iota",
+      "program_bytes": 1008,
+      "program_sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
       "characters": 671,
-      "receipt_sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
+      "receipt_sha256": null,
       "status": "normal-form",
       "contractions": 831,
       "rules": {
@@ -145,10 +145,10 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.276051542,
+      "elapsed_seconds": 0.290046833,
       "exhausted_reason": null,
       "oracle": {
-        "document": "materials/result.json",
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
         "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
         "pointer": "/lambda/coordinate_reductions/J",
         "contractions": 831,
@@ -166,16 +166,16 @@
         "digest_match": true
       },
       "verdict": "Matched-Frozen-Oracle",
-      "note": "The complex structure applied to the declared four-slot product."
+      "note": null
     },
     {
       "label": "N",
       "kind": "coordinate",
-      "program": "materials/N.iota",
-      "program_bytes": 726,
-      "program_sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/N.iota",
+      "program_bytes": 1089,
+      "program_sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
       "characters": 725,
-      "receipt_sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
+      "receipt_sha256": null,
       "status": "normal-form",
       "contractions": 897,
       "rules": {
@@ -189,10 +189,10 @@
       "normal_form_nodes": 9,
       "normal_form_is_redex_free": true,
       "expected_normal_form_matched": true,
-      "elapsed_seconds": 0.336347292,
+      "elapsed_seconds": 0.334844792,
       "exhausted_reason": null,
       "oracle": {
-        "document": "materials/result.json",
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
         "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
         "pointer": "/lambda/coordinate_reductions/N",
         "contractions": 897,
@@ -210,7 +210,7 @@
         "digest_match": true
       },
       "verdict": "Matched-Frozen-Oracle",
-      "note": "Coordinate negation applied to the declared four-slot product."
+      "note": null
     }
   ],
   "controls": [
@@ -221,33 +221,9 @@
       "passed": true
     },
     {
-      "name": "digest-falsifier",
-      "expectation": "an altered expected digest is refused rather than accepted",
-      "observed": "altered=0d0434eb47a6741a actual=8d0434eb47a6741a",
-      "passed": true
-    },
-    {
-      "name": "order-alternative",
-      "expectation": "a different declared order changes the counts or the digest",
-      "observed": "declared=1808:8d0434eb47a6 other=1981:8d0434eb47a6",
-      "passed": true
-    },
-    {
-      "name": "budget-exhaustion",
-      "expectation": "a tight bound reports Unknown with no normal-form claim",
-      "observed": "status=Exhausted reason=Some(\"contraction limit\")",
-      "passed": true
-    },
-    {
       "name": "non-vacuity",
       "expectation": "every family contracts and at least one frozen oracle is matched",
       "observed": "min_contractions=831 frozen_matches=4",
-      "passed": true
-    },
-    {
-      "name": "source-alteration",
-      "expectation": "one altered byte changes the source digest",
-      "observed": "altered=458de092482a1a29 original=da47f5cf6cdfb49a",
       "passed": true
     },
     {
@@ -263,6 +239,12 @@
       "passed": true
     },
     {
+      "name": "external-pins-hold",
+      "expectation": "each published file is byte-identical to the copy derived from the received package",
+      "observed": "files=5 all-identical=true",
+      "passed": true
+    },
+    {
       "name": "relations-agree-across-spellings",
       "expectation": "every relation has the same outcome under both declared spellings",
       "observed": "relations-compared=7 agree=true",
@@ -272,8 +254,8 @@
   "checked_families": 5,
   "frozen_oracle_families": 4,
   "total_contractions": 42022,
-  "trace_rows_compared": 1808,
-  "trace_rows_matched": 1808,
+  "trace_rows_compared": 0,
+  "trace_rows_matched": 0,
   "cases": [],
   "cases_matched": 0,
   "cases_mismatched": 0,
@@ -283,14 +265,14 @@
   "renamings": [
     {
       "label": "P",
-      "program": "materials/murphy.iota",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
       "original_bytes": 824,
       "original_sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
       "original_characters": 823,
       "renamed_bytes": 1236,
       "renamed_sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
       "renamed_characters": 823,
-      "renamed_path": "experiments/iota-substrate/evidence/run-01/renamed/murphy.iota",
+      "renamed_path": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/murphy.iota",
       "term_digest_original": "d2ecadc06402885976c61fcc363e5302c53b72a5cf367cbf09c96ab83a5e32ea",
       "term_digest_renamed": "d2ecadc06402885976c61fcc363e5302c53b72a5cf367cbf09c96ab83a5e32ea",
       "same_term": true,
@@ -301,18 +283,18 @@
       "normal_form_digest_match": true,
       "oracle_matched": null,
       "verdict": "Preserved-Under-Renaming",
-      "note": "The unit retains no frozen counted reduction for P alone; the renaming is checked against its own original instead."
+      "note": null
     },
     {
       "label": "PP",
-      "program": "materials/PP.iota",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/PP.iota",
       "original_bytes": 1648,
       "original_sha256": "f278c189c050ce372b11a57c3ae331647bf203edf3df9e0bb242d50ebf5d4781",
       "original_characters": 1647,
       "renamed_bytes": 2472,
       "renamed_sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
       "renamed_characters": 1647,
-      "renamed_path": "experiments/iota-substrate/evidence/run-01/renamed/PP.iota",
+      "renamed_path": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/PP.iota",
       "term_digest_original": "2f0ec932246614e1e5ef447e2527cfff53b40344c61d2eec02d33f0dd63e6e7a",
       "term_digest_renamed": "2f0ec932246614e1e5ef447e2527cfff53b40344c61d2eec02d33f0dd63e6e7a",
       "same_term": true,
@@ -327,14 +309,14 @@
     },
     {
       "label": "C",
-      "program": "materials/C.iota",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/C.iota",
       "original_bytes": 744,
       "original_sha256": "32c1c4e9d5dfefb89faadd4affd96129d027b96eefd97b5f20f67557ca39d9c0",
       "original_characters": 743,
       "renamed_bytes": 1116,
       "renamed_sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
       "renamed_characters": 743,
-      "renamed_path": "experiments/iota-substrate/evidence/run-01/renamed/C.iota",
+      "renamed_path": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/C.iota",
       "term_digest_original": "929be7cfd11d366e78ac3d516b3e12cc2adb174115dd08c2e65ac0bb57614f6f",
       "term_digest_renamed": "929be7cfd11d366e78ac3d516b3e12cc2adb174115dd08c2e65ac0bb57614f6f",
       "same_term": true,
@@ -349,14 +331,14 @@
     },
     {
       "label": "J",
-      "program": "materials/J.iota",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/J.iota",
       "original_bytes": 672,
       "original_sha256": "14ee565f2854e396c0271a81c41a35237e787489103af39192f5a40f98ed1a99",
       "original_characters": 671,
       "renamed_bytes": 1008,
       "renamed_sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
       "renamed_characters": 671,
-      "renamed_path": "experiments/iota-substrate/evidence/run-01/renamed/J.iota",
+      "renamed_path": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/J.iota",
       "term_digest_original": "7c9206d014a46319fe49d94178c8f3d94ffe5dc23cb2f72d35f8c0823219c0a5",
       "term_digest_renamed": "7c9206d014a46319fe49d94178c8f3d94ffe5dc23cb2f72d35f8c0823219c0a5",
       "same_term": true,
@@ -371,14 +353,14 @@
     },
     {
       "label": "N",
-      "program": "materials/N.iota",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/N.iota",
       "original_bytes": 726,
       "original_sha256": "f3cbd2fbfea22e8c5af906d0173d35b30a4a1bd2c413331665ca1a8c03416ed9",
       "original_characters": 725,
       "renamed_bytes": 1089,
       "renamed_sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
       "renamed_characters": 725,
-      "renamed_path": "experiments/iota-substrate/evidence/run-01/renamed/N.iota",
+      "renamed_path": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/N.iota",
       "term_digest_original": "271a75cea13c5de358c418e172d1fd63aef8d7abf00b871f9729b0bfbdc4537d",
       "term_digest_renamed": "271a75cea13c5de358c418e172d1fd63aef8d7abf00b871f9729b0bfbdc4537d",
       "same_term": true,
@@ -471,7 +453,7 @@
       "right_contractions": 9,
       "same_normal_form": false,
       "verdict": "Unknown-As-Declared",
-      "note": "The original unit compared J fourth = I on lambda normal forms. On this profile's declared four-slot application the left chain exhausts the declared bounds, so the run records Unknown rather than claiming the law here; J squared = N and N squared = I are both checked directly, and the implication between them is not executed."
+      "note": "Exhausts the declared bounds on this application; retained as Unknown rather than claimed."
     },
     {
       "label": "CJC-equals-NJ",
@@ -664,7 +646,7 @@
       "right_contractions": 9,
       "same_normal_form": false,
       "verdict": "Unknown-As-Declared",
-      "note": "The original unit compared J fourth = I on lambda normal forms. On this profile's declared four-slot application the left chain exhausts the declared bounds, so the run records Unknown rather than claiming the law here; J squared = N and N squared = I are both checked directly, and the implication between them is not executed."
+      "note": "Exhausts the declared bounds on this application; retained as Unknown rather than claimed."
     },
     {
       "label": "CJC-equals-NJ",
@@ -781,13 +763,59 @@
     }
   ],
   "relations_held": 8,
-  "external": [],
-  "external_matched": 0,
+  "external": [
+    {
+      "path": "murphy-iota-v0/murphy.iota",
+      "declared_sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
+      "observed_sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
+      "bytes": 1236,
+      "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/murphy.iota",
+      "local_sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
+      "identical_to_derived": true
+    },
+    {
+      "path": "murphy-iota-v0/PP.iota",
+      "declared_sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
+      "observed_sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
+      "bytes": 2472,
+      "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/PP.iota",
+      "local_sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
+      "identical_to_derived": true
+    },
+    {
+      "path": "murphy-iota-v0/C.iota",
+      "declared_sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
+      "observed_sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
+      "bytes": 1116,
+      "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/C.iota",
+      "local_sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
+      "identical_to_derived": true
+    },
+    {
+      "path": "murphy-iota-v0/J.iota",
+      "declared_sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
+      "observed_sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
+      "bytes": 1008,
+      "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/J.iota",
+      "local_sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
+      "identical_to_derived": true
+    },
+    {
+      "path": "murphy-iota-v0/N.iota",
+      "declared_sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
+      "observed_sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
+      "bytes": 1089,
+      "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/N.iota",
+      "local_sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
+      "identical_to_derived": true
+    }
+  ],
+  "external_matched": 5,
   "renamings_preserved": 5,
   "readings_held": 0,
   "readings_failed_as_declared": 0,
   "readings_unexpected": 0,
-  "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
-  "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules. The renamed copy is a derived artifact of this run, not a second reception: it carries no receipt of its own, it does not replace or restate the received bytes, and the documentary spelling remains the one the receipt pins.",
-  "wall_seconds": 62.194023625
+  "acceptance": "Every published file must be byte-identical to this run's derivation; the renamed programs must reproduce the frozen counted witnesses; the renaming must preserve term, rules, peak and digest; and every declared relation must hold or differ exactly as declared, with the same outcome under both spellings. Any other outcome fails the run and is retained.",
+  "residual": "This accepts one derived unit against one frozen witness set. It does not re-derive the original murphy results, does not verify the Zot CEK stage, the 2x2 table adjoint programs, the text probe or the declared end-leaf bridge, and does not establish that the renamed unit is the intended spelling of any other consumer. The admitted unit remains the one its receipts pin; native admission remains NotGranted.",
+  "wall_seconds": 59.354243542
 }

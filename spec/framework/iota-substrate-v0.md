@@ -123,6 +123,19 @@ oracles; the renamed copy is written beside the run result and is a derived
 artifact, not a second reception. See
 [Research 0207](../../docs/research/0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md).
 
+## Accepting a derived publication unit
+
+`contract-murphy-renamed.json` accepts the renamed unit published in
+`mountain/adva`: it reads that unit at its pinned revision, requires its bytes
+to be identical to this machine's own derivation from the received package,
+reproduces every frozen counted witness with the renamed programs, and re-runs
+every recorded coordinate relation in both spellings. The relations agree
+across spellings, except `J⁴ = I`, which exhausts the declared bounds on the
+four-slot application and is retained as a measured `Unknown` rather than
+claimed; it is implied by the directly checked `J² = N` and `N² = I`, but that
+implication is not executed. See
+[Research 0208](../../docs/research/0208-accepting-the-renamed-murphy-unit.md).
+
 ## What this profile does not establish
 
 - **No native admission.** `ValueType` remains `Real | Bool`. No

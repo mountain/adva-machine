@@ -1,6 +1,6 @@
 # Research notes, calibrations and the bounded record
 
-This directory holds the research record of the repository: **216 numbered
+This directory holds the research record of the repository: **217 numbered
 notes, 41 named notes and 25 supporting directories**. Nothing here is a stable
 API, a native admission, a Seal, or a proof beyond the finite scope each note
 declares for itself.
@@ -737,6 +737,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md`](0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md) — the iota-lang recorded 17-case contract replayed by the native substrate (17/17 reproduced), the four layers that are and are not usable as tests, and two transcription findings about the Research 0167 replay.
 - [`0206-the-flat-list-reading-at-the-program-data-junction.md`](0206-the-flat-list-reading-at-the-program-data-junction.md) — seven declared cases decide which nesting reading of a flat list `[t1 … tn]` transports application: right-nested holds for the external I/K/S declarations, left-nested fails for K and S, and the reading is not decided below three elements.
 - [`0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md`](0207-renaming-the-iota-combinator-spelling-on-the-accepted-package.md) — the accepted murphy package is respelled `ι` for the Iota combinator by a declared, checked renaming: same term, same witness and the same frozen oracles, with the renamed spelling refusing `i` and the received bytes left byte-identical.
+- [`0208-accepting-the-renamed-murphy-unit.md`](0208-accepting-the-renamed-murphy-unit.md) — the renamed unit published in `mountain/adva` is accepted: its bytes are identical to this machine's derivation, its renamed programs reproduce all four frozen counted oracles, and every recorded coordinate relation holds with the same slot order in both spellings, with `J⁴ = I` retained as a measured `Unknown` boundary.
 
 ### Named notes
 

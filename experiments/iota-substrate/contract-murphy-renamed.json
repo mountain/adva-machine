@@ -1,0 +1,285 @@
+{
+  "schema": "adva.iota-substrate.contract.v0",
+  "profile": "iota-substrate-v0",
+  "question": "Does the published renamed unit preserve every semantic relation the murphy unit froze: the counted witnesses, the coordinate laws and their negative witnesses, under both spellings?",
+  "level": "Research-local native acceptance of a derived publication unit. It grants no native admission, introduces no operation and reissues no digest of the admitted unit.",
+  "assumptions": [
+    "The published unit is murphy-iota-v0 at mountain/adva revision 76c4aa8a108d3f49224d4b8b075066d6459d7949, admitted as murphy-iota-renaming-2026-09-20; its files are read at that revision through the origin root supplied on the command line.",
+    "The frozen witnesses come from the received package's result.json, sha256 7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd, which is the original murphy unit's evidence, not a recomputation.",
+    "The renaming is declared as i -> iota; the documentary programs are the received ones, and the renamed copies are derived in this run and compared byte for byte with the published unit.",
+    "The declared relations are the coordinate laws the murphy checker compared, restated for the machine's declared four-slot application: a sequence [P1, P2] means P2 (P1 Z), observed at out.",
+    "No original murphy file is modified, reissued or retired by this acceptance."
+  ],
+  "limits": {
+    "contractions_per_family": 20000,
+    "nodes_per_family": 200000,
+    "seconds_per_family": 30.0
+  },
+  "families": [
+    {
+      "label": "P",
+      "kind": "iota",
+      "spelling": "renamed",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/murphy.iota"
+    },
+    {
+      "label": "PP",
+      "kind": "iota",
+      "spelling": "renamed",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/PP.iota",
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/PP_reduction"
+      }
+    },
+    {
+      "label": "C",
+      "kind": "coordinate",
+      "spelling": "renamed",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/C.iota",
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/C"
+      }
+    },
+    {
+      "label": "J",
+      "kind": "coordinate",
+      "spelling": "renamed",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/J.iota",
+      "permutation": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/J"
+      }
+    },
+    {
+      "label": "N",
+      "kind": "coordinate",
+      "spelling": "renamed",
+      "program": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/N.iota",
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/N"
+      }
+    }
+  ],
+  "renaming": {
+    "from": "i",
+    "to": "ι",
+    "output": "renamed",
+    "note": "Re-derived in this run so the published bytes can be compared with this machine's own derivation."
+  },
+  "renamings": [
+    {
+      "label": "P",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+      "kind": "iota"
+    },
+    {
+      "label": "PP",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/PP.iota",
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/PP_reduction"
+      },
+      "kind": "iota"
+    },
+    {
+      "label": "C",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/C.iota",
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/C"
+      },
+      "kind": "coordinate"
+    },
+    {
+      "label": "J",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/J.iota",
+      "permutation": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/J"
+      },
+      "kind": "coordinate"
+    },
+    {
+      "label": "N",
+      "program": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/N.iota",
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "oracle": {
+        "document": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/result.json",
+        "document_sha256": "7cce79b0db4c51874fcd7ecbc8bbaab16755cf7d9b618a1c3e0780ba029599cd",
+        "pointer": "/lambda/coordinate_reductions/N"
+      },
+      "kind": "coordinate"
+    }
+  ],
+  "relations": [
+    {
+      "label": "C-squared-is-identity",
+      "left": [
+        "C",
+        "C"
+      ],
+      "right": [],
+      "expectation": "holds",
+      "note": "the original unit's `C squared is identity on encoded coordinates`"
+    },
+    {
+      "label": "J-squared-is-N",
+      "left": [
+        "J",
+        "J"
+      ],
+      "right": [
+        "N"
+      ],
+      "expectation": "holds",
+      "note": "the original unit's `J squared is negation on encoded coordinates`"
+    },
+    {
+      "label": "J-fourth-is-identity",
+      "left": [
+        "J",
+        "J",
+        "J",
+        "J"
+      ],
+      "right": [],
+      "expectation": "unknown",
+      "note": "Exhausts the declared bounds on this application; retained as Unknown rather than claimed."
+    },
+    {
+      "label": "CJC-equals-NJ",
+      "left": [
+        "C",
+        "J",
+        "C"
+      ],
+      "right": [
+        "J",
+        "N"
+      ],
+      "expectation": "holds",
+      "note": "the original unit's `C J C equals minus J`"
+    },
+    {
+      "label": "N-squared-is-identity",
+      "left": [
+        "N",
+        "N"
+      ],
+      "right": [],
+      "expectation": "holds",
+      "note": "the original unit's `negation squared is identity`"
+    },
+    {
+      "label": "J-squared-is-not-identity",
+      "left": [
+        "J",
+        "J"
+      ],
+      "right": [],
+      "expectation": "differs",
+      "note": "the original unit's opaque-slot witness that J squared is not identity"
+    },
+    {
+      "label": "C-is-not-J",
+      "left": [
+        "C"
+      ],
+      "right": [
+        "J"
+      ],
+      "expectation": "differs",
+      "note": "the original unit's separation of C and J"
+    }
+  ],
+  "external": {
+    "note": "The published unit's files, read at the pinned revision and required to be byte-identical to the copies this run derives.",
+    "files": [
+      {
+        "path": "murphy-iota-v0/murphy.iota",
+        "sha256": "48c0ad98cda5cc8a8d3f7008303ee903ba22c4191b132ae5620b9d9c3a9de882",
+        "bytes": 1236,
+        "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/murphy.iota"
+      },
+      {
+        "path": "murphy-iota-v0/PP.iota",
+        "sha256": "3309314bd91c17d8f28c48a082c595deb53bb190f306bb7e0ccdee23df57b1ba",
+        "bytes": 2472,
+        "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/PP.iota"
+      },
+      {
+        "path": "murphy-iota-v0/C.iota",
+        "sha256": "89395853cc13222bc24c934c86bc03219dacc7143be0f6a3400f807f113db448",
+        "bytes": 1116,
+        "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/C.iota"
+      },
+      {
+        "path": "murphy-iota-v0/J.iota",
+        "sha256": "fc900f7f1fca3b3da279c643a91fbd50b22446d149c824481f02f5a85d407089",
+        "bytes": 1008,
+        "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/J.iota"
+      },
+      {
+        "path": "murphy-iota-v0/N.iota",
+        "sha256": "06c2d960a8f80eca511c23a83c00ae1a1ee5351eea09281cd11bf896a68dc6c2",
+        "bytes": 1089,
+        "local_copy": "experiments/iota-substrate/evidence/run-04-murphy-renamed/renamed/N.iota"
+      }
+    ]
+  },
+  "controls": [
+    "sha256-fips-vectors",
+    "external-pins-hold",
+    "relations-agree-across-spellings",
+    "renaming-refuses-legacy-token",
+    "renaming-is-not-vacuous",
+    "non-vacuity"
+  ],
+  "acceptance": "Every published file must be byte-identical to this run's derivation; the renamed programs must reproduce the frozen counted witnesses; the renaming must preserve term, rules, peak and digest; and every declared relation must hold or differ exactly as declared, with the same outcome under both spellings. Any other outcome fails the run and is retained.",
+  "residual": "This accepts one derived unit against one frozen witness set. It does not re-derive the original murphy results, does not verify the Zot CEK stage, the 2x2 table adjoint programs, the text probe or the declared end-leaf bridge, and does not establish that the renamed unit is the intended spelling of any other consumer. The admitted unit remains the one its receipts pin; native admission remains NotGranted."
+}

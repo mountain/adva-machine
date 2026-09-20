@@ -11,7 +11,8 @@
     "The normal-form digest is SHA-256 over the canonical JSON encoding ['a',f,x], ['c',name], ['v',name], ['l',name,body].",
     "The coordinate families apply the program to the declared four-slot product Z(p,q,r,s) = lambda k. k p q r s through bracket abstraction without eta.",
     "The frozen witness is the murphy publication unit in mountain/adva, admitted 2026-09-19 as project-original.",
-    "The Iota combinator's spelling is declared: `i` in the received documentary bytes, `ι` in the renamed copy. Neither spelling is silently accepted where the other is declared, and `i` keeps its identity meaning in the separate iota-lang case grammar."
+    "The Iota combinator's spelling is declared: `i` in the received documentary bytes, `ι` in the renamed copy. Neither spelling is silently accepted where the other is declared, and `i` keeps its identity meaning in the separate iota-lang case grammar.",
+    "The declared relations are the coordinate laws the murphy checker compared, restated for the machine's declared four-slot application: a sequence [P1, P2] means P2 (P1 Z), observed at out."
   ],
   "limits": {
     "contractions_per_family": 20000,
@@ -101,7 +102,8 @@
     "non-vacuity",
     "source-alteration",
     "renaming-refuses-legacy-token",
-    "renaming-is-not-vacuous"
+    "renaming-is-not-vacuous",
+    "relations-agree-across-spellings"
   ],
   "acceptance": "Every oracle-bearing family must match all four frozen fields (contractions, rule histogram, node peak, normal-form digest) and every coordinate family must also return the declared slot permutation. The PP step trace must match all 1,808 retained rows on path, rule, node count and digest. Every declared control must behave as declared. A mismatch fails the run and is retained.",
   "residual": "This is a research-local substrate, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. The external reference and this implementation share no reviewer; agreement is between two machine implementations, not independent human verification. The 2x2 table adjoint programs and their sixteen assertions, the Zot stage, the reflection controls and the declared end-leaf bridge are not replayed here. The substrate does not claim that Iota is a native subset of Adva, that any Adva program compiles to Iota, or that a reducer agrees with any denotational semantics beyond the declared rewriting rules. The renamed copy is a derived artifact of this run, not a second reception: it carries no receipt of its own, it does not replace or restate the received bytes, and the documentary spelling remains the one the receipt pins.",
@@ -202,6 +204,87 @@
         3,
         2
       ]
+    }
+  ],
+  "relations": [
+    {
+      "label": "C-squared-is-identity",
+      "left": [
+        "C",
+        "C"
+      ],
+      "right": [],
+      "expectation": "holds",
+      "note": "the original unit's `C squared is identity on encoded coordinates`"
+    },
+    {
+      "label": "J-squared-is-N",
+      "left": [
+        "J",
+        "J"
+      ],
+      "right": [
+        "N"
+      ],
+      "expectation": "holds",
+      "note": "the original unit's `J squared is negation on encoded coordinates`"
+    },
+    {
+      "label": "J-fourth-is-identity",
+      "left": [
+        "J",
+        "J",
+        "J",
+        "J"
+      ],
+      "right": [],
+      "expectation": "unknown",
+      "note": "The original unit compared J fourth = I on lambda normal forms. On this profile's declared four-slot application the left chain exhausts the declared bounds, so the run records Unknown rather than claiming the law here; J squared = N and N squared = I are both checked directly, and the implication between them is not executed."
+    },
+    {
+      "label": "CJC-equals-NJ",
+      "left": [
+        "C",
+        "J",
+        "C"
+      ],
+      "right": [
+        "J",
+        "N"
+      ],
+      "expectation": "holds",
+      "note": "the original unit's `C J C equals minus J`"
+    },
+    {
+      "label": "N-squared-is-identity",
+      "left": [
+        "N",
+        "N"
+      ],
+      "right": [],
+      "expectation": "holds",
+      "note": "the original unit's `negation squared is identity`"
+    },
+    {
+      "label": "J-squared-is-not-identity",
+      "left": [
+        "J",
+        "J"
+      ],
+      "right": [],
+      "expectation": "differs",
+      "note": "the original unit's opaque-slot witness that J squared is not identity"
+    },
+    {
+      "label": "C-is-not-J",
+      "left": [
+        "C"
+      ],
+      "right": [
+        "J"
+      ],
+      "expectation": "differs",
+      "note": "the original unit's separation of C and J"
     }
   ]
 }

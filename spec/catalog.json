@@ -31,7 +31,7 @@
     "experiments/bounded_native_interpreter/reference.py": "0205374e770c70ffebe9004be12f0ab70c72357dedcd49c42c71dcecd3d51f45",
     "experiments/bounded_self_compiler/reference.py": "90849b9919fd693c8739272419091435eabbf747831a3beca4fe412f8afc4244",
     "programs/bounded-interpreter/interpreter.adva": "e54309bfe45c64eed31c1b2b52b1eabfef92d8dce6213e1bf9db0d71e1b655b1",
-    "experiments/iota-substrate/src/lib.rs": "89721f0737bfc8a47a1d72d56d44d9a00ccfc8892217c3244c188de0584e377b",
+    "experiments/iota-substrate/src/lib.rs": "9bb0c5401dbfdf115fdb7170c7752999d369e24209705255e54f927a03a8ccf9",
     "experiments/iota-substrate/src/main.rs": "64bd10b028893041f0f8525828b86f36655184b5e5ac2f534c04af73787a36e7",
     "experiments/iota-substrate/Cargo.toml": "7c8df5830ffe8305d32e7446ebf8c031674d9c48ee62ee84e19868b788d38a68",
     "experiments/iota-substrate/Cargo.lock": "2442916738d79067b8bd4b1ca6326c8012e3df213765edc0221fef50ffd3c516"
