@@ -100,6 +100,17 @@ discrimination — which iota-lang material can and cannot test this substrate �
 and the two transcription findings are recorded in
 [Research 0205](../../docs/research/0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md).
 
+## The flat-list reading corpus
+
+A third contract, `experiments/iota-substrate/contract-list-reading.json`,
+declares a flat list `[t1 … tn]` under two readings and decides which one
+transports application: the external `iota-lang` declarations for I, K, S and
+the Iota rule hold under right-nesting, fail for K and S under left-nesting, and
+a two-element list cannot decide the reading because both readings agree there.
+This is one explicit realization of the program/data junction, not the general
+representation map; see
+[Research 0206](../../docs/research/0206-the-flat-list-reading-at-the-program-data-junction.md).
+
 ## What this profile does not establish
 
 - **No native admission.** `ValueType` remains `Real | Bool`. No

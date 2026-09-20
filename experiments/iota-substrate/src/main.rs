@@ -93,6 +93,16 @@ fn main() -> ExitCode {
         report.controls.iter().filter(|c| c.passed).count(),
         report.wall_seconds
     );
+    for case in &report.readings {
+        println!(
+            "  reading {:<22} {:<13} expected {:<20} observed {:<20} {}",
+            case.label,
+            case.reading,
+            case.expected,
+            case.observed.as_deref().unwrap_or("Unknown"),
+            case.verdict
+        );
+    }
     for case in &report.cases {
         println!(
             "  case {:<12} {:>4} contractions  expected {:<18} observed {:<18} {}",

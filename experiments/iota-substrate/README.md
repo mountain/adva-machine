@@ -142,6 +142,29 @@ which also lists the iota-lang layers that are **not** usable here: the parser
 contract, the DualMachine suite, the two Clojure-shaped resource definitions and
 the never-compiled Java machine itself.
 
+## The flat-list reading corpus
+
+`contract-list-reading.json` declares one more notation — a flat list
+`[t1 … tn]` — under **two declared readings**, `left-nested` and `right-nested`,
+and asks which one transports application at the junction between a
+right-expanded program and left-expanded data. Seven cases decide it: the
+external `ski.iota` and `iota.iota` declarations hold under right-nesting
+(identity, K and S on their declared arities, and `Iota x -> x S K`), the
+left-nested reading fails for K and S, and a two-element list cannot decide the
+reading at all because both readings agree there.
+
+```sh
+experiments/iota-substrate/target/release/adva-iota-substrate \
+  --contract experiments/iota-substrate/contract-list-reading.json \
+  --output /tmp/iota-substrate-list-reading-01
+```
+
+Result: 4 holding cases, 2 failing as declared, 1 two-element coincidence, 54
+contractions, three controls passed. The finding is recorded in
+[Research 0206](../../docs/research/0206-the-flat-list-reading-at-the-program-data-junction.md),
+which also states what it is not: this is one reading of one notation, not the
+representation map the murphy note names.
+
 ## What this does not establish
 
 * **No native admission.** `ValueType` remains `Real | Bool`. No

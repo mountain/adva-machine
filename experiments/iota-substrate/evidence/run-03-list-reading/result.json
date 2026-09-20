@@ -1,0 +1,137 @@
+{
+  "schema": "adva.iota-substrate.result.v0",
+  "profile": "iota-substrate-v0",
+  "question": "At the junction between a right-expanded program and left-expanded data, does a flat list [t1 ... tn] transport application: which nesting reading makes the external iota-lang resource definitions true, and from how many elements is the reading decided?",
+  "level": "Research-local native reduction over two declared readings of one flat-list notation. It is one explicit realization of the junction, not the general representation map: no decoder, no observer and no general program conjugation is claimed.",
+  "native_admission": "NotGranted",
+  "stable_semantic_api": false,
+  "outcome": "IotaSubstrateChecked",
+  "limits": {
+    "contractions_per_family": 20000,
+    "nodes_per_family": 200000,
+    "seconds_per_family": 30.0
+  },
+  "families": [],
+  "controls": [
+    {
+      "name": "reading-non-discrimination-at-two",
+      "expectation": "a two-element list cannot decide between the two readings",
+      "observed": "readings coincide at two elements: true",
+      "passed": true
+    },
+    {
+      "name": "reading-discrimination-from-three",
+      "expectation": "the two readings differ from three elements on and agree below that",
+      "observed": "first difference at Some(3) elements; all differ: true",
+      "passed": true
+    },
+    {
+      "name": "expectation-falsifier-readings",
+      "expectation": "an altered expected reading result is refused rather than accepted",
+      "observed": "case=R-I observed=Some(\"x\") altered=\"x-altered\"",
+      "passed": true
+    }
+  ],
+  "checked_families": 0,
+  "frozen_oracle_families": 0,
+  "total_contractions": 54,
+  "trace_rows_compared": 0,
+  "trace_rows_matched": 0,
+  "cases": [],
+  "cases_matched": 0,
+  "cases_mismatched": 0,
+  "transcript_rows_compared": 0,
+  "transcript_rows_agreeing": 0,
+  "readings": [
+    {
+      "label": "R-I",
+      "form": "([ι ι] x)",
+      "reading": "right-nested",
+      "expectation": "holds",
+      "expected": "x",
+      "observed": "x",
+      "contractions": 5,
+      "status": "normal-form",
+      "verdict": "Holds-As-Declared",
+      "note": "ski.iota declares I = [Iota Iota]; right-nested the list is the Iota encoding of the identity."
+    },
+    {
+      "label": "R-K",
+      "form": "(([ι ι ι ι] x) y)",
+      "reading": "right-nested",
+      "expectation": "holds",
+      "expected": "x",
+      "observed": "x",
+      "contractions": 10,
+      "status": "normal-form",
+      "verdict": "Holds-As-Declared",
+      "note": "ski.iota declares K = four Iotas; right-nested that is the encoding of K, which returns its first argument."
+    },
+    {
+      "label": "R-S",
+      "form": "((([ι ι ι ι ι] x) y) z)",
+      "reading": "right-nested",
+      "expectation": "holds",
+      "expected": "((x z) (y z))",
+      "observed": "((x z) (y z))",
+      "contractions": 12,
+      "status": "normal-form",
+      "verdict": "Holds-As-Declared",
+      "note": "ski.iota declares S = five Iotas; right-nested that is the encoding of S."
+    },
+    {
+      "label": "R-iota-rule",
+      "form": "(ι x)",
+      "reading": "right-nested",
+      "expectation": "holds",
+      "expected": "((x s) k)",
+      "observed": "((x s) k)",
+      "contractions": 1,
+      "status": "normal-form",
+      "verdict": "Holds-As-Declared",
+      "note": "iota.iota declares Iota x = x (five Iotas) (four Iotas); the declared Iota rule reaches x S K in one contraction."
+    },
+    {
+      "label": "L-I",
+      "form": "([ι ι] x)",
+      "reading": "left-nested",
+      "expectation": "holds",
+      "expected": "x",
+      "observed": "x",
+      "contractions": 5,
+      "status": "normal-form",
+      "verdict": "Holds-As-Declared",
+      "note": "At two elements the two readings coincide, so the identity declaration does not decide the reading."
+    },
+    {
+      "label": "L-K",
+      "form": "(([ι ι ι ι] x) y)",
+      "reading": "left-nested",
+      "expectation": "fails",
+      "expected": "x",
+      "observed": "(x y)",
+      "contractions": 10,
+      "status": "normal-form",
+      "verdict": "Fails-As-Declared",
+      "note": "The control that must bite: left-nested, the four-element list is not the encoding of K."
+    },
+    {
+      "label": "L-S",
+      "form": "((([ι ι ι ι ι] x) y) z)",
+      "reading": "left-nested",
+      "expectation": "fails",
+      "expected": "((x z) (y z))",
+      "observed": "((((x s) k) y) z)",
+      "contractions": 11,
+      "status": "normal-form",
+      "verdict": "Fails-As-Declared",
+      "note": "The same control at five elements."
+    }
+  ],
+  "readings_held": 5,
+  "readings_failed_as_declared": 2,
+  "readings_unexpected": 0,
+  "acceptance": "Every declared holding case must reduce inside the bounds and print exactly its expected normal form, and every declared failing case must print something else, with the observed value retained. A case that does not behave as declared fails the run.",
+  "residual": "This decides one declared reading of one flat-list notation on four declared forms; it is not the representation map the murphy note names. It does not transport observation, does not define a decoder or an encoder, does not connect the bracket notation to the Adva data language, and makes no claim about general program conjugation or about any left/right duality of programs. Native admission remains NotGranted.",
+  "wall_seconds": 0.000138792
+}

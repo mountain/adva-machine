@@ -1,6 +1,6 @@
 # Research notes, calibrations and the bounded record
 
-This directory holds the research record of the repository: **214 numbered
+This directory holds the research record of the repository: **215 numbered
 notes, 41 named notes and 25 supporting directories**. Nothing here is a stable
 API, a native admission, a Seal, or a proof beyond the finite scope each note
 declares for itself.
@@ -735,6 +735,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0203-allocating-the-three-currencies.md`](0203-allocating-the-three-currencies.md)
 - [`0204-gold-twin-timeout-is-not-negative.md`](0204-gold-twin-timeout-is-not-negative.md)
 - [`0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md`](0205-iota-lang-recorded-contract-replayed-by-the-native-substrate.md) — the iota-lang recorded 17-case contract replayed by the native substrate (17/17 reproduced), the four layers that are and are not usable as tests, and two transcription findings about the Research 0167 replay.
+- [`0206-the-flat-list-reading-at-the-program-data-junction.md`](0206-the-flat-list-reading-at-the-program-data-junction.md) — seven declared cases decide which nesting reading of a flat list `[t1 … tn]` transports application: right-nested holds for the external I/K/S declarations, left-nested fails for K and S, and the reading is not decided below three elements.
 
 ### Named notes
 

@@ -444,6 +444,165 @@ pub fn coordinate_application(program: &Term) -> Result<Term, String> {
 }
 
 // ---------------------------------------------------------------------------
+// The flat-list notation and its two declared readings
+// ---------------------------------------------------------------------------
+
+/// How a flat list `[t1 t2 ... tn]` becomes an application tree.
+///
+/// The question is not academic: the external iota-lang resources write
+/// `[Iota Iota Iota Iota]` for K and `[Iota Iota Iota Iota Iota]` for S, and
+/// the two readings pair the tail differently. This declaration makes the
+/// reading explicit instead of leaving it to a convention.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum ListReading {
+    /// `[t1 t2 t3]` becomes `((t1 t2) t3)`.
+    LeftNested,
+    /// `[t1 t2 t3]` becomes `(t1 (t2 t3))`.
+    RightNested,
+}
+
+impl ListReading {
+    pub fn parse(name: &str) -> Option<Self> {
+        match name {
+            "left-nested" => Some(Self::LeftNested),
+            "right-nested" => Some(Self::RightNested),
+            _ => None,
+        }
+    }
+
+    pub fn name(self) -> &'static str {
+        match self {
+            Self::LeftNested => "left-nested",
+            Self::RightNested => "right-nested",
+        }
+    }
+}
+
+/// Read a non-empty flat list under one declared reading.
+///
+/// A one-element list is its element under both readings; a two-element list
+/// is `(t1 t2)` under both. The readings first differ at three elements, so a
+/// two-element list cannot decide between them.
+pub fn nest(list: &[Term], reading: ListReading) -> Result<Term, String> {
+    let Some((first, rest)) = list.split_first() else {
+        return Err("an empty flat list has no reading".to_string());
+    };
+    if rest.is_empty() {
+        return Ok(first.clone());
+    }
+    Ok(match reading {
+        ListReading::LeftNested => {
+            let mut acc = first.clone();
+            for term in rest {
+                acc = Term::App(Box::new(acc), Box::new(term.clone()));
+            }
+            acc
+        }
+        ListReading::RightNested => {
+            let mut acc = rest[rest.len() - 1].clone();
+            for term in rest[..rest.len() - 1].iter().rev() {
+                acc = Term::App(Box::new(term.clone()), Box::new(acc));
+            }
+            Term::App(Box::new(first.clone()), Box::new(acc))
+        }
+    })
+}
+
+/// Parse a form in the case grammar **with bracket lists**: `(...)` is ordinary
+/// left-associated application, and `[...]` is a flat list read under the
+/// declared reading.
+pub fn parse_case(source: &str, reading: ListReading) -> Result<Term, String> {
+    let mut tokens = Vec::new();
+    let mut word = String::new();
+    for ch in source.chars() {
+        match ch {
+            '(' | ')' | '[' | ']' => {
+                if !word.is_empty() {
+                    tokens.push(std::mem::take(&mut word));
+                }
+                tokens.push(ch.to_string());
+            }
+            c if c.is_whitespace() => {
+                if !word.is_empty() {
+                    tokens.push(std::mem::take(&mut word));
+                }
+            }
+            c => word.push(c),
+        }
+    }
+    if !word.is_empty() {
+        tokens.push(word);
+    }
+    let mut position = 0usize;
+    let term = parse_case_node(&tokens, &mut position, reading)?;
+    if position != tokens.len() {
+        return Err(format!(
+            "unread case tokens from position {position} of {}",
+            tokens.len()
+        ));
+    }
+    Ok(term)
+}
+
+fn parse_case_node(
+    tokens: &[String],
+    position: &mut usize,
+    reading: ListReading,
+) -> Result<Term, String> {
+    let token = tokens
+        .get(*position)
+        .ok_or_else(|| "truncated case form".to_string())?
+        .clone();
+    *position += 1;
+    match token.as_str() {
+        "(" => {
+            let mut term = parse_case_node(tokens, position, reading)?;
+            loop {
+                match tokens.get(*position).map(String::as_str) {
+                    Some(")") => {
+                        *position += 1;
+                        return Ok(term);
+                    }
+                    Some(_) => {
+                        let argument = parse_case_node(tokens, position, reading)?;
+                        term = Term::App(Box::new(term), Box::new(argument));
+                    }
+                    None => return Err("unclosed case application".to_string()),
+                }
+            }
+        }
+        "[" => {
+            let mut elements = Vec::new();
+            loop {
+                match tokens.get(*position).map(String::as_str) {
+                    Some("]") => {
+                        *position += 1;
+                        return nest(&elements, reading);
+                    }
+                    Some(_) => elements.push(parse_case_node(tokens, position, reading)?),
+                    None => return Err("unclosed flat list".to_string()),
+                }
+            }
+        }
+        ")" | "]" => Err("unexpected closing bracket".to_string()),
+        "i" => Ok(Term::Const('I')),
+        "k" => Ok(Term::Const('K')),
+        "s" => Ok(Term::Const('S')),
+        "j" | "ι" => Ok(Term::Const('j')),
+        other => {
+            if !other.is_empty()
+                && other
+                    .chars()
+                    .all(|c| c.is_ascii_lowercase() || c.is_ascii_digit())
+            {
+                Ok(Term::Var(other.to_string()))
+            } else {
+                Err(format!("unsupported case token {other:?}"))
+            }
+        }
+    }
+}
+// ---------------------------------------------------------------------------
 // Reduction
 // ---------------------------------------------------------------------------
 
@@ -838,6 +997,24 @@ pub struct Case {
     pub note: Option<String>,
 }
 
+/// One declared reading case: a form whose brackets are read one way, with a
+/// declared expectation of whether the reading reproduces the target behaviour.
+#[derive(Clone, Debug, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ReadingCase {
+    pub label: String,
+    /// The form, in the case grammar extended with `[` `]` flat lists.
+    pub form: String,
+    /// `left-nested` or `right-nested` for every list in this form.
+    pub reading: String,
+    /// `holds` requires the printed normal form to equal `expected`;
+    /// `fails` requires it to differ.
+    pub expectation: String,
+    pub expected: String,
+    #[serde(default)]
+    pub note: Option<String>,
+}
+
 /// An independently supplied transcript, used only to compare transcriptions.
 #[derive(Clone, Debug, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -873,6 +1050,8 @@ pub struct Contract {
     pub cases: Vec<Case>,
     #[serde(default)]
     pub comparison: Option<Comparison>,
+    #[serde(default)]
+    pub readings: Vec<ReadingCase>,
     pub controls: Vec<String>,
     pub acceptance: String,
     pub residual: String,
@@ -953,6 +1132,21 @@ pub struct CaseResult {
     pub note: Option<String>,
 }
 
+/// One executed reading case's retained result.
+#[derive(Clone, Debug, Serialize)]
+pub struct ReadingResult {
+    pub label: String,
+    pub form: String,
+    pub reading: String,
+    pub expectation: String,
+    pub expected: String,
+    pub observed: Option<String>,
+    pub contractions: u64,
+    pub status: ReductionStatus,
+    pub verdict: String,
+    pub note: Option<String>,
+}
+
 #[derive(Clone, Debug, Serialize)]
 pub struct ControlResult {
     pub name: String,
@@ -983,6 +1177,10 @@ pub struct RunReport {
     pub cases_mismatched: usize,
     pub transcript_rows_compared: usize,
     pub transcript_rows_agreeing: usize,
+    pub readings: Vec<ReadingResult>,
+    pub readings_held: usize,
+    pub readings_failed_as_declared: usize,
+    pub readings_unexpected: usize,
     pub acceptance: String,
     pub residual: String,
     pub wall_seconds: f64,
@@ -1249,6 +1447,47 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
             matched_recorded_expectation: matched,
             transcript_term: transcript,
             transcript_agrees: agrees,
+            verdict: verdict.to_string(),
+            note: case.note.clone(),
+        });
+    }
+
+    // Declared flat-list reading cases.
+    let mut readings: Vec<ReadingResult> = Vec::new();
+    for case in &contract.readings {
+        let reading = ListReading::parse(&case.reading)
+            .ok_or_else(|| format!("reading case {} declares {} ", case.label, case.reading))?;
+        let term = parse_case(&case.form, reading)
+            .map_err(|e| format!("reading case {} form refused: {e}", case.label))?;
+        let reduction = reduce(&term, &contract.limits, false);
+        let observed = match reduction.term.as_ref() {
+            Some(term) => Some(print_sexpr(term)?),
+            None => None,
+        };
+        let reproduced = observed.as_deref() == Some(case.expected.as_str());
+        let verdict = match (reduction.status, case.expectation.as_str(), reproduced) {
+            (ReductionStatus::Exhausted, _, _) => "Exhausted-Unknown",
+            (ReductionStatus::NormalForm, "holds", true) => "Holds-As-Declared",
+            (ReductionStatus::NormalForm, "fails", false) => "Fails-As-Declared",
+            (ReductionStatus::NormalForm, "holds", false) => "Unexpected-Mismatch",
+            (ReductionStatus::NormalForm, "fails", true) => "Unexpected-Match",
+            (ReductionStatus::NormalForm, other, _) => {
+                return Err(format!(
+                    "reading case {} declares expectation {other}",
+                    case.label
+                ));
+            }
+        };
+        total_contractions += reduction.contractions;
+        readings.push(ReadingResult {
+            label: case.label.clone(),
+            form: case.form.clone(),
+            reading: case.reading.clone(),
+            expectation: case.expectation.clone(),
+            expected: case.expected.clone(),
+            observed,
+            contractions: reduction.contractions,
+            status: reduction.status,
             verdict: verdict.to_string(),
             note: case.note.clone(),
         });
@@ -1551,6 +1790,77 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
         );
     }
 
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "reading-non-discrimination-at-two")
+    {
+        let pair = [Term::Const('j'), Term::Const('j')];
+        let left = nest(&pair, ListReading::LeftNested);
+        let right = nest(&pair, ListReading::RightNested);
+        let same = matches!((left, right), (Ok(a), Ok(b)) if a == b);
+        control(
+            "reading-non-discrimination-at-two",
+            "a two-element list cannot decide between the two readings",
+            format!("readings coincide at two elements: {same}"),
+            same,
+        );
+    }
+
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "reading-discrimination-from-three")
+    {
+        let mut differs_from = None;
+        let mut all_differ = true;
+        for size in 3..=5usize {
+            let list = vec![Term::Const('j'); size];
+            let left = nest(&list, ListReading::LeftNested).expect("left reading");
+            let right = nest(&list, ListReading::RightNested).expect("right reading");
+            if left == right {
+                all_differ = false;
+            }
+            if differs_from.is_none() && left != right {
+                differs_from = Some(size);
+            }
+        }
+        control(
+            "reading-discrimination-from-three",
+            "the two readings differ from three elements on and agree below that",
+            format!("first difference at {differs_from:?} elements; all differ: {all_differ}"),
+            differs_from == Some(3) && all_differ,
+        );
+    }
+
+    if contract
+        .controls
+        .iter()
+        .any(|c| c == "expectation-falsifier-readings")
+    {
+        match readings.iter().find(|case| case.expectation == "holds") {
+            Some(case) => {
+                let altered = format!("{}-altered", case.expected);
+                let refuses = case.observed.as_deref() != Some(altered.as_str());
+                control(
+                    "expectation-falsifier-readings",
+                    "an altered expected reading result is refused rather than accepted",
+                    format!(
+                        "case={} observed={:?} altered={:?}",
+                        case.label, case.observed, altered
+                    ),
+                    refuses,
+                );
+            }
+            None => control(
+                "expectation-falsifier-readings",
+                "an altered expected reading result is refused rather than accepted",
+                "no holding reading case declared".to_string(),
+                false,
+            ),
+        }
+    }
+
     let refreshed = contract
         .controls
         .iter()
@@ -1575,7 +1885,10 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
     let cases_ok = cases
         .iter()
         .all(|case| case.verdict == "Matched-Recorded-Expectation");
-    let outcome = if controls_ok && families_ok && trace_ok && cases_ok {
+    let readings_ok = readings
+        .iter()
+        .all(|case| case.verdict == "Holds-As-Declared" || case.verdict == "Fails-As-Declared");
+    let outcome = if controls_ok && families_ok && trace_ok && cases_ok && readings_ok {
         "IotaSubstrateChecked"
     } else {
         "IotaSubstrateMismatched"
@@ -1609,6 +1922,21 @@ pub fn run_contract(contract: &Contract, origin_root: &Path) -> Result<RunReport
             .filter(|case| case.transcript_agrees == Some(true))
             .count(),
         cases,
+        readings_held: readings
+            .iter()
+            .filter(|case| case.verdict == "Holds-As-Declared")
+            .count(),
+        readings_failed_as_declared: readings
+            .iter()
+            .filter(|case| case.verdict == "Fails-As-Declared")
+            .count(),
+        readings_unexpected: readings
+            .iter()
+            .filter(|case| {
+                case.verdict != "Holds-As-Declared" && case.verdict != "Fails-As-Declared"
+            })
+            .count(),
+        readings,
         checked_families: contract.families.len(),
         frozen_oracle_families,
         total_contractions,
