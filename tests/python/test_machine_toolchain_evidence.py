@@ -100,7 +100,7 @@ def test_raw_requests_executions_and_native_receipts_agree(retained):
 
 
 def test_latest_acceptance_contains_current_adapter_sources():
-    retained = receive(EVIDENCE / "local-05")
+    retained = receive(EVIDENCE / "local-06")
     manifest = json.loads(retained["source-manifest.json"])
     assert set(manifest) == {str(p.relative_to(ROOT)) for p in (ROOT / "toolchain").glob("*.py")}
     for path, expected in manifest.items():

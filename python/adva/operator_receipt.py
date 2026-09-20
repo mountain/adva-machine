@@ -95,7 +95,9 @@ def accept_result(raw, code, expected):
 
 def limits():
     resource.setrlimit(resource.RLIMIT_CPU, (5, 5))
-    resource.setrlimit(resource.RLIMIT_AS, (256*1024*1024,)*2)
+    # RLIMIT_AS is Linux-only; macOS keeps the CPU, file-size and core limits.
+    if sys.platform == "linux":
+        resource.setrlimit(resource.RLIMIT_AS, (256*1024*1024,)*2)
     resource.setrlimit(resource.RLIMIT_FSIZE, (STREAM_LIMIT,)*2)
     resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
 

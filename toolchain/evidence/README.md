@@ -3,7 +3,7 @@
 Authored by ChatGPT (OpenAI), through Mingli Yuan's authorized account proxy;
 not his technical review or correctness guarantee. Date: 2026-09-16.
 
-Five finite engineering regression invocations used the same fixed family in
+Six finite engineering regression invocations used the same fixed family in
 `conformance.contract.json`, each in a fresh output directory. All sixteen cases
 passed for the native Rust VM and the existing external Python reference VM in
 each invocation. Each used 80 child invocations, including 68 native calls, and
@@ -16,6 +16,7 @@ each invocation. Each used 80 child invocations, including 68 native calls, and
 | `local-03` | Bounded regular-file reads and output path confinement | Passed | 4.763 | 3.966 |
 | `local-04` | Unknown v0.2 library adoption and licensing pins | Passed | 4.933 | 4.132 |
 | `local-05` | Unknown v0.3 adoption with retained predecessor locks | Passed | 4.749 | 4.018 |
+| `local-06` | Host-portable child limits: `RLIMIT_AS` installed only where the platform has an address-space limit | Passed | 2.347 | 1.475 |
 
 These figures include process startup, storage and native receiving; they are
 not a benchmark of relative execution performance. Producer snapshots preserve

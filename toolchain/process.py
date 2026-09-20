@@ -7,6 +7,7 @@ from pathlib import Path
 import resource
 import signal
 import subprocess
+import sys
 import time
 
 from .boundary import encoded
@@ -71,13 +72,25 @@ class Account:
         if not out.resolve().is_relative_to(self.root) or not err.resolve().is_relative_to(self.root):
             raise ValueError("child artifact path leaves its declared output directory")
         out.parent.mkdir(parents=True, exist_ok=True)
+        address_space_installed = sys.platform == "linux"
+
         def limits():
             cap = max(1, math.ceil(cpu))
             resource.setrlimit(resource.RLIMIT_CPU, (cap, cap))
-            resource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))
+            # RLIMIT_AS is Linux-only. Installing it on a platform without an
+            # address-space limit fails the whole child launch, so the declared
+            # address-space bound is installed where it exists and the record
+            # states which limits this host actually installed.
+            if address_space_installed:
+                resource.setrlimit(resource.RLIMIT_AS, (1024**3, 1024**3))
             resource.setrlimit(resource.RLIMIT_FSIZE, (file_limit, file_limit))
         start = time.monotonic()
-        record = {"label": label, "native": native, "status": "Started"}
+        record = {
+            "label": label,
+            "native": native,
+            "status": "Started",
+            "address_space_limit_installed": address_space_installed,
+        }
         self.calls.append(record)
         self.native_calls += int(native)
         try:
@@ -108,6 +121,7 @@ class Account:
             "child_calls": self.calls,
             "limits": {"wall_seconds": self.wall, "cpu_seconds": self.cpu,
                        "child_launches": self.launches, "native_launches": self.native_limit,
+                       "address_space_limit_installed": sys.platform == "linux",
                        "artifact_bytes": self.artifacts,
                        "address_space_per_child": 1024**3},
         }

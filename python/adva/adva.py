@@ -99,7 +99,12 @@ def _result(raw, request, returncode):
 
 
 def _limits():
-    resource.setrlimit(resource.RLIMIT_AS, (256 * 1024 * 1024,) * 2)
+    # RLIMIT_AS is Linux-only. Installing it where the platform has no
+    # address-space limit fails the whole child launch, so the declared
+    # address-space bound is installed where it exists; CPU, file-size and core
+    # limits are installed everywhere.
+    if sys.platform == "linux":
+        resource.setrlimit(resource.RLIMIT_AS, (256 * 1024 * 1024,) * 2)
     resource.setrlimit(resource.RLIMIT_FSIZE, (OUTPUT_LIMIT,) * 2)
     resource.setrlimit(resource.RLIMIT_CPU, (3, 3))
     resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
