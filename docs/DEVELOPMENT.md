@@ -211,6 +211,64 @@ its open mathematical obligations. See the [CI workflow](../.github/workflows/ci
 for the maintained build matrix and retained-witness checks. Report platform
 failures against a clean checkout instead of inheriting old failure counts.
 
+### Rebuild determinism of release binaries (measured, and narrower than expected)
+
+A release binary is **deterministic while the build configuration is held
+fixed**, and the configuration includes the **toolchain directory**, not merely
+the compiler version. Measurements taken 2026-09-21 on `aarch64-apple-darwin`,
+each run recompiling `adva-witness` from scratch with
+`cargo clean -p adva-witness --release` and then
+`cargo build --release --bin adva` (about 24 s of real compilation per run,
+which is the evidence that the run really compiled):
+
+```
+configuration                                          sha256 of target/release/adva
+RUSTUP_HOME=~/.rustup, toolchain `stable`   run 1      f2c914def8f3b36a577f68541be822d3a403c762e64aa165678fe8949855f83e
+RUSTUP_HOME=~/.rustup, toolchain `stable`   run 2      f2c914def8f3b36a577f68541be822d3a403c762e64aa165678fe8949855f83e
+RUSTUP_HOME=~/.rustup, toolchain `stable`   run 3      f2c914def8f3b36a577f68541be822d3a403c762e64aa165678fe8949855f83e
+RUSTUP_HOME=~/.rustup, toolchain `1.96.1`    run 1      9b6fa650f4346b38f33ae2d6fee3c5dd3d33085f4b26b44c9167c9b7992f9425
+RUSTUP_HOME=~/.rustup, toolchain `1.96.1`    run 2      9b6fa650f4346b38f33ae2d6fee3c5dd3d33085f4b26b44c9167c9b7992f9425
+RUSTUP_HOME=<workspace copy of rustup>, run 1          5ca66b8d9d19233a37d50bd74fee6360d42d1cc0a16f52676b1f33b71aa4bab2
+RUSTUP_HOME=<workspace copy of rustup>, run 2          5ca66b8d9d19233a37d50bd74fee6360d42d1cc0a16f52676b1f33b71aa4bab2
+```
+
+What this establishes, with the residuals left visible:
+
+1. **Within a fixed configuration the build is deterministic.** Three
+   consecutive runs in the `stable` configuration agreed exactly, and two runs
+   agreed exactly in each of the other two configurations.
+2. **The toolchain directory is part of the configuration.** Two `rustc`
+   executables with **identical sha256**
+   (`d10051fa870c54067bd21047e9709084141ffff65695537eb2c0c5d2477467d4`) produced
+   different binaries when the toolchain lived in a different directory: 47 bytes
+   apart between two of the configurations above.
+3. **Pinning `channel` to an exact version was tried and reverted.** It moved the
+   sysroot path away from the one the existing binaries were built with, so it
+   changed the bytes it was meant to stabilise. `rust-toolchain.toml` stays at
+   `stable`; the pinning experiment is recorded here rather than repeated.
+4. **Not every observed difference is explained.** One binary built earlier in
+   this same workspace differed from the `stable` rebuilds by 511 KB while all
+   configurations produce files of the same size (6430624 bytes), and 47 bytes is
+   the only difference for which a cause was identified. The mechanism behind the
+   larger spread is **not** established. Treat cross-configuration byte-identity
+   as **unestablished**, in either direction.
+5. Only `adva-witness` was recompiled throughout. Nothing here says what a full
+   workspace rebuild from an empty `target/` produces; `cargo clean` in full was
+   not run, because it would discard crate downloads and risk unrelated work on a
+   volume that is 96% full.
+
+**How to check whether a rebuild really happened**: deleting only
+`target/release/<bin>` is **not** sufficient — cargo re-links it from
+`target/release/deps/` and finishes in about 0.01 s without compiling anything,
+so any byte comparison afterwards is vacuous. Use
+`cargo clean -p <package> --release`, and treat the wall time as the evidence.
+
+Consequence for archiving: deleting `target/` loses no source and no capability,
+and a rebuild is functionally equivalent. Byte-identity is achievable when the
+configuration is reproduced, including the toolchain directory, but it is not
+guaranteed in general — so where a specific artifact identity matters, keep the
+artifact or record its digest rather than assuming a rebuild will reproduce it.
+
 ## Replaying historical library epochs
 
 A stored epoch names its checker revision, which includes `Cargo.lock`.

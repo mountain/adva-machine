@@ -1,4 +1,12 @@
 [toolchain]
+# Kept at `stable` on measured grounds, not by default.  Pinning an exact
+# version was tried on 2026-09-21 and made things WORSE for byte-identity: the
+# toolchain HOME directory is embedded in the binary, so pinning to 1.96.1
+# changed the sysroot path away from the one the existing binaries were built
+# with.  Measured: two rustc binaries with identical sha256 produce DIFFERENT
+# outputs when only the toolchain directory differs (47 bytes), and the build is
+# deterministic only while that directory is held fixed.
+# See docs/DEVELOPMENT.md, "Build and checks", for the measurements.
 channel = "stable"
 components = ["clippy", "rustfmt"]
 profile = "minimal"
