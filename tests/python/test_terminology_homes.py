@@ -32,7 +32,13 @@ def test_every_home_parses_and_is_proposed():
     for path in files():
         doc = load(path)
         assert doc.get("status") == "Proposed", path.name
-        assert doc.get("version") == 0 or "version" not in doc, path.name
+        # Version 1 is admitted as well as version 0, by the direction on
+        # 2026-09-22. The two commit-state reconcile revisions were brought to
+        # one in-file version, and their distinction is carried by the file name
+        # and the predecessor field instead. This check exists so that a home
+        # grants no more than "proposed"; it was never a claim that a document
+        # revision number must be zero or absent.
+        assert doc.get("version") in (0, 1) or "version" not in doc, path.name
 
 
 def test_every_term_carries_the_common_core_and_any_boundary_it_declares():
