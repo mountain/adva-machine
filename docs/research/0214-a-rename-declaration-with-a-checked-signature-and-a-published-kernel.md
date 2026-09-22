@@ -159,6 +159,15 @@ recorded relations can see it.
   means the checker is wrong rather than that a prediction was optimistic. The
   control machinery itself has unit tests that feed it wrong expectations and
   require it to fail.
+- **The aperture inventory was not updated.**
+  [`docs/maintenance/float-apertures.json`](../maintenance/float-apertures.json)
+  records `experiments_scanned: 83` for the round the aperture ledger was
+  calibrated against, and this crate adds an experiment directory, so that
+  recorded count is now one behind the directory. It was left alone
+  deliberately: the checks that read it assert monotone agreement and a lower
+  bound rather than freshness, and the inventory is a bounded record for another
+  round rather than a live scan. The crate contains no numeric literals of the
+  kind the inventory classifies, so nothing it counts changed in character.
 - **Nothing here shows** that the murphy naming is the intended spelling of any
   other consumer.
 
