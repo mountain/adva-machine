@@ -464,9 +464,9 @@ projectivization is retained.
 
 ---
 
-## 5. Four operations called conjugation
+## 5. Five operations called conjugation
 
-The word conjugation currently risks collapsing four different operations.
+The word conjugation currently risks collapsing five different operations.
 
 ### 5.1 Cycle reversal
 
@@ -528,6 +528,47 @@ the \(i\)-direction. A precise formulation of the motivating intuition is:
 > by one complex structure \(J\).
 
 This distinction is mandatory.
+
+### 5.5 Boundary identification reversal
+
+A fifth operation is needed by the motivating sentence and is none of 5.1--5.4.
+When two oriented surfaces with boundary are glued along boundary components,
+the identification must reverse orientation for the result to be orientable.
+Two three-holed spheres glued along all three boundary circles therefore yield
+one closed orientable surface of genus two: each three-holed sphere has Euler
+characteristic \(-1\), so the union has \(-2\), and \(2-2g=-2\) gives \(g=2\).
+Cutting that surface back along the three curves of its pants decomposition
+returns the two three-holed spheres, whose boundary circles number six in
+total, two per cut curve.
+
+Record the operation as
+
+\[
+\gamma:
+\partial P_+\;\longrightarrow\;\partial P_-,
+\qquad
+\gamma \text{ orientation-reversing},
+\tag{BoundaryGluing}
+\]
+
+where \(P_\pm\) are the two three-holed carriers. It is an operation **between
+two carriers**, not a permutation of one six-germ ledger. That is what
+separates it from \(\rho_h=\kappa_h\) of Section 2, which acts on the single
+ledger \(P_h\) of one carrier, and from the cycle reversal 5.1, which acts on
+one declared cyclic order.
+
+Whether the gluing reversal \(\gamma\) is \(\rho_h\), or
+\(V_{\mathrm{port}}(\mathcal J_h)\), or a third transport that no current
+definition supplies, is a typing obligation. A shared six-cycle, a shared
+count of six, or a shared drawing decides none of it; this is the same
+prohibition that Section 3 applies between the WholeCut6 bridge and the
+three-hole bridge.
+
+The theorem of Section 2 supplies neither carrier nor gluing: it is a
+statement about two matchings on one six-element set. Recording this
+distinction here therefore constructs no gluing, admits no carrier, and adds
+no filler. The label \(\gamma\) is a name for the obligation, not an
+implemented operation.
 
 ---
 
@@ -881,6 +922,7 @@ or the exact projective matrix calculation.
 | \(\mathcal M_6^{\mathrm{hp}}\) is the Three-Hole Polarity M6 Machine | nonprincipal M6-family member name |
 | \(J:z\mapsto-1/z\) has \(J^2=-I\) in the linear lift and projective square \(1\) | exact linear/projective calculation |
 | the AEG reciprocal lift is multiplication by \(i\) on \(\mathbb R^2\cong\mathbb C\) | exact after the displayed identification |
+| the boundary-identification reversal \(\gamma\) of Section 5.5 is a fifth operation, distinct from \(\rho_h\) and from the cycle reversal | distinction recorded; no carrier, gluing or typed transport constructed |
 | the two three-hole M6 carriers admit one typed \(\mathcal J\) with a retained central sign | construction target |
 | the central sign extends to a program-relevant \(U(1)\) phase fibre | conjectural |
 | the M6 defect is \(\exp(2\pi J\Omega_U)\) | conjectural and machine-dependent |
