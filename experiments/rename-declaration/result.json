@@ -1,0 +1,1263 @@
+{
+  "acceptance": "Every declaration must reach its declared outcome, every declared control must behave as declared, and every source digest must verify before any relation is evaluated. The kernel witnesses must be present for every relation set whose universe is within the declared bound, and a universe beyond the bound must produce Unknown with a stated reason rather than a truncated count. The invariants kernel + visible = admissible, and every rename that moves nothing is in the kernel, must hold for every relation set. A control that does not hold fails the run and is retained in the result.",
+  "controls": [
+    {
+      "held": true,
+      "id": "the-source-is-the-bytes-the-declaration-names"
+    },
+    {
+      "held": true,
+      "id": "published-rename-is-accepted"
+    },
+    {
+      "held": true,
+      "id": "the-declared-algebra-is-d8"
+    },
+    {
+      "held": true,
+      "id": "operator-renaming-is-refused-on-arity"
+    },
+    {
+      "held": true,
+      "id": "a-declaration-contradicting-its-own-fixed-set-is-refused"
+    },
+    {
+      "held": true,
+      "id": "a-collision-with-an-incumbent-token-is-refused"
+    },
+    {
+      "held": true,
+      "id": "a-vacuous-rename-is-refused"
+    },
+    {
+      "held": true,
+      "id": "a-three-cycle-is-expressible-and-accepted"
+    },
+    {
+      "held": true,
+      "id": "an-over-large-universe-is-unknown-not-truncated"
+    },
+    {
+      "held": true,
+      "id": "the-tietze-reading-certifies-nothing"
+    },
+    {
+      "held": true,
+      "id": "re-spelling-without-moving-the-meaning-is-not-vacuous"
+    },
+    {
+      "held": true,
+      "id": "moving-the-role-without-the-spelling-is-not-vacuous"
+    },
+    {
+      "held": true,
+      "id": "no-kernel-member-touches-the-source-under-spelling-fixed"
+    },
+    {
+      "held": true,
+      "id": "a-combinator-rename-within-the-derived-names-is-accepted"
+    },
+    {
+      "held": true,
+      "id": "frozen-counts-see-a-derived-name-rename"
+    },
+    {
+      "held": true,
+      "id": "moving-the-primitive-onto-a-derived-name-is-refused"
+    },
+    {
+      "held": true,
+      "id": "moving-the-identity-action-is-refused"
+    },
+    {
+      "held": true,
+      "id": "the-murphy-laws-are-a-cross-level-measurement"
+    },
+    {
+      "held": true,
+      "id": "the-murphy-spelling-relation-measures-at-the-acting-level"
+    }
+  ],
+  "controls_held": true,
+  "declarations": [
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "e": "n"
+        },
+        "renamed_shape": "(n m)",
+        "renamed_token_count": 3,
+        "rendered": "e->n",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "action",
+          "admissible_renames": 24,
+          "cross_level": false,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "16/24",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 16,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,e->e",
+            "*->*,e->e,m->m",
+            "*->*,e->e,m->m,n->n",
+            "*->*,e->e,n->n",
+            "*->*,m->m",
+            "*->*,m->m,n->n",
+            "*->*,n->n",
+            "e->e",
+            "e->e,m->m",
+            "e->e,m->m,n->n",
+            "e->e,n->n",
+            "m->m",
+            "m->m,n->n",
+            "n->n"
+          ],
+          "measuring_level": "action",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "e",
+            "m",
+            "n",
+            "*"
+          ],
+          "universe_size": 4,
+          "visible_renames": 8
+        }
+      ],
+      "level": {
+        "acting": "action",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": "e",
+          "primitive": []
+        },
+        "level_legal": false,
+        "level_violations": [
+          "IdentityActionMoved { action: \"e\", target: \"n\" }"
+        ]
+      },
+      "name": "identity-action-moved-without-declaring-it",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "ffc1b29a0e1510f86398fca5a403ced78f05561b7fa71b8fd494da8618e0466e",
+        "digest_declared": "ffc1b29a0e1510f86398fca5a403ced78f05561b7fa71b8fd494da8618e0466e",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "action names are written as single characters because the declared signature is a character signature; e is the action that does nothing",
+        "shape": "(e m)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [
+          {
+            "from": "i",
+            "to": "j"
+          }
+        ],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "i": "j"
+        },
+        "renamed_shape": "(j j)",
+        "renamed_token_count": 3,
+        "rendered": "i->j",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 10,
+          "cross_level": false,
+          "inverse_monoid_order": 34,
+          "kernel_fraction_of_admissible": "8/10",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 8,
+          "kernel_order": 8,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "*->*,i->i,j->j",
+            "*->*,j->j",
+            "i->i",
+            "i->i,j->j",
+            "j->j"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "j",
+            "*"
+          ],
+          "universe_size": 3,
+          "visible_renames": 2
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "collision-with-an-incumbent-token",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "0d457fa2769a7f2481d15479f8881988b51e73b80e8ee0486989ad69a56ffb49",
+        "digest_declared": "0d457fa2769a7f2481d15479f8881988b51e73b80e8ee0486989ad69a56ffb49",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record",
+        "shape": "(i j)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [
+          {
+            "from": "j",
+            "to": "S"
+          }
+        ],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "j": "S"
+        },
+        "renamed_shape": "(S S)",
+        "renamed_token_count": 3,
+        "rendered": "j->S",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "combinator",
+          "admissible_renames": 112,
+          "cross_level": false,
+          "inverse_monoid_order": 1546,
+          "kernel_fraction_of_admissible": "56/112",
+          "kernel_is_abelian": false,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 32,
+          "kernel_order": 56,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,I->I",
+            "*->*,I->I,K->K",
+            "*->*,I->I,K->K,S->S",
+            "*->*,I->I,K->K,S->S,j->j",
+            "*->*,I->I,K->K,j->j",
+            "*->*,I->I,S->S",
+            "*->*,I->I,S->S,j->j",
+            "*->*,I->I,j->j",
+            "*->*,I->K",
+            "*->*,I->K,K->I",
+            "*->*,I->K,K->I,S->S",
+            "*->*,I->K,K->I,S->S,j->j",
+            "*->*,I->K,K->I,j->j",
+            "*->*,I->K,S->S",
+            "*->*,I->K,S->S,j->j",
+            "*->*,I->K,j->j",
+            "*->*,K->I",
+            "*->*,K->I,S->S",
+            "*->*,K->I,S->S,j->j",
+            "*->*,K->I,j->j",
+            "*->*,K->K",
+            "*->*,K->K,S->S"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": [
+            "*->*,I->I",
+            "*->*,I->K"
+          ],
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "j",
+            "S",
+            "K",
+            "I",
+            "*"
+          ],
+          "universe_size": 5,
+          "visible_renames": 56
+        }
+      ],
+      "level": {
+        "acting": "combinator",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [
+            "S",
+            "K",
+            "I"
+          ],
+          "identity_action": null,
+          "primitive": [
+            "j"
+          ]
+        },
+        "level_legal": false,
+        "level_violations": [
+          "PartitionNotPreserved { token: \"j\", target: \"S\", from: \"primitive\", to: \"derived\" }"
+        ]
+      },
+      "name": "primitive-moved-onto-a-derived-name",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_declared": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source over the combinator alphabet; its digest pins these bytes, it is not an external record",
+        "shape": "(j S)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "I": "S",
+          "K": "I",
+          "S": "K"
+        },
+        "renamed_shape": "(j K)",
+        "renamed_token_count": 3,
+        "rendered": "I->S,K->I,S->K",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "combinator",
+          "admissible_renames": 112,
+          "cross_level": false,
+          "inverse_monoid_order": 1546,
+          "kernel_fraction_of_admissible": "56/112",
+          "kernel_is_abelian": false,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 32,
+          "kernel_order": 56,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,I->I",
+            "*->*,I->I,K->K",
+            "*->*,I->I,K->K,S->S",
+            "*->*,I->I,K->K,S->S,j->j",
+            "*->*,I->I,K->K,j->j",
+            "*->*,I->I,S->S",
+            "*->*,I->I,S->S,j->j",
+            "*->*,I->I,j->j",
+            "*->*,I->K",
+            "*->*,I->K,K->I",
+            "*->*,I->K,K->I,S->S",
+            "*->*,I->K,K->I,S->S,j->j",
+            "*->*,I->K,K->I,j->j",
+            "*->*,I->K,S->S",
+            "*->*,I->K,S->S,j->j",
+            "*->*,I->K,j->j",
+            "*->*,K->I",
+            "*->*,K->I,S->S",
+            "*->*,K->I,S->S,j->j",
+            "*->*,K->I,j->j",
+            "*->*,K->K",
+            "*->*,K->K,S->S"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": [
+            "*->*,I->I",
+            "*->*,I->K"
+          ],
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "j",
+            "S",
+            "K",
+            "I",
+            "*"
+          ],
+          "universe_size": 5,
+          "visible_renames": 56
+        }
+      ],
+      "level": {
+        "acting": "combinator",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [
+            "S",
+            "K",
+            "I"
+          ],
+          "identity_action": null,
+          "primitive": [
+            "j"
+          ]
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "combinator-rename-within-the-derived-names",
+      "outcome": "Accepted",
+      "source": {
+        "digest_actual": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_declared": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source over the combinator alphabet; its digest pins these bytes, it is not an external record",
+        "shape": "(j S)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "I": "S",
+          "K": "I",
+          "S": "K"
+        },
+        "renamed_shape": "(j K)",
+        "renamed_token_count": 3,
+        "rendered": "I->S,K->I,S->K",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "combinator",
+          "admissible_renames": 112,
+          "cross_level": false,
+          "inverse_monoid_order": 1546,
+          "kernel_fraction_of_admissible": "56/112",
+          "kernel_is_abelian": false,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 32,
+          "kernel_order": 56,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,I->I",
+            "*->*,I->I,K->K",
+            "*->*,I->I,K->K,S->S",
+            "*->*,I->I,K->K,S->S,j->j",
+            "*->*,I->I,K->K,j->j",
+            "*->*,I->I,S->S",
+            "*->*,I->I,S->S,j->j",
+            "*->*,I->I,j->j",
+            "*->*,I->K",
+            "*->*,I->K,K->I",
+            "*->*,I->K,K->I,S->S",
+            "*->*,I->K,K->I,S->S,j->j",
+            "*->*,I->K,K->I,j->j",
+            "*->*,I->K,S->S",
+            "*->*,I->K,S->S,j->j",
+            "*->*,I->K,j->j",
+            "*->*,K->I",
+            "*->*,K->I,S->S",
+            "*->*,K->I,S->S,j->j",
+            "*->*,K->I,j->j",
+            "*->*,K->K",
+            "*->*,K->K,S->S"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": [
+            "*->*,I->I",
+            "*->*,I->K"
+          ],
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "j",
+            "S",
+            "K",
+            "I",
+            "*"
+          ],
+          "universe_size": 5,
+          "visible_renames": 56
+        },
+        {
+          "acting_level": "combinator",
+          "admissible_renames": 32,
+          "cross_level": false,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "16/32",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 16,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "I->I",
+            "I->I,K->K",
+            "I->I,K->K,S->S",
+            "I->I,K->K,S->S,j->j",
+            "I->I,K->K,j->j",
+            "I->I,S->S",
+            "I->I,S->S,j->j",
+            "I->I,j->j",
+            "K->K",
+            "K->K,S->S",
+            "K->K,S->S,j->j",
+            "K->K,j->j",
+            "S->S",
+            "S->S,j->j",
+            "j->j"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "frozen-rule-counts",
+          "universe": [
+            "j",
+            "S",
+            "K",
+            "I"
+          ],
+          "universe_size": 4,
+          "visible_renames": 16
+        }
+      ],
+      "level": {
+        "acting": "combinator",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [
+            "S",
+            "K",
+            "I"
+          ],
+          "identity_action": null,
+          "primitive": [
+            "j"
+          ]
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "combinator-rename-measured-by-the-frozen-counts",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_declared": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source over the combinator alphabet; its digest pins these bytes, it is not an external record",
+        "shape": "(j S)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "i": "j",
+          "j": "ι",
+          "ι": "i"
+        },
+        "renamed_shape": "((j ι) i)",
+        "renamed_token_count": 5,
+        "rendered": "i->j,j->ι,ι->i",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 32,
+          "cross_level": false,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "16/32",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 16,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "*->*,i->i,j->j",
+            "*->*,i->i,j->j,ι->ι",
+            "*->*,i->i,ι->ι",
+            "*->*,j->j",
+            "*->*,j->j,ι->ι",
+            "*->*,ι->ι",
+            "i->i",
+            "i->i,j->j",
+            "i->i,j->j,ι->ι",
+            "i->i,ι->ι",
+            "j->j",
+            "j->j,ι->ι",
+            "ι->ι"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "j",
+            "ι",
+            "*"
+          ],
+          "universe_size": 4,
+          "visible_renames": 16
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "three-cycle-over-the-atom-alphabet",
+      "outcome": "Accepted",
+      "source": {
+        "digest_actual": "5f2c712fb9e3fffd19d8d22650ce0f5b136a932ffd78bde32d182f4c4cb91e4e",
+        "digest_declared": "5f2c712fb9e3fffd19d8d22650ce0f5b136a932ffd78bde32d182f4c4cb91e4e",
+        "digest_verified": true,
+        "leaves": 3,
+        "nodes": 5,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source; every target is itself in the domain, so the cycle is well defined only if substitution is simultaneous",
+        "shape": "((i j) ι)",
+        "tokens": 5
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "*": "·"
+        },
+        "renamed_shape": "(i i)",
+        "renamed_token_count": 3,
+        "rendered": "*->·",
+        "signature_legal": false,
+        "signature_violations": [
+          "FixedOperatorMoved { token: '*', target: '·' }"
+        ],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 8,
+          "cross_level": false,
+          "inverse_monoid_order": 34,
+          "kernel_fraction_of_admissible": "8/8",
+          "kernel_is_abelian": true,
+          "kernel_is_total": true,
+          "kernel_moving_nothing": 8,
+          "kernel_order": 8,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "*->*,i->i,·->·",
+            "*->*,·->·",
+            "i->i",
+            "i->i,·->·",
+            "·->·"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "*",
+            "·"
+          ],
+          "universe_size": 3,
+          "visible_renames": 0
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "fixed-operator-moved",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_declared": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record",
+        "shape": "(i i)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": {
+        "degree": 4,
+        "element_order_profile": {
+          "1": 1,
+          "2": 5,
+          "4": 2
+        },
+        "relation_set": "tietze"
+      },
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "i": "ι"
+        },
+        "renamed_shape": "(((ι (ι (ι (ι ι)))) (ι ι)) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι))))))))))) (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ι)) (ι ι))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι)))))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι))))))))",
+        "renamed_token_count": 824,
+        "rendered": "i->ι",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 642,
+          "cross_level": false,
+          "inverse_monoid_order": 13327,
+          "kernel_fraction_of_admissible": "428/642",
+          "kernel_is_abelian": false,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 64,
+          "kernel_order": 428,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "*->*,i->i,j->j",
+            "*->*,i->i,j->j,k->k",
+            "*->*,i->i,j->j,k->k,s->s",
+            "*->*,i->i,j->j,k->k,s->s,ι->ι",
+            "*->*,i->i,j->j,k->k,s->ι",
+            "*->*,i->i,j->j,k->k,ι->ι",
+            "*->*,i->i,j->j,k->s",
+            "*->*,i->i,j->j,k->s,s->k",
+            "*->*,i->i,j->j,k->s,s->k,ι->ι",
+            "*->*,i->i,j->j,k->s,s->ι",
+            "*->*,i->i,j->j,k->s,ι->ι",
+            "*->*,i->i,j->j,k->ι",
+            "*->*,i->i,j->j,k->ι,s->k",
+            "*->*,i->i,j->j,k->ι,s->s",
+            "*->*,i->i,j->j,s->k",
+            "*->*,i->i,j->j,s->k,ι->ι",
+            "*->*,i->i,j->j,s->s",
+            "*->*,i->i,j->j,s->s,ι->ι",
+            "*->*,i->i,j->j,s->ι",
+            "*->*,i->i,j->j,ι->ι",
+            "*->*,i->i,j->k"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": [
+            "*->*,i->i,j->j",
+            "*->*,i->i,j->k"
+          ],
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "ι",
+            "*",
+            "j",
+            "k",
+            "s"
+          ],
+          "universe_size": 6,
+          "visible_renames": 214
+        },
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 65,
+          "cross_level": true,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "65/65",
+          "kernel_is_abelian": false,
+          "kernel_is_total": true,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 65,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "C->C",
+            "C->C,I->I",
+            "C->C,I->I,J->J",
+            "C->C,I->I,J->J,N->N",
+            "C->C,I->I,J->N,N->J",
+            "C->C,I->I,N->N",
+            "C->C,I->J,J->I",
+            "C->C,I->J,J->I,N->N",
+            "C->C,I->J,J->N,N->I",
+            "C->C,I->N,J->I,N->J",
+            "C->C,I->N,J->J,N->I",
+            "C->C,I->N,N->I",
+            "C->C,J->J",
+            "C->C,J->J,N->N",
+            "C->C,J->N,N->J",
+            "C->C,N->N",
+            "C->I,I->C",
+            "C->I,I->C,J->J",
+            "C->I,I->C,J->J,N->N",
+            "C->I,I->C,J->N,N->J",
+            "C->I,I->C,N->N",
+            "C->I,I->J,J->C",
+            "C->I,I->J,J->C,N->N"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": [
+            "C->C",
+            "C->I,I->C"
+          ],
+          "relation_set": "tietze",
+          "universe": [
+            "C",
+            "J",
+            "N",
+            "I"
+          ],
+          "universe_size": 4,
+          "visible_renames": 0
+        },
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 65,
+          "cross_level": true,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "16/65",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 16,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "C->C",
+            "C->C,I->I",
+            "C->C,I->I,J->J",
+            "C->C,I->I,J->J,N->N",
+            "C->C,I->I,N->N",
+            "C->C,J->J",
+            "C->C,J->J,N->N",
+            "C->C,N->N",
+            "I->I",
+            "I->I,J->J",
+            "I->I,J->J,N->N",
+            "I->I,N->N",
+            "J->J",
+            "J->J,N->N",
+            "N->N"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "words-relabelled",
+          "universe": [
+            "C",
+            "J",
+            "N",
+            "I"
+          ],
+          "universe_size": 4,
+          "visible_renames": 49
+        },
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 65,
+          "cross_level": true,
+          "inverse_monoid_order": 209,
+          "kernel_fraction_of_admissible": "16/65",
+          "kernel_is_abelian": true,
+          "kernel_is_total": false,
+          "kernel_moving_nothing": 16,
+          "kernel_order": 16,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "C->C",
+            "C->C,I->I",
+            "C->C,I->I,J->J",
+            "C->C,I->I,J->J,N->N",
+            "C->C,I->I,N->N",
+            "C->C,J->J",
+            "C->C,J->J,N->N",
+            "C->C,N->N",
+            "I->I",
+            "I->I,J->J",
+            "I->I,J->J,N->N",
+            "I->I,N->N",
+            "J->J",
+            "J->J,N->N",
+            "N->N"
+          ],
+          "measuring_level": "combinator",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "denotation-moved",
+          "universe": [
+            "C",
+            "J",
+            "N",
+            "I"
+          ],
+          "universe_size": 4,
+          "visible_renames": 49
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "murphy-iota-renaming-2026-09-20",
+      "outcome": "Accepted",
+      "source": {
+        "digest_actual": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+        "digest_declared": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+        "digest_verified": true,
+        "leaves": 412,
+        "nodes": 823,
+        "origin": "../../knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+        "parses": true,
+        "path": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+        "provenance": "mountain/adva murphy-iota-v0/renaming.json records this digest for the admitted program P; the received copy under knowledge/ is byte-identical",
+        "shape": "(((i (i (i (i i)))) (i i)) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))))) ((i (i (i i))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i))))))))))) (i i))))) (((i (i (i (i i)))) ((i (i (i i))) i)) (i i))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i)))))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i))))))))",
+        "tokens": 824
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [
+          {
+            "from": "*",
+            "to": "i"
+          }
+        ],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": false,
+        "pairs": {
+          "*": "i"
+        },
+        "renamed_shape": null,
+        "renamed_token_count": 3,
+        "rendered": "*->i",
+        "signature_legal": false,
+        "signature_violations": [
+          "KindChanged { token: '*', from: \"operator/2\", to: \"atom\" }",
+          "FixedOperatorMoved { token: '*', target: 'i' }"
+        ],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 4,
+          "cross_level": false,
+          "inverse_monoid_order": 7,
+          "kernel_fraction_of_admissible": "4/4",
+          "kernel_is_abelian": true,
+          "kernel_is_total": true,
+          "kernel_moving_nothing": 4,
+          "kernel_order": 4,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "i->i"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "*"
+          ],
+          "universe_size": 2,
+          "visible_renames": 0
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "operator-token-renamed",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_declared": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record",
+        "shape": "(i i)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "i": "ι"
+        },
+        "renamed_shape": "(((ι (ι (ι (ι ι)))) (ι ι)) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))))) ((ι (ι (ι ι))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι))))))))))) (ι ι))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) ι)) (ι ι))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι)))))))))) (((ι (ι (ι (ι ι)))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι (ι ι)))))) (((ι (ι (ι (ι ι)))) ((ι (ι (ι ι))) (ι (ι (ι ι))))) (ι ι)))) ((ι (ι (ι ι))) (ι ι))))))))",
+        "renamed_token_count": 824,
+        "rendered": "i->ι",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": true
+      },
+      "kernel_witnesses": [],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "universe-beyond-the-declared-bound",
+      "outcome": "Unknown",
+      "source": {
+        "digest_actual": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+        "digest_declared": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+        "digest_verified": true,
+        "leaves": 412,
+        "nodes": 823,
+        "origin": "../../knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+        "parses": true,
+        "path": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+        "provenance": "mountain/adva murphy-iota-v0/renaming.json records this digest for the admitted program P; the received copy under knowledge/ is byte-identical",
+        "shape": "(((i (i (i (i i)))) (i i)) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) ((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))))) ((i (i (i i))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i))))))))))) (i i))))) (((i (i (i (i i)))) ((i (i (i i))) i)) (i i))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i)))))))))) (((i (i (i (i i)))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i (i i)))))) (((i (i (i (i i)))) ((i (i (i i))) (i (i (i i))))) (i i)))) ((i (i (i i))) (i i))))))))",
+        "tokens": 824
+      },
+      "unknown_reasons": [
+        "relation set \"spelling-fixed\": universe of 7 names exceeds the declared bound 6"
+      ]
+    },
+    {
+      "algebra_profile": null,
+      "declared_rename": {
+        "collisions": [],
+        "fixed_operators": [
+          "*"
+        ],
+        "image_of_the_source_holds": true,
+        "pairs": {
+          "i": "i"
+        },
+        "renamed_shape": "(i i)",
+        "renamed_token_count": 3,
+        "rendered": "i->i",
+        "signature_legal": true,
+        "signature_violations": [],
+        "spelling_changed": false
+      },
+      "kernel_witnesses": [
+        {
+          "acting_level": "carrier",
+          "admissible_renames": 4,
+          "cross_level": false,
+          "inverse_monoid_order": 7,
+          "kernel_fraction_of_admissible": "4/4",
+          "kernel_is_abelian": true,
+          "kernel_is_total": true,
+          "kernel_moving_nothing": 4,
+          "kernel_order": 4,
+          "kernel_restricted_to_renames_touching_the_source": [],
+          "kernel_sample": [
+            "<empty>",
+            "*->*",
+            "*->*,i->i",
+            "i->i"
+          ],
+          "measuring_level": "carrier",
+          "non_abelian_kernel_witness": null,
+          "relation_set": "spelling-fixed",
+          "universe": [
+            "i",
+            "*"
+          ],
+          "universe_size": 2,
+          "visible_renames": 0
+        }
+      ],
+      "level": {
+        "acting": "carrier",
+        "declared_structure": {
+          "changes_which_action_is_trivial": false,
+          "derived": [],
+          "identity_action": null,
+          "primitive": []
+        },
+        "level_legal": true,
+        "level_violations": []
+      },
+      "name": "declared-no-op",
+      "outcome": "Refused",
+      "source": {
+        "digest_actual": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_declared": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+        "digest_verified": true,
+        "leaves": 2,
+        "nodes": 3,
+        "origin": "embedded",
+        "parses": true,
+        "path": null,
+        "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record",
+        "shape": "(i i)",
+        "tokens": 3
+      },
+      "unknown_reasons": []
+    }
+  ],
+  "level": "Research-local executable contract over declared finite alphabets and one declared finite algebra. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added; native admission is NotGranted.",
+  "outcome": "RenameDeclarationsChecked",
+  "profile": "rename-declaration-v0",
+  "question": "Can a rename be declared so that its fixed signature and its level are checked rather than asserted in prose, and so that the renames its recorded relation set cannot tell apart are published rather than left implicit?",
+  "residual": "This is a research-local contract, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. It does not re-derive the murphy counted witnesses, digests or traces; reproducing those needs the machine substrate and is out of scope, so the relation sets declared here are the coordinate laws and the source spelling, not the full frozen evidence. The kernel witnesses are statements about the declared finite universes and the declared relation sets only, and they say nothing about any relation set not declared. The algebra is one declared realization; that the iota terms realize these laws was checked elsewhere and is not re-checked here. The level check enforces one distinguishing structure per level and does not derive the level of an arbitrary name, nor decide whether a cross-level measurement is legitimate -- it reports that one occurred. These checks are executed from the crate directory and are not run by the repository CI, which does not build a separate workspace root. The exact kernel orders are reported rather than pinned as controls: the controls assert invariants that hold by construction, so a failing control means the checker is wrong rather than that a prediction was optimistic. Nothing here shows that the murphy naming is the intended spelling of any other consumer.",
+  "schema": "adva.rename-declaration.result.v0"
+}

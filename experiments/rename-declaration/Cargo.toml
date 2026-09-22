@@ -1,0 +1,26 @@
+[package]
+name = "adva-rename-declaration"
+description = "Research-local checker for rename declarations: a checked fixed signature and a published kernel witness"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+authors = ["Adva contributors"]
+license-file = "../../LICENSE"
+repository = "https://github.com/mountain/adva-machine"
+publish = false
+
+# Deliberately its own workspace root, like experiments/iota-substrate: this
+# crate must not be able to move the machine's pinned Cargo.lock, and it is not
+# a member of the root workspace, so `cargo clippy --workspace` does not reach
+# it.
+[workspace]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }

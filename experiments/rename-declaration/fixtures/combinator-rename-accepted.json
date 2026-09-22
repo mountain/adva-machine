@@ -1,0 +1,56 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "combinator-rename-within-the-derived-names",
+  "level": {
+    "acting": "combinator",
+    "primitive": [
+      "j"
+    ],
+    "derived": [
+      "S",
+      "K",
+      "I"
+    ]
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "j",
+      "S",
+      "K",
+      "I"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "S": "K",
+      "K": "I",
+      "I": "S"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "text": "*jS",
+    "sha256": "1a50a7e201c95736122363a8d26f50a45e9a48132e2adb91c69eb2cde2a5b631",
+    "provenance": "a short hand-written fixture source over the combinator alphabet; its digest pins these bytes, it is not an external record"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "j",
+        "S",
+        "K",
+        "I",
+        "*"
+      ],
+      "bound": 5,
+      "level": "combinator"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 # Rust
 /target/
 /experiments/iota-substrate/target/
+/experiments/rename-declaration/target/
 **/*.rs.bk
 
 # Python

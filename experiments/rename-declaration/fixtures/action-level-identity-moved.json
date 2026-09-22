@@ -1,0 +1,45 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "identity-action-moved-without-declaring-it",
+  "level": {
+    "acting": "action",
+    "identity_action": "e"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "e",
+      "m",
+      "n"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "e": "n"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "text": "*em",
+    "sha256": "ffc1b29a0e1510f86398fca5a403ced78f05561b7fa71b8fd494da8618e0466e",
+    "provenance": "action names are written as single characters because the declared signature is a character signature; e is the action that does nothing"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "e",
+        "m",
+        "n",
+        "*"
+      ],
+      "bound": 4,
+      "level": "action"
+    }
+  ]
+}

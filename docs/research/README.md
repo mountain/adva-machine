@@ -1,6 +1,6 @@
 # Research notes, calibrations and the bounded record
 
-This directory holds the research record of the repository: **222 numbered
+This directory holds the research record of the repository: **223 numbered
 notes, 41 named notes and 25 supporting directories**. Nothing here is a stable
 API, a native admission, a Seal, or a proof beyond the finite scope each note
 declares for itself.
@@ -743,6 +743,7 @@ Every file in this directory, so that no note is reachable only through a summar
 - [`0211-an-acceptance-record-names-its-host.md`](0211-an-acceptance-record-names-its-host.md) — every acceptance report now carries a `host` block (platform, machine, release, interpreter), `toolchain/evidence/local-07` is the fresh acceptance, and a new check makes a record produced on one host fail when read as another's.
 - [`0212-the-same-tree-accepted-on-a-linux-host.md`](0212-the-same-tree-accepted-on-a-linux-host.md) — the same tree runs on a Lima Debian 13 host: `conform` 16 of 16 with the address-space limit *installed* (`local-08`), and the whole python suite reports 2,895 passed and 0 failed against 2,886/12 on macOS.
 - [`0213-honest-capability-probes-and-host-named-skips.md`](0213-honest-capability-probes-and-host-named-skips.md) — three launchers now probe whether the Linux-only address-space limit can be *installed* and refuse by name where it cannot, five checks that need it are skipped on macOS with a named reason and run on the Linux guest, and a corrected pascal launcher is retained as a superseding execution record rather than by editing the earlier one.
+- [`0214-a-rename-declaration-with-a-checked-signature-and-a-published-kernel.md`](0214-a-rename-declaration-with-a-checked-signature-and-a-published-kernel.md) — a rename is now declared with a checked signature, a checked level and a verified source digest, and every relation set publishes the renames it cannot tell apart; against the murphy coordinate laws, the reading under which a rename is presentation-only has a kernel that is the whole admissible set and is non-abelian, which is the measured reason that control cannot license a rename on its own.
 
 ### Named notes
 

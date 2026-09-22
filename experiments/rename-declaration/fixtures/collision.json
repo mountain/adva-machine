@@ -1,0 +1,42 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "collision-with-an-incumbent-token",
+  "level": {
+    "acting": "carrier"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "i",
+      "j"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "i": "j"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "text": "*ij",
+    "sha256": "0d457fa2769a7f2481d15479f8881988b51e73b80e8ee0486989ad69a56ffb49",
+    "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "i",
+        "j",
+        "*"
+      ],
+      "bound": 4,
+      "level": "carrier"
+    }
+  ]
+}

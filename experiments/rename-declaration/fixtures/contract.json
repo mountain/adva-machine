@@ -1,0 +1,197 @@
+{
+  "schema": "adva.rename-declaration.contract.v0",
+  "profile": "rename-declaration-v0",
+  "question": "Can a rename be declared so that its fixed signature and its level are checked rather than asserted in prose, and so that the renames its recorded relation set cannot tell apart are published rather than left implicit?",
+  "level": "Research-local executable contract over declared finite alphabets and one declared finite algebra. No ValueType, OperationSpec, registry entry, IR version, Seal or stable semantic type is added; native admission is NotGranted.",
+  "assumptions": [
+    "The murphy source is read by path from the received materials under knowledge/ and its SHA-256 is verified against the digest the admitted unit's renaming.json records; the fixture does not embed a copy of it.",
+    "The declared algebra is the full closure of the two coordinate generators on four slots, so its element-order profile is a group invariant and identifies D8. That the seven iota terms realize these laws was checked elsewhere (run-04-murphy-renamed) and is not re-checked here.",
+    "A signature may know both spellings, because a renamed source cannot be parsed by a signature that knows only the old one.",
+    "Renames are partial bijections of a declared name universe, so the enumerated set is the symmetric inverse monoid I_X, not Sym(X).",
+    "The collision rule is relative to each relation set's own occupied tokens: re-spelling a source collides with the source, re-spelling an equation collides with the letters the equation uses, re-spelling a label collides with the labels. Tietze's generator replacement is legal only for a fresh symbol, and that freshness is exactly this set.",
+    "Each level is distinguished by one structure: the signature at the carrier level, the primitive/derived partition at the combinator level, and the single action that does nothing at the action level.",
+    "'Apply the declared renames in order' is NOT assumed to be the inverse monoid product; the two differ, and the difference is asserted in a unit test rather than papered over."
+  ],
+  "limits": {
+    "max_universe_size": 6,
+    "max_monoid_order_enumerated": 13327,
+    "parse_depth": 512
+  },
+  "controls": [
+    {
+      "id": "the-source-is-the-bytes-the-declaration-names",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "expect": {
+        "digest_verified": true
+      }
+    },
+    {
+      "id": "published-rename-is-accepted",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "expect": {
+        "outcome": "Accepted"
+      }
+    },
+    {
+      "id": "the-declared-algebra-is-d8",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "expect": {
+        "algebra_order_profile": {
+          "1": 1,
+          "2": 5,
+          "4": 2
+        }
+      }
+    },
+    {
+      "id": "operator-renaming-is-refused-on-arity",
+      "declaration": "operator-token-renamed",
+      "expect": {
+        "outcome": "Refused",
+        "violation_contains": "KindChanged"
+      }
+    },
+    {
+      "id": "a-declaration-contradicting-its-own-fixed-set-is-refused",
+      "declaration": "fixed-operator-moved",
+      "expect": {
+        "outcome": "Refused",
+        "violation_contains": "FixedOperatorMoved"
+      }
+    },
+    {
+      "id": "a-collision-with-an-incumbent-token-is-refused",
+      "declaration": "collision-with-an-incumbent-token",
+      "expect": {
+        "outcome": "Refused",
+        "collisions_nonempty": true
+      }
+    },
+    {
+      "id": "a-vacuous-rename-is-refused",
+      "declaration": "declared-no-op",
+      "expect": {
+        "outcome": "Refused"
+      }
+    },
+    {
+      "id": "a-three-cycle-is-expressible-and-accepted",
+      "declaration": "three-cycle-over-the-atom-alphabet",
+      "expect": {
+        "outcome": "Accepted"
+      }
+    },
+    {
+      "id": "an-over-large-universe-is-unknown-not-truncated",
+      "declaration": "universe-beyond-the-declared-bound",
+      "expect": {
+        "outcome": "Unknown"
+      }
+    },
+    {
+      "id": "the-tietze-reading-certifies-nothing",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "tietze",
+      "expect": {
+        "kernel_plus_visible_equals_admissible": true,
+        "every_rename_that_moves_nothing_is_in_the_kernel": true,
+        "kernel_is_total": true,
+        "kernel_equals_admissible": true,
+        "has_non_abelian_witness": true
+      }
+    },
+    {
+      "id": "re-spelling-without-moving-the-meaning-is-not-vacuous",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "words-relabelled",
+      "expect": {
+        "kernel_plus_visible_equals_admissible": true,
+        "every_rename_that_moves_nothing_is_in_the_kernel": true,
+        "kernel_strictly_inside_admissible": true
+      }
+    },
+    {
+      "id": "moving-the-role-without-the-spelling-is-not-vacuous",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "denotation-moved",
+      "expect": {
+        "kernel_plus_visible_equals_admissible": true,
+        "every_rename_that_moves_nothing_is_in_the_kernel": true,
+        "kernel_strictly_inside_admissible": true
+      }
+    },
+    {
+      "id": "no-kernel-member-touches-the-source-under-spelling-fixed",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "spelling-fixed",
+      "expect": {
+        "kernel_plus_visible_equals_admissible": true,
+        "every_rename_that_moves_nothing_is_in_the_kernel": true,
+        "kernel_touching_the_source_len": 0
+      }
+    },
+    {
+      "id": "a-combinator-rename-within-the-derived-names-is-accepted",
+      "declaration": "combinator-rename-within-the-derived-names",
+      "expect": {
+        "outcome": "Accepted"
+      }
+    },
+    {
+      "id": "frozen-counts-see-a-derived-name-rename",
+      "declaration": "combinator-rename-measured-by-the-frozen-counts",
+      "expect": {
+        "outcome": "Refused"
+      }
+    },
+    {
+      "id": "moving-the-primitive-onto-a-derived-name-is-refused",
+      "declaration": "primitive-moved-onto-a-derived-name",
+      "expect": {
+        "outcome": "Refused",
+        "violation_contains": "PartitionNotPreserved"
+      }
+    },
+    {
+      "id": "moving-the-identity-action-is-refused",
+      "declaration": "identity-action-moved-without-declaring-it",
+      "expect": {
+        "outcome": "Refused",
+        "violation_contains": "IdentityActionMoved"
+      }
+    },
+    {
+      "id": "the-murphy-laws-are-a-cross-level-measurement",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "tietze",
+      "expect": {
+        "cross_level_is": true,
+        "measuring_level_is": "combinator"
+      }
+    },
+    {
+      "id": "the-murphy-spelling-relation-measures-at-the-acting-level",
+      "declaration": "murphy-iota-renaming-2026-09-20",
+      "relation_set": "spelling-fixed",
+      "expect": {
+        "cross_level_is": false,
+        "measuring_level_is": "carrier"
+      }
+    }
+  ],
+  "acceptance": "Every declaration must reach its declared outcome, every declared control must behave as declared, and every source digest must verify before any relation is evaluated. The kernel witnesses must be present for every relation set whose universe is within the declared bound, and a universe beyond the bound must produce Unknown with a stated reason rather than a truncated count. The invariants kernel + visible = admissible, and every rename that moves nothing is in the kernel, must hold for every relation set. A control that does not hold fails the run and is retained in the result.",
+  "residual": "This is a research-local contract, not a native Adva operation: no ValueType, OperationSpec, registry entry, IR version or Seal is created, and native admission is NotGranted. It does not re-derive the murphy counted witnesses, digests or traces; reproducing those needs the machine substrate and is out of scope, so the relation sets declared here are the coordinate laws and the source spelling, not the full frozen evidence. The kernel witnesses are statements about the declared finite universes and the declared relation sets only, and they say nothing about any relation set not declared. The algebra is one declared realization; that the iota terms realize these laws was checked elsewhere and is not re-checked here. The level check enforces one distinguishing structure per level and does not derive the level of an arbitrary name, nor decide whether a cross-level measurement is legitimate -- it reports that one occurred. These checks are executed from the crate directory and are not run by the repository CI, which does not build a separate workspace root. The exact kernel orders are reported rather than pinned as controls: the controls assert invariants that hold by construction, so a failing control means the checker is wrong rather than that a prediction was optimistic. Nothing here shows that the murphy naming is the intended spelling of any other consumer.",
+  "declarations": [
+    "action-level-identity-moved.json",
+    "collision.json",
+    "combinator-level-violation.json",
+    "combinator-rename-accepted.json",
+    "combinator-rename-seen-by-counts.json",
+    "cyclic-rename.json",
+    "fixed-operator-moved.json",
+    "murphy-iota-valid.json",
+    "operator-renamed.json",
+    "oversized-universe.json",
+    "vacuous.json"
+  ]
+}
