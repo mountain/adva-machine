@@ -1,0 +1,49 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "universe-beyond-the-declared-bound",
+  "level": {
+    "acting": "carrier"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "i",
+      "ι"
+    ],
+    "ignored": [
+      "\n"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "i": "ι"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "path": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+    "sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+    "provenance": "mountain/adva murphy-iota-v0/renaming.json records this digest for the admitted program P; the received copy under knowledge/ is byte-identical"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "i",
+        "ι",
+        "*",
+        "j",
+        "k",
+        "s",
+        "l"
+      ],
+      "bound": 6,
+      "level": "carrier"
+    }
+  ]
+}

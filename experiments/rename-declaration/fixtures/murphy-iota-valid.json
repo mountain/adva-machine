@@ -1,0 +1,330 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "murphy-iota-renaming-2026-09-20",
+  "level": {
+    "acting": "carrier"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "i",
+      "ι"
+    ],
+    "ignored": [
+      "\n"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "i": "ι"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "path": "knowledge/received/murphy-iota-machine-2026-09-20-v1/materials/murphy.iota",
+    "sha256": "da47f5cf6cdfb49a29e20c688dcb7ef569e758782b2722a71a5c354761f0d1bf",
+    "provenance": "mountain/adva murphy-iota-v0/renaming.json records this digest for the admitted program P; the received copy under knowledge/ is byte-identical"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "i",
+        "ι",
+        "*",
+        "j",
+        "k",
+        "s"
+      ],
+      "bound": 6,
+      "level": "carrier"
+    },
+    {
+      "kind": "word_equations",
+      "id": "tietze",
+      "universe": [
+        "C",
+        "J",
+        "N",
+        "I"
+      ],
+      "bound": 4,
+      "level": "combinator",
+      "reading": "tietze",
+      "algebra": {
+        "degree": 4,
+        "elements": {
+          "C": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "CJ": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "CJ2": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "CJ3": [
+            1,
+            0,
+            3,
+            2
+          ],
+          "I": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "J": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "J3": [
+            3,
+            0,
+            1,
+            2
+          ],
+          "N": [
+            2,
+            3,
+            0,
+            1
+          ]
+        }
+      },
+      "denotation": {
+        "C": "C",
+        "J": "J",
+        "N": "N",
+        "I": "I"
+      },
+      "equations": [
+        [
+          "CC",
+          "I"
+        ],
+        [
+          "JJ",
+          "N"
+        ],
+        [
+          "JJJJ",
+          "I"
+        ],
+        [
+          "CJC",
+          "NJ"
+        ],
+        [
+          "NN",
+          "I"
+        ]
+      ]
+    },
+    {
+      "kind": "word_equations",
+      "id": "words-relabelled",
+      "universe": [
+        "C",
+        "J",
+        "N",
+        "I"
+      ],
+      "bound": 4,
+      "level": "combinator",
+      "reading": "words_relabelled",
+      "algebra": {
+        "degree": 4,
+        "elements": {
+          "C": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "CJ": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "CJ2": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "CJ3": [
+            1,
+            0,
+            3,
+            2
+          ],
+          "I": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "J": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "J3": [
+            3,
+            0,
+            1,
+            2
+          ],
+          "N": [
+            2,
+            3,
+            0,
+            1
+          ]
+        }
+      },
+      "denotation": {
+        "C": "C",
+        "J": "J",
+        "N": "N",
+        "I": "I"
+      },
+      "equations": [
+        [
+          "CC",
+          "I"
+        ],
+        [
+          "JJ",
+          "N"
+        ],
+        [
+          "JJJJ",
+          "I"
+        ],
+        [
+          "CJC",
+          "NJ"
+        ],
+        [
+          "NN",
+          "I"
+        ]
+      ]
+    },
+    {
+      "kind": "word_equations",
+      "id": "denotation-moved",
+      "universe": [
+        "C",
+        "J",
+        "N",
+        "I"
+      ],
+      "bound": 4,
+      "level": "combinator",
+      "reading": "denotation_moved",
+      "algebra": {
+        "degree": 4,
+        "elements": {
+          "C": [
+            0,
+            3,
+            2,
+            1
+          ],
+          "CJ": [
+            3,
+            2,
+            1,
+            0
+          ],
+          "CJ2": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "CJ3": [
+            1,
+            0,
+            3,
+            2
+          ],
+          "I": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "J": [
+            1,
+            2,
+            3,
+            0
+          ],
+          "J3": [
+            3,
+            0,
+            1,
+            2
+          ],
+          "N": [
+            2,
+            3,
+            0,
+            1
+          ]
+        }
+      },
+      "denotation": {
+        "C": "C",
+        "J": "J",
+        "N": "N",
+        "I": "I"
+      },
+      "equations": [
+        [
+          "CC",
+          "I"
+        ],
+        [
+          "JJ",
+          "N"
+        ],
+        [
+          "JJJJ",
+          "I"
+        ],
+        [
+          "CJC",
+          "NJ"
+        ],
+        [
+          "NN",
+          "I"
+        ]
+      ]
+    }
+  ]
+}

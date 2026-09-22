@@ -1,0 +1,41 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "operator-token-renamed",
+  "level": {
+    "acting": "carrier"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "i",
+      "ι"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "*": "i"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "text": "*ii",
+    "sha256": "e7759c77cc038f75e110c9bdec712d0d397cd2aaae1f1bd18014abed9fdede21",
+    "provenance": "a short hand-written fixture source; its digest pins these bytes, it is not an external record"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "i",
+        "*"
+      ],
+      "bound": 4,
+      "level": "carrier"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "adva.rename-declaration.v0",
+  "name": "three-cycle-over-the-atom-alphabet",
+  "level": {
+    "acting": "carrier"
+  },
+  "signature": {
+    "operators": {
+      "*": 2
+    },
+    "atoms": [
+      "i",
+      "j",
+      "ι"
+    ]
+  },
+  "rename": {
+    "pairs": {
+      "i": "j",
+      "j": "ι",
+      "ι": "i"
+    },
+    "fixed_operators": [
+      "*"
+    ]
+  },
+  "source": {
+    "text": "**ijι",
+    "sha256": "5f2c712fb9e3fffd19d8d22650ce0f5b136a932ffd78bde32d182f4c4cb91e4e",
+    "provenance": "a short hand-written fixture source; every target is itself in the domain, so the cycle is well defined only if substitution is simultaneous"
+  },
+  "relation_sets": [
+    {
+      "kind": "spelling_fixed",
+      "id": "spelling-fixed",
+      "universe": [
+        "i",
+        "j",
+        "ι",
+        "*"
+      ],
+      "bound": 4,
+      "level": "carrier"
+    }
+  ]
+}
