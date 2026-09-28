@@ -14,6 +14,17 @@ The common toolchain request/report boundary is described in
 [`../toolchain/README.md`](../toolchain/README.md). Its wrapper schema is neither
 a replacement for `adva.ir` version 1 nor a new stable Adva language.
 
+## Kernel and package boundary
+
+[Kernel and package boundary contract v0.1](framework/kernel-package-boundary-v0.1.md)
+governs future kernel/profile, learning-method and package-interface design.
+It keeps additive formation, multiplicative transport, concrete guards,
+conditional imports, finite checking and repository-qualified references
+explicit. The [Chinese companion](framework/kernel-package-boundary-v0.1.zh-CN.md)
+explains the same boundary. This is a design/review contract, not an installed
+general package loader or cut-certificate checker; executable locks and the
+existing specification catalog keep their versions.
+
 ## Formal framework vocabulary
 
 [Transport and communication v2](framework/transport-communication-v2.md) is

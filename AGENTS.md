@@ -41,6 +41,18 @@ Preserve frozen paths/profiles and evidence. Knowledge consumers pin machine
 and library versions; a new machine commit does not silently upgrade those
 consumers or rewrite their old evidence. No library split is implied.
 
+## Kernel and package boundary, 2026-09-28
+
+Before designing or changing a kernel/profile, learning method, package
+interface, verification cut, or cross-repository knowledge reference, read
+[the kernel and package boundary contract v0.1](spec/framework/kernel-package-boundary-v0.1.md).
+Preserve its scoped A/M judgments, guards, explicit premises, finite budgets
+and versioned receiving rules. Cross-repository research references require
+the repository and full path; evidence references also fix a commit. A local
+research number is not a global identifier. This contract governs new work;
+it installs no loader or proof-compression mechanism and does not change
+existing semantic profiles, dependency locks or frozen evidence.
+
 ## Formal transport/communication vocabulary and content migration
 
 Mingli Yuan's subsequent clarification, 2026-09-16: current homogeneous
