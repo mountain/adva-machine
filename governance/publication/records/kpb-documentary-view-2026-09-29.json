@@ -1,0 +1,41 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "kpb-documentary-view-2026-09-29",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "docs/kpb/documentary-view-2026-09-29.json",
+      "bytes": 1510146,
+      "sha256": "227da984feb7e71d0086ce528c7a6eb60b18ae21808f50fbe263a28da6331de7"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-machine",
+    "source_version": "KPB-14 documentary pilot; exact three commits in snapshot",
+    "creator_or_rights_holder": "ChatGPT (OpenAI), original implementation and documentary projection contributed under Unknown v0.3 through Mingli Yuan account proxy",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-machine/blob/acfc9806fe18a36d0f7194dcc196a380b2834adf/LICENSING.md"
+    ],
+    "rights_holder_authority_evidence": "Project-owned registry metadata and original documentary mappings; no external payload or third-party implementation incorporated",
+    "jurisdictions_and_limitations": "Project-original contribution under Unknown v0.3; legacy payload rights not certified",
+    "incorporated_components": [
+      "Project-owned claims registry declarations; exact source coordinates in snapshot",
+      "Project-owned OperationSpec declarations and catalog policies",
+      "Project-owned machine catalog/framework vocabulary metadata",
+      "Project-owned library manifest/index metadata; material bodies excluded"
+    ],
+    "transformations": [
+      "Read immutable git objects; project metadata fields without source payload execution",
+      "Generate source digests, documentary coordinates, declared dependency graph and advisory interface-shape groups"
+    ]
+  },
+  "review": {
+    "reviewer": "ChatGPT (OpenAI); self-review, not independent or Mingli review",
+    "reviewed_at": "2026-09-29",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Inspected generated publication unit: documentary registry metadata, original mappings and graph only; no material bodies, third-party source or external research inputs. Does not certify source claims or legacy publications."
+  }
+}
