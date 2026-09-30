@@ -262,3 +262,15 @@ N03–04 and N12–14 have corresponding positive, near-match, mutation and budg
 controls in `scripts/test_finite_structure_match.py`. These are projected-ledger
 checks, not native cut/guard/execution conformance. G2 coverage is finite and
 scoped, not full architecture conformance. G3–G5 remain separate gates.
+
+## Additive G3 local checked-cache pilot (2026-09-30)
+
+The [independent profile and run contract](checked-roundtrip-reuse-v0.md)
+adds a standalone Rust experiment for the existing fixed guarded roundtrip.
+It targets VERIFY-01–05, CUT-01–03 and native N11/N18/N20 with explicit
+first-check/cache-hit/fresh-use accounts. The earlier table describes its
+historical G1 snapshot; this successor does not retroactively change it.
+This route is process-local and has no imported checked-handle representation,
+new transport, general cut checker, loader or actual consumer adoption. See
+its execution record for the exact positive/negative results and remaining
+G3 obligations; full architecture adoption and G4/G5 remain separate decisions.
