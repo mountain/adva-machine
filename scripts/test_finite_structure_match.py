@@ -252,6 +252,25 @@ class MatchingControls(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'immutable'):
             read_source(ROOT,'mountain/adva-machine','HEAD',path,DIGESTS[FILES[0]],Budget())
 
+    def test_mid_package_cutoff_retains_observed_source_manifest(self):
+        r=run(ROOT,ROOT,dict(input_bytes=31000))
+        self.assertEqual(r['status'],'Unknown')
+        self.assertEqual(r['budget']['spent']['input_bytes'],29903)
+        self.assertEqual(len(r['sources']),1)
+        self.assertEqual(r['sources'][0]['source_sha256'],DIGESTS['interpretations.json'])
+        self.assertTrue(r['stopping_position'][-1].endswith('contract.json'))
+        self.assertEqual(r['graphs'],[])
+
+    def test_decode_cutoff_retains_byte_binding_without_parsed_claim(self):
+        for limit in (dict(steps=1),dict(depth=1),dict(git_calls=4)):
+            with self.subTest(limit=limit):
+                r=run(ROOT,ROOT,limit)
+                self.assertEqual(r['status'],'Unknown')
+                self.assertEqual(len(r['sources']),1)
+                self.assertEqual(r['sources'][0]['source_sha256'],DIGESTS['interpretations.json'])
+                self.assertEqual(r['sources'][0]['commit'],PIN)
+                self.assertEqual(r['graphs'],[])
+
     def test_byte_limit_before_json_decode(self):
         with patch('finite_structure_match.json.loads',side_effect=AssertionError('must not parse')):
             with self.assertRaises(Incomplete):decode(b'{}',Budget(dict(input_bytes=1)),'too-big')

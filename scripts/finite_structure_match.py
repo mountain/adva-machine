@@ -158,7 +158,7 @@ def git(root, args, budget):
         raise Incomplete('exact Git source unavailable; no fallback', args) from exc
 
 
-def read_source(root, repository, commit, path, expected, budget):
+def read_source(root, repository, commit, path, expected, budget, observed_sources=None):
     if not re.fullmatch('[0-9a-f]{40}', commit):
         raise ValueError('full immutable commit required')
     if path.startswith('/') or '..' in Path(path).parts or ':' in path:
@@ -171,9 +171,13 @@ def read_source(root, repository, commit, path, expected, budget):
     raw = git(root, ['show', commit + ':' + path], budget)
     if len(raw) != size or sha(raw) != expected:
         raise ValueError('source byte binding mismatch')
+    source = dict(repository=repository, commit=commit, path=path, source_sha256=sha(raw),
+                  bytes=size, identity_verification='NotPerformed', repository_binding='caller-declared')
+    # Byte observation is already valid even if JSON decoding later exhausts.
+    if observed_sources is not None:
+        observed_sources.append(source)
     value = decode(raw, budget, path)
-    return value, dict(repository=repository, commit=commit, path=path, source_sha256=sha(raw),
-                       bytes=size, identity_verification='NotPerformed', repository_binding='caller-declared')
+    return value, source
 
 
 # Exact public received bytes, not a latest lookup, executable source or secret input.
@@ -188,11 +192,11 @@ RECEIPT_DIGESTS = dict(machine='14d4d4d374b45dee1e00222875e52aa4fe48eb5c400aee1a
                        knowledge='171672842756cf0584091ad0f204fbf0fd560d8208ff4e4b2e617293611e7caa')
 
 
-def load_package(root, repository, commit, receiver, budget):
+def load_package(root, repository, commit, receiver, budget, observed_sources=None):
     values, sources = {}, []
     for filename in FILES:
         value, source = read_source(root, repository, commit, BASE.format(receiver) + filename,
-                                    DIGESTS[filename], budget)
+                                    DIGESTS[filename], budget, observed_sources)
         values[filename] = value
         sources.append(source)
     ledger = values['interpretations.json']
@@ -213,7 +217,7 @@ def load_package(root, repository, commit, receiver, budget):
                       dependencies=values['dependencies.json'])
     receipt_path = BASE.format(receiver).removesuffix('materials/') + 'receipt.json'
     receipt, receipt_source = read_source(root, repository, commit, receipt_path,
-                                          RECEIPT_DIGESTS[receiver], budget)
+                                          RECEIPT_DIGESTS[receiver], budget, observed_sources)
     sources.append(receipt_source)
     context = dict(source=receipt_source, original_receipt=receipt,
                    observation='Historical supplied receipt only; not a fresh receive or revalidation')
@@ -546,10 +550,8 @@ def run(machine_root, knowledge_root, limits=None):
     result = dict(schema=SCHEMA, profile=PROFILE, algorithm=ALGORITHM, status='Unknown',
                   complete=False, sources=[], graphs=[], comparisons=[], authority=AUTHORITY.copy(), residuals=RESIDUALS.copy())
     try:
-        machine = load_package(machine_root, 'mountain/adva-machine', PIN, 'machine', budget)
-        result['sources'].extend(machine['sources'])
-        knowledge = load_package(knowledge_root, 'mountain/adva', KNOWLEDGE_PIN, 'knowledge', budget)
-        result['sources'].extend(knowledge['sources'])
+        machine = load_package(machine_root, 'mountain/adva-machine', PIN, 'machine', budget, result['sources'])
+        knowledge = load_package(knowledge_root, 'mountain/adva', KNOWLEDGE_PIN, 'knowledge', budget, result['sources'])
         graphs = []
         for package in (machine, knowledge):
             current = {}

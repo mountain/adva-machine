@@ -86,3 +86,15 @@ CI are separate observations. No fresh local full Rust/Python semantic run is
 claimed here; the PR's full CI runs those unchanged native boundaries separately.
 The optional `/usr/bin/time` wrapper was absent and ran no pilot; measurements
 above used Python subprocess, monotonic time and child-resource observation.
+
+### Source-cutoff retention correction
+
+An additional pre-merge boundary check exhausted the total byte allowance after
+reading the first ledger but before finishing its package. The result correctly
+remained Unknown and retained its spending, but omitted the already observed
+ledger from the manifest. The adapter now appends successful source observations
+as soon as exact raw bytes are observed, including when JSON parsing then stops.
+The 32nd and 33rd controls check retained digest, commit, spent bytes and stopping
+position for mid-package and decoding cutoffs. A byte observation is not a claim
+that parsing, extraction or matching completed. The initial 31-control snapshot above remains historical evidence of
+its recorded code bytes; this additive correction does not rewrite that snapshot.
