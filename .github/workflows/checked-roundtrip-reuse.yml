@@ -4,9 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'crates/adva-witness/examples/checked_roundtrip_reuse.rs'
-      - 'crates/adva-witness/examples/support/checked_roundtrip.rs'
-      - 'docs/kpb/checked-roundtrip-reuse-v0.md'
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
       - 'crates/adva-witness/src/**'
       - 'crates/adva-witness/Cargo.toml'
       - 'rust-toolchain.toml'
@@ -17,9 +16,8 @@ on:
       - '.github/workflows/checked-roundtrip-reuse.yml'
   pull_request:
     paths:
-      - 'crates/adva-witness/examples/checked_roundtrip_reuse.rs'
-      - 'crates/adva-witness/examples/support/checked_roundtrip.rs'
-      - 'docs/kpb/checked-roundtrip-reuse-v0.md'
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
       - 'crates/adva-witness/src/**'
       - 'crates/adva-witness/Cargo.toml'
       - 'rust-toolchain.toml'
@@ -40,23 +38,41 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: experiments/checked_roundtrip_reuse -> target
+      - name: Check isolated package formatting, lints and dependency pins
+        run: |
+          cargo fmt --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml --check
+          timeout 180s cargo clippy --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml --all-targets -- -D warnings
+          python3 - <<'PY'
+          import tomllib
+          root = tomllib.load(open('Cargo.lock', 'rb'))['package']
+          child = tomllib.load(open('experiments/checked_roundtrip_reuse/Cargo.lock', 'rb'))['package']
+          known = {(p['name'], p['version']): p for p in root}
+          for package in child:
+              if 'source' in package:
+                  original = known[(package['name'], package['version'])]
+                  assert original['source'] == package['source']
+                  assert original['checksum'] == package['checksum']
+          print('Standalone external dependency pins match the retained root resolution')
+          PY
       - name: Run fixed-route controls and build separately
         run: |
-          timeout 180s cargo test --locked -p adva-witness --example checked_roundtrip_reuse
-          timeout 180s cargo build --locked -p adva-witness --example checked_roundtrip_reuse
+          timeout 180s cargo test --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml
+          timeout 180s cargo build --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml
       - name: Compare replay and cache under outer time and memory limits
         shell: bash
         run: |
           set -euo pipefail
           ulimit -v 524288
           for attempt in 1 2; do
-            /usr/bin/time -v timeout 60s target/debug/examples/checked_roundtrip_reuse > "$RUNNER_TEMP/checked-roundtrip-$attempt.json"
+            /usr/bin/time -v timeout 60s experiments/checked_roundtrip_reuse/target/debug/adva-checked-roundtrip-reuse > "$RUNNER_TEMP/checked-roundtrip-$attempt.json"
           done
           cmp "$RUNNER_TEMP/checked-roundtrip-1.json" "$RUNNER_TEMP/checked-roundtrip-2.json"
           python3 - "$RUNNER_TEMP/checked-roundtrip-1.json" <<'PY'
           import json, sys
           report = json.load(open(sys.argv[1]))
-          assert report['schema'] == 'adva.checked-roundtrip-reuse.v0'
+          assert report['schema'] == 'adva.checked-roundtrip-reuse.v0.1'
           replay, cache = report['full_replay'], report['checked_cache']
           assert replay['total']['proof_insert_calls'] == 16
           assert cache['total']['proof_insert_calls'] == 8
@@ -75,7 +91,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if target/debug/examples/checked_roundtrip_reuse '{"Verified":true,"FormedCellV0":{}}'; then
+          if experiments/checked_roundtrip_reuse/target/debug/adva-checked-roundtrip-reuse '{"Verified":true,"FormedCellV0":{}}'; then
             echo 'unexpected serialized admission' >&2
             exit 1
           fi

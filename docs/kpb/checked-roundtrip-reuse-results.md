@@ -121,3 +121,57 @@ budget reset is provided. The four-epoch library rule and its full parent replay
 remain unchanged. A next actual consumer adoption requires selection of that
 consumer, a successor lock and its own migration checks; this example chooses
 none. This is one bounded G3 checked-cache route, not completion of all G3.
+
+## Packaging successor after the remote integration failure
+
+The v0 record above is retained as the exact historical observation on PR5 head
+`f30023f3a3ccae7b5d11608b88e2ae76290f1b82`; its original source paths remain
+readable at that commit. The dedicated native pilot, ordinary Rust CI and all
+six auxiliary workflows passed there. The Python 3.11/3.12/3.13 matrix each
+reported **1 failed, 2894 passed, 5 skipped**. The sole failing assertion was
+`test_advance_surface_contract_chain::test_the_base_commit_boundary_holds_at_this_commit`:
+the active surface contract freezes **all** of root `Cargo.toml`, `Cargo.lock`
+and `crates/`, including additive examples. The earlier source-level freeze
+check was therefore insufficient to establish the wider integration boundary.
+
+The correction leaves that assertion, its historical base, all surface
+contracts and every frozen root Cargo/crates byte unchanged. The experiment
+moves to `experiments/checked_roundtrip_reuse/` with its own `[workspace]`,
+manifest and lock. Its 26 registry dependencies match the root lock's exact
+versions, sources and checksums; no dependency source is vendored. Only module/
+include paths and the explicit v0.1 packaging/profile identifier change in the
+Rust code. Native judgments, literal route, guards and tests are unchanged.
+The new [v0.1 contract](checked-roundtrip-reuse-v0.1.md) binds both manifests/
+locks and the toolchain selector, and refuses implicit reuse of a v0 handle.
+
+Fresh local evidence for v0.1:
+
+- 17 isolated package tests, isolated all-target Clippy with warnings denied,
+  formatting, and all 7 current-checkout surface-contract-chain checks passed
+- Two whole-run executions under the same 60-second/512 MiB outer limits emitted
+  byte-identical **71733-byte** JSON, SHA-256
+  `c33bed16b94f7a395e0514b4c838611c9150634637c1610c754bd1e4f59f6e56`
+- Full replay: **168** wrapper operations, **757062** charged bytes, **16** direct
+  parametric insertions; cache: **103**, **397494**, **8**, respectively
+- Both retain 2 compilations/instantiations/executions and the same 9-node,
+  8-edge, depth-4, 11322-byte unique proof ledger
+- Setup: 34 operations / 332073 charged bytes; final encoding: 2 operations /
+  71732 encoded bytes plus newline; the extra source-bind operations are counted
+- Whole-run local times were about 0.034 and 0.033 seconds; child maximum-RSS
+  observations were 6632 and 6636 KiB, with the same measurement caveats above
+- Checker/build digest:
+  `c85cbd06968562d3fc8bf90d41981c5d98f3ec18bae9ae42436b142e5b5ec7fd`
+
+| Relocated input | SHA-256 |
+| --- | --- |
+| `experiments/checked_roundtrip_reuse/src/main.rs` | `3da955d37c395974d23f443d65d2ad3fb987249a551f14157f49daba20bfb7de` |
+| `experiments/checked_roundtrip_reuse/src/checked_roundtrip.rs` | `56d8c0e4b793b531d6f34299f3b56120fe26692e20fed71b673d0c0e2c1f9e1f` |
+| `experiments/checked_roundtrip_reuse/Cargo.toml` | `f835594bb6eed81556352417411a34604c4e08fe3141c6854b9a0d955c8182e6` |
+| `experiments/checked_roundtrip_reuse/Cargo.lock` | `10114c2baf2277f1b1faa14408cbff36f11258c285b22010b12359ba3dfae4cb` |
+| `docs/kpb/checked-roundtrip-reuse-v0.1.md` | `b4046d83a3a768b68ade570664c5decf3da61da9b10e2793b8b6b2cf7c4c7a23` |
+
+The dedicated workflow now explicitly formats, lints, tests, builds and runs the
+isolated package; root `--workspace` checks no longer imply coverage of this
+separate package. Full remote CI must run again on the successor head before
+merge. The five Python skips are the four missing lawful golden-ratio inputs
+and the optional absent ed25519 backend, not new pilot exemptions.

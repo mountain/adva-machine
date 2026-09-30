@@ -265,7 +265,7 @@ scoped, not full architecture conformance. G3–G5 remain separate gates.
 
 ## Additive G3 local checked-cache pilot (2026-09-30)
 
-The [independent profile and run contract](checked-roundtrip-reuse-v0.md)
+The [independent profile and run contract](checked-roundtrip-reuse-v0.1.md)
 adds a standalone Rust experiment for the existing fixed guarded roundtrip.
 It targets VERIFY-01–05, CUT-01–03 and native N11/N18/N20 with explicit
 first-check/cache-hit/fresh-use accounts. The earlier table describes its

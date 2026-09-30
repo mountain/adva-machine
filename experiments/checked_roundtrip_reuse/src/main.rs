@@ -2,7 +2,7 @@
 //! Project-original, contributed under Unknown v0.3 by dot (OpenAI), through
 //! Mingli Yuan's authorized account proxy; account use is not technical review.
 
-#[path = "support/checked_roundtrip.rs"]
+#[path = "checked_roundtrip.rs"]
 mod pilot;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
