@@ -1,0 +1,38 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "kpb-dependency-bindings-2026-09-29",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "docs/kpb/dependency-bindings-2026-09-29.json",
+      "bytes": 60271,
+      "sha256": "ce6644473b440fe2933ce6199866c39ac4f3bce9c5072661194e6f6611380ddd"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-machine",
+    "source_version": "KPB-14 dependency binding successor; exact three source commits in report",
+    "creator_or_rights_holder": "ChatGPT (OpenAI), original implementation and documentary projection contributed under Unknown v0.3 through Mingli Yuan account proxy",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-machine/blob/acfc9806fe18a36d0f7194dcc196a380b2834adf/LICENSING.md"
+    ],
+    "rights_holder_authority_evidence": "Project-owned registry metadata and original documentary mappings; no external payload or third-party implementation incorporated",
+    "jurisdictions_and_limitations": "Project-original contribution under Unknown v0.3; legacy payload rights not certified",
+    "incorporated_components": [
+      "Project-owned claims dependency strings and exact source coordinates; no source bodies"
+    ],
+    "transformations": [
+      "Bind exact owning-repository paths at fixed commits and hash the referenced source bytes",
+      "Generate 39 bound references, two absent-ID gap records, binding graph and full-graph potential impact review sets"
+    ]
+  },
+  "review": {
+    "reviewer": "ChatGPT (OpenAI); self-review, not independent or Mingli review",
+    "reviewed_at": "2026-09-29",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Reviewed complete generated report: source coordinates, byte digests, project-owned registry identifiers and original documentary annotations only; no source bodies or external material. No native admission or source semantic validation is asserted."
+  }
+}

@@ -5,14 +5,17 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
-from kpb_inventory import Repository, build, graph, metadata_issues
+from kpb_inventory import Repository, build, graph, metadata_issues, resolve_dependency, dependency_report
 
 
 class DocumentaryControls(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         root = Path(__file__).resolve().parents[1]
-        cls.repos = {f'mountain/{name}': Repository(f'mountain/{name}', root if name == 'adva-machine' else root.parent / name)
+        pins = {'adva': '3287c61ab7d16253605b3d0cca818f5a698e258b',
+                'adva-machine': 'acfc9806fe18a36d0f7194dcc196a380b2834adf',
+                'adva-library': '19cede9c4532b7abd85f200daf7a9611a84563f0'}
+        cls.repos = {f'mountain/{name}': Repository(f'mountain/{name}', root if name == 'adva-machine' else root.parent / name, pins[name])
                      for name in ('adva', 'adva-machine', 'adva-library')}
         cls.view = build(cls.repos)
 
@@ -64,6 +67,31 @@ class DocumentaryControls(unittest.TestCase):
             self.assertRegex(u['full_commit'], '^[a-f0-9]{40}$')
             self.assertIn('no native admission', u['authority_boundary'])
             self.assertIn('unresolved_fields', u)
+
+    def test_explicit_local_path_bound_to_exact_source_and_impact(self):
+        report = dependency_report(self.view)
+        self.assertEqual(len(report['bound_file_dependencies']), 39)
+        self.assertEqual(len(report['unresolved_claim_dependencies']), 2)
+        by_id = {u['documentary_id']: u for u in self.view['units']}
+        for record in report['bound_file_dependencies']:
+            edge = record['edge']
+            target = by_id[edge['target']]
+            self.assertEqual(target['repository'], 'mountain/adva')
+            self.assertEqual(edge['declared'], target['path'])
+            self.assertEqual(edge['source_sha256'], target['source_sha256'])
+            self.assertIn(record['consumer'], report['potential_impact_review'][edge['target']])
+            self.assertIsNone(target['exports'])
+
+    def test_missing_source_never_falls_back_to_other_repo_or_alias(self):
+        path = 'docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md'
+        self.repos['mountain/adva'].read(path)  # Other repository really has it.
+        edge = resolve_dependency(self.repos['mountain/adva-machine'], path, self.repos, {})
+        self.assertEqual(edge['status'], 'unresolved')
+        self.assertNotIn('target', edge)
+        for missing in ('adva.bounded-experiment.leak-wall.v0', 'adva.exact.structural-forward-differential.v1'):
+            edge = resolve_dependency(self.repos['mountain/adva'], missing, self.repos, {})
+            self.assertEqual(edge['status'], 'unresolved')
+            self.assertNotIn('target', edge)
 
     def test_dirty_worktree_does_not_change_projection(self):
         with tempfile.TemporaryDirectory() as temp:

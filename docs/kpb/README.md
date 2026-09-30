@@ -81,7 +81,7 @@ efficiency or admission claim. No automatic rewriting or refactor is performed.
 
 ## Executed results and residuals
 
-The retained snapshot contains 300 units (adva 237, machine 28, library 35),
+The original v0.1 retained snapshot contains 300 units (adva 237, machine 28, library 35),
 348 dependency records and 41 unresolved dependency bindings. All projected
 machine catalog and library index digest comparisons match. These checks are
 byte/metadata checks, not re-executions of the underlying claims or checkers.
@@ -105,6 +105,56 @@ from the same registry rather than installing a second version table.
 Next work is qualified source binding review for unresolved dependencies.
 Gate 3 requires its own profile/receiving contract and evidence; this pilot
 does not start it or authorize a general registry.
+
+## Dependency binding successor (2026-09-29)
+
+The v0.2 tool binds 39 of the original 41 unresolved dependency records.
+All 39 are **explicit repository-relative paths in adva's claims registry**.
+The adapter checks the exact path in that owning repository at its selected
+immutable commit, records its digest and creates a separate documentary
+source node. It never finds a target by filename similarity, research number,
+another repository's same path, or a guessed alias. This is a source-byte
+dependency, not a derivation edge or a discharged proof premise. Unreferenced
+prose links still do not generate impact edges.
+
+There are 24 newly referenced source files, giving a current view of 324 units
+and the same 348 dependency records. 346 now have exact documentary bindings;
+the following two exact claim IDs remain unavailable in the owning registry:
+
+| Consumer | Absent dependency | Audited boundary |
+| --- | --- | --- |
+| `adva.bounded-experiment.borromean-cut-linkage.v0` | `adva.bounded-experiment.leak-wall.v0` | The distinct registered ID `adva.bounded-experiment.dual-facility-leak-wall.v0` is not an established alias. Research 0186 names that distinct ID; a later reading correction further prevents unqualified semantic substitution. |
+| `adva.bounded-verified.symbolic-probe-matrix-shadow.v0` | `adva.exact.structural-forward-differential.v1` | Research 0143 and the triadic-period-bridge correction explicitly record this pre-existing absent entry. No replacement claim declaration was located. |
+
+These observations were checked in `mountain/adva` at
+`3287c61ab7d16253605b3d0cca818f5a698e258b`, using `docs/claims.toml`,
+`docs/research/0186-dual-facility-leak-wall.md`,
+`docs/research/leak-wall-reading-correction-lines-and-rings.md`,
+`docs/research/0143-distinction-knowledge-and-free-boundary.md`, and
+`docs/research/triadic-period-bridge-correction.md`.
+An exact-declaration `git log --all -S` search of the fetched local history
+for each missing ID returned no declaration-changing commit. This is not a
+claim of exhaustive coverage of remote/unfetched branches or private history.
+Closing these two gaps requires an explicit correction or versioned source
+declaration by the owning registry, with scope evidence; this tool invents none.
+
+`dependency-bindings-2026-09-29.json` is a compact derived review report: the
+39 repaired records, two remaining gaps, a DOT graph restricted to repaired
+bindings, and downstream potential-impact review sets computed using the
+**full** current dependency graph. It is not an input registry. Reproduce it
+by adding `--report-only` to the pinned command above. Omitting that option
+generates the full v0.2 view/graph; it need not be committed as another copy.
+The old v0.1 snapshot and its publication record are unchanged. To reproduce
+that exact old projection, use the tool from machine PR commit
+`07117ccae785b65b60233374b993b2ef233d1df8`, with the same three source pins.
+
+Seven tests passed for this successor, retaining B04/B06 and adding exact
+local-path/digest/impact bindings plus refusal of a real same-path file in a
+different repository. Test sources are pinned; unrelated main growth does not
+silently change these fixtures. The broader library manifest monorepo-path,
+checker/build/guard, custody and receiving gaps remain outside these 41
+declared claim dependencies. No registry, payload, evidence or consumer lock
+is changed. No executable loader or admission is added.
 
 Authored and checked by ChatGPT (OpenAI), contributed under Unknown v0.3,
 submitted through Mingli Yuan's GitHub account as an authorized proxy.

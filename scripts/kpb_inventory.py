@@ -27,7 +27,8 @@ class Repository:
             raise ValueError('full commit required')
 
     def git(self, *args):
-        return subprocess.check_output(['git', '-C', str(self.root), *args], timeout=20).decode()
+        return subprocess.check_output(['git', '-C', str(self.root), *args], timeout=20,
+                                       stderr=subprocess.PIPE).decode()
 
     def read(self, path):
         if path.startswith('/') or '..' in Path(path).parts or ':' in path:
@@ -79,9 +80,29 @@ def metadata_issues(u):
 def resolve_dependency(source, value, repositories, claim_ids):
     # IDs are resolved only in the owning registry. No name/number fallback.
     if isinstance(value, str) and value in claim_ids:
-        return dict(kind='declared-dependency', target=claim_ids[value], status='resolved-metadata')
+        return dict(kind='declared-dependency', declared=value,
+                    target=claim_ids[value], status='resolved-metadata',
+                    resolution_basis='exact ID in owning claims registry')
+    # An explicitly declared relative path in the owning registry is a local
+    # source reference. Bind that exact path only, never a similar filename or
+    # a file in another repository. This resolves bytes, not a proof premise.
+    if isinstance(value, str) and '/' in value:
+        try:
+            raw = source.read(value)
+        except (ValueError, subprocess.CalledProcessError):
+            return dict(kind='declared-dependency', declared=value, status='unresolved',
+                        attempted_source=source.ref(value),
+                        reason='Exact local path unavailable or refused; no cross-repository fallback')
+        return dict(kind='declared-file-dependency', declared=value,
+                    target=f'{source.name}@{source.commit}:{value}#dependency-file',
+                    target_source=source.ref(value),
+                    source_sha256=hashlib.sha256(raw.encode()).hexdigest(),
+                    status='resolved-metadata',
+                    resolution_basis='explicit relative path in owning registry at selected immutable commit',
+                    semantic_boundary='File availability/integrity only; no imported judgment, proof derivation or admission')
     return dict(kind='declared-dependency', declared=value, status='unresolved',
-                reason='No exact qualified source binding supplied; no semantic substitution')
+                attempted_source=source.ref('docs/claims.toml'),
+                reason='Exact claim ID absent from owning registry; no alias, number or similarity substitution')
 
 
 def build(repos):
@@ -105,6 +126,11 @@ def build(repos):
         if 'dependencies' not in c:
             u['unresolved_fields'].append('dependency declaration unavailable')
         units.append(u)
+    dependency_paths = sorted({e['declared'] for u, _ in claim_units
+                               for e in u['dependency_edges']
+                               if e['kind'] == 'declared-file-dependency'})
+    for path in dependency_paths:
+        units.append(unit(adva, path, 'dependency-file'))
 
     # Parse constants without importing Python or executing its catalog checker.
     path = 'python/adva/math_catalog.py'
@@ -219,7 +245,7 @@ def build(repos):
                        reason='Repeated documentary interface shape; inspect shared adapter/refactor opportunities',
                        semantic_equivalence='not established', admission='not granted')
                   for k, v in sorted(groups.items()) if len(v) > 1]
-    return dict(schema='adva.kpb-documentary-view.v0.1', authority=AUTHORITY,
+    return dict(schema='adva.kpb-documentary-view.v0.2', authority=AUTHORITY,
                 source_commits={k: v.commit for k, v in sorted(repos.items())},
                 consumer_library_pins={r.name: r.git('ls-tree', r.commit, 'adva-library').strip()
                                        for r in (adva, machine)},
@@ -255,9 +281,40 @@ def graph(view):
     return '\n'.join(lines) + '\n', closure
 
 
+def dependency_report(view):
+    """Compact derived binding report; never read as registry input."""
+    bound, unresolved = [], []
+    for u in view['units']:
+        for edge in u['dependency_edges']:
+            record = dict(consumer=u['documentary_id'], edge=edge)
+            if edge['kind'] == 'declared-file-dependency':
+                bound.append(record)
+            elif edge['status'] == 'unresolved':
+                unresolved.append(record)
+    _, impact = graph(view)
+    new_sources = {record['edge']['target'] for record in bound}
+    affected_consumers = {record['consumer'] for record in bound}
+    shard = []
+    for u in view['units']:
+        if u['documentary_id'] in new_sources | affected_consumers:
+            shard.append(dict(u, dependency_edges=[e for e in u['dependency_edges']
+                                                   if e['kind'] == 'declared-file-dependency']))
+    dot, _ = graph(dict(units=shard))
+    return dict(schema='adva.kpb-documentary-dependency-bindings.v0.1',
+                authority=AUTHORITY, source_commits=view['source_commits'],
+                scope='Explicit path dependency bindings and still-absent exact claim IDs; not all metadata gaps',
+                units_in_current_view=len(view['units']),
+                dependency_records=sum(len(u['dependency_edges']) for u in view['units']),
+                bound_file_dependencies=bound, unresolved_claim_dependencies=unresolved,
+                binding_graph_dot=dot,
+                potential_impact_review={n: impact.get(n, []) for n in sorted(new_sources)},
+                semantic_boundary='Binding source bytes never discharges premises or implies equivalence/admission')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repository', action='append', required=True, help='mountain/name=checkout@revision')
+    parser.add_argument('--report-only', action='store_true', help='Emit compact path-binding/remaining-gap report')
     args = parser.parse_args()
     repos = {}
     for value in args.repository:
@@ -270,7 +327,7 @@ def main():
     dot, impact = graph(view)
     view['dependency_impact_dot'] = dot
     view['potential_impact_review'] = impact
-    print(json.dumps(view, indent=2, sort_keys=True))
+    print(json.dumps(dependency_report(view) if args.report_only else view, indent=2, sort_keys=True))
 
 
 if __name__ == '__main__':
