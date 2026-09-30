@@ -25,6 +25,12 @@ explains the same boundary. This is a design/review contract, not an installed
 general package loader or cut-certificate checker; executable locks and the
 existing specification catalog keep their versions.
 
+[Three-repository exchange and registration architecture v0.1](framework/repository-exchange-registration-v0.1.md)
+is a reviewable local engineering draft for responsibility, provenance, independent
+status dimensions and staged registration/structure-comparison gates. Its proposed
+requirements do not imply formal adoption or full implementation; the
+[coverage record](../docs/kpb/architecture-contract-coverage.md) preserves that boundary.
+
 ## Formal framework vocabulary
 
 [Transport and communication v2](framework/transport-communication-v2.md) is

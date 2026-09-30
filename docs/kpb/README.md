@@ -162,3 +162,14 @@ No third-party implementation or source payload is incorporated. Source
 metadata is a derived documentary projection of project-owned registries;
 account use is not Mingli's technical review, endorsement or a correctness
 guarantee.
+
+## Architecture G1 successor (local review, 2026-09-30)
+
+Use the [architecture projection entry](architecture-projection.md) for the
+new bounded source manifest, typed dependencies, independent status vector,
+consumer-lock observations, SCCs and per-hop potential-impact witnesses.
+The [clause/control map](architecture-contract-coverage.md) states actual
+coverage and remaining gaps. This successor depends on PR2; local completion
+must not be reported as its remote merge or full architecture-contract adoption.
+The minimal legacy blob/integrity/edge-filter repairs change no frozen snapshot,
+consumer lock, source registry, checker/profile, receipt or historical evidence.

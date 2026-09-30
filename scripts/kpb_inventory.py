@@ -27,7 +27,7 @@ class Repository:
             raise ValueError('full commit required')
 
     def git(self, *args):
-        return subprocess.check_output(['git', '-C', str(self.root), *args], timeout=20,
+        return subprocess.check_output(['git', '--no-replace-objects', '-C', str(self.root), *args], timeout=20,
                                        stderr=subprocess.PIPE).decode()
 
     def read(self, path):
@@ -35,6 +35,8 @@ class Repository:
             raise ValueError('unsafe repository path')
         if path in self.cache:
             return self.cache[path]
+        if self.git('cat-file', '-t', self.commit + ':' + path).strip() != 'blob':
+            raise ValueError('source is not a Git blob')
         size = int(self.git('cat-file', '-s', self.commit + ':' + path))
         if size > MAX_BYTES or self.total_bytes + size > 32 * MAX_BYTES:
             raise ValueError('read byte budget exhausted')
@@ -72,6 +74,8 @@ def metadata_issues(u):
             issues.append('unavailable:' + field)
         elif field in u.get('required_nonempty', []) and not u[field]:
             issues.append('invalid:deleted ' + field)
+    if u.get('integrity_match') is False:
+        issues.append('invalid:source digest mismatch')
     if u.get('verified') or u.get('native_admission'):
         issues.append('invalid:untrusted success/admission flag')
     return issues
@@ -258,13 +262,21 @@ def graph(view):
     lines = ['digraph documentary_dependencies {', '  rankdir=TB;',
              '  label="Documentary dependencies / reverse impact review; no admission";']
     ids = {u['documentary_id']: 'n' + str(i) for i, u in enumerate(view['units'])}
+    units_by_id = {u['documentary_id']: u for u in view['units']}
     impact = {}
     for u in view['units']:
         source = u['documentary_id']
         lines.append(f'  {ids[source]} [label={json.dumps(source)}];')
         for edge in u['dependency_edges']:
             target = edge.get('target')
-            if target in ids:
+            if (target in ids
+                    and edge.get('kind') in {'declared-dependency', 'declared-file-dependency', 'implementation-dependency'}
+                    and edge.get('status') in {'resolved-metadata', 'documentary-source-inspection'}
+                    and u.get('integrity_match') is not False
+                    and units_by_id[target].get('integrity_match') is not False
+                    and ('source_sha256' not in edge or edge['source_sha256'] == units_by_id[target].get('source_sha256'))
+                    and ('target_source' not in edge or all(edge['target_source'].get(k) == units_by_id[target].get(k)
+                                                           for k in ('repository', 'full_commit', 'path')))):
                 # dependency -> consumer, so reachability is potential impact.
                 lines.append(f'  {ids[target]} -> {ids[source]} [label={json.dumps(edge["kind"])}];')
                 impact.setdefault(target, set()).add(source)

@@ -1,0 +1,196 @@
+{
+  "attribution": "Authored and locally checked by dot (OpenAI), project-original under Unknown v0.3; prepared through Mingli Yuan account proxy, not his review or endorsement",
+  "base_commit": "a0702dc99d5e12cc72af1936d82162fc5a8780b5",
+  "checks": [
+    {
+      "command": "cargo build --locked -p adva-witness --bin adva",
+      "exit_code": 0,
+      "status": "Passed"
+    },
+    {
+      "command": "python -m pip install --no-build-isolation -e '.[test]'",
+      "exit_code": 0,
+      "status": "Passed"
+    },
+    {
+      "command": "cargo fmt --all -- --check",
+      "exit_code": 0,
+      "status": "Passed"
+    },
+    {
+      "command": "cargo clippy --locked --workspace --all-targets --all-features -- -D warnings",
+      "exit_code": 0,
+      "status": "Passed"
+    },
+    {
+      "command": "cargo test --locked --workspace",
+      "communication_cli_tests": 15,
+      "exit_code": 0,
+      "status": "Passed",
+      "suites": 46,
+      "tests": 282
+    },
+    {
+      "command": "cargo test --locked --release -p adva-lisp --test numeric_boundary",
+      "exit_code": 0,
+      "status": "Passed",
+      "tests": 6
+    },
+    {
+      "command": "cargo test --locked --release -p adva-lisp --lib operation::tests",
+      "exit_code": 0,
+      "status": "Passed",
+      "tests": 3
+    },
+    {
+      "command": "cargo test --locked --release -p adva-ir --test numeric_rounding --test numeric_json",
+      "exit_code": 0,
+      "status": "Passed",
+      "tests": 4
+    },
+    {
+      "command": "python -m pytest tests/python/test_exchange_routine.py --basetemp=<approved real scratch>/exchange -q",
+      "exit_code": 0,
+      "status": "Passed",
+      "tests": 21
+    },
+    {
+      "command": "timeout 900s python -m pytest tests/python --basetemp=<approved real scratch>/full-final -q",
+      "exit_code": 0,
+      "passed": 2896,
+      "skipped": 4,
+      "status": "PassedWithDeclaredSkips",
+      "subtests_passed": 26,
+      "wall_seconds": 422.43
+    },
+    {
+      "command": "python -B adva-machine doctor",
+      "exit_code": 0,
+      "library_pin": "73a6af4ac4ed8225366d3c16794e309cff15f51d",
+      "status": "Ready after release build"
+    },
+    {
+      "cases": 16,
+      "command": "timeout 130s python -B adva-machine conform --output <approved real scratch>/toolchain-conformance",
+      "exit_code": 0,
+      "native_calls": 68,
+      "scope": "v0/v1 finite family, not independent full-language implementations",
+      "status": "Passed",
+      "wall_seconds": 1.7742061209992244
+    },
+    {
+      "command": "python -S python/adva/adva.py math-check --key-words",
+      "exit_code": 0,
+      "status": "CatalogConsistent; growth obligation Open and native admission NotGranted"
+    },
+    {
+      "command": "python scripts/check_publication_boundary.py --history",
+      "exit_code": 0,
+      "status": "Passed for known withdrawn material only"
+    }
+  ],
+  "completed_at_utc": "2026-09-30T06:16:49Z",
+  "date": "2026-09-30",
+  "environment": {
+    "binary_build_boundary": "Fresh compiler/host/toolchain-home configuration; no claim of byte identity with historical binaries",
+    "cargo": "1.98.1 (797e8a9bc 2026-08-05)",
+    "cargo_lock_sha256": "b1042015a8b0f395aaa5334663356f3d253c7c493f8e50181ea9f318330416b9",
+    "installer_sources": [
+      "https://rust-lang.org/tools/install/",
+      "https://sh.rustup.rs",
+      "https://pypi.org/simple"
+    ],
+    "isolation": "Temporary CARGO_HOME/RUSTUP_HOME and separate Python venv outside repository; no global PATH, OS/security or account changes",
+    "platform": "Linux x86_64",
+    "python": "3.12.14",
+    "resolved_python_packages": {
+      "blake3": "1.0.10",
+      "maturin": "1.15.0",
+      "numpy": "2.3.5",
+      "pytest": "9.1.1",
+      "scipy": "1.17.0",
+      "sympy": "1.14.0"
+    },
+    "rust_toolchain_policy": "Repository rust-toolchain.toml: stable, minimal, rustfmt and clippy; did not change it",
+    "rustc": "1.98.1 (48a229cea 2026-09-01)",
+    "source_requirements": {
+      "blake3": ">=1,<2",
+      "maturin": ">=1.14,<2",
+      "numpy": ">=1.26",
+      "pytest": ">=8",
+      "python_minimum": "3.11",
+      "rust_minimum": "1.85, edition 2024",
+      "scipy": ">=1.12",
+      "sympy": ">=1.12"
+    }
+  },
+  "generator_source_sha256": {
+    "scripts/architecture_projection.py": "6493b2d221c0083ab7a8e75c59c202c5e336e7871ad95cc966bfb140fcf65a93",
+    "scripts/kpb_inventory.py": "9e9d973a36904d95088d96c1e5d19d39033ac6d185955ecf51e138c44074155b"
+  },
+  "logs_sha256": {
+    "cargo-build.log": "39790d2637a1c9d573740f30a4dad467f927c02bfc2fa77c049633732b041aab",
+    "cargo-clippy.log": "3a4500f56f9760f7aee1829cd4203b014c223a236d33d06efef246ea45acde3c",
+    "cargo-fmt.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cargo-tests.log": "8fc4b3d1c80b7d05de40fef981059ccac68893f0d7214294a6f0f75495f99ef8",
+    "exchange-pytest-approved-temp.log": "75fc2b17d6ede0bcb9212a1c37dd8fc2dee8189bac9f6f74d53b4afb0805b231",
+    "exchange-pytest-outside-repo.log": "768ad590de7f70a7b006e45c5c5070b16403bd4f7e2fff882febfc127fb551ee",
+    "exchange-pytest-real-temp.log": "2fb0aee0db511596cd4336f9d4c262b21b221c3d1d4cbde78622825e536cceb1",
+    "exchange-pytest.log": "35c72e65a0e2e910a7b86aeb9d962024d878ad58abef5136ae02f03f274c6e5a",
+    "full-pytest-real-temp.log": "cd91a4be8025b0a06b28b316c36cd17aa4f745317ddd1caa0d450d3ff503b269",
+    "full-pytest.log": "70a1d2df7cd83bbe609e87a39a08e55e5363c38209d3ddda3e6781c62a79ed42",
+    "math-check.log": "9d13f416824933396fd6f716e0b36da53c4a9ba5b06d7a98f720d780559f9782",
+    "publication-boundary.log": "0ddb6611b4822a7f1968142e245b85e6d0d562d1028c63e7c9da6e4b34646e69",
+    "python-package-build.log": "b4a0435e91dd27f782bad6c44d43812f71c8ebd8849bd1cd679c592375c389ad",
+    "release-numeric-boundary.log": "af9672098e0cfddd9a4992eaaf0f5fd7911fcfade084a70bde065d49a24a2c70",
+    "release-numeric-ir.log": "1a5315d423c78516d9deac58e0e8dc55887c78b81c2ee83d929ccabe0ce65bc0",
+    "release-operation-tests.log": "bcc10272269896cc24955ab19cfb386471884093fc50e7fe60f10fd67c605a2b",
+    "toolchain-conform.log": "21f374dd544d369000523d5ec32bf2d3fc55155ec0ad9b6ceb9d82b8cf008e53",
+    "toolchain-doctor-built.log": "852b5f2c808b87cc699587c7cb85bdd4874a3e154b2df74b0645ac1130216ec6",
+    "toolchain-doctor.log": "3f2c913149d87f9dd3b25f39bfff9132211869c86be7630f50bdd1332f8cfb86"
+  },
+  "not_established": [
+    "G2 structural comparison",
+    "G3 new executable reuse/cut profile or all KPB B01-B12 for such a successor",
+    "G4 consumer migration",
+    "G5 hosting/federation",
+    "Formal architecture adoption",
+    "Remote main integration or CI",
+    "Universal semantic or mathematical correctness"
+  ],
+  "preservation": "No changes to Cargo.lock, rust-toolchain.toml, Rust/transport/toolchain code, registries, consumer locks, historical evidence or existing generated reports; fixed library submodule and nested gitlinks initialized without upgrading them",
+  "retained_failures": [
+    {
+      "observation": "Cargo and pytest absent; resolved through temporary official installations",
+      "stage": "initial tooling inspection"
+    },
+    {
+      "observation": "11 failed /10 passed: existing outside_repository guard refused scratch with a .git ancestor; no guard changed",
+      "stage": "default /tmp and explicit /tmp exchange tests"
+    },
+    {
+      "observation": "/var/tmp was a symlink to /tmp; same 11/10 result, retained rather than relabelled success",
+      "stage": "approved /var/tmp exchange tests"
+    },
+    {
+      "observation": "12 failed, 2884 passed, 4 skipped, 26 subtests passed in 420.43s; all 12 failures were repository-output guards (11 exchange, one triadic_free)",
+      "stage": "first complete pytest run"
+    },
+    {
+      "observation": "NeedsBuild until the requested release binary was built",
+      "stage": "initial doctor"
+    },
+    {
+      "observation": "Sandbox-approved actual /dev/shm scratch root has no .git ancestor; exact exchange and complete Python suite rerun without changing guards or deleting markers",
+      "stage": "recovery"
+    }
+  ],
+  "schema": "adva.architecture-aggregate-verification.v0.1",
+  "scope": "Fresh local software verification of the G1 successor and existing bounded runtime; no contract-wide admission",
+  "skipped_scope": "Four tests require lawfully obtained external golden-ratio image/PDF inputs absent from this repository. No substitute, unauthorized intake or claim of replay is made.",
+  "source_commits": {
+    "mountain/adva": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+    "mountain/adva-library": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+    "mountain/adva-machine": "acfc9806fe18a36d0f7194dcc196a380b2834adf"
+  }
+}

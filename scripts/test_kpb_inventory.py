@@ -53,8 +53,8 @@ class DocumentaryControls(unittest.TestCase):
 
     def test_impact_excludes_citations_and_similarity(self):
         u = lambda n, edges: dict(documentary_id=n, dependency_edges=edges)
-        view = dict(units=[u('A', []), u('B', [dict(kind='declared-dependency', target='A')]),
-                           u('C', [dict(kind='declared-dependency', target='B')]), u('similar-citation', [])])
+        view = dict(units=[u('A', []), u('B', [dict(kind='declared-dependency', target='A', status='resolved-metadata')]),
+                           u('C', [dict(kind='declared-dependency', target='B', status='resolved-metadata')]), u('similar-citation', [])])
         dot, impact = graph(view)
         self.assertEqual(impact['A'], ['B', 'C'])
         self.assertNotIn('similar-citation', impact['A'])
