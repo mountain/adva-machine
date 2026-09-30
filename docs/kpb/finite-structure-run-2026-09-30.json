@@ -1,0 +1,406 @@
+{
+  "algorithm": "colored-directed-multigraph-backtracking.v0.1",
+  "attribution": "Authored and checked by dot (OpenAI), project-original under Unknown v0.3; through Mingli Yuan authorized account proxy, not his review or endorsement.",
+  "authority": {
+    "automatic_refactoring": false,
+    "consumer_adoption": false,
+    "executable_loader": false,
+    "native_admission": "NotGranted",
+    "semantic_verification": "NotRun",
+    "structural_matching": "projected ledger only",
+    "transport_execution": false
+  },
+  "budget": {
+    "accounting": "input bytes before JSON parsing; nodes/edges cumulative extraction; steps include extraction/search/witness checking; file_bytes/depth are maxima",
+    "continuation": "no retry, cache, hidden refill or automatic continuation",
+    "enforcement": "cooperative counted limits and wall safety cutoff; Git calls have timeouts; not a hostile-input sandbox",
+    "limits": {
+      "comparisons": 32,
+      "depth": 256,
+      "edges": 32768,
+      "file_bytes": 131072,
+      "git_calls": 64,
+      "input_bytes": 1048576,
+      "nodes": 8192,
+      "report_bytes": 16777216,
+      "steps": 2000000,
+      "wall_seconds": 120
+    },
+    "memory": "JSON decode and canonical serialization allocate within byte caps, without a separate process-memory limit",
+    "spent": {
+      "comparisons": 15,
+      "depth": 150,
+      "edges": 4784,
+      "file_bytes": 29903,
+      "git_calls": 30,
+      "input_bytes": 92130,
+      "nodes": 1034,
+      "report_bytes": 1626509,
+      "steps": 91280,
+      "wall_seconds": null
+    },
+    "wall_observation": "excluded from deterministic payload; measure externally"
+  },
+  "checks": [
+    {
+      "command": "python scripts/test_finite_structure_match.py",
+      "status": "Passed",
+      "tests": 31
+    },
+    {
+      "command": "python -m py_compile scripts/finite_structure_match.py scripts/test_finite_structure_match.py",
+      "status": "Passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "Passed"
+    },
+    {
+      "command": "python scripts/check_publication_boundary.py --history",
+      "scanned_members": 12405,
+      "status": "PassedKnownWithdrawalOnly",
+      "unique_blobs": 4530
+    },
+    {
+      "command": "retained G1/KPB suites on byte-identical unchanged modules in predecessor checkout",
+      "status": "Passed",
+      "tests": 45
+    },
+    {
+      "command": "Remote full Rust/Python and finite-profile CI",
+      "status": "NotRunAtLocalSnapshot"
+    }
+  ],
+  "comparisons": [
+    {
+      "differences": [],
+      "edge_map_size": 46,
+      "evidence_sha256": "7b5aa118db0a7e2be65d80b5abd43df22150c78505a79413ed1258dd51fae400",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/3",
+      "left_family": "chain-and-single",
+      "node_map_size": 23,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/3",
+      "right_family": "chain-and-single",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 28,
+      "evidence_sha256": "7d393466b86f9edabc743c04f85244d3933747b6c07942b1a134d869c7aac97e",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/11",
+      "left_family": "changed-roles",
+      "node_map_size": 17,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/11",
+      "right_family": "changed-roles",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 215,
+      "evidence_sha256": "3016cd2df1e47c6c592839eada3339125edf621aacb7b3f4f53df63cc4e33a09",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/9",
+      "left_family": "copy",
+      "node_map_size": 45,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/9",
+      "right_family": "copy",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 1072,
+      "evidence_sha256": "1c2282805f4c243a913cb22f6f89b66d4524f9a27e1b9a82e09788e3aec8b7f4",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/10",
+      "left_family": "copy-pending",
+      "node_map_size": 150,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/10",
+      "right_family": "copy-pending",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 153,
+      "evidence_sha256": "96fd88efe98d35574938bc35db813c1ee6c4844486260ecb1e887b7d38b2414e",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/7",
+      "left_family": "discard",
+      "node_map_size": 34,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/7",
+      "right_family": "discard",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 153,
+      "evidence_sha256": "c92cb9ba5462292573793a7648e052fb1dfef8a210e1431078973f21eb224ac4",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/8",
+      "left_family": "discard-pending",
+      "node_map_size": 34,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/8",
+      "right_family": "discard-pending",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 146,
+      "evidence_sha256": "2cdf99db75cd3217e9db99a356b8ec74c695239814d1338b07eb9869d3788e6f",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/6",
+      "left_family": "double-identity",
+      "node_map_size": 34,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/6",
+      "right_family": "double-identity",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 54,
+      "evidence_sha256": "64506435daa2c5b8eac7ba5d0c24266c4ace7c03d15c375e2e81e2bf06a82d06",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/5",
+      "left_family": "identity",
+      "node_map_size": 19,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/5",
+      "right_family": "identity",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 434,
+      "evidence_sha256": "a36451f5e1023a0b4b38fca87566cdf77f666901b56a592270c8c177a1c036e8",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/4",
+      "left_family": "independent-identities",
+      "node_map_size": 113,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/4",
+      "right_family": "independent-identities",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 28,
+      "evidence_sha256": "f8203de834e75437eefa36b2459d688f7aae2f7f44076aef339b804ff8c5f59f",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/0",
+      "left_family": "independent-iota",
+      "node_map_size": 17,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/0",
+      "right_family": "independent-iota",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 36,
+      "evidence_sha256": "f654e82c3243200fb4fb57533de24743feed5236ec8e8d0b28e4999202d04a7f",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/1",
+      "left_family": "joined-iota",
+      "node_map_size": 18,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/1",
+      "right_family": "joined-iota",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [],
+      "edge_map_size": 27,
+      "evidence_sha256": "65f6abd7e673bb398ec8d351d2c0d6dc4a81a9b576d72a1f8da0303e8de3d0e0",
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/2",
+      "left_family": "nested-iota",
+      "node_map_size": 13,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/2",
+      "right_family": "nested-iota",
+      "status": "StructuralMatchCandidate"
+    },
+    {
+      "differences": [
+        "conditions-differ",
+        "typed-label-or-multiplicity-mismatch"
+      ],
+      "edge_map_size": 0,
+      "evidence_sha256": null,
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/5",
+      "left_family": "identity",
+      "node_map_size": 0,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/6",
+      "right_family": "double-identity",
+      "status": "NoMatchWithinProfile"
+    },
+    {
+      "differences": [
+        "conditions-differ",
+        "typed-label-or-multiplicity-mismatch"
+      ],
+      "edge_map_size": 0,
+      "evidence_sha256": null,
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/0",
+      "left_family": "independent-iota",
+      "node_map_size": 0,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/11",
+      "right_family": "changed-roles",
+      "status": "NoMatchWithinProfile"
+    },
+    {
+      "differences": [
+        "conditions-differ",
+        "typed-label-or-multiplicity-mismatch"
+      ],
+      "edge_map_size": 0,
+      "evidence_sha256": null,
+      "left": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb:knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json#/families/9",
+      "left_family": "copy",
+      "node_map_size": 0,
+      "right": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json#/families/10",
+      "right_family": "copy-pending",
+      "status": "NoMatchWithinProfile"
+    }
+  ],
+  "date": "2026-09-30",
+  "frozen_boundary": "No consumer lock, strict transport schema/profile, source registry, historical receipt or old evidence changed.",
+  "gate_disposition": {
+    "G2": "Implemented/tested projected-ledger slice only",
+    "G3": "Separate executable route/profile required",
+    "G4": "No consumer adoption",
+    "G5": "No hosting or distributed identity protocol"
+  },
+  "generator": {
+    "commit_binding": "HEAD records checkout ancestry; actual generator bytes bound separately, including uncommitted edits",
+    "head_commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+    "path": "scripts/finite_structure_match.py",
+    "setup": "one Git call and local generator read, separately from input/search account",
+    "source_sha256": "a1b5d8b1a72ac15bdaf07a0e3beb3be6ffe31b4aba4774b6eb5a7448da70098d"
+  },
+  "graph_totals": {
+    "edges": 4784,
+    "graphs": 24,
+    "nodes": 1034
+  },
+  "implementation_snapshot": {
+    "scripts/finite_structure_match.py": "a1b5d8b1a72ac15bdaf07a0e3beb3be6ffe31b4aba4774b6eb5a7448da70098d",
+    "scripts/test_finite_structure_match.py": "f9b97013081f808d5471358f9c6505d3abebccb848d294b20c146676775f607c",
+    "spec/framework/iota-ledger-structural-matching-v0.1.md": "97b60ea3e50e519739a82a54b58bdaf25f17b6d4a2f37d39dbcc2d8bcc2e00f3"
+  },
+  "profile": "adva.iota-ledger-structural-isomorphism.v0.1",
+  "reconstructions": [
+    {
+      "bytes": 1626509,
+      "cumulative_child_peak_rss_kib": 25644,
+      "exit_code": 0,
+      "run": 1,
+      "sha256": "26ea88dff0133d1b4c879ab47d7763ec5e47eed29a19c688ba415ecb663ba7de",
+      "wall_seconds": 0.345504
+    },
+    {
+      "bytes": 1626509,
+      "cumulative_child_peak_rss_kib": 25644,
+      "exit_code": 0,
+      "run": 2,
+      "sha256": "26ea88dff0133d1b4c879ab47d7763ec5e47eed29a19c688ba415ecb663ba7de",
+      "wall_seconds": 0.302382
+    }
+  ],
+  "residuals": [
+    "Typed semantic guards are not supplied by the source; no guard is discharged.",
+    "Native source/occurrence identities and CausalCut validation are not supplied.",
+    "Full annotated constructor and interval ancestry remains in the private source archive; it is not fetched.",
+    "Source control/authentication and dependent source claims are not verified.",
+    "Matching a projected ledger neither proves equivalence nor authorizes reuse or adoption."
+  ],
+  "retained_failures": [
+    "Initial malformed-prefix diagnostic raised TypeError; fixed and tested.",
+    "Review found bool/int opaque-condition conflation, malformed edge handling, output-cap exit status and potential Git lazy-fetch effects; fixed with regressions.",
+    "Optional /usr/bin/time wrapper absent; it ran no pilot. Replaced by Python subprocess/time/resource measurement."
+  ],
+  "review": {
+    "independence": "Separate agent, not an independently developed native semantics checker or human endorsement.",
+    "scope": "Read-only review, fresh 31-test suite and two pinned runs; 59,959 exhaustive/labeled graph oracle comparisons, 1,000 colored random oracle cases, 20 edge-bijection forgeries rejected.",
+    "status": "SeparateAgentReview"
+  },
+  "schema": "adva.finite-structure-pilot-observation.v0.1",
+  "snapshot_boundary": "Local pre-publication source bytes are bound by SHA-256. HEAD is checkout ancestry, not a claim the uncommitted generator was already in that commit. Later Git/PR tree binds publication separately.",
+  "source_manifest": [
+    {
+      "bytes": 29903,
+      "commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/interpretations.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1"
+    },
+    {
+      "bytes": 3472,
+      "commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/contract.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6"
+    },
+    {
+      "bytes": 3057,
+      "commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/structure.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071"
+    },
+    {
+      "bytes": 2481,
+      "commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/materials/dependencies.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3"
+    },
+    {
+      "bytes": 7154,
+      "commit": "79aced81e972e8a4af96b118d8e236f7e337ffcb",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-machine-2026-09-17-v1/receipt.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "14d4d4d374b45dee1e00222875e52aa4fe48eb5c400aee1ab5801f42290de6f9"
+    },
+    {
+      "bytes": 29903,
+      "commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/interpretations.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "8009db7b8828ae76aa01b25684b9aa974fc91c4fcb64a439946701a49fe528b1"
+    },
+    {
+      "bytes": 3472,
+      "commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "c2656bf793d4175054cfc1822618233fe0bbb65a6f276578e77ba9749186bef6"
+    },
+    {
+      "bytes": 3057,
+      "commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/structure.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "fa0df8a1610d5d5e5c3d8eef85624a78f7b33b9d4cd7e1a757a418e5d8bf6071"
+    },
+    {
+      "bytes": 2481,
+      "commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-knowledge-2026-09-17-v1/materials/dependencies.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "3a33c2a17145629f07d70533184358708f80a88687713e10e03d270d96448ea3"
+    },
+    {
+      "bytes": 7150,
+      "commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "knowledge/received/iota-process-knowledge-2026-09-17-v1/receipt.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "171672842756cf0584091ad0f204fbf0fd560d8208ff4e4b2e617293611e7caa"
+    }
+  ],
+  "status": "ExecutedLocalFiniteG2Slice"
+}

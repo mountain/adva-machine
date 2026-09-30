@@ -244,3 +244,21 @@ by dot (OpenAI), contributed under Unknown v0.3 and prepared for submission
 through Mingli Yuan's authorized GitHub account proxy. The recorded local measurements precede
 submission/publication, whose later status belongs to Git and PR records. Account use is not Mingli's technical review or a
 correctness guarantee. No external text, code, dataset or fixture is imported.
+
+## Additive G2 implementation, 2026-09-30
+
+The tables above preserve the original G1 snapshot. A later bounded implementation
+now supplies the [projected Iota ledger G2 profile](finite-structure-matching.md)
+and its [exact representation and account](../../spec/framework/iota-ledger-structural-matching-v0.1.md).
+It starts from merged machine `79aced81e972e8a4af96b118d8e236f7e337ffcb` and keeps
+all original architecture text, read baselines, consumer locks and evidence intact.
+
+MINE-01–06 and CASE-04 now have an implemented finite structural slice: typed
+directed multigraph comparison, frozen rules, exact source/condition retention,
+node/edge/occurrence/boundary mappings and finite Unknown outcomes. DEC-02 has an
+implementation-local selection of the already proposed public Iota ledger domain;
+this does not formally adopt the architecture or decide a new algebra/semantics.
+N03–04 and N12–14 have corresponding positive, near-match, mutation and budget
+controls in `scripts/test_finite_structure_match.py`. These are projected-ledger
+checks, not native cut/guard/execution conformance. G2 coverage is finite and
+scoped, not full architecture conformance. G3–G5 remain separate gates.

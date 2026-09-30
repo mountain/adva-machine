@@ -1,0 +1,61 @@
+name: Finite projected-ledger structure matching
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/finite_structure_match.py'
+      - 'scripts/test_finite_structure_match.py'
+      - 'spec/framework/iota-ledger-structural-matching-v0.1.md'
+      - '.github/workflows/finite-structure-matching.yml'
+  pull_request:
+    paths:
+      - 'scripts/finite_structure_match.py'
+      - 'scripts/test_finite_structure_match.py'
+      - 'spec/framework/iota-ledger-structural-matching-v0.1.md'
+      - '.github/workflows/finite-structure-matching.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  finite-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: adva-machine
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: mountain/adva
+          ref: 3287c61ab7d16253605b3d0cca818f5a698e258b
+          path: adva
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run mapping and boundary controls
+        working-directory: adva-machine
+        run: |
+          python scripts/test_finite_structure_match.py
+          python -m py_compile scripts/finite_structure_match.py scripts/test_finite_structure_match.py
+      - name: Reconstruct twice and verify exact finite dispositions
+        working-directory: adva-machine
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            python scripts/finite_structure_match.py --knowledge-root ../adva > "$RUNNER_TEMP/finite-structure-$attempt.json"
+          done
+          cmp "$RUNNER_TEMP/finite-structure-1.json" "$RUNNER_TEMP/finite-structure-2.json"
+          python - "$RUNNER_TEMP/finite-structure-1.json" <<'PY'
+          import json, sys
+          report = json.load(open(sys.argv[1]))
+          assert report['status'] == 'CompleteWithinDeclaredView'
+          outcomes = [r['status'] for r in report['comparisons']]
+          assert outcomes.count('StructuralMatchCandidate') == 12
+          assert outcomes.count('NoMatchWithinProfile') == 3
+          assert report['authority']['native_admission'] == 'NotGranted'
+          print('12 projected-ledger candidates, 3 near-match negatives; byte-identical reconstruction')
+          PY

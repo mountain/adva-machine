@@ -1,0 +1,46 @@
+{
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "bytes": 19995,
+      "path": "docs/kpb/finite-structure-run-2026-09-30.json",
+      "sha256": "82cfff23d2d4a28e04913fd281664c141633f6ae01e52621f17ff1a83616625e"
+    }
+  ],
+  "provenance": {
+    "creator_or_rights_holder": "dot (OpenAI), project-original contribution through Mingli Yuan authorized account proxy",
+    "incorporated_components": [
+      {
+        "basis": "Existing exact package publication admission and public received bytes",
+        "component": "Public compact Iota source data and receipt coordinates",
+        "source": "mountain/adva-machine@79aced81e972e8a4af96b118d8e236f7e337ffcb and mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b; all exact file hashes in output source_manifest"
+      },
+      {
+        "basis": "Original contribution by dot (OpenAI) under Unknown v0.3; no copied third-party expression",
+        "component": "Original finite matcher, controls and measurement/review summaries"
+      }
+    ],
+    "jurisdictions_and_limitations": "Project-original dedication and fallback under Unknown v0.3, limited to rights contributors can release; not a general legal determination or relicensing of referenced dependencies.",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-machine/blob/79aced81e972e8a4af96b118d8e236f7e337ffcb/governance/publication/records/iota-process-machine-2026-09-17-v1.json",
+      "https://github.com/mountain/adva-machine/blob/79aced81e972e8a4af96b118d8e236f7e337ffcb/Unknown-LICENSE-v0.3.md"
+    ],
+    "rights_holder_authority_evidence": "The new adapter, test fixtures, profile and measurement prose are original project work contributed under Unknown v0.3. Source ledger/contract/structure/dependencies/receipt are the exact already reviewed public received project-original Iota package. The output retains only bounded measurements, source coordinates/digests and candidate/negative summaries. No private archive, historical third-party Java, external code, text or image is incorporated.",
+    "source_url": "https://github.com/mountain/adva-machine",
+    "source_version": "79aced81e972e8a4af96b118d8e236f7e337ffcb plus exact original generator bytes recorded in summary",
+    "transformations": [
+      "Read immutable public source bytes; validate and construct declared documentary ledger graph; bounded graph-isomorphism check; summarize exact original results and source pins without private source acquisition."
+    ]
+  },
+  "resource_id": "finite-structure-pilot-2026-09-30",
+  "review": {
+    "all_components_reviewed": true,
+    "decision_reason": "Reviewed exact summary candidate and its entire component inventory before importing or uploading; public source package has recorded project-original basis and new code/prose/measurements are original. No new third-party content or executable dependency is bundled.",
+    "output_publication_reviewed": true,
+    "reviewed_at": "2026-09-30",
+    "reviewer": "dot (OpenAI), engineering/publication review; account proxy is not human review",
+    "unresolved_questions": []
+  },
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted"
+}

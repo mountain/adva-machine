@@ -173,3 +173,9 @@ coverage and remaining gaps. This successor depends on PR2; local completion
 must not be reported as its remote merge or full architecture-contract adoption.
 The minimal legacy blob/integrity/edge-filter repairs change no frozen snapshot,
 consumer lock, source registry, checker/profile, receipt or historical evidence.
+
+## Additive finite structural comparison
+
+The [projected Iota ledger pilot](finite-structure-matching.md) supplies an actual,
+separately versioned G2 graph matcher with mapped witnesses and bounded controls.
+It does not change this G1 adapter's metadata clustering or its authority.
