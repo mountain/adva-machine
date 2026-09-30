@@ -1,0 +1,114 @@
+name: Bounded native evidence intake
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/native_evidence_intake/**'
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/native-evidence-intake-v0.md'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
+      - 'exchange_routine/**'
+      - 'toolchain/**'
+      - 'crates/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'rust-toolchain.toml'
+      - '.github/workflows/native-evidence-intake.yml'
+  pull_request:
+    paths:
+      - 'experiments/native_evidence_intake/**'
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/native-evidence-intake-v0.md'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
+      - 'exchange_routine/**'
+      - 'toolchain/**'
+      - 'crates/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
+      - 'rust-toolchain.toml'
+      - '.github/workflows/native-evidence-intake.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            . -> target
+            experiments/native_evidence_intake -> target
+      - name: Install existing project test environment
+        run: python -m pip install '.[test]'
+      - name: Check isolated package and unchanged dependency resolution
+        run: |
+          cargo fmt --manifest-path experiments/native_evidence_intake/Cargo.toml --check
+          timeout 180s cargo clippy --locked --manifest-path experiments/native_evidence_intake/Cargo.toml --all-targets -- -D warnings
+          python - <<'PY'
+          import tomllib
+          root = tomllib.load(open('Cargo.lock', 'rb'))['package']
+          child = tomllib.load(open('experiments/native_evidence_intake/Cargo.lock', 'rb'))['package']
+          known = {(p['name'], p['version']): p for p in root}
+          for package in child:
+              if 'source' in package:
+                  original = known[(package['name'], package['version'])]
+                  assert original['source'] == package['source']
+                  assert original['checksum'] == package['checksum']
+          print('All external dependency pins match retained root resolution')
+          PY
+      - name: Test raw-proof boundary and build separate binaries
+        run: |
+          timeout 180s cargo test --locked --manifest-path experiments/native_evidence_intake/Cargo.toml
+          timeout 180s cargo build --locked --manifest-path experiments/native_evidence_intake/Cargo.toml
+          timeout 180s cargo build --locked -p adva-witness --bin adva
+      - name: Test unchanged transport and independent local checking
+        env:
+          ADVA_EXCHANGE_BINARY: ${{ github.workspace }}/target/debug/adva
+          ADVA_NATIVE_EVIDENCE_BINARY: ${{ github.workspace }}/experiments/native_evidence_intake/target/debug/adva-native-evidence-intake
+        run: |
+          timeout 180s pytest -q experiments/native_evidence_intake/tests --basetemp "$RUNNER_TEMP/intake-tests"
+          timeout 120s python experiments/native_evidence_intake/run_transport.py \
+            --transport-binary "$ADVA_EXCHANGE_BINARY" --checker-binary "$ADVA_NATIVE_EVIDENCE_BINARY" \
+            --output "$RUNNER_TEMP/intake-run" > "$RUNNER_TEMP/intake-integration.json"
+      - name: Recheck received evidence twice without producer invocation
+        shell: bash
+        run: |
+          set -euo pipefail
+          PIN=$(python - "$RUNNER_TEMP/intake-run/receiver-selection.json" <<'PY'
+          import json,sys
+          print(json.load(open(sys.argv[1]))['binding_blake3'])
+          PY
+          )
+          ulimit -v 524288
+          for attempt in 1 2; do
+            timeout 60s experiments/native_evidence_intake/target/debug/adva-native-evidence-intake check \
+              "$RUNNER_TEMP/intake-run/store/native-evidence-intake/materials/evidence/raw.json" \
+              "$RUNNER_TEMP/intake-run/receiver-binding.json" --expect-binding "$PIN" \
+              --receiver native-evidence-receiver --context fixed-roundtrip-intake-v0 \
+              > "$RUNNER_TEMP/intake-native-$attempt.json"
+          done
+          cmp "$RUNNER_TEMP/intake-native-1.json" "$RUNNER_TEMP/intake-native-2.json"
+          cmp "$RUNNER_TEMP/intake-run/receipt-before-native.json" "$RUNNER_TEMP/intake-run/receipt-after-native.json"
+          python - "$RUNNER_TEMP/intake-native-1.json" <<'PY'
+          import json,sys
+          report=json.load(open(sys.argv[1]))
+          assert report['outcome']=='LocalCheckedAndUsed'
+          assert report['delivery_authority_used'] is False
+          native=report['local_check_and_cache']
+          assert native['total']['proof_insert_calls']==8
+          assert native['total']['cache_hit_checks']==2
+          assert [use['value'] for use in native['uses']]==['14','11']
+          assert native['uses'][0]['program']!=native['uses'][1]['program']
+          print(json.dumps(report,indent=2))
+          PY
