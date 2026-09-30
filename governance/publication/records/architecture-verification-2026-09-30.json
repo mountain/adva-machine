@@ -1,0 +1,39 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "architecture-verification-2026-09-30",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "docs/kpb/architecture-verification-2026-09-30.json",
+      "bytes": 8697,
+      "sha256": "4f6d50c1f15a765405ccb3258b4142765e674e34ae768dd983edb787949cbb14"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-machine",
+    "source_version": "Local G1 successor to PR2 a0702dc; exact source and generator hashes in report",
+    "creator_or_rights_holder": "dot (OpenAI), original verification metadata contributed under Unknown v0.3 through Mingli Yuan account proxy",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-machine/blob/acfc9806fe18a36d0f7194dcc196a380b2834adf/LICENSING.md"
+    ],
+    "rights_holder_authority_evidence": "Original local measurements and test outcomes; package/version identifiers and log digests are factual metadata; no third-party code, source bodies, external images or PDFs incorporated",
+    "jurisdictions_and_limitations": "Project-original contribution under Unknown v0.3; no rights certification of legacy payload or external inputs",
+    "incorporated_components": [
+      "Project source coordinates and SHA-256 bindings",
+      "Original test outcomes, failure observations and factual software/version identifiers"
+    ],
+    "transformations": [
+      "Summarize executed verification commands and exact resolved versions",
+      "Retain original environment failures, successful recovery, skipped external-input cases and bounded authority"
+    ]
+  },
+  "review": {
+    "reviewer": "dot (OpenAI); publication self-review, not Mingli review",
+    "reviewed_at": "2026-09-30",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Reviewed complete candidate outside repository: original check metadata, counts, source/log digests, official dependency source URLs and bounded conclusions only. No external source bodies, media, credentials, binaries or third-party implementation are imported."
+  }
+}

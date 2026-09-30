@@ -1,0 +1,798 @@
+{
+  "authority": "documentary tooling; metadata consistency only; no native admission",
+  "binding_graph_dot": "digraph documentary_dependencies {\n  rankdir=TB;\n  label=\"Documentary dependencies / reverse impact review; no admission\";\n  n0 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0\"];\n  n11 -> n0 [label=\"declared-file-dependency\"];\n  n12 -> n0 [label=\"declared-file-dependency\"];\n  n10 -> n0 [label=\"declared-file-dependency\"];\n  n1 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0\"];\n  n24 -> n1 [label=\"declared-file-dependency\"];\n  n25 -> n1 [label=\"declared-file-dependency\"];\n  n18 -> n1 [label=\"declared-file-dependency\"];\n  n19 -> n1 [label=\"declared-file-dependency\"];\n  n2 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0\"];\n  n32 -> n2 [label=\"declared-file-dependency\"];\n  n33 -> n2 [label=\"declared-file-dependency\"];\n  n15 -> n2 [label=\"declared-file-dependency\"];\n  n17 -> n2 [label=\"declared-file-dependency\"];\n  n3 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1\"];\n  n26 -> n3 [label=\"declared-file-dependency\"];\n  n27 -> n3 [label=\"declared-file-dependency\"];\n  n28 -> n3 [label=\"declared-file-dependency\"];\n  n29 -> n3 [label=\"declared-file-dependency\"];\n  n21 -> n3 [label=\"declared-file-dependency\"];\n  n19 -> n3 [label=\"declared-file-dependency\"];\n  n4 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0\"];\n  n23 -> n4 [label=\"declared-file-dependency\"];\n  n22 -> n4 [label=\"declared-file-dependency\"];\n  n28 -> n4 [label=\"declared-file-dependency\"];\n  n19 -> n4 [label=\"declared-file-dependency\"];\n  n20 -> n4 [label=\"declared-file-dependency\"];\n  n5 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.spatiotemporal-ratchet.v0\"];\n  n28 -> n5 [label=\"declared-file-dependency\"];\n  n24 -> n5 [label=\"declared-file-dependency\"];\n  n6 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0\"];\n  n11 -> n6 [label=\"declared-file-dependency\"];\n  n13 -> n6 [label=\"declared-file-dependency\"];\n  n14 -> n6 [label=\"declared-file-dependency\"];\n  n7 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0\"];\n  n31 -> n7 [label=\"declared-file-dependency\"];\n  n30 -> n7 [label=\"declared-file-dependency\"];\n  n13 -> n7 [label=\"declared-file-dependency\"];\n  n14 -> n7 [label=\"declared-file-dependency\"];\n  n8 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2\"];\n  n31 -> n8 [label=\"declared-file-dependency\"];\n  n30 -> n8 [label=\"declared-file-dependency\"];\n  n32 -> n8 [label=\"declared-file-dependency\"];\n  n15 -> n8 [label=\"declared-file-dependency\"];\n  n16 -> n8 [label=\"declared-file-dependency\"];\n  n9 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0\"];\n  n10 -> n9 [label=\"declared-file-dependency\"];\n  n11 -> n9 [label=\"declared-file-dependency\"];\n  n13 -> n9 [label=\"declared-file-dependency\"];\n  n10 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0228-taixuan-hierarchy-observers-and-spectra.md#dependency-file\"];\n  n11 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0233-periodic-programs-before-floquet-observations.md#dependency-file\"];\n  n12 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md#dependency-file\"];\n  n13 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md#dependency-file\"];\n  n14 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md#dependency-file\"];\n  n15 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md#dependency-file\"];\n  n16 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md#dependency-file\"];\n  n17 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md#dependency-file\"];\n  n18 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md#dependency-file\"];\n  n19 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md#dependency-file\"];\n  n20 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md#dependency-file\"];\n  n21 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md#dependency-file\"];\n  n22 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract-supplement-1.json#dependency-file\"];\n  n23 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract.json#dependency-file\"];\n  n24 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/contract.json#dependency-file\"];\n  n25 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/evidence.json#dependency-file\"];\n  n26 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/contract.json#dependency-file\"];\n  n27 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/evidence.json#dependency-file\"];\n  n28 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/contract.json#dependency-file\"];\n  n29 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/evidence.json#dependency-file\"];\n  n30 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract-supplement-1.json#dependency-file\"];\n  n31 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract.json#dependency-file\"];\n  n32 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v1/contract.json#dependency-file\"];\n  n33 [label=\"mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v2/contract.json#dependency-file\"];\n}\n",
+  "bound_file_dependencies": [
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0",
+      "edge": {
+        "declared": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "ffa6ff6729fb74ff1b1693d7f808df02a7f344fdddaf75395538868b9f12123b",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0233-periodic-programs-before-floquet-observations.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0",
+      "edge": {
+        "declared": "docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "5bb53fb15b42393bcbe3cc0ee187fae6530af26887735a8ff62463b1cac721ec",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0",
+      "edge": {
+        "declared": "docs/research/0228-taixuan-hierarchy-observers-and-spectra.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "3782693c1bd99f31abb1f5c2890779b60d5173a7b91126ab84d188a7a8abc785",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0228-taixuan-hierarchy-observers-and-spectra.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0228-taixuan-hierarchy-observers-and-spectra.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "edge": {
+        "declared": "experiments/optical_imbalance_proposal_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "116913a9369e43666d80cf65a6877164f186fd813955a4d1c05f39777496fa4f",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/optical_imbalance_proposal_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "edge": {
+        "declared": "experiments/optical_imbalance_proposal_v1/evidence.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "10e639d3843b29dbad0d815d8599ea5c2ff7c391b1eb1f1a3a8a422036538624",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/evidence.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/optical_imbalance_proposal_v1/evidence.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "edge": {
+        "declared": "docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "5136ae7bdb748d9247ac08c40639720e34094d064ccb58525fa8825cb3646772",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "edge": {
+        "declared": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "398e89d74b2c51d94843ac76ee2a6ad591cd2b197e302c94019b3d97c51becdc",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "edge": {
+        "declared": "experiments/three_cycle_supplement_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "157838642e9097ea4a1a1c7461db9e548affb0c6f3af7b830816f37f22b74f5a",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_supplement_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "edge": {
+        "declared": "experiments/three_cycle_supplement_v2/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "823eedfaa492d0524c901793b580d5f02b67d7cf739f26781e326aa667d1e990",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v2/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_supplement_v2/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "edge": {
+        "declared": "docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "630b7457b4f36f877694a42b27f4ea687b8f42b86590c5818a48898b15e2db45",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "edge": {
+        "declared": "docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "263ffd87dc78351788d99d72a5a36a9d3b19521ece0b54e7241575eb9abce3ae",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "experiments/space_proposal_v3/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "d9b8ef6444c24f1d77fb9d64f23b49ddb50e2805baf1446e26d21d432497df3c",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/space_proposal_v3/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "experiments/space_proposal_v3/evidence.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "a4aabacedc722d790f232292859e0ce221b3527f9e46cb76aa9ef2ad471bd02b",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/evidence.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/space_proposal_v3/evidence.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "experiments/spatiotemporal_ratchet_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "9c495906eee86e6bfaa5eb39c88ea8b7cc9048f86bec574e458e413626a9963c",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/spatiotemporal_ratchet_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "experiments/spatiotemporal_ratchet_v1/evidence.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "26cf72d7927f29c87bdb765ce66453ead0d0aafdec54498656d09bd605a91666",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/evidence.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/spatiotemporal_ratchet_v1/evidence.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "66c9557d276ec63ad950ba4ca305e056c72ba2b294b2b916c7109eb4479d4bf9",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "edge": {
+        "declared": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "398e89d74b2c51d94843ac76ee2a6ad591cd2b197e302c94019b3d97c51becdc",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "edge": {
+        "declared": "experiments/geometry_foundation_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "1e07f9a04a9d6d60073a5cb3f726df7d38554608f4d023383314fbff83217750",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/geometry_foundation_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "edge": {
+        "declared": "experiments/geometry_foundation_v1/contract-supplement-1.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "1540a1290d805bf031fd6734fba1701267e7ce1e67a19a6d52a7e1b1dce7c7ab",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract-supplement-1.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/geometry_foundation_v1/contract-supplement-1.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "edge": {
+        "declared": "experiments/spatiotemporal_ratchet_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "9c495906eee86e6bfaa5eb39c88ea8b7cc9048f86bec574e458e413626a9963c",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/spatiotemporal_ratchet_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "edge": {
+        "declared": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "398e89d74b2c51d94843ac76ee2a6ad591cd2b197e302c94019b3d97c51becdc",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "edge": {
+        "declared": "docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "45a4f7b57e07eb739618cadae831c89ca0ea483fa463d7438defbe1d748d37cc",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.spatiotemporal-ratchet.v0",
+      "edge": {
+        "declared": "experiments/spatiotemporal_ratchet_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "9c495906eee86e6bfaa5eb39c88ea8b7cc9048f86bec574e458e413626a9963c",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/spatiotemporal_ratchet_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.spatiotemporal-ratchet.v0",
+      "edge": {
+        "declared": "experiments/optical_imbalance_proposal_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "116913a9369e43666d80cf65a6877164f186fd813955a4d1c05f39777496fa4f",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/optical_imbalance_proposal_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "edge": {
+        "declared": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "ffa6ff6729fb74ff1b1693d7f808df02a7f344fdddaf75395538868b9f12123b",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0233-periodic-programs-before-floquet-observations.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "edge": {
+        "declared": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "e206665cead2e4e857a5fd71597ea99b6ba57a1d1898d09a0a516bce66090111",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "edge": {
+        "declared": "docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "254903f10c5504ca7f650255cbf68208dae1346ec9d3dca68260b289af66acc3",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "edge": {
+        "declared": "experiments/three_cycle_chain_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "a3dc2e8d86e45139484fceed571ef99ea3b63f18748c6f1c82bb031a3305a965",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_chain_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "edge": {
+        "declared": "experiments/three_cycle_chain_v1/contract-supplement-1.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "e125ee4940b838924257d9420bde71cf060a0745dc5d3d482c1691158785ac9f",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract-supplement-1.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_chain_v1/contract-supplement-1.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "edge": {
+        "declared": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "e206665cead2e4e857a5fd71597ea99b6ba57a1d1898d09a0a516bce66090111",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "edge": {
+        "declared": "docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "254903f10c5504ca7f650255cbf68208dae1346ec9d3dca68260b289af66acc3",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2",
+      "edge": {
+        "declared": "experiments/three_cycle_chain_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "a3dc2e8d86e45139484fceed571ef99ea3b63f18748c6f1c82bb031a3305a965",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_chain_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2",
+      "edge": {
+        "declared": "experiments/three_cycle_chain_v1/contract-supplement-1.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "e125ee4940b838924257d9420bde71cf060a0745dc5d3d482c1691158785ac9f",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract-supplement-1.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_chain_v1/contract-supplement-1.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2",
+      "edge": {
+        "declared": "experiments/three_cycle_supplement_v1/contract.json",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "157838642e9097ea4a1a1c7461db9e548affb0c6f3af7b830816f37f22b74f5a",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v1/contract.json#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "experiments/three_cycle_supplement_v1/contract.json",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2",
+      "edge": {
+        "declared": "docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "630b7457b4f36f877694a42b27f4ea687b8f42b86590c5818a48898b15e2db45",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2",
+      "edge": {
+        "declared": "docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "376e8980c985d7b6f0170bdbb2b4e6f5dea4aa103ba984e77b2ad5ebf91ff6d2",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0",
+      "edge": {
+        "declared": "docs/research/0228-taixuan-hierarchy-observers-and-spectra.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "3782693c1bd99f31abb1f5c2890779b60d5173a7b91126ab84d188a7a8abc785",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0228-taixuan-hierarchy-observers-and-spectra.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0228-taixuan-hierarchy-observers-and-spectra.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0",
+      "edge": {
+        "declared": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "ffa6ff6729fb74ff1b1693d7f808df02a7f344fdddaf75395538868b9f12123b",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0233-periodic-programs-before-floquet-observations.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+          "repository": "mountain/adva"
+        }
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0",
+      "edge": {
+        "declared": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+        "kind": "declared-file-dependency",
+        "resolution_basis": "explicit relative path in owning registry at selected immutable commit",
+        "semantic_boundary": "File availability/integrity only; no imported judgment, proof derivation or admission",
+        "source_sha256": "e206665cead2e4e857a5fd71597ea99b6ba57a1d1898d09a0a516bce66090111",
+        "status": "resolved-metadata",
+        "target": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md#dependency-file",
+        "target_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+          "repository": "mountain/adva"
+        }
+      }
+    }
+  ],
+  "dependency_records": 348,
+  "potential_impact_review": {
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0228-taixuan-hierarchy-observers-and-spectra.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0233-periodic-programs-before-floquet-observations.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.exchange-amplitude-variation.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.two-address-exchange.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-chain.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract-supplement-1.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/geometry_foundation_v1/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.spatiotemporal-ratchet.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/optical_imbalance_proposal_v1/evidence.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.geometry-foundation.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/space_proposal_v3/evidence.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.spatiotemporal-ratchet.v0"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/spatiotemporal_ratchet_v1/evidence.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.space-proposal-v3-transfer.v1"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract-supplement-1.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_chain_v1/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v1/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0",
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.three-cycle-supplement.v2"
+    ],
+    "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:experiments/three_cycle_supplement_v2/contract.json#dependency-file": [
+      "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.optical-imbalance-proposal.v0"
+    ]
+  },
+  "schema": "adva.kpb-documentary-dependency-bindings.v0.1",
+  "scope": "Explicit path dependency bindings and still-absent exact claim IDs; not all metadata gaps",
+  "semantic_boundary": "Binding source bytes never discharges premises or implies equivalence/admission",
+  "source_commits": {
+    "mountain/adva": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+    "mountain/adva-library": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+    "mountain/adva-machine": "acfc9806fe18a36d0f7194dcc196a380b2834adf"
+  },
+  "units_in_current_view": 324,
+  "unresolved_claim_dependencies": [
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-experiment.borromean-cut-linkage.v0",
+      "edge": {
+        "attempted_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/claims.toml",
+          "repository": "mountain/adva"
+        },
+        "declared": "adva.bounded-experiment.leak-wall.v0",
+        "kind": "declared-dependency",
+        "reason": "Exact claim ID absent from owning registry; no alias, number or similarity substitution",
+        "status": "unresolved"
+      }
+    },
+    {
+      "consumer": "mountain/adva@3287c61ab7d16253605b3d0cca818f5a698e258b:docs/claims.toml#adva.bounded-verified.symbolic-probe-matrix-shadow.v0",
+      "edge": {
+        "attempted_source": {
+          "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+          "path": "docs/claims.toml",
+          "repository": "mountain/adva"
+        },
+        "declared": "adva.exact.structural-forward-differential.v1",
+        "kind": "declared-dependency",
+        "reason": "Exact claim ID absent from owning registry; no alias, number or similarity substitution",
+        "status": "unresolved"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+name: Bounded architecture projection
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/architecture_projection.py'
+      - 'scripts/test_architecture_projection.py'
+      - 'scripts/kpb_inventory.py'
+      - 'scripts/test_kpb_inventory.py'
+      - '.github/workflows/architecture-projection.yml'
+  pull_request:
+    paths:
+      - 'scripts/architecture_projection.py'
+      - 'scripts/test_architecture_projection.py'
+      - 'scripts/kpb_inventory.py'
+      - 'scripts/test_kpb_inventory.py'
+      - '.github/workflows/architecture-projection.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  documentary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: adva-machine
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: mountain/adva
+          ref: 3287c61ab7d16253605b3d0cca818f5a698e258b
+          path: adva
+      - uses: actions/checkout@v4
+        with:
+          repository: mountain/adva-library
+          ref: 19cede9c4532b7abd85f200daf7a9611a84563f0
+          path: adva-library
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run finite documentary controls
+        working-directory: adva-machine
+        run: |
+          python scripts/test_kpb_inventory.py
+          python scripts/test_architecture_projection.py
+          python -m py_compile scripts/architecture_projection.py scripts/kpb_inventory.py
+      - name: Rebuild twice from the original source pins
+        working-directory: adva-machine
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            python scripts/architecture_projection.py \
+              --repository mountain/adva=../adva@3287c61ab7d16253605b3d0cca818f5a698e258b \
+              --repository mountain/adva-machine=.@acfc9806fe18a36d0f7194dcc196a380b2834adf \
+              --repository mountain/adva-library=../adva-library@19cede9c4532b7abd85f200daf7a9611a84563f0 \
+              > "$RUNNER_TEMP/architecture-projection-$attempt.json"
+          done
+          cmp "$RUNNER_TEMP/architecture-projection-1.json" "$RUNNER_TEMP/architecture-projection-2.json"
+          echo 'Documentary reconstruction is byte-identical; no native checker, transport or adoption run.'

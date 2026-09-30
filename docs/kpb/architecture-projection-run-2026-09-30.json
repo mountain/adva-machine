@@ -1,0 +1,669 @@
+{
+  "attribution": "Authored and locally checked by dot (OpenAI), project-original under Unknown v0.3; prepared through Mingli Yuan account proxy, not his review or endorsement",
+  "authority": "documentary projection and finite software checks only",
+  "binding_summary": {
+    "dependencies": 348,
+    "exact_documentary_bindings": 346,
+    "records": 324,
+    "unresolved": 2
+  },
+  "command": [
+    "python",
+    "scripts/architecture_projection.py",
+    "--repository",
+    "mountain/adva=../adva@3287c61ab7d16253605b3d0cca818f5a698e258b",
+    "--repository",
+    "mountain/adva-machine=.@acfc9806fe18a36d0f7194dcc196a380b2834adf",
+    "--repository",
+    "mountain/adva-library=../adva-library@19cede9c4532b7abd85f200daf7a9611a84563f0"
+  ],
+  "date": "2026-09-30",
+  "generator": {
+    "base_commit": "a0702dc99d5e12cc72af1936d82162fc5a8780b5",
+    "boundary": "exact generator file digests bind local changes; base commit alone is insufficient when dirty",
+    "python": "Python 3.11+ standard library",
+    "repository": "mountain/adva-machine",
+    "rules_version": "documentary-source-binding-and-impact-v0.1",
+    "source_files": {
+      "scripts/architecture_projection.py": "6493b2d221c0083ab7a8e75c59c202c5e336e7871ad95cc966bfb140fcf65a93",
+      "scripts/kpb_inventory.py": "9e9d973a36904d95088d96c1e5d19d39033ac6d185955ecf51e138c44074155b"
+    },
+    "uncommitted_generator_changes": true
+  },
+  "impact": {
+    "complete": true,
+    "cycles": [],
+    "strongly_connected_components": 324
+  },
+  "independent_review": {
+    "boundary": "Code review of the same authored implementation; not an independently developed semantic checker",
+    "checks": "Separate reviewing agent reran 38+7 tests, six negative reproductions and 150 deterministic graph-oracle cases",
+    "reviewed_generator_sha256": {
+      "scripts/architecture_projection.py": "6493b2d221c0083ab7a8e75c59c202c5e336e7871ad95cc966bfb140fcf65a93",
+      "scripts/kpb_inventory.py": "9e9d973a36904d95088d96c1e5d19d39033ac6d185955ecf51e138c44074155b"
+    },
+    "status": "No remaining blocker in explicitly partial G1 scope"
+  },
+  "reproducible_bytes": true,
+  "residuals": [
+    "No semantic or native checker run",
+    "No structural matcher, loader, federation, registration service or adoption",
+    "Node/edge limits apply after legacy source parsing; no separate parser-memory bound",
+    "Historical records and pins are unchanged",
+    "Uncommitted generator files are bound by exact digests; base commit alone is insufficient",
+    "Local branch depends on open PR2; no remote write performed"
+  ],
+  "resource_account": {
+    "continuation": "no retry or automatic budget reset; rerun needs an explicit new invocation",
+    "depth": "maximum graph path/DFS depth observed",
+    "file_bytes": "maximum unique file size, not cumulative",
+    "limits": {
+      "depth": 1024,
+      "edges": 8192,
+      "file_bytes": 8388608,
+      "git_calls": 4096,
+      "nodes": 4096,
+      "report_bytes": 33554432,
+      "source_bytes": 16777216,
+      "traversal_steps": 1000000,
+      "wall_seconds": 120
+    },
+    "memory": "no separately enforced process memory limit",
+    "nodes_edges": "counts emitted projection records/edges; registry parsing precedes projection under the source byte cap, without a separate AST/parser-memory limit",
+    "report_bytes": "encoded output size checked before emission",
+    "setup": "generator binding reads two local source files and uses two Git calls before this source/traversal account; not an executed source checker",
+    "spent": {
+      "depth": 14,
+      "edges": 348,
+      "file_bytes": 840152,
+      "git_calls": 185,
+      "nodes": 324,
+      "report_bytes": 9698886,
+      "source_bytes": 1906611,
+      "traversal_steps": 7932,
+      "wall_seconds": null
+    },
+    "wall_clock": "cooperative overall deadline; individual Git calls use a timeout; not a hostile-input sandbox",
+    "wall_seconds_observed": "not included in deterministic payload; measure process externally"
+  },
+  "runs": [
+    {
+      "attempt": 1,
+      "bytes": 9698886,
+      "exit_code": 0,
+      "max_child_rss_kib_cumulative": 80488,
+      "sha256": "622a6d34b61e1f3b6905bafdfb46a9312417eadd16ca60ea990bbaa87dc8f367",
+      "stderr": "",
+      "wall_seconds": 1.7110332920001383
+    },
+    {
+      "attempt": 2,
+      "bytes": 9698886,
+      "exit_code": 0,
+      "max_child_rss_kib_cumulative": 80488,
+      "sha256": "622a6d34b61e1f3b6905bafdfb46a9312417eadd16ca60ea990bbaa87dc8f367",
+      "stderr": "",
+      "wall_seconds": 1.6013107879998643
+    }
+  ],
+  "schema": "adva.architecture-projection-local-run.v0.1",
+  "source_commits": {
+    "mountain/adva": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+    "mountain/adva-library": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+    "mountain/adva-machine": "acfc9806fe18a36d0f7194dcc196a380b2834adf"
+  },
+  "source_manifest": [
+    {
+      "bytes": 19826,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-lisp/src/operation.rs",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "db4aceec2fab806599dee5ad3511298b74da0e371b34569c27640465cc55f377"
+    },
+    {
+      "bytes": 2017,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "dependencies/adva-machine.lock.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "9ab4d8cb45bf2123c919d597b3a6b3e917cce76e0be142e415c5ef107c66aa96"
+    },
+    {
+      "bytes": 840152,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/claims.toml",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "038a0741f63db95b6ee4460129d0895d682b503a66b30e94faf3bb7e892752b4"
+    },
+    {
+      "bytes": 15884,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0228-taixuan-hierarchy-observers-and-spectra.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "3782693c1bd99f31abb1f5c2890779b60d5173a7b91126ab84d188a7a8abc785"
+    },
+    {
+      "bytes": 17255,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0233-periodic-programs-before-floquet-observations.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "ffa6ff6729fb74ff1b1693d7f808df02a7f344fdddaf75395538868b9f12123b"
+    },
+    {
+      "bytes": 12152,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0234-the-rate-of-a-periodic-arithmetic-program-is-its-generator-action.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "5bb53fb15b42393bcbe3cc0ee187fae6530af26887735a8ff62463b1cac721ec"
+    },
+    {
+      "bytes": 12935,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0235-the-cheapest-exchange-is-not-a-collision-and-no-real-loop-swaps-the-branches.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "e206665cead2e4e857a5fd71597ea99b6ba57a1d1898d09a0a516bce66090111"
+    },
+    {
+      "bytes": 9263,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0236-two-addresses-at-once-three-time-conditions-and-what-the-closure-changes.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "254903f10c5504ca7f650255cbf68208dae1346ec9d3dca68260b289af66acc3"
+    },
+    {
+      "bytes": 7992,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0237-singularity-surgery-opposite-chirality-a-raised-flux-and-two-roles.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "630b7457b4f36f877694a42b27f4ea687b8f42b86590c5818a48898b15e2db45"
+    },
+    {
+      "bytes": 7588,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0238-three-chained-annual-cycles-every-cycle-closes-and-the-drift-control-fails-to-discriminate.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "376e8980c985d7b6f0170bdbb2b4e6f5dea4aa103ba984e77b2ad5ebf91ff6d2"
+    },
+    {
+      "bytes": 9711,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0239-the-rounded-ending-a-conjunction-that-nets-nothing-and-a-one-way-commitment.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "263ffd87dc78351788d99d72a5a36a9d3b19521ece0b54e7241575eb9abce3ae"
+    },
+    {
+      "bytes": 7454,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0240-a-proposal-only-optical-scheme-its-derived-bounds-and-one-erratum.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "5136ae7bdb748d9247ac08c40639720e34094d064ccb58525fa8825cb3646772"
+    },
+    {
+      "bytes": 7669,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0242-a-spatiotemporal-ratchet-net-transport-needs-both-asymmetries.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "398e89d74b2c51d94843ac76ee2a6ad591cd2b197e302c94019b3d97c51becdc"
+    },
+    {
+      "bytes": 9310,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0243-the-geometry-foundation-shared-items-the-corrected-pairing-and-the-spacetime-group-clause.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "45a4f7b57e07eb739618cadae831c89ca0ea483fa463d7438defbe1d748d37cc"
+    },
+    {
+      "bytes": 8876,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0244-proposal-three-the-pyritohedral-constellation-the-entry-window-and-a-transport-defect-disclosed.md",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "66c9557d276ec63ad950ba4ca305e056c72ba2b294b2b916c7109eb4479d4bf9"
+    },
+    {
+      "bytes": 5099,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/geometry_foundation_v1/contract-supplement-1.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "1540a1290d805bf031fd6734fba1701267e7ce1e67a19a6d52a7e1b1dce7c7ab"
+    },
+    {
+      "bytes": 5505,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/geometry_foundation_v1/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "1e07f9a04a9d6d60073a5cb3f726df7d38554608f4d023383314fbff83217750"
+    },
+    {
+      "bytes": 8111,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/optical_imbalance_proposal_v1/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "116913a9369e43666d80cf65a6877164f186fd813955a4d1c05f39777496fa4f"
+    },
+    {
+      "bytes": 74278,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/optical_imbalance_proposal_v1/evidence.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "10e639d3843b29dbad0d815d8599ea5c2ff7c391b1eb1f1a3a8a422036538624"
+    },
+    {
+      "bytes": 8625,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/space_proposal_v3/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "d9b8ef6444c24f1d77fb9d64f23b49ddb50e2805baf1446e26d21d432497df3c"
+    },
+    {
+      "bytes": 156145,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/space_proposal_v3/evidence.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "a4aabacedc722d790f232292859e0ce221b3527f9e46cb76aa9ef2ad471bd02b"
+    },
+    {
+      "bytes": 5739,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/spatiotemporal_ratchet_v1/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "9c495906eee86e6bfaa5eb39c88ea8b7cc9048f86bec574e458e413626a9963c"
+    },
+    {
+      "bytes": 83868,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/spatiotemporal_ratchet_v1/evidence.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "26cf72d7927f29c87bdb765ce66453ead0d0aafdec54498656d09bd605a91666"
+    },
+    {
+      "bytes": 7914,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/three_cycle_chain_v1/contract-supplement-1.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "e125ee4940b838924257d9420bde71cf060a0745dc5d3d482c1691158785ac9f"
+    },
+    {
+      "bytes": 8427,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/three_cycle_chain_v1/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "a3dc2e8d86e45139484fceed571ef99ea3b63f18748c6f1c82bb031a3305a965"
+    },
+    {
+      "bytes": 8216,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/three_cycle_supplement_v1/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "157838642e9097ea4a1a1c7461db9e548affb0c6f3af7b830816f37f22b74f5a"
+    },
+    {
+      "bytes": 10263,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/three_cycle_supplement_v2/contract.json",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "823eedfaa492d0524c901793b580d5f02b67d7cf739f26781e326aa667d1e990"
+    },
+    {
+      "bytes": 27091,
+      "full_commit": "3287c61ab7d16253605b3d0cca818f5a698e258b",
+      "identity_verification": "NotPerformed",
+      "path": "python/adva/math_catalog.py",
+      "repository": "mountain/adva",
+      "repository_binding": "caller-declared",
+      "source_sha256": "f9123179c86826481c883d86ca03dcacb5cb6dff96cd60833f7b546f801fa6cb"
+    },
+    {
+      "bytes": 1122,
+      "full_commit": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+      "identity_verification": "NotPerformed",
+      "path": "index.json",
+      "repository": "mountain/adva-library",
+      "repository_binding": "caller-declared",
+      "source_sha256": "f294c01b0513b24d4fa6bf7e46df2e0e3407ae6ca1b269f917d48d70bff99212"
+    },
+    {
+      "bytes": 95141,
+      "full_commit": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+      "identity_verification": "NotPerformed",
+      "path": "math/manifest.json",
+      "repository": "mountain/adva-library",
+      "repository_binding": "caller-declared",
+      "source_sha256": "a6adf3f97568013c7c397b43a4e327e887301c69af4f1f101399375133b87bbc"
+    },
+    {
+      "bytes": 7585,
+      "full_commit": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+      "identity_verification": "NotPerformed",
+      "path": "pascal-task.adva",
+      "repository": "mountain/adva-library",
+      "repository_binding": "caller-declared",
+      "source_sha256": "60d3ca374486239afb82bbe31d821a4d0c02ef947ccf62557753e85137087a5d"
+    },
+    {
+      "bytes": 12222,
+      "full_commit": "19cede9c4532b7abd85f200daf7a9611a84563f0",
+      "identity_verification": "NotPerformed",
+      "path": "pascal-witness.adva",
+      "repository": "mountain/adva-library",
+      "repository_binding": "caller-declared",
+      "source_sha256": "f20338add39c292db6bac482a2c9265353d6a5a1a5189cc2823398ddc29fe448"
+    },
+    {
+      "bytes": 8893,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "Cargo.lock",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "b1042015a8b0f395aaa5334663356f3d253c7c493f8e50181ea9f318330416b9"
+    },
+    {
+      "bytes": 21412,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/data_machine.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "ec260813e9532b5f788a74c0d9212f24dced0af48aecc38accd638a974b7cfd0"
+    },
+    {
+      "bytes": 23580,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/data_machine_v1.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "61871463998ad904d6b9630593e5a9b8a4cc5e138308cb9d2965ec1dc9a1058a"
+    },
+    {
+      "bytes": 23580,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/data_machine_v2.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "d7818662ac62dcbb65beba552d2c03e7a0c1decb4247a42d8fc88fce94a917bd"
+    },
+    {
+      "bytes": 19625,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/free_roundtrip.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "0fb93fc5e130010b5ebf21481c7fc1ba71a33b4fa9fc4a21a2664cb5f329764a"
+    },
+    {
+      "bytes": 20090,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/library_checkpoint.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "7e4c5abd0f8224cc0f7cd9092928394cc2fbc81a9b5b9b255834d04977d2b975"
+    },
+    {
+      "bytes": 31046,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "crates/adva-witness/src/witness.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "5e6c7db19d414828fb84fe026330f17aafd5bf73cce10a4b5d01b0ed97955699"
+    },
+    {
+      "bytes": 29720,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/ARCHITECTURE.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "30f2e932e55760f13718de6cba93dd1060b8859859cca0105f9d586a76a98a0c"
+    },
+    {
+      "bytes": 14318,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/PROGRAM_PROCESS_CORE.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "edbc7da2c771e4cd9b17ce590a2eebdd195dca4c224eea8970785264e7252092"
+    },
+    {
+      "bytes": 27596,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/SEMANTIC_SCOPE.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "fc00ca1a7afcbb7d1b0328984afee2b7797366018824c2f4c59e8ca0dd54d2d4"
+    },
+    {
+      "bytes": 2785,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/adr/0035-bounded-native-program-entry.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "62cd450cd1bcf144f151cc35cda5ea11cbaa20595af25d5932236f2febc940bc"
+    },
+    {
+      "bytes": 2501,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/adr/0038-checked-persistent-research-library-epochs.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "94cb78ed603d455f8a0b7cad19654df924b64712255343a89efab2925c5e2dc4"
+    },
+    {
+      "bytes": 4305,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/adr/bounded-mix-self-application.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "dcd55f68f3523e501cb644313aafcea7cebdbf602724c2b6be99b7e37eb18037"
+    },
+    {
+      "bytes": 3160,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/adr/bounded-self-compiler-research.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "bf797545771debea9180727538984d5fcf6bdca288864cd150346613b334ce92"
+    },
+    {
+      "bytes": 5742,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0107-reusable-six-word-witness-kernel.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "91304c96c43a1517444700b34e40c886d33e76189914bc6fb91066a708c8bda7"
+    },
+    {
+      "bytes": 9796,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "docs/research/0136-native-learn-guarded-roundtrip.md",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "8059ceb57a08adcd822b5b2d54a2341ca1f1819fe1e434ff0fca48d794949972"
+    },
+    {
+      "bytes": 8923,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/bounded_native_interpreter/reference.py",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "0205374e770c70ffebe9004be12f0ab70c72357dedcd49c42c71dcecd3d51f45"
+    },
+    {
+      "bytes": 11040,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/bounded_self_compiler/reference.py",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "90849b9919fd693c8739272419091435eabbf747831a3beca4fe412f8afc4244"
+    },
+    {
+      "bytes": 2676,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/iota-substrate/Cargo.lock",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "2442916738d79067b8bd4b1ca6326c8012e3df213765edc0221fef50ffd3c516"
+    },
+    {
+      "bytes": 907,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/iota-substrate/Cargo.toml",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "7c8df5830ffe8305d32e7446ebf8c031674d9c48ee62ee84e19868b788d38a68"
+    },
+    {
+      "bytes": 101618,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/iota-substrate/src/lib.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "9bb0c5401dbfdf115fdb7170c7752999d369e24209705255e54f927a03a8ccf9"
+    },
+    {
+      "bytes": 4843,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "experiments/iota-substrate/src/main.rs",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "64bd10b028893041f0f8525828b86f36655184b5e5ac2f534c04af73787a36e7"
+    },
+    {
+      "bytes": 4512,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "programs/bounded-interpreter/interpreter.adva",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "e54309bfe45c64eed31c1b2b52b1eabfef92d8dce6213e1bf9db0d71e1b655b1"
+    },
+    {
+      "bytes": 760,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "schemas/adva-ir-v1.schema.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "5d8ca9207a09ff4a96afa64146a448471d70bfa5430113ced573e69faddfc528"
+    },
+    {
+      "bytes": 2568,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "spec/catalog.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "bb5073b37fae782886253f45d2e417d74fe5f7b339de69cf59a4ccee11f5603e"
+    },
+    {
+      "bytes": 2739,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "spec/framework/vocabulary-v1.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "2b63d0240207b53cb33b2dfd2800f10b48de2590e6763f9cfe348fbd6e58c66a"
+    },
+    {
+      "bytes": 2459,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "spec/framework/vocabulary-v2.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "c1d0506021b6c05d4420cbdfc5ffd7ffd47c503b0acffb31c646a679d38d31e5"
+    },
+    {
+      "bytes": 1982,
+      "full_commit": "acfc9806fe18a36d0f7194dcc196a380b2834adf",
+      "identity_verification": "NotPerformed",
+      "path": "toolchain/library.lock.json",
+      "repository": "mountain/adva-machine",
+      "repository_binding": "caller-declared",
+      "source_sha256": "d6feaf527164e8992c84d6eebf9c4118f19b235c0738945637349d70339750bf"
+    }
+  ],
+  "status": "CompleteWithinDeclaredView",
+  "tests": {
+    "full_pytest": "NotRun; pytest unavailable",
+    "native_transport": "NotRun; Cargo unavailable",
+    "new_documentary_controls": 38,
+    "python_compile": "Passed",
+    "retained_documentary_controls": 7
+  },
+  "unresolved_claim_ids": [
+    "adva.bounded-experiment.leak-wall.v0",
+    "adva.exact.structural-forward-differential.v1"
+  ]
+}

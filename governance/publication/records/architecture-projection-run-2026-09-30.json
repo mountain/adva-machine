@@ -1,0 +1,39 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "architecture-projection-run-2026-09-30",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "docs/kpb/architecture-projection-run-2026-09-30.json",
+      "bytes": 28785,
+      "sha256": "23f740e9def086e09fc4f463b04509356862a3e243a677564cddbc3f7a54e3e4"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva-machine",
+    "source_version": "Local successor to PR2 a0702dc; exact three source commits and generator SHA-256s recorded in report",
+    "creator_or_rights_holder": "dot (OpenAI), original implementation and documentary summary contributed under Unknown v0.3 through Mingli Yuan account proxy",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva-machine/blob/acfc9806fe18a36d0f7194dcc196a380b2834adf/LICENSING.md"
+    ],
+    "rights_holder_authority_evidence": "Project source coordinates, digests and original run measurements only; no source bodies, third-party implementation or external material incorporated",
+    "jurisdictions_and_limitations": "Project-original contribution under Unknown v0.3; legacy payload rights are not certified",
+    "incorporated_components": [
+      "Fixed project source coordinates and digests, no source bodies",
+      "Original command, measured resource account, test and review summaries"
+    ],
+    "transformations": [
+      "Generate read-only projection twice from immutable source blobs and compare exact report SHA-256",
+      "Retain compact source manifest, summary, measured costs, unresolved IDs and authority limits"
+    ]
+  },
+  "review": {
+    "reviewer": "dot (OpenAI); publication self-review, not Mingli review",
+    "reviewed_at": "2026-09-30",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Reviewed complete candidate summary outside repository: only project coordinates, source digests, original local measurements, command and software-check metadata. It incorporates no source bodies, external media, secrets or third-party code and makes no source-semantic or native-admission claim."
+  }
+}
