@@ -1,0 +1,97 @@
+name: Bounded checked roundtrip reuse
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
+      - 'crates/adva-witness/src/**'
+      - 'crates/adva-witness/Cargo.toml'
+      - 'rust-toolchain.toml'
+      - 'crates/adva-ir/**'
+      - 'crates/adva-lisp/**'
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+      - '.github/workflows/checked-roundtrip-reuse.yml'
+  pull_request:
+    paths:
+      - 'experiments/checked_roundtrip_reuse/**'
+      - 'docs/kpb/checked-roundtrip-reuse-v0.1.md'
+      - 'crates/adva-witness/src/**'
+      - 'crates/adva-witness/Cargo.toml'
+      - 'rust-toolchain.toml'
+      - 'crates/adva-ir/**'
+      - 'crates/adva-lisp/**'
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+      - '.github/workflows/checked-roundtrip-reuse.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  checked-roundtrip:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: experiments/checked_roundtrip_reuse -> target
+      - name: Check isolated package formatting, lints and dependency pins
+        run: |
+          cargo fmt --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml --check
+          timeout 180s cargo clippy --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml --all-targets -- -D warnings
+          python3 - <<'PY'
+          import tomllib
+          root = tomllib.load(open('Cargo.lock', 'rb'))['package']
+          child = tomllib.load(open('experiments/checked_roundtrip_reuse/Cargo.lock', 'rb'))['package']
+          known = {(p['name'], p['version']): p for p in root}
+          for package in child:
+              if 'source' in package:
+                  original = known[(package['name'], package['version'])]
+                  assert original['source'] == package['source']
+                  assert original['checksum'] == package['checksum']
+          print('Standalone external dependency pins match the retained root resolution')
+          PY
+      - name: Run fixed-route controls and build separately
+        run: |
+          timeout 180s cargo test --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml
+          timeout 180s cargo build --locked --manifest-path experiments/checked_roundtrip_reuse/Cargo.toml
+      - name: Compare replay and cache under outer time and memory limits
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -v 524288
+          for attempt in 1 2; do
+            /usr/bin/time -v timeout 60s experiments/checked_roundtrip_reuse/target/debug/adva-checked-roundtrip-reuse > "$RUNNER_TEMP/checked-roundtrip-$attempt.json"
+          done
+          cmp "$RUNNER_TEMP/checked-roundtrip-1.json" "$RUNNER_TEMP/checked-roundtrip-2.json"
+          python3 - "$RUNNER_TEMP/checked-roundtrip-1.json" <<'PY'
+          import json, sys
+          report = json.load(open(sys.argv[1]))
+          assert report['schema'] == 'adva.checked-roundtrip-reuse.v0.1'
+          replay, cache = report['full_replay'], report['checked_cache']
+          assert replay['total']['proof_insert_calls'] == 16
+          assert cache['total']['proof_insert_calls'] == 8
+          assert cache['total']['cache_hit_checks'] == 2
+          for route in (replay, cache):
+              assert [r['value'] for r in route['uses']] == ['14', '11']
+              assert route['total']['executions'] == 2
+          controls = report['negative_controls']
+          assert len(controls) == 7
+          assert [c['failure']['outcome'] for c in controls] == ['Rejected'] * 5 + ['Unknown'] * 2
+          assert len(controls[-1]['failure']['retained_artifacts']) == 7
+          assert controls[-1]['limits']['depth'] == 1
+          print(json.dumps(report, indent=2))
+          PY
+      - name: Refuse serialized authority or an imported success flag
+        shell: bash
+        run: |
+          set -euo pipefail
+          if experiments/checked_roundtrip_reuse/target/debug/adva-checked-roundtrip-reuse '{"Verified":true,"FormedCellV0":{}}'; then
+            echo 'unexpected serialized admission' >&2
+            exit 1
+          fi

@@ -179,3 +179,10 @@ consumer lock, source registry, checker/profile, receipt or historical evidence.
 The [projected Iota ledger pilot](finite-structure-matching.md) supplies an actual,
 separately versioned G2 graph matcher with mapped witnesses and bounded controls.
 It does not change this G1 adapter's metadata clustering or its authority.
+
+## Additive local checked-cache experiment
+
+The [fixed guarded roundtrip reuse profile](checked-roundtrip-reuse-v0.1.md)
+compares native full replay with one process-local checked cache. It is a
+separate research-only G3 route; it imports no G2 candidate authority and
+changes no transport schema, frozen library receiver or consumer lock.
