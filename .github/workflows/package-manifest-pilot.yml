@@ -1,0 +1,30 @@
+name: Documentary package and reference pilot
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/package_manifest_pilot/**'
+      - 'spec/framework/package-capabilities-v0.1-proposal.md'
+      - '.github/workflows/package-manifest-pilot.yml'
+  pull_request:
+    paths:
+      - 'experiments/package_manifest_pilot/**'
+      - 'spec/framework/package-capabilities-v0.1-proposal.md'
+      - '.github/workflows/package-manifest-pilot.yml'
+permissions:
+  contents: read
+jobs:
+  documentary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install separately licensed validation dependency
+        run: python -m pip install 'jsonschema==4.26.0'
+      - name: Run bounded documentary and exact-reference controls
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python experiments/package_manifest_pilot/run_trial.py

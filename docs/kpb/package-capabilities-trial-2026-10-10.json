@@ -1,0 +1,76 @@
+{
+  "status": "Passed",
+  "profile": "documentary-trial-only",
+  "python": "3.12.14",
+  "jsonschema": "4.26.0",
+  "elapsed_seconds": 1.1959101519969408,
+  "children_user_seconds": 1.042144,
+  "children_system_seconds": 0.101889,
+  "children_maxrss_platform_units": 24484,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "runs": [
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_bytes": 4455,
+      "output": "test_actual_execution_requests_refused (test_manifest.ManifestTests.test_actual_execution_requests_refused) ... ok\ntest_annotation_type (test_manifest.ManifestTests.test_annotation_type) ... ok\ntest_associative_cycle_allowed (test_manifest.ManifestTests.test_associative_cycle_allowed) ... ok\ntest_bad_branch_origin (test_manifest.ManifestTests.test_bad_branch_origin) ... ok\ntest_bounded_cardinality (test_manifest.ManifestTests.test_bounded_cardinality) ... ok\ntest_cyclic_branch_origin (test_manifest.ManifestTests.test_cyclic_branch_origin) ... ok\ntest_dangling_targets (test_manifest.ManifestTests.test_dangling_targets) ... ok\ntest_dependency_edges_refused (test_manifest.ManifestTests.test_dependency_edges_refused) ... ok\ntest_depth_exhausted_shape (test_manifest.ManifestTests.test_depth_exhausted_shape) ... ok\ntest_duplicate_capability (test_manifest.ManifestTests.test_duplicate_capability) ... ok\ntest_duplicate_content_id (test_manifest.ManifestTests.test_duplicate_content_id) ... ok\ntest_duplicate_extension (test_manifest.ManifestTests.test_duplicate_extension) ... ok\ntest_duplicate_json_keys (test_manifest.ManifestTests.test_duplicate_json_keys) ... ok\ntest_duplicate_trail_id (test_manifest.ManifestTests.test_duplicate_trail_id) ... ok\ntest_exhaustion_unknown_retains_spent (test_manifest.ManifestTests.test_exhaustion_unknown_retains_spent) ... ok\ntest_forged_top_level_authority (test_manifest.ManifestTests.test_forged_top_level_authority) ... ok\ntest_input_bytes_limit (test_manifest.ManifestTests.test_input_bytes_limit) ... ok\ntest_invalid_json_and_nonfinite (test_manifest.ManifestTests.test_invalid_json_and_nonfinite) ... ok\ntest_missing_bytes_unknown (test_manifest.ManifestTests.test_missing_bytes_unknown) ... ok\ntest_multiple_capabilities_have_no_automatic_receiver (test_manifest.ManifestTests.test_multiple_capabilities_have_no_automatic_receiver) ... ok\ntest_no_capability (test_manifest.ManifestTests.test_no_capability) ... ok\ntest_optional_extension_not_authority (test_manifest.ManifestTests.test_optional_extension_not_authority) ... ok\ntest_reference_pins_and_paths (test_manifest.ManifestTests.test_reference_pins_and_paths) ... ok\ntest_reordered_narrative_not_execution (test_manifest.ManifestTests.test_reordered_narrative_not_execution) ... ok\ntest_repeat_is_new_lint_not_cache_authority (test_manifest.ManifestTests.test_repeat_is_new_lint_not_cache_authority) ... ok\ntest_required_extension_unknown (test_manifest.ManifestTests.test_required_extension_unknown) ... ok\ntest_two_paths_share_material_without_duplication (test_manifest.ManifestTests.test_two_paths_share_material_without_duplication) ... ok\ntest_unknown_profile (test_manifest.ManifestTests.test_unknown_profile) ... ok\ntest_unknown_schema (test_manifest.ManifestTests.test_unknown_schema) ... ok\ntest_unsupported_declared_capability_unknown (test_manifest.ManifestTests.test_unsupported_declared_capability_unknown) ... ok\ntest_branch_not_immutable (test_reference.ReferenceTests.test_branch_not_immutable) ... ok\ntest_byte_exhaustion (test_reference.ReferenceTests.test_byte_exhaustion) ... ok\ntest_digest_mismatch (test_reference.ReferenceTests.test_digest_mismatch) ... ok\ntest_exact_blob_ignores_dirty_worktree (test_reference.ReferenceTests.test_exact_blob_ignores_dirty_worktree) ... ok\ntest_foreign_repository (test_reference.ReferenceTests.test_foreign_repository) ... ok\ntest_git_network_and_replacements_disabled (test_reference.ReferenceTests.test_git_network_and_replacements_disabled) ... ok\ntest_incompatible_revision (test_reference.ReferenceTests.test_incompatible_revision) ... ok\ntest_matching_digest (test_reference.ReferenceTests.test_matching_digest) ... ok\ntest_missing_commit (test_reference.ReferenceTests.test_missing_commit) ... ok\ntest_missing_path (test_reference.ReferenceTests.test_missing_path) ... ok\ntest_no_success_flag (test_reference.ReferenceTests.test_no_success_flag) ... ok\ntest_old_git_is_explicitly_unknown (test_reference.ReferenceTests.test_old_git_is_explicitly_unknown) ... ok\ntest_path_escape (test_reference.ReferenceTests.test_path_escape) ... ok\ntest_time_exhaustion (test_reference.ReferenceTests.test_time_exhaustion) ... ok\ntest_tree_is_not_blob (test_reference.ReferenceTests.test_tree_is_not_blob) ... ok\ntest_unsupported_url (test_reference.ReferenceTests.test_unsupported_url) ... ok\n\n----------------------------------------------------------------------\nRan 46 tests in 0.757s\n\nOK\n"
+    },
+    {
+      "command": [
+        "check_manifest.py",
+        "library-only.example.json"
+      ],
+      "exit_code": 0,
+      "output_bytes": 811,
+      "output": "{\"account\": {\"bytes_read\": 11584, \"elapsed_seconds\": 0.012905806997878244, \"origin_hops\": 1, \"parse_calls\": 2, \"reference_checks\": 6, \"relation_checks\": 3, \"report_bytes_before_size_field\": 808, \"report_encodes\": 2, \"schema_validation_calls\": 2, \"trail_step_checks\": 7, \"visited_values\": 366}, \"documentary_content_count\": 4, \"ignored_optional_extensions\": [\"example.presentation/views\"], \"native_admission\": \"NotGranted\", \"reason\": \"Finite library-carrier shape and local links checked\", \"residuals\": [\"Offline metadata only; references not fetched or authenticated.\", \"No rights admission, semantic identity, import, execution or proof judgment.\", \"Logical bounds and cooperative time checks; no physical-memory ceiling.\"], \"semantic_verification\": \"NotRun\", \"status\": \"MetadataConsistent\", \"trail_count\": 2}\n"
+    },
+    {
+      "command": [
+        "check_manifest.py",
+        "library-only.example.json"
+      ],
+      "exit_code": 0,
+      "output_bytes": 811,
+      "output": "{\"account\": {\"bytes_read\": 11584, \"elapsed_seconds\": 0.013516194998373976, \"origin_hops\": 1, \"parse_calls\": 2, \"reference_checks\": 6, \"relation_checks\": 3, \"report_bytes_before_size_field\": 808, \"report_encodes\": 2, \"schema_validation_calls\": 2, \"trail_step_checks\": 7, \"visited_values\": 366}, \"documentary_content_count\": 4, \"ignored_optional_extensions\": [\"example.presentation/views\"], \"native_admission\": \"NotGranted\", \"reason\": \"Finite library-carrier shape and local links checked\", \"residuals\": [\"Offline metadata only; references not fetched or authenticated.\", \"No rights admission, semantic identity, import, execution or proof judgment.\", \"Logical bounds and cooperative time checks; no physical-memory ceiling.\"], \"semantic_verification\": \"NotRun\", \"status\": \"MetadataConsistent\", \"trail_count\": 2}\n"
+    }
+  ],
+  "limits": "10 seconds cooperative between fixed subprocesses and enforced per remaining subprocess time; output-size checks post-write; no physical memory ceiling. Supervisor startup/final report write excluded from measured interval; no speedup claim.",
+  "source_sha256": {
+    "experiments/package_manifest_pilot/library-only.example.json": "1de6e98385af08131b4792e55af080a17f1e3b6ceee59b8b944ec4f335491286",
+    "experiments/package_manifest_pilot/test_manifest.py": "101b3edb7cf91b517b4c6a5f418e67a1b2e4b103a6903863ac901089ff5a24be",
+    "experiments/package_manifest_pilot/check_manifest.py": "96183069b7f23db24a83f8983292c73ab64ea86cf8cf103ca6f0f039ef0574e3",
+    "experiments/package_manifest_pilot/manifest.schema.json": "e71fb10f9d33c3fe732e170e9b91f65c3464af6b97b020e607801268910d79a3",
+    "experiments/package_manifest_pilot/test_reference.py": "90e037f667e114121af16fcb9fadc92f6e7f36486788df3cc5d5f7980ebab7e8",
+    "experiments/package_manifest_pilot/lookup_reference.py": "3049fe81ae1f07877f4005080407073ce01c437d5a465611dd7932f78629cbf4",
+    "experiments/package_manifest_pilot/run_trial.py": "de56f16eb9ab880878c44a52fb94154dda81c184554e16424f40a61cba881bb0",
+    "experiments/package_manifest_pilot/README.md": "459e436e0625f76f0917063335a80f70f62779e61600a118e30ab4c3aa2971d2",
+    "spec/framework/package-capabilities-v0.1-proposal.md": "d37b164f14d188847f0a67167f805f30c75b8e278e8faa056c61ddf7563fa3f3",
+    "docs/kpb/package-capabilities-v0.1.zh-CN.md": "76b2b90bb3e70f8f919a759873f6c93c250171784d0352c4ecb87abd9e7a16bb",
+    ".github/workflows/package-manifest-pilot.yml": "6cfd8d15820ced8a582b4e30cc3d03831a2a81a7d68f6ecb5b1cf4ef5657ccf4"
+  },
+  "baseline": "mountain/adva-machine@a0b710a2517f06f2fe03cc463e855548adf418ac",
+  "git": "2.52.0",
+  "prior_attempts": [
+    "Initial 28-test smoke run passed before the complete written trial contract; it is not the retained final trial.",
+    "Initial outer /usr/bin/time command could not start because /usr/bin/time was absent. No test was executed by that failed command. Replaced with the separately bounded Python supervisor.",
+    "Independent review identified misleading predecessor interface naming, missing cost counters, lost timeout output, missing schema/depth controls and potential Git lazy fetch. Corrected before this final trial."
+  ],
+  "known_withdrawal_check": {
+    "scope": "identified withdrawn content only",
+    "unique_blobs": 4569,
+    "scanned_members": 12444,
+    "expanded_bytes": 388159880,
+    "history_checked": true,
+    "withdrawn_copies": []
+  },
+  "verification_limits": [
+    "No full Rust/Python repository suite run locally; native sources and locks unchanged.",
+    "Publication history scan covered locally reachable objects in a depth-one clone, not unavailable history or submodule contents.",
+    "No actual adva-library deployment or real consumer migration.",
+    "GitHub CI is pending publication; this file does not report later CI results."
+  ]
+}
