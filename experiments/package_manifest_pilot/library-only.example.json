@@ -1,0 +1,142 @@
+{
+  "schema": "adva.package-manifest.draft.v0.1",
+  "identity": {
+    "namespace": "example.kpb",
+    "name": "two-trails",
+    "revision": "0.1.0-draft",
+    "home": "mountain/adva-machine"
+  },
+  "capabilities": [
+    {
+      "kind": "library",
+      "profile": "adva.library-carrier.draft.v0",
+      "source_contract": {
+        "repository": "mountain/adva-machine",
+        "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+        "path": "spec/framework/kernel-package-boundary-v0.1.md"
+      }
+    }
+  ],
+  "content": [
+    {
+      "id": "question",
+      "kind": "material",
+      "text": "Which receiver can check this scoped claim?",
+      "sources": [
+        {
+          "repository": "mountain/adva-machine",
+          "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+          "path": "spec/framework/kernel-package-boundary-v0.1.md"
+        }
+      ]
+    },
+    {
+      "id": "boundary",
+      "kind": "material",
+      "text": "Retain the profile, premises and remaining obligations.",
+      "sources": [
+        {
+          "repository": "mountain/adva-machine",
+          "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+          "path": "spec/framework/kernel-package-boundary-v0.1.md"
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "kind": "material",
+      "text": "Measure first checking separately from reuse.",
+      "sources": [
+        {
+          "repository": "mountain/adva-machine",
+          "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+          "path": "spec/framework/kernel-package-boundary-v0.1.md"
+        }
+      ]
+    },
+    {
+      "id": "note",
+      "kind": "annotation",
+      "text": "A reading route is not a proof dependency.",
+      "sources": [
+        {
+          "repository": "mountain/adva-machine",
+          "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+          "path": "spec/framework/kernel-package-boundary-v0.1.md"
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "kind": "associative",
+      "from": "question",
+      "to": "boundary"
+    },
+    {
+      "kind": "associative",
+      "from": "boundary",
+      "to": "cost"
+    },
+    {
+      "kind": "annotates",
+      "from": "note",
+      "to": "boundary"
+    }
+  ],
+  "trails": [
+    {
+      "id": "first-reading",
+      "name": "Question to checking cost",
+      "steps": [
+        "question",
+        "boundary",
+        "cost"
+      ]
+    },
+    {
+      "id": "cost-first",
+      "name": "Cost-first continuation",
+      "steps": [
+        "cost",
+        "boundary",
+        "note",
+        "question"
+      ],
+      "origin": {
+        "trail": "first-reading",
+        "step": 1
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "namespace": "example.presentation/views",
+      "version": "0.1",
+      "required": false,
+      "data": {
+        "views": [
+          "text",
+          "diagram"
+        ],
+        "linking": "presentation-only"
+      }
+    }
+  ],
+  "provenance": {
+    "basis": "project-original/Unknown-v0.3",
+    "author": "dot (OpenAI); draft author; account proxy does not grant admission",
+    "sources": [
+      {
+        "repository": "mountain/adva-machine",
+        "commit": "a0b710a2517f06f2fe03cc463e855548adf418ac",
+        "path": "spec/framework/kernel-package-boundary-v0.1.md"
+      }
+    ]
+  },
+  "residuals": [
+    "Source coordinates are declarations; this offline lint does not retrieve or authenticate those bytes.",
+    "Sharing a trail requires an independently authorized transport route.",
+    "No computational or verification capability is claimed."
+  ]
+}
