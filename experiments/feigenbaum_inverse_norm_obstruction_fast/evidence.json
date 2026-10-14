@@ -1,0 +1,163 @@
+{
+  "checker_sha256": "2b25a85a113e119785f9ab368ebae070f592e49e9987a5da216b1ddbdf0aa46c",
+  "checks": {
+    "no_new_inverse_bound_is_claimed": true,
+    "shrinking_the_radius_does_not_help": true,
+    "the_folding_is_measured": true,
+    "the_inner_series_norm_exceeds_one": true,
+    "the_norm_conversion_is_exact": true,
+    "the_tail_action_does_not_decay": true,
+    "within_assertion_budget": true,
+    "within_time_budget": true
+  },
+  "contract": "experiments/feigenbaum_inverse_norm_obstruction_fast/contract.json",
+  "cost": {
+    "assertions": 0,
+    "subprocesses": 0,
+    "wall_seconds_before_serialization": 20.206
+  },
+  "folding": {
+    "rows": [
+      {
+        "j": 12,
+        "lowest_degree_present": 1
+      },
+      {
+        "j": 20,
+        "lowest_degree_present": 1
+      },
+      {
+        "j": 30,
+        "lowest_degree_present": 1
+      }
+    ],
+    "why_it_matters": "in a weighted l1 norm the weight of a low-degree output fed by a high-degree input is rho^(i-j), which is enormous; a sup norm on a disk does not penalise folding"
+  },
+  "inner_series": {
+    "constant_term": "1",
+    "norm_exceeds_one": true,
+    "norm_of_the_inner_series_minus_one": "0.0076230388",
+    "weighted_l1_norm_of_the_inner_series": "1.0076230388",
+    "why_that_settles_it": "a series with constant term one has weighted norm at least one, in every weighted l1 norm and at every radius, so its powers cannot decay"
+  },
+  "norm_conversion": {
+    "exactly_invertible": true,
+    "gap_three_status": "closed for the finite block: the conversion is exact, and it shows the truncated block is hopelessly ill-conditioned in this norm",
+    "infinity_norm_of_the_inverse": "1.503040E+03",
+    "matrix_size": 7,
+    "ratio_to_the_previous_rounds_infinity_norm": "9.686525E+06",
+    "residual_max_abs_entry": "0.000E+00",
+    "weighted_l1_norm_of_the_inverse": "1.455923E+10",
+    "weighted_l1_norm_of_the_matrix": "1.278649E+08"
+  },
+  "precision": {
+    "acceleration_applied": false,
+    "binary_floating_point_in_reported_bounds": false
+  },
+  "radius_control": {
+    "alternatives": {
+      "1/128": {
+        "still_exceeds_one": true,
+        "weighted_norm_of_the_inner_series": "1.0019052699"
+      },
+      "1/64": {
+        "still_exceeds_one": true,
+        "weighted_norm_of_the_inner_series": "1.0038108661"
+      }
+    },
+    "conclusion": "shrinking the radius does not remove the obstruction, because the constant term carries weight one at every radius"
+  },
+  "redirection": {
+    "bound_one_status": "not obtained, and now known to be unobtainable in this norm, with the reason measured",
+    "still_missing": [
+      "a sup-norm-on-a-disk framework for the linearised operator, with the disk mapping data already verified",
+      "the second derivative bound, which that framework would also need"
+    ],
+    "what_that_means": "the weighted l1 space is the wrong space for the tail argument; the standard choice is a sup norm on a disk, where composition is stable"
+  },
+  "schema": "adva.external.feigenbaum-inverse-norm-obstruction.v0",
+  "sibling": {
+    "note": "the candidate and the truncated linearisation come from the frozen sibling round",
+    "sha256": "3df8d3869b71d743da37c3dcef1caa6c38f233d5425e249b1ea512d30f93825b",
+    "source": "experiments/feigenbaum_kantorovich_preflight/calibration.py"
+  },
+  "status": "ExternalExactPass",
+  "tail_action": {
+    "grows_with_the_degree": true,
+    "no_contraction": true,
+    "rows": [
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 1,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.007623",
+        "weighted_norm_of_the_image": "0.050104"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 2,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.015304",
+        "weighted_norm_of_the_image": "0.043685"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 3,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.023044",
+        "weighted_norm_of_the_image": "0.007036"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 5,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.038701",
+        "weighted_norm_of_the_image": "0.077738"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 8,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.062636",
+        "weighted_norm_of_the_image": "0.203627"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 12,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.095411",
+        "weighted_norm_of_the_image": "0.380654"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 20,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.164024",
+        "weighted_norm_of_the_image": "0.768669"
+      },
+      {
+        "constant_term": "0.000000",
+        "highest_nonzero_degree": 60,
+        "j": 30,
+        "lowest_nonzero_degree": 1,
+        "predicted_growth_factor_power": "1.255864",
+        "weighted_norm_of_the_image": "1.324925"
+      }
+    ]
+  },
+  "variant": "fast: monomial compositions replaced by re-used powers of the inner series",
+  "version": 0,
+  "what_is_not_claimed": {
+    "any_new_bound_on_the_inverse": false,
+    "enclosure_of_alpha": false,
+    "enclosure_of_delta": false,
+    "existence_or_uniqueness_of_the_fixed_point": false
+  }
+}

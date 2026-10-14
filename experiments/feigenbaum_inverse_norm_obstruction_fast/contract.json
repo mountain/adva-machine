@@ -1,0 +1,76 @@
+{
+  "schema": "adva.research.feigenbaum-inverse-norm-obstruction-fast-contract.v0",
+  "version": 0,
+  "name": "feigenbaum-inverse-norm-obstruction-fast",
+  "base_commit": "6faa023",
+  "frozen_on": "2026-10-14",
+  "authority": "Derived variant of feigenbaum_inverse_norm_obstruction. Same objects, same measurements, same assertions; the only change is that the eleven monomial compositions are replaced by re-used powers of the inner series. The frozen original is NOT modified and its evidence.json checker_sha256 stays valid.",
+  "question": "Can the tail bound on the inverse of the linearised operator be obtained in the weighted l1 norm this thread has used, and if not, what does the measurement say must replace it?",
+  "level": "External exact rational algebra on the frozen candidate; measurements of operator norms and of the tail action; a negative result with reasons, not an enclosure",
+  "domain": "The candidate fixed point of the doubling operator frozen at thirty digits, the weighted l1 norm with rho = 1/32, the truncated linearisation at degree six with its exact inverse, and the action of the linearisation on the monomials y^j for declared degrees",
+  "objects": {
+    "fixed_point_degree": 10,
+    "linearisation_degree": 6,
+    "exact_digits": 30,
+    "rho": "1/32",
+    "radius_controls": [
+      "1/64",
+      "1/128"
+    ],
+    "tail_extent": 60,
+    "monomial_degrees": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      12,
+      20,
+      30
+    ],
+    "max_assertions": 200000
+  },
+  "quantifiers": [
+    "Every entry of the truncated linearisation and of its exact inverse",
+    "Every monomial degree in the declared list, with the weighted norm of its image computed exactly",
+    "Every alternative radius in the declared radius control"
+  ],
+  "acceptance": [
+    "The weighted norm conversion from the truncated coefficient matrix to the space norm is carried out exactly, closing the third missing bound for the finite block, and the resulting norms are reported as they are",
+    "The inner series of the composition is shown to have constant term one and therefore weighted norm greater than one, which is checked rather than argued",
+    "The action of the linearisation on y^j is measured for the declared degrees and shown not to decay; the measurement is compared with the growth predicted by the inner series deficit",
+    "The folding of high degrees back to low degrees is measured, since it is what the weighted norm penalises and a sup norm does not",
+    "A radius control is run so that the obstruction is shown not to be an artefact of the declared radius",
+    "No new bound on the inverse is claimed, and the redirection to a sup norm on a disk is stated as the required framework"
+  ],
+  "protected": [
+    "The five earlier Feigenbaum rounds are frozen and are not rewritten; the candidate and the truncated linearisation are imported from the fourth",
+    "A negative result is a result: it is recorded with its measurements rather than replaced by a hopeful derivation",
+    "No enclosure of alpha or delta is claimed, and no existence claim is made",
+    "No metric, Arakelov, Monge-Ampere, mirror or Calabi-Yau content is introduced",
+    "No native Rust witness, library admission or Seal follows from this calibration"
+  ],
+  "budget": {
+    "wall_seconds": 600,
+    "cpu_seconds": 560,
+    "memory_bytes": 1073741824,
+    "max_assertions": 200000,
+    "output_bytes": 4194304
+  },
+  "residual": "This closes the norm conversion for the finite block and shows, by measurement, that the tail bound cannot be obtained in the weighted l1 norm, because the inner series has constant term one and every weighted l1 norm therefore gives it norm at least one. It does not produce any bound on the inverse of the full operator, and it does not construct the sup-norm framework that the next step requires. The measurements are for one declared radius and its two controls, one frozen candidate, and declared degrees.",
+  "derived_from": {
+    "experiment": "feigenbaum_inverse_norm_obstruction",
+    "why": "the original declares budget.wall_seconds = 600 and runs in ~106 s, of which ~84% is Fraction gcd reduction inside rat_compose; eleven of its twenty-two compositions have a monomial first argument, where compose(y^j, inner) == inner^j",
+    "equivalence_argument": "compose(y^j, g) = g^j by construction of rat_compose; both sides are truncated at degree n at every step, and polynomial multiplication mod y^(n+1) is associative, so the truncated results agree. Verified coefficient-by-coefficient for j = 1, 2, 3, 5, 8 against the original rat_compose.",
+    "not_changed": [
+      "objects",
+      "measurements",
+      "assertions",
+      "evidence schema"
+    ],
+    "original_frozen_on": "2026-09-13",
+    "original_base_commit": "6faa023"
+  },
+  "base_repository": "mountain/adva",
+  "base_commit_note": "⚠️ 继承自冻结原件，且**必须带仓名才不歧义**：`6faa023` 是 `mountain/adva` 的提交，**不在 `mountain/adva-machine` 的任何引用里**（实测：adva-machine 的两个本机副本均不可解析该对象），也**不在 `adva` 的 `origin/main` 上**（在侧线上）。原件的 contract.json **只写了裸哈希、未写仓名** —— 本变体补上 `base_repository`，不再继承这个歧义。基候选本身未改动，仍来自该冻结轮。"
+}
