@@ -115,3 +115,5 @@ complexity claim). Clippy then failed on a retained nested-if test mutation
 (`collapsible_if`); dependency-continuity step was skipped. This successor
 uses a guarded match, and incorporates the recorded rustfmt diff. No acceptance
 rule changed. Success of this later head must be checked separately.
+
+No stable authority or consumer adoption follows from a successful test run.
