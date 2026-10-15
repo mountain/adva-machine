@@ -105,3 +105,13 @@ Alternative: immediately install a stable Specialize operation. Rejected for
 this pilot because its broader contracts and authority have not been checked.
 Reversion: keep consumers pinned; remove only this isolated package. Old source,
 locks, receipts and native semantics remain reproducible.
+
+### First remote execution, 2026-10-15
+
+Head `c5130ed88302e4845d3a2d74def2c574879535ef`, workflow
+[38679977646](https://github.com/mountain/adva-machine/actions/runs/38679977646):
+actual job log read; all 13 tests passed (0.03 s test-group time, not a
+complexity claim). Clippy then failed on a retained nested-if test mutation
+(`collapsible_if`); dependency-continuity step was skipped. This successor
+uses a guarded match, and incorporates the recorded rustfmt diff. No acceptance
+rule changed. Success of this later head must be checked separately.

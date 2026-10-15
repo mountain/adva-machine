@@ -7,9 +7,7 @@ use adva_ir::{
     OccurrenceId, OccurrencePath, OperationRef, QualifiedName, Rational, SharedProgramDiagram,
     SourceId, ValueType, WireProducer, WireRef,
 };
-use adva_lisp::{
-    analyze_program_slice_with_graft, validate_diagram,
-};
+use adva_lisp::{analyze_program_slice_with_graft, validate_diagram};
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
 
@@ -602,274 +600,274 @@ fn request(
 
 #[cfg(test)]
 mod regression {
-use super::*;
-#[test]
-fn certified_binding_preserves_dynamic_copy_and_all_body_events_without_evaluation() {
-    for value in [
-        Rational::ZERO,
-        Rational::new(7, 3).unwrap(),
-        Rational::new(-5, 2).unwrap(),
-    ] {
-        let (source, residual) = fixtures(BODY, value);
-        let certificate = propose(&source, &residual, value);
-        let expected = request(&source, &residual, value);
-        assert_eq!(
-            receive(&source, &residual, &certificate, &expected, 512),
-            Outcome::Certified(Box::new(certificate.clone()))
-        );
-        assert_eq!(certificate.event_map.len(), 6);
-        assert_eq!(certificate.forgotten_static_occurrences.len(), 3);
-        assert_eq!(certificate.forgotten_static_history.len(), 2);
-        assert_eq!(
-            certificate
-                .occurrence_map
-                .iter()
-                .filter(|(_, target)| target.is_some())
-                .count(),
-            3
-        );
-        assert!(
-            source
-                .result
-                .nodes
-                .iter()
-                .any(|node| node.operation.name == "discard")
-        );
-        assert!(
-            residual
-                .result
-                .nodes
-                .iter()
-                .any(|node| node.operation.name == "discard")
-        );
-        // Both contexts deliberately reuse local occ:0; equality of this local
-        // coordinate must not identify source and residual semantic objects.
-        assert_eq!(
-            source.result.occurrences[0].id,
-            residual.result.occurrences[0].id
-        );
-        assert_ne!(source.result.function, residual.result.function);
-    }
-}
-
-#[test]
-fn forgotten_static_root_is_retained_when_the_bound_input_is_discarded() {
-    let (source, residual) = fixtures(
-        "(frontier (discard (use static)) (copy (use dynamic)))",
-        Rational::ONE,
-    );
-    let certificate = propose(&source, &residual, Rational::ONE);
-    assert_eq!(certificate.forgotten_static_occurrences.len(), 1);
-    assert_eq!(certificate.forgotten_static_history.len(), 1);
-    assert!(matches!(
-        receive(
-            &source,
-            &residual,
-            &certificate,
-            &request(&source, &residual, Rational::ONE),
-            512
-        ),
-        Outcome::Certified(_)
-    ));
-}
-
-#[test]
-fn zero_event_source_keeps_ordered_through_wires_under_binding() {
-    let (source, residual) = fixtures("(frontier (use static) (use dynamic))", Rational::ONE);
-    let certificate = propose(&source, &residual, Rational::ONE);
-    assert!(certificate.event_map.is_empty());
-    assert!(matches!(
-        receive(
-            &source,
-            &residual,
-            &certificate,
-            &request(&source, &residual, Rational::ONE),
-            512
-        ),
-        Outcome::Certified(_)
-    ));
-}
-
-#[test]
-fn missing_or_forged_accounting_is_refused() {
-    let value = Rational::new(7, 3).unwrap();
-    let (source, residual) = fixtures(BODY, value);
-    let original = propose(&source, &residual, value);
-    let expected = request(&source, &residual, value);
-    let mut mutations = Vec::new();
-    let mut changed = original.clone();
-    changed.event_map.pop();
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.event_map.swap(0, 1);
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.forgotten_static_occurrences.pop();
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.forgotten_static_history.pop();
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.occurrence_map.pop();
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.static_value = Rational::ONE;
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.occurrence_map[1].1 = None;
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.occurrence_map[1].1.as_mut().unwrap().context = source.result.function.clone();
-    mutations.push(changed);
-    let mut changed = original.clone();
-    changed.occurrence_map[4].1.as_mut().unwrap().path = OccurrencePath::root();
-    mutations.push(changed);
-    for changed in mutations {
-        assert!(matches!(
-            receive(&source, &residual, &changed, &expected, 512),
-            Outcome::Refused(_)
-        ));
-    }
-}
-
-#[test]
-fn changed_body_with_the_same_local_ids_cannot_repin_the_callers_source() {
-    let value = Rational::ONE;
-    let (source, residual) = fixtures(BODY, value);
-    let expected = request(&source, &residual, value);
-    let changed_body = BODY.replace("(add (copy (use dynamic)))", "(mul (copy (use dynamic)))");
-    let (changed_source, changed_residual) = fixtures(&changed_body, value);
-    assert_eq!(source.result.function, changed_source.result.function);
-    assert_eq!(source.result.occurrences, changed_source.result.occurrences);
-    let repinned = propose(&changed_source, &changed_residual, value);
-    assert!(matches!(
-        receive(
-            &changed_source,
-            &changed_residual,
-            &repinned,
-            &expected,
-            512
-        ),
-        Outcome::Refused(_)
-    ));
-    let changed_request_context = request(&source, &residual, value);
-    let mut forged = propose(&source, &residual, value);
-    forged.residual_snapshot.function = source.result.function.clone();
-    assert!(matches!(
-        receive(&source, &residual, &forged, &changed_request_context, 512),
-        Outcome::Refused(_)
-    ));
-}
-
-#[test]
-fn ordered_outputs_and_graft_maps_are_checked_again() {
-    let value = Rational::ONE;
-    let (source, residual) = fixtures(BODY, value);
-    let expected = request(&source, &residual, value);
-    let mut changed = residual.clone();
-    changed.result.outputs.swap(0, 1);
-    let repinned = propose(&source, &changed, value);
-    assert!(matches!(
-        receive(&source, &changed, &repinned, &expected, 512),
-        Outcome::Refused(_)
-    ));
-    let mut changed = residual.clone();
-    changed.graft_trace.result.frames[1].holes.swap(0, 1);
-    assert!(matches!(
-        receive(
-            &source,
-            &changed,
-            &propose(&source, &residual, value),
-            &expected,
-            512
-        ),
-        Outcome::Refused(_)
-    ));
-}
-
-#[test]
-fn literal_version_and_repinned_static_data_do_not_change_the_question() {
-    let value = Rational::new(7, 3).unwrap();
-    let (source, residual) = fixtures(BODY, value);
-    let expected = request(&source, &residual, value);
-    let mut historical_literal = residual.clone();
-    let binding_id = historical_literal.result.nodes[0].id;
-    historical_literal.result.nodes[0].operation = OperationRef::constant(value);
-    for event in &mut historical_literal.result.history.prefix {
-        if let HistoryEvent::Operation { node, operation } = event {
-            if *node == binding_id {
-                *operation = OperationRef::constant(value);
-            }
+    use super::*;
+    #[test]
+    fn certified_binding_preserves_dynamic_copy_and_all_body_events_without_evaluation() {
+        for value in [
+            Rational::ZERO,
+            Rational::new(7, 3).unwrap(),
+            Rational::new(-5, 2).unwrap(),
+        ] {
+            let (source, residual) = fixtures(BODY, value);
+            let certificate = propose(&source, &residual, value);
+            let expected = request(&source, &residual, value);
+            assert_eq!(
+                receive(&source, &residual, &certificate, &expected, 512),
+                Outcome::Certified(Box::new(certificate.clone()))
+            );
+            assert_eq!(certificate.event_map.len(), 6);
+            assert_eq!(certificate.forgotten_static_occurrences.len(), 3);
+            assert_eq!(certificate.forgotten_static_history.len(), 2);
+            assert_eq!(
+                certificate
+                    .occurrence_map
+                    .iter()
+                    .filter(|(_, target)| target.is_some())
+                    .count(),
+                3
+            );
+            assert!(
+                source
+                    .result
+                    .nodes
+                    .iter()
+                    .any(|node| node.operation.name == "discard")
+            );
+            assert!(
+                residual
+                    .result
+                    .nodes
+                    .iter()
+                    .any(|node| node.operation.name == "discard")
+            );
+            // Both contexts deliberately reuse local occ:0; equality of this local
+            // coordinate must not identify source and residual semantic objects.
+            assert_eq!(
+                source.result.occurrences[0].id,
+                residual.result.occurrences[0].id
+            );
+            assert_ne!(source.result.function, residual.result.function);
         }
     }
-    assert!(validate_diagram(historical_literal.result.clone()).is_ok());
-    let repinned = propose(&source, &historical_literal, value);
-    assert!(matches!(
-        receive(&source, &historical_literal, &repinned, &expected, 512),
-        Outcome::Refused(_)
-    ));
-    let (_, changed_literal) = fixtures(BODY, Rational::ONE);
-    let repinned = propose(&source, &changed_literal, Rational::ONE);
-    assert!(matches!(
-        receive(&source, &changed_literal, &repinned, &expected, 512),
-        Outcome::Refused(_)
-    ));
-}
 
-#[test]
-fn deletion_of_hidden_discard_or_copy_is_not_a_specialization_certificate() {
-    let value = Rational::ONE;
-    let (source, residual) = fixtures(BODY, value);
-    let expected = request(&source, &residual, value);
-    for changed_body in [
-        BODY.replace(" (discard 1)", ""),
-        BODY.replace("(add (copy (use dynamic)))", "(neg (use dynamic))"),
-    ] {
-        let (_, changed_residual) = fixtures(&changed_body, value);
-        let repinned = propose(&source, &changed_residual, value);
+    #[test]
+    fn forgotten_static_root_is_retained_when_the_bound_input_is_discarded() {
+        let (source, residual) = fixtures(
+            "(frontier (discard (use static)) (copy (use dynamic)))",
+            Rational::ONE,
+        );
+        let certificate = propose(&source, &residual, Rational::ONE);
+        assert_eq!(certificate.forgotten_static_occurrences.len(), 1);
+        assert_eq!(certificate.forgotten_static_history.len(), 1);
         assert!(matches!(
-            receive(&source, &changed_residual, &repinned, &expected, 512),
+            receive(
+                &source,
+                &residual,
+                &certificate,
+                &request(&source, &residual, Rational::ONE),
+                512
+            ),
+            Outcome::Certified(_)
+        ));
+    }
+
+    #[test]
+    fn zero_event_source_keeps_ordered_through_wires_under_binding() {
+        let (source, residual) = fixtures("(frontier (use static) (use dynamic))", Rational::ONE);
+        let certificate = propose(&source, &residual, Rational::ONE);
+        assert!(certificate.event_map.is_empty());
+        assert!(matches!(
+            receive(
+                &source,
+                &residual,
+                &certificate,
+                &request(&source, &residual, Rational::ONE),
+                512
+            ),
+            Outcome::Certified(_)
+        ));
+    }
+
+    #[test]
+    fn missing_or_forged_accounting_is_refused() {
+        let value = Rational::new(7, 3).unwrap();
+        let (source, residual) = fixtures(BODY, value);
+        let original = propose(&source, &residual, value);
+        let expected = request(&source, &residual, value);
+        let mut mutations = Vec::new();
+        let mut changed = original.clone();
+        changed.event_map.pop();
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.event_map.swap(0, 1);
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.forgotten_static_occurrences.pop();
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.forgotten_static_history.pop();
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.occurrence_map.pop();
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.static_value = Rational::ONE;
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.occurrence_map[1].1 = None;
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.occurrence_map[1].1.as_mut().unwrap().context = source.result.function.clone();
+        mutations.push(changed);
+        let mut changed = original.clone();
+        changed.occurrence_map[4].1.as_mut().unwrap().path = OccurrencePath::root();
+        mutations.push(changed);
+        for changed in mutations {
+            assert!(matches!(
+                receive(&source, &residual, &changed, &expected, 512),
+                Outcome::Refused(_)
+            ));
+        }
+    }
+
+    #[test]
+    fn changed_body_with_the_same_local_ids_cannot_repin_the_callers_source() {
+        let value = Rational::ONE;
+        let (source, residual) = fixtures(BODY, value);
+        let expected = request(&source, &residual, value);
+        let changed_body = BODY.replace("(add (copy (use dynamic)))", "(mul (copy (use dynamic)))");
+        let (changed_source, changed_residual) = fixtures(&changed_body, value);
+        assert_eq!(source.result.function, changed_source.result.function);
+        assert_eq!(source.result.occurrences, changed_source.result.occurrences);
+        let repinned = propose(&changed_source, &changed_residual, value);
+        assert!(matches!(
+            receive(
+                &changed_source,
+                &changed_residual,
+                &repinned,
+                &expected,
+                512
+            ),
+            Outcome::Refused(_)
+        ));
+        let changed_request_context = request(&source, &residual, value);
+        let mut forged = propose(&source, &residual, value);
+        forged.residual_snapshot.function = source.result.function.clone();
+        assert!(matches!(
+            receive(&source, &residual, &forged, &changed_request_context, 512),
             Outcome::Refused(_)
         ));
     }
-}
 
-#[test]
-fn a_valid_graph_outside_the_frozen_size_profile_is_unknown() {
-    let mut dynamic = "(use dynamic)".to_owned();
-    for _ in 0..17 {
-        dynamic = format!("(id {dynamic})");
-    }
-    let body = format!("(frontier (use static) {dynamic})");
-    let (source, residual) = fixtures(&body, Rational::ONE);
-    assert_eq!(source.result.nodes.len(), 17);
-    assert_eq!(residual.result.nodes.len(), 18);
-    let certificate = propose(&source, &residual, Rational::ONE);
-    assert_eq!(
-        receive(
-            &source,
-            &residual,
-            &certificate,
-            &request(&source, &residual, Rational::ONE),
-            512
-        ),
-        Outcome::Unknown("outside the fixed finite structural profile")
-    );
-}
-
-#[test]
-fn exhaustion_produces_no_certificate_or_automatic_refuelling() {
-    let (source, residual) = fixtures(BODY, Rational::ONE);
-    let certificate = propose(&source, &residual, Rational::ONE);
-    let expected = request(&source, &residual, Rational::ONE);
-    for work in [0, 1, 40] {
+    #[test]
+    fn ordered_outputs_and_graft_maps_are_checked_again() {
+        let value = Rational::ONE;
+        let (source, residual) = fixtures(BODY, value);
+        let expected = request(&source, &residual, value);
+        let mut changed = residual.clone();
+        changed.result.outputs.swap(0, 1);
+        let repinned = propose(&source, &changed, value);
         assert!(matches!(
-            receive(&source, &residual, &certificate, &expected, work),
-            Outcome::Unknown(_)
+            receive(&source, &changed, &repinned, &expected, 512),
+            Outcome::Refused(_)
+        ));
+        let mut changed = residual.clone();
+        changed.graft_trace.result.frames[1].holes.swap(0, 1);
+        assert!(matches!(
+            receive(
+                &source,
+                &changed,
+                &propose(&source, &residual, value),
+                &expected,
+                512
+            ),
+            Outcome::Refused(_)
         ));
     }
-}
 
+    #[test]
+    fn literal_version_and_repinned_static_data_do_not_change_the_question() {
+        let value = Rational::new(7, 3).unwrap();
+        let (source, residual) = fixtures(BODY, value);
+        let expected = request(&source, &residual, value);
+        let mut historical_literal = residual.clone();
+        let binding_id = historical_literal.result.nodes[0].id;
+        historical_literal.result.nodes[0].operation = OperationRef::constant(value);
+        for event in &mut historical_literal.result.history.prefix {
+            match event {
+                HistoryEvent::Operation { node, operation } if *node == binding_id => {
+                    *operation = OperationRef::constant(value);
+                }
+                _ => {}
+            }
+        }
+        assert!(validate_diagram(historical_literal.result.clone()).is_ok());
+        let repinned = propose(&source, &historical_literal, value);
+        assert!(matches!(
+            receive(&source, &historical_literal, &repinned, &expected, 512),
+            Outcome::Refused(_)
+        ));
+        let (_, changed_literal) = fixtures(BODY, Rational::ONE);
+        let repinned = propose(&source, &changed_literal, Rational::ONE);
+        assert!(matches!(
+            receive(&source, &changed_literal, &repinned, &expected, 512),
+            Outcome::Refused(_)
+        ));
+    }
+
+    #[test]
+    fn deletion_of_hidden_discard_or_copy_is_not_a_specialization_certificate() {
+        let value = Rational::ONE;
+        let (source, residual) = fixtures(BODY, value);
+        let expected = request(&source, &residual, value);
+        for changed_body in [
+            BODY.replace(" (discard 1)", ""),
+            BODY.replace("(add (copy (use dynamic)))", "(neg (use dynamic))"),
+        ] {
+            let (_, changed_residual) = fixtures(&changed_body, value);
+            let repinned = propose(&source, &changed_residual, value);
+            assert!(matches!(
+                receive(&source, &changed_residual, &repinned, &expected, 512),
+                Outcome::Refused(_)
+            ));
+        }
+    }
+
+    #[test]
+    fn a_valid_graph_outside_the_frozen_size_profile_is_unknown() {
+        let mut dynamic = "(use dynamic)".to_owned();
+        for _ in 0..17 {
+            dynamic = format!("(id {dynamic})");
+        }
+        let body = format!("(frontier (use static) {dynamic})");
+        let (source, residual) = fixtures(&body, Rational::ONE);
+        assert_eq!(source.result.nodes.len(), 17);
+        assert_eq!(residual.result.nodes.len(), 18);
+        let certificate = propose(&source, &residual, Rational::ONE);
+        assert_eq!(
+            receive(
+                &source,
+                &residual,
+                &certificate,
+                &request(&source, &residual, Rational::ONE),
+                512
+            ),
+            Outcome::Unknown("outside the fixed finite structural profile")
+        );
+    }
+
+    #[test]
+    fn exhaustion_produces_no_certificate_or_automatic_refuelling() {
+        let (source, residual) = fixtures(BODY, Rational::ONE);
+        let certificate = propose(&source, &residual, Rational::ONE);
+        let expected = request(&source, &residual, Rational::ONE);
+        for work in [0, 1, 40] {
+            assert!(matches!(
+                receive(&source, &residual, &certificate, &expected, work),
+                Outcome::Unknown(_)
+            ));
+        }
+    }
 }
 
 /// Meaning-versioned experimental profile. Implementation identity is additionally
@@ -933,11 +931,20 @@ pub fn receive_json(request: &[u8], proposal: &[u8], work: usize) -> Report {
         return report(Status::Rejected, "unsupported profile identity", 0);
     }
     let mut budget = Budget(work);
-    let result = check(&proposal.source, &proposal.residual, &proposal.certificate,
-                       &request.expected, &mut budget);
+    let result = check(
+        &proposal.source,
+        &proposal.residual,
+        &proposal.certificate,
+        &request.expected,
+        &mut budget,
+    );
     let spent = work - budget.0;
     match result {
-        Ok(()) => report(Status::BoundedAccepted, "exact structural correspondence checked", spent),
+        Ok(()) => report(
+            Status::BoundedAccepted,
+            "exact structural correspondence checked",
+            spent,
+        ),
         Err(Outcome::Refused(reason)) => report(Status::Rejected, reason, spent),
         Err(Outcome::Unknown(reason)) => report(Status::Unknown, reason, spent),
         #[cfg(test)]
@@ -953,8 +960,20 @@ mod boundary_tests {
         let (source, residual) = fixtures(BODY, Rational::new(7, 3).unwrap());
         let expected = request(&source, &residual, Rational::new(7, 3).unwrap());
         let certificate = propose(&source, &residual, expected.static_value);
-        (serde_json::to_vec(&RequestV0 { profile: PROFILE.into(), expected }).unwrap(),
-         serde_json::to_vec(&ProposalV0 { profile: PROFILE.into(), source, residual, certificate }).unwrap())
+        (
+            serde_json::to_vec(&RequestV0 {
+                profile: PROFILE.into(),
+                expected,
+            })
+            .unwrap(),
+            serde_json::to_vec(&ProposalV0 {
+                profile: PROFILE.into(),
+                source,
+                residual,
+                certificate,
+            })
+            .unwrap(),
+        )
     }
 
     #[test]
@@ -972,11 +991,20 @@ mod boundary_tests {
         let (request, proposal) = payload();
         let mut changed: serde_json::Value = serde_json::from_slice(&proposal).unwrap();
         changed["profile"] = "adva.psc0-input-binding.receive.v1".into();
-        assert_eq!(receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status, Status::Rejected);
+        assert_eq!(
+            receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status,
+            Status::Rejected
+        );
         changed["profile"] = PROFILE.into();
         changed["grants_native_authority"] = true.into();
-        assert_eq!(receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status, Status::Rejected);
-        assert_eq!(receive_json(&request, &vec![b' '; MAX_BYTES + 1], 512).status, Status::Unknown);
+        assert_eq!(
+            receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status,
+            Status::Rejected
+        );
+        assert_eq!(
+            receive_json(&request, &vec![b' '; MAX_BYTES + 1], 512).status,
+            Status::Unknown
+        );
     }
 
     #[test]
@@ -990,10 +1018,16 @@ mod boundary_tests {
                 2 => changed.certificate.occurrence_map.clear(),
                 _ => changed.residual.result.function = changed.source.result.function.clone(),
             }
-            assert_eq!(receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status, Status::Rejected);
+            assert_eq!(
+                receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512).status,
+                Status::Rejected
+            );
         }
         let mut changed: RequestV0 = serde_json::from_slice(&request).unwrap();
         changed.expected.static_value = Rational::ZERO;
-        assert_eq!(receive_json(&serde_json::to_vec(&changed).unwrap(), &proposal, 512).status, Status::Rejected);
+        assert_eq!(
+            receive_json(&serde_json::to_vec(&changed).unwrap(), &proposal, 512).status,
+            Status::Rejected
+        );
     }
 }
