@@ -186,3 +186,16 @@ The [fixed guarded roundtrip reuse profile](checked-roundtrip-reuse-v0.1.md)
 compares native full replay with one process-local checked cache. It is a
 separate research-only G3 route; it imports no G2 candidate authority and
 changes no transport schema, frozen library receiver or consumer lock.
+
+## Versioned PSC0 receiving route
+
+The [PSC0 input-binding receiver](psc0-input-binding-receiver-v0.md) implements
+one separately bounded KPB-14 executable receiving pilot in the machine
+repository. It checks independently bound source/static-input/residual-root
+correspondence and always reports `stable_native_authority=false`. This is
+implementation of one route, not completion of KPB-14. Actual Adva consumer
+adoption needs a successor machine/interface lock and fresh replay evidence;
+no existing consumer lock or stable operation is upgraded here.
+
+Original integration note by Codex (OpenAI), through Mingli Yuan's authorized
+account proxy, under Unknown v0.3; account use is not his review or endorsement.
