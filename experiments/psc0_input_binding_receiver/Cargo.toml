@@ -1,0 +1,13 @@
+[package]
+name = "adva-psc0-input-binding-receiver"
+version = "0.1.0"
+edition = "2024"
+license-file = "../../LICENSE"
+
+[workspace]
+
+[dependencies]
+adva-ir = { path = "../../crates/adva-ir" }
+adva-lisp = { path = "../../crates/adva-lisp" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }

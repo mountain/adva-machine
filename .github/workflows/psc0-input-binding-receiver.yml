@@ -1,0 +1,46 @@
+name: PSC0 input binding receiving pilot
+on:
+  pull_request:
+    paths:
+      - 'experiments/psc0_input_binding_receiver/**'
+      - 'crates/**'
+      - '.github/workflows/psc0-input-binding-receiver.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'experiments/psc0_input_binding_receiver/**'
+      - 'crates/**'
+      - '.github/workflows/psc0-input-binding-receiver.yml'
+permissions:
+  contents: read
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: Format and retain exact build diff
+        run: |
+          cargo fmt --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml
+          git diff -- experiments/psc0_input_binding_receiver/src/lib.rs
+      - name: Execute bounded receiving and retained regressions
+        run: |
+          timeout 180s cargo test --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml
+          timeout 180s cargo clippy --locked --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml --all-targets -- -D warnings
+      - name: Check external dependency continuity
+        run: |
+          python - <<'PY'
+          import tomllib
+          root = tomllib.load(open('Cargo.lock', 'rb'))['package']
+          child = tomllib.load(open('experiments/psc0_input_binding_receiver/Cargo.lock', 'rb'))['package']
+          known = {(p['name'], p['version']): p for p in root}
+          for package in child:
+              if 'source' in package:
+                  original = known[(package['name'], package['version'])]
+                  assert original['source'] == package['source']
+                  assert original['checksum'] == package['checksum']
+          PY

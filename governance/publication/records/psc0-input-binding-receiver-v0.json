@@ -1,0 +1,37 @@
+{
+  "schema": "adva.publication-admission.v1",
+  "status": "admitted",
+  "resource_id": "psc0-input-binding-receiver-v0",
+  "eligible_basis": "project-original",
+  "files": [
+    {
+      "path": "experiments/psc0_input_binding_receiver/src/lib.rs",
+      "bytes": 37022,
+      "sha256": "0dafe173fce3aa9227ebf250b52cc5f9b63498576e29b0b92f35a40318aa10ce"
+    }
+  ],
+  "provenance": {
+    "source_url": "https://github.com/mountain/adva/blob/b7762854031138e3c1141b8aab326fe4e4f2f90c/experiments/native_input_binding_certificate/native_input_binding_certificate.rs",
+    "source_version": "b7762854031138e3c1141b8aab326fe4e4f2f90c",
+    "creator_or_rights_holder": "Codex (OpenAI), project-original contribution under Unknown v0.3",
+    "publication_basis_evidence_urls": [
+      "https://github.com/mountain/adva/blob/b7762854031138e3c1141b8aab326fe4e4f2f90c/docs/research/native-input-binding-certificate-v0.md"
+    ],
+    "rights_holder_authority_evidence": "Source header and report explicitly dedicate original implementation under Unknown v0.3; no third-party components copied.",
+    "jurisdictions_and_limitations": "Project-original Unknown v0.3 contribution; external crates remain separate licensed dependencies.",
+    "incorporated_components": [
+      "Existing project-original finite checker and ten regressions at pinned source"
+    ],
+    "transformations": [
+      "Expose serde fields and versioned byte-bounded receiving API; add three wire tests; retain original structural judgments."
+    ]
+  },
+  "review": {
+    "reviewer": "Codex (OpenAI), author self-review; no independent human review",
+    "reviewed_at": "2026-10-15",
+    "all_components_reviewed": true,
+    "output_publication_reviewed": true,
+    "unresolved_questions": [],
+    "decision_reason": "Pinned source declares project-original Unknown contribution; exact derived file inspected, no external expression or dependency vendoring."
+  }
+}
