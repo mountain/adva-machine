@@ -80,9 +80,9 @@ requires a separately sandboxed caller.
 ## Conformance and adoption
 
 Run `cargo test --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml`.
-CI formats the extracted file before compilation and publishes formatting diff
-in its log; it checks all external resolved packages against the retained root
-lock. The child lock is a seed of that resolution and may be pruned by Cargo;
+CI requires canonical formatting before compilation and checks all external
+resolved packages against the retained root lock. The first attempt's formatting
+diff remains in its job log. The child lock is a seed of that resolution and may be pruned by Cargo;
 no dependency version change is authorized by the pilot.
 
 The ten retained regressions cover source substitution with identical local
