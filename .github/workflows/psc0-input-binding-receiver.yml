@@ -4,12 +4,14 @@ on:
     paths:
       - 'experiments/psc0_input_binding_receiver/**'
       - 'crates/**'
+      - 'docs/kpb/psc0-input-binding-receiver-v0.md'
       - '.github/workflows/psc0-input-binding-receiver.yml'
   push:
     branches: [main]
     paths:
       - 'experiments/psc0_input_binding_receiver/**'
       - 'crates/**'
+      - 'docs/kpb/psc0-input-binding-receiver-v0.md'
       - '.github/workflows/psc0-input-binding-receiver.yml'
 permissions:
   contents: read
@@ -25,7 +27,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Format and retain exact build diff
         run: |
-          cargo fmt --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml
+          cargo fmt --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml --check
           git diff -- experiments/psc0_input_binding_receiver/src/lib.rs
       - name: Execute bounded receiving and retained regressions
         run: |
