@@ -6,8 +6,8 @@
   "files": [
     {
       "path": "experiments/psc0_input_binding_receiver/src/lib.rs",
-      "bytes": 38497,
-      "sha256": "2d922c9472e3c1ed1d459e14aed5b26a438c3d5c2126ff8d7e03b8a16dda8ad9"
+      "bytes": 42232,
+      "sha256": "68ec98040b2afd03f0151de9587e3de664530a2c6c7d8e33aeab3469f2be232f"
     }
   ],
   "provenance": {
@@ -23,11 +23,12 @@
       "Existing project-original finite checker and ten regressions at pinned source"
     ],
     "transformations": [
-      "Expose serde fields and versioned byte-bounded receiving API; add three wire tests; retain original structural judgments."
+      "Expose serde fields and versioned byte-bounded receiving API; add three wire tests; retain original structural judgments.",
+      "Independent review: reject ignored nested JSON fields; add adversarial controls. Original additions under Unknown v0.3."
     ]
   },
   "review": {
-    "reviewer": "Codex (OpenAI), author self-review; no independent human review",
+    "reviewer": "Codex (OpenAI), separate review session; no independent human review",
     "reviewed_at": "2026-10-15",
     "all_components_reviewed": true,
     "output_publication_reviewed": true,

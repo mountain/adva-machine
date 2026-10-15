@@ -908,6 +908,31 @@ pub struct Report {
     pub structural_work_spent: usize,
 }
 
+// Native tagged enums deliberately retain their legacy decoding rules. This
+// isolated wire profile rejects fields those rules would otherwise discard.
+fn fields_preserved(input: &serde_json::Value, decoded: &serde_json::Value) -> bool {
+    use serde_json::Value;
+    match (input, decoded) {
+        (Value::Object(left), Value::Object(right)) => left.iter().all(|(key, value)| {
+            right
+                .get(key)
+                .is_some_and(|other| fields_preserved(value, other))
+        }),
+        (Value::Array(left), Value::Array(right)) => {
+            left.len() == right.len() && left.iter().zip(right).all(|(a, b)| fields_preserved(a, b))
+        }
+        _ => input == decoded,
+    }
+}
+
+fn strict_decode<T: serde::de::DeserializeOwned + Serialize>(bytes: &[u8]) -> Option<T> {
+    // Decode directly first so duplicate struct fields are not collapsed by Value.
+    let decoded: T = serde_json::from_slice(bytes).ok()?;
+    let input = serde_json::from_slice(bytes).ok()?;
+    let normalized = serde_json::to_value(&decoded).ok()?;
+    fields_preserved(&input, &normalized).then_some(decoded)
+}
+
 /// Request bytes must come from the consumer, through a channel independent of
 /// the producer. There is no network fetch, producer callback or receipt cache.
 pub fn receive_json(request: &[u8], proposal: &[u8], work: usize) -> Report {
@@ -921,10 +946,10 @@ pub fn receive_json(request: &[u8], proposal: &[u8], work: usize) -> Report {
     if request.len() > MAX_BYTES || proposal.len() > MAX_BYTES || work > MAX_WORK || work == 0 {
         return report(Status::Unknown, "outside byte/work admission budget", 0);
     }
-    let Ok(request) = serde_json::from_slice::<RequestV0>(request) else {
+    let Some(request) = strict_decode::<RequestV0>(request) else {
         return report(Status::Rejected, "invalid request JSON", 0);
     };
-    let Ok(proposal) = serde_json::from_slice::<ProposalV0>(proposal) else {
+    let Some(proposal) = strict_decode::<ProposalV0>(proposal) else {
         return report(Status::Rejected, "invalid proposal JSON", 0);
     };
     if request.profile != PROFILE || proposal.profile != PROFILE {
@@ -1005,6 +1030,65 @@ mod boundary_tests {
             receive_json(&request, &vec![b' '; MAX_BYTES + 1], 512).status,
             Status::Unknown
         );
+    }
+
+    #[test]
+    fn nested_history_cannot_hide_checker_selection_or_authority() {
+        let (request, proposal) = payload();
+        for field in ["checker_commit", "stable_native_authority"] {
+            let mut changed: serde_json::Value = serde_json::from_slice(&proposal).unwrap();
+            changed["source"]["result"]["history"]["prefix"][0][field] = true.into();
+            let result = receive_json(&request, &serde_json::to_vec(&changed).unwrap(), 512);
+            assert_eq!(result.status, Status::Rejected);
+            assert!(!result.stable_native_authority);
+        }
+    }
+
+    #[test]
+    fn request_identity_and_noncanonical_rationals_are_rejected() {
+        let (request, proposal) = payload();
+        for (numerator, denominator) in [(14, 6), (7, 0), (-7, -3)] {
+            let mut changed: RequestV0 = serde_json::from_slice(&request).unwrap();
+            changed.expected.static_value = Rational {
+                numerator,
+                denominator,
+            };
+            assert_eq!(
+                receive_json(&serde_json::to_vec(&changed).unwrap(), &proposal, 512).status,
+                Status::Rejected
+            );
+        }
+        let mut changed: serde_json::Value = serde_json::from_slice(&request).unwrap();
+        changed["expected"]["checker_commit"] = "attacker-selected".into();
+        assert_eq!(
+            receive_json(&serde_json::to_vec(&changed).unwrap(), &proposal, 512).status,
+            Status::Rejected
+        );
+        changed.as_object_mut().unwrap().remove("expected");
+        assert_eq!(
+            receive_json(&serde_json::to_vec(&changed).unwrap(), &proposal, 512).status,
+            Status::Rejected
+        );
+    }
+
+    #[test]
+    fn malformed_and_budget_outcomes_never_grant_authority() {
+        let (request, proposal) = payload();
+        for bad in [b"{}".as_slice(), b"null", b"{", b"[]"] {
+            let result = receive_json(&request, bad, 512);
+            assert_eq!(result.status, Status::Rejected);
+            assert!(!result.stable_native_authority);
+        }
+        for work in [0, 1, MAX_WORK + 1] {
+            let result = receive_json(&request, &proposal, work);
+            assert_eq!(result.status, Status::Unknown);
+            assert!(!result.stable_native_authority);
+            assert!(result.structural_work_spent <= work);
+        }
+        let first = receive_json(&request, &proposal, 512);
+        let repeated = receive_json(&request, &proposal, 512);
+        assert_eq!(first.status, Status::BoundedAccepted);
+        assert_eq!(first.structural_work_spent, repeated.structural_work_spent);
     }
 
     #[test]

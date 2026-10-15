@@ -36,7 +36,8 @@ The source/residual are full existing CompilationArtifact values; stored success
 booleans do not authorize acceptance. Both envelopes require profile
 `adva.psc0-input-binding.receive.v0`. Unknown envelope/certificate fields and
 unsupported profiles are Rejected. Native nested types retain their existing
-serde behavior. Rust public structures are the normative field schema.
+serde behavior internally; this profile additionally rejects fields or values
+discarded by decoding, including extra tagged-enum history/wire fields. Rust public structures are the normative field schema.
 
 The certificate retains source/residual snapshots, static value, bound source,
 dynamic source pair, ordered event map, qualified occurrence map, forgotten
@@ -82,8 +83,9 @@ requires a separately sandboxed caller.
 Run `cargo test --manifest-path experiments/psc0_input_binding_receiver/Cargo.toml`.
 CI requires canonical formatting before compilation and checks all external
 resolved packages against the retained root lock. The first attempt's formatting
-diff remains in its job log. The child lock is a seed of that resolution and may be pruned by Cargo;
-no dependency version change is authorized by the pilot.
+diff remains in its job log. The child lock records the pruned resolution, including the receiving package.
+Both test and Clippy run with --locked; root Cargo files also trigger this
+workflow. No dependency version change is authorized by the pilot.
 
 The ten retained regressions cover source substitution with identical local
 IDs, copy deletion, lost static lineage, forged mappings, output/graft order,
@@ -117,3 +119,43 @@ uses a guarded match, and incorporates the recorded rustfmt diff. No acceptance
 rule changed. Success of this later head must be checked separately.
 
 No stable authority or consumer adoption follows from a successful test run.
+
+### Independent review corrections, 2026-10-15
+
+Reviewed by Codex (OpenAI) in a separate review session, through Mingli Yuan's
+account proxy; this is not independent human review or an independent kernel
+implementation. Original review additions are contributed under Unknown v0.3.
+
+A new nested-history control failed against the submitted implementation:
+adding `checker_commit` to a Source event still returned BoundedAccepted.
+The field was ignored, not executed, and stable authority remained false.
+The isolated JSON boundary now compares decoded/serialized fields recursively,
+rejecting ignored fields without changing stable IR decoding. The control also
+covers a nested authority field. The request cannot select a checker revision;
+implementation pinning remains the external caller's responsibility.
+
+The submitted child lock was a root-lock seed and was rewritten on first build.
+It is now the actual pruned resolution. All retained registry package versions,
+sources and checksums match the unchanged root lock. Locked test execution and
+root-lock workflow triggers prevent a successful build from silently resolving
+a successor dependency set. No runtime loader or authority route is installed.
+
+Additional controls cover malformed JSON, noncanonical/zero-denominator
+rationals, request-side checker selection, all outcome authority flags and
+identical full/repeated structural work. These complement, rather than replace,
+the ten original structural regressions. Remote final-head checks are recorded
+in the PR review; prior-head results are not inherited.
+
+The observation equation is a finite decorated graph/history correspondence,
+not a theorem about arbitrary specialization or numerical evaluation. The
+receiver trusts the existing Rust diagram/graft/slice kernels. Work units do
+not measure instructions, and byte caps do not prove a peak-memory bound.
+KPB-14's selected executable receiving route is implemented; consumer adoption
+and stable native authority remain Open. Issue mountain/adva#26 stays Open.
+
+Local review execution: the new history-field test first failed with
+BoundedAccepted on the submitted code. After correction, all 16 receiving tests
+passed (0.06 s test-group time), locked offline Clippy with warnings denied
+passed, and registry lock continuity passed. Formatting was applied with the
+installed Rust formatter. This supersedes only the current review host's
+NotRun status; historical authoring-host records remain unchanged.
